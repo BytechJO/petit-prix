@@ -16,7 +16,10 @@ import img7 from "../assets/unit1/secA/7.png";
 
 import Q1 from '../component/unit1/secA/Exercise/Q1';
 import Q2 from '../component/unit1/secA/Exercise/Q2';
+import Q3 from '../component/unit1/secA/Exercise/Q3';
+
 import sound1 from '../assets/unit1/secA/sounds/L1Q1.mp3';
+import sound2 from '../assets/unit1/secA/sounds/L1Q1.mp3';
 
 export const pageData = [
   {
@@ -106,5 +109,13 @@ export const unit1SecAQuestions = [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     ]
   },
-
+  { 
+    id: 3, 
+    component: Q3, 
+    audio: sound2, 
+    text: "Écoute, montre et écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
 ];

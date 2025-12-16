@@ -122,13 +122,13 @@ const Q1 = () => {
 
       <div className="popup-buttons">
         <button className="try-again-button" onClick={handleStartAgain}>
-          Start Again ↻
+          Recommencer ↻
         </button>
         <button className="show-answer-btn" onClick={handleShowAnswer}>
-          Show Answer
+          Afficher la réponse
         </button>
         <button className="check-button2" onClick={handleCheck}>
-          Check Answer ✓
+          Vérifier la réponse ✓
         </button>
       </div>
     </div>

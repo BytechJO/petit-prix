@@ -2,7 +2,7 @@ import React from 'react'
 import Q1 from './Exercise/Q1';
 import './page4.css';
 import {
-  faArrowPointer,
+  faArrowPointer
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {unit1SecAQuestions} from '../../pageData';

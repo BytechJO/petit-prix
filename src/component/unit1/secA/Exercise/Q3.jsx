@@ -1,162 +1,157 @@
-import React, { useState, useRef } from 'react';
-import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
-import ValidationAlert from "./ValidationAlert";
+import React, { useState, useRef, useEffect } from 'react';
+import ValidationAlert from '../../../Popup/ValidationAlert';
 import './Q3.css';
-import sound2 from '../assets/sounds/3.mp3';
+import characterImage from '../../../../assets/unit1/secA/page6/characters1.png';
+import characterImage1 from '../../../../assets/unit1/secA/page6/character2.png';
 
-import img1 from '../assets/page6/3.svg';
-import img2 from '../assets/page6/4.svg';
-import img3 from '../assets/page6/5.svg';
-import img4 from '../assets/page6/6.svg';
+const answerOptions = ["Salut", "Bonjour"].sort(() => Math.random() - 0.5);
 
-const exerciseData = {
-  audioSrc: sound2,
-  pairs: [
-    { id: 'pair-1', letter: 'A', content:'Bonjour, les enfants!' },
-    { id: 'pair-2', letter: 'B', content:'Au revoir, les enfants!' },
-    { id: 'pair-3', letter: 'C', content:'Salut, Marie. Salut, Denice' },
-    { id: 'pair-4', letter: 'D', content:'Bonjour, madame Rose.' },
-  ],
-  images: [img1, img2, img3, img4] 
-};
+const Q3 = ({
+  title,
+  questionNumber,
+  audioSrc,
+  correctAnswers = [],
+}) => {
+  if (!correctAnswers) {
+    console.error("Q3 missing correctAnswers prop");
+    return null;
+  }
 
-const getShuffledPairs = () => [...exerciseData.pairs].sort(() => Math.random() - 0.5);
+  const [answers, setAnswers] = useState(
+    Array(correctAnswers.length || 0).fill("")
+  );
 
-const Q3 = () => {
-  const initialDroppedState = {
-    'drop-1': null,
-    'drop-2': null,
-    'drop-3': null,
-    'drop-4': null,
-  };
-
-  const [droppedLetters, setDroppedLetters] = useState(initialDroppedState);
-  const [shuffledPairs, setShuffledPairs] = useState(getShuffledPairs());
+  const [checkResult, setCheckResult] = useState(null);
+  const [isSecondPart, setIsSecondPart] = useState(false);
   const audioRef = useRef(null);
+  const [showAnswer, setShowAnswer] = useState(false);
 
-  const handleOnDragEnd = (result) => {
-    if (!result.destination || result.destination.droppableId === 'letters') return;
 
-    const { source, destination, draggableId } = result;
-    const letterToMove = draggableId;
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
 
-    const prevDropZoneId = Object.keys(droppedLetters).find(key => droppedLetters[key] === letterToMove);
-    const newDroppedLetters = { ...droppedLetters };
-    if (prevDropZoneId) {
-      newDroppedLetters[prevDropZoneId] = null;
-    }
+    const handleTimeUpdate = () => {
+      if (!isSecondPart && audio.currentTime >= 16) {
+        audio.pause();
+        audio.currentTime = 16;
+      }
+    };
 
-    newDroppedLetters[destination.droppableId] = letterToMove;
-    
-    setDroppedLetters(newDroppedLetters);
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+
+    return () => {
+      audio.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, [isSecondPart]);
+
+  const handleAnswerChange = (index, value) => {
+    const newAnswers = [...answers];
+    newAnswers[index] = value;
+    setAnswers(newAnswers);
   };
-  
-  const resetExercise = () => {
-    setDroppedLetters(initialDroppedState);
-    setShuffledPairs(getShuffledPairs());
-    if (ValidationAlert && typeof ValidationAlert.close === 'function') {
-      ValidationAlert.close();
-    }
-  };
 
-  const checkAnswers = () => {
-    const allFilled = Object.values(droppedLetters).every(v => v !== null);
-    if (!allFilled) {
-      ValidationAlert.info("Oops!", "Please complete all fields.");
-      return;
-    }
+  const handleCheck = () => {
+    const correctCount = answers.reduce((count, answer, index) => {
+      return (
+        count +
+        (answer &&
+          answer.toLowerCase() === correctAnswers[index].toLowerCase()
+          ? 1
+          : 0)
+      );
+    }, 0);
 
-    let correctCount = 0;
-    exerciseData.pairs.forEach((pair, index) => {
-      const dropZoneId = `drop-${index + 1}`;
-      if (droppedLetters[dropZoneId] === pair.letter) correctCount++;
-    });
+    const total = correctAnswers.length;
+    const scoreText = `${correctCount} / ${total}`;
 
-    const scoreText = `${correctCount}/${exerciseData.pairs.length}`;
-
-    const isCorrect = correctCount === exerciseData.pairs.length;
-
-    if (isCorrect) {
-      ValidationAlert.success("Good Job!", "All answers are correct!", scoreText);
+    if (correctCount === total) {
+      ValidationAlert.success(
+        "Bravo!",
+        `🎉 Très bien! Vous avez ${scoreText} bonnes réponses.`,
+        scoreText
+      );
     } else {
-      ValidationAlert.error("Try Again!", "Some answers are incorrect.", scoreText);
+      ValidationAlert.error(
+        "Oops!",
+        `Vous avez seulement ${scoreText}. Essaie encore!`,
+        scoreText
+      );
     }
   };
+
+  const handleStartAgain = () => {
+    setAnswers(Array(correctAnswers.length).fill(""));
+    setCheckResult(null);
+    setShowAnswer(false);
+  };
+
+
+  const handleShowAnswer = () => {
+    setAnswers([...correctAnswers]);
+    setShowAnswer(true);
+  };
+
 
   return (
-    <div className="exercise-container2">
-      <div className="qustion1 q1qustions">
-        <h5><span className="qusetionnum">3.</span> Écoute et associe chaque dialogue à une image.</h5>
+    <React.Fragment>
+      <div className="qustion1">
+        <h5>
+          <span className="qusetionnum">{questionNumber}.</span> {title}
+        </h5>
       </div>
 
-      <audio ref={audioRef} src={exerciseData.audioSrc} className="audio2" controls />
 
-      <DragDropContext onDragEnd={handleOnDragEnd}>
-        <div className="exercise-layout-vertical">
-          
-          <div className="image-section-horizontal">
-            {exerciseData.images.map((imageSrc, index) => (
-              <Droppable key={`drop-${index + 1}`} droppableId={`drop-${index + 1}`}>
-                {(provided, snapshot) => ( 
-                  <div className="image-container">
-                    <img src={imageSrc} alt={`Visual hint ${index + 1}`} />
-                    <div 
-                      ref={provided.innerRef} 
-                      {...provided.droppableProps}
-                      className={`drop-box ${snapshot.isDraggingOver ? 'is-over' : ''}`}
-                    >
-                      {droppedLetters[`drop-${index + 1}`] ? (
-                        <div className="dropped-letter">{droppedLetters[`drop-${index + 1}`]}</div>
-                      ) : (
-                        <span className="placeholder"></span>
-                      )}
-                      {provided.placeholder}
-                    </div>
-                  </div>
-                )}
-              </Droppable>
-            ))}
+      <div className="l2q1-page-container">
+
+        <div className="content-container">
+          <div className="images-flex-container">
+            {/* Character 1 */}
+            <div className="image-box">
+              <img src={characterImage} alt="Character 1" className="character-img" />
+              <select
+                value={answers[0]}
+                onChange={(e) => handleAnswerChange(0, e.target.value)}
+                className="answer-select"
+              >
+                <option value="" disabled>Choisis...</option>
+                {answerOptions.map(option => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Character 2 */}
+            <div className="image-box">
+              <img src={characterImage1} alt="Character 2" className="character-img" />
+              <select
+                value={answers[1]}
+                onChange={(e) => handleAnswerChange(1, e.target.value)}
+                className="answer-select"
+              >
+                <option value="" disabled>Choisis...</option>
+                {answerOptions.map(option => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
+            </div>
           </div>
 
-          <Droppable droppableId="letters" direction="horizontal" isDropDisabled={true}>
-            {(provided) => (
-              <div className="letters-section-horizontal" ref={provided.innerRef} {...provided.droppableProps}>
-                {shuffledPairs.map((pair, index) => {
-                  // إخفاء الحرف إذا تم سحبه
-                  const isDropped = Object.values(droppedLetters).includes(pair.letter);
-                  if (isDropped) return null;
+          <div className="popup-buttons">
+            <button className="try-again-button" onClick={handleStartAgain}>
+              Recommencer ↻
+            </button>
+            <button className="show-answer-btn" onClick={handleShowAnswer}>
+              Afficher la réponse
+            </button>
+            <button className="check-button2" onClick={handleCheck}>
+              Vérifier la réponse ✓
+            </button>
+          </div>
 
-                  return (
-                    <div key={pair.id} className="letter-sentence-pair">
-                      <Draggable draggableId={pair.letter} index={index}>
-                        {(providedDraggable, snapshot) => (
-                          <div
-                            ref={providedDraggable.innerRef}
-                            {...providedDraggable.draggableProps}
-                            {...providedDraggable.dragHandleProps}
-                            className={`letter-box ${snapshot.isDragging ? 'dragging' : ''}`}
-                          >
-                            {pair.letter}
-                          </div>
-                        )}
-                      </Draggable>
-                      <span className="sentence-text">{pair.content}</span>
-                    </div>
-                  );
-                })}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-          
         </div>
-      </DragDropContext>
-
-      <div className="action-buttons-container">
-        <button onClick={resetExercise} className="try-again-button">Réessayer ↻</button>
-        <button onClick={checkAnswers} className="check-button2">Vérifier ✓</button>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react';
 import Q2 from './Exercise/Q2';
 import './page5.css';
 import {
-    faArrowPointer,
+  faArrowPointer, faHeadphones
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import sound1 from '../../../assets/unit1/secA/sounds/L1Q1.mp3';
-import {unit1SecAQuestions} from '../../pageData';
+
+import { unit1SecAQuestions } from '../../pageData';
+import AudioWithCaption from '../../AudioWithCaption';
 
 const Page5 = ({ bgImage, openPopup }) => {
+
+  const [showAudioPopup, setShowAudioPopup] = useState(false);
+  const [showAudio, setShowAudio] = useState(false);
 
   const questions = [
     { id: 2, component: Q2, audio: sound1, text: "Question 2" },
@@ -44,6 +49,9 @@ const Page5 = ({ bgImage, openPopup }) => {
 
 
 
+
+
+
   return (
     <div
       className="page_1-background"
@@ -56,6 +64,36 @@ const Page5 = ({ bgImage, openPopup }) => {
       >
         <FontAwesomeIcon icon={faArrowPointer} />
       </button>
+
+      <button
+        id="u1sav2btn"
+        onClick={() => setShowAudio(true)}
+      >
+        <FontAwesomeIcon icon={faHeadphones} />
+      </button>
+
+
+      {showAudio && (
+        <div className="audio-popup-overlay">
+          <div className="audio-popup-container">
+
+            <button
+              className="close-btn"
+              onClick={() => setShowAudio(false)}
+            >
+              ✕
+            </button>
+
+            <AudioWithCaption
+              src={sound1}
+              captions={caption}   // نفس captions اللي عندك
+            />
+            
+          </div>
+        </div>
+      )}
+
+
 
     </div >
   )

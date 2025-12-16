@@ -1,13 +1,39 @@
-#u1saq2btn
-{
-  position: absolute;
-  background-color: transparent;
-  width: 7%;
-  height: 4%;
-  cursor: pointer;
-}
 
 #u1saq2btn{
   top: 89.5%;
-  left: 2%;
+  left: 0%;
 }
+#u1sav2btn{
+  top: 89.5%;
+  left: 5%;
+}
+
+.audio-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.audio-popup-container {
+ 
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.close-btn {
+  margin-left: 96%;
+  color: #fff;
+  font-weight: 900 !important;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+

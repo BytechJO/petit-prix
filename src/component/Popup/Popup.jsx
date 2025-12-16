@@ -208,13 +208,6 @@ const Popup = (
                 </div>
             </div>
 
-            <div
-                className={`popup-content ${isAudio ? "audio-size" : "fullscreen-size"}`}
-            >
-                <div className="popup-body">
-                    {children}
-                </div>
-            </div>
         </div>,
         document.body
     );
