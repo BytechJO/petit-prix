@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import sound1 from '../../../assets/unit1/secA/sounds/L1Q1.mp3';
+import {unit1SecAQuestions} from '../../pageData';
 
 const Page5 = ({ bgImage, openPopup }) => {
 
@@ -29,15 +30,15 @@ const Page5 = ({ bgImage, openPopup }) => {
     { start: 15.16, end: 17.13, text: "4-deer." },
   ];
 
-  const handleOpenQuestion = (startIndex) => {
+  const handleOpenQuestion = () => {
     openPopup({
-      questionText: `Écoute et montre.`,
-      questions: questions,
+      questionText: unit1SecAQuestions[1].text,
+      questions: unit1SecAQuestions, // نفس المصفوفة
       currentUnit: 1,
       currentSection: "A",
-      startIndex: startIndex,
-      audioSrc: sound1,
-      captions: caption,
+      startIndex: 1, // ابدأ من السؤال الثاني
+      audioSrc: unit1SecAQuestions[1].audio,
+      captions: unit1SecAQuestions[1].captions,
     });
   };
 

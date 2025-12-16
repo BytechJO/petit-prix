@@ -2,9 +2,11 @@ import React from 'react'
 import Q1 from './Exercise/Q1';
 import './page4.css';
 import {
-    faArrowPointer,
+  faArrowPointer,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {unit1SecAQuestions} from '../../pageData';
+
 const Page4 = ({ bgImage, openPopup }) => {
 
   const questions = [
@@ -28,15 +30,15 @@ const Page4 = ({ bgImage, openPopup }) => {
   ];
 
 
-  const handleOpenQuestion = (startIndex) => {
+  const handleOpenQuestion = () => {
     openPopup({
-      questionText: `Observe et trouve`,
-      questions: questions,
+      questionText: unit1SecAQuestions[0].text,
+      questions: unit1SecAQuestions, // كل الأسئلة
       currentUnit: 1,
       currentSection: "A",
-      startIndex: startIndex,
-      audioSrc: null,
-      captions: caption,
+      startIndex: 0, // ابدأ من السؤال الأول
+      audioSrc: unit1SecAQuestions[0].audio,
+      captions: unit1SecAQuestions[0].captions,
     });
   };
 

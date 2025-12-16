@@ -14,6 +14,10 @@ import img5 from "../assets/unit1/secA/5.png";
 import img6 from "../assets/unit1/secA/6.png";
 import img7 from "../assets/unit1/secA/7.png";
 
+import Q1 from '../component/unit1/secA/Exercise/Q1';
+import Q2 from '../component/unit1/secA/Exercise/Q2';
+import sound1 from '../assets/unit1/secA/sounds/L1Q1.mp3';
+
 export const pageData = [
   {
     id: "workbook",
@@ -80,4 +84,27 @@ export const pageData = [
     title: "Teacher Book",
     units: [],
   },
+];
+
+
+export const unit1SecAQuestions = [
+  { 
+    id: 1, 
+    component: Q1, 
+    audio: null, 
+    text: "Observe et trouve",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  { 
+    id: 2, 
+    component: Q2, 
+    audio: sound1, 
+    text: "Écoute et montre.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+
 ];
