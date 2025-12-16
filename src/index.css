@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+body {
+  background: rgb(233, 233, 233);
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.content-wrapper {
+  overflow: auto;
+}
+
+@media (max-width: 780px) {
+  body {
+    overflow-y: auto;
+  }
+}
+
+
+
+.selected {
+  cursor: pointer;
+}
+
+.page_1-background,
+.page_2-background,
+.page_3-background,
+.page_4-background,
+.page_5-background,
+.page_6-background,
+.page_7-background,
+.page_8-background,
+.page_9-background,
+.unit2-page-background {
+  background-color: #ffffff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  height: 85vh;
+  width: auto;
+}
+
+.nav-btn {
+  width: auto;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.2s ease;
+  padding: 6px;
+}
+
+.nav-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  transform: scale(1.07);
+}
+
+.nav-btn:active {
+  transform: scale(0.9);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+
+  .page_1-background,
+  .page_2-background,
+  .page_3-background,
+  .page_4-background,
+  .page_5-background,
+  .page_6-background,
+  .page_7-background,
+  .page_8-background,
+  .page_9-background,
+  .unit2-page-background {
+    height: 90vh;
+  }
+
+  .page-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.popup-buttons {
+  display: flex;         /* ترتيب الأزرار جنب بعض */
+  gap: 40px;             /* مسافة بين الأزرار */
+  justify-content: center; /* يضع كل الأزرار بالوسط */
+  margin-top: 2%;
+}
+
+.popup-buttons button {
+  width: 150px;          /* نفس العرض لكل الأزرار */
+  text-align: center;    /* النص في الوسط */
+  padding: 10px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.show-answer-btn {
+  background-color: #07b6a9;
+  color: white;
+}
+.show-answer-btn:hover {
+  background-color: #05a197;
+}
+
+.check-button2 {
+  background-color: #28a745;
+  color: white;
+}
+.check-button2:hover {
+  background-color: #218838;
+}
+
+.try-again-button {
+  background-color: #ffc107;
+  color: #212529;
+}
+.try-again-button:hover {
+  background-color: #e0a800;
+}
+
+
+@media (max-width: 600px) {
+  .popup-question-container {
+    align-items: flex-start;
+  }
+
+  .question-audio-player {
+    max-width: 100%;
+  }
+}

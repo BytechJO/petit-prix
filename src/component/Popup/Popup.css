@@ -1,0 +1,140 @@
+/* OVERLAY */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 999999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  
+  box-sizing: border-box;
+  z-index: 9999;
+}
+
+/* CONTENT */
+.popup-content {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px 20px 40px 20px;
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* CLOSE BUTTON */
+.popup-close-btn {
+  position: absolute;
+  right: 50px;
+  width: 1px;
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  color: white;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* AUDIO PLAYER */
+.question-audio-player {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+/* NAV BAR */
+.nav-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  gap: 20px;
+  justify-content: space-between;
+  background-color: #430f68;
+  padding: 10px 20px;
+  border-radius: 8px;
+  align-items: center;
+  position: relative;
+}
+
+/* NAV BUTTONS */
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.nav-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ICON WRAPPER */
+.icon-wrapper {
+  padding: 10px;
+}
+
+/* PROGRESS SECTION */
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 14px;
+}
+
+.progress-bar {
+  width: 100px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+/* QUESTION HEADER (سؤال + صوت) */
+.question-header {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.question-text {
+  font-size: 25px;
+  font-weight: 600;
+  color: #000;
+  margin-left: 26%;
+}
+
+.popup-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.qusetionnum
+{
+    border-radius: 50%;
+    background-color: #67cadb;
+    color: #000 !important;
+}
