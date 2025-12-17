@@ -1,5 +1,5 @@
 
-import './character.css';
+import './Character.css';
 
 const Character = ({ staticImg, animatedImg, altText }) => {
     return (
