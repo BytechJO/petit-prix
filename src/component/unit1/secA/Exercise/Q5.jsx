@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
-import './Q5.css'; 
-import ValidationAlert from './ValidationAlert'; 
+import './Q5.css';
+import ValidationAlert from '../../../Popup/ValidationAlert';
 
-import boyImage from '../assets/page6/1.svg';
-import girlImage from '../assets/page6/2.svg';
+import boyImage from '../../../../assets/unit1/secA/page7/Q11.png';
+import girlImage from '../../../../assets/unit1/secA/page7/Q12.png';
 
 const Q5 = ({ sound }) => {
   const [boyName, setBoyName] = useState('');
@@ -15,27 +15,42 @@ const Q5 = ({ sound }) => {
   };
 
   const checkAnswers = () => {
-  const correctBoyName = 'Antoine';
-  const correctGirlName = 'aime';
+    const correctBoyName = 'Antoine';
+    const correctGirlName = 'aime';
 
-  const isBoyCorrect = boyName.trim().toLowerCase() === correctBoyName.toLowerCase();
-  const isGirlCorrect = girlName.trim().toLowerCase() === correctGirlName.toLowerCase();
+    if (!boyName.trim() || !girlName.trim()) {
+      ValidationAlert.warning(
+        "Attention!",
+        "Veuillez remplir les deux champs.",
+        "0/2"
+      );
+      return;
+    }
 
-  if (!boyName.trim() || !girlName.trim()) {
-    ValidationAlert.info("Attention!", "Veuillez remplir les deux champs.");
-    return;
-  }
+    const isBoyCorrect =
+      boyName.trim().toLowerCase() === correctBoyName.toLowerCase();
+    const isGirlCorrect =
+      girlName.trim().toLowerCase() === correctGirlName.toLowerCase();
 
-  // حساب العلامة
-  const correctCount = (isBoyCorrect ? 1 : 0) + (isGirlCorrect ? 1 : 0);
-  const scoreText = `${correctCount}/2`;
+    const score =
+      (isBoyCorrect ? 1 : 0) +
+      (isGirlCorrect ? 1 : 0);
 
-  if (isBoyCorrect && isGirlCorrect) {
-    ValidationAlert.success("Bravo!", "Les réponses sont correctes.", scoreText);
-  } else {
-    ValidationAlert.error("Essayez encore!", "Une ou plusieurs réponses sont incorrectes.", scoreText);
-  }
-};
+    const scoreText = `${score}/2`;
+
+    if (score === 2) {
+      ValidationAlert.success(
+        "Bravo!",
+        scoreText
+      );
+    } else {
+      ValidationAlert.error(
+        "Essayez encore!",
+        scoreText
+      );
+    }
+  };
+
 
 
   const handleTryAgain = () => {
@@ -46,14 +61,16 @@ const Q5 = ({ sound }) => {
     }
   };
 
+  const handleShowAnswer = () => {
+    setBoyName('Antoine');
+    setGirlName('aime');
+  };
+
+
   return (
     <div className="q5-activity-container">
-      <div className="qustion1 q1qustions">
-        <h5><span className="qusetionnum">1.</span> Écoute, répète et place dans l'ordre.</h5>
-      </div>
-      
-      <audio src={sound} className="page6audio" controls />
-      
+
+
       <div className="q5-body">
         <div className="q5-character-group">
           <img src={boyImage} alt="Garçon" className="q5-character-img" />
@@ -80,13 +97,17 @@ const Q5 = ({ sound }) => {
         </div>
       </div>
 
-      <button className="q5-submit-btn" onClick={checkAnswers}>
-        Vérifier ✓
-      </button>
-
-      <button className="q5-try-btn" onClick={handleTryAgain}>
-        Réessayer ↻
-      </button>
+      <div className="popup-buttons">
+        <button className="try-again-button" onClick={handleTryAgain}>
+          Recommencer ↻
+        </button>
+        <button className="show-answer-btn" onClick={handleShowAnswer}>
+          Afficher la réponse
+        </button>
+        <button className="check-button2" onClick={checkAnswers}>
+          Vérifier la réponse ✓
+        </button>
+      </div>
     </div>
   );
 };

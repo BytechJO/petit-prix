@@ -5,7 +5,7 @@ import {
   faArrowPointer
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {unit1SecAQuestions} from '../../pageData';
+import { unit1SecAQuestions } from '../../pageData';
 
 const Page4 = ({ bgImage, openPopup }) => {
 
@@ -51,7 +51,8 @@ const Page4 = ({ bgImage, openPopup }) => {
       <img src={bgImage} />
 
       <button
-        id="u1saq1btn"
+        className='btnopenpopup'
+        id="page4q1"
         onClick={() => handleOpenQuestion(0)}
       >
         <FontAwesomeIcon icon={faArrowPointer} />

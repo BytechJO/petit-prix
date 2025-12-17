@@ -1,0 +1,53 @@
+
+.l4q2-container {
+  align-items: center;
+  gap: 20px;
+  padding: 60px;
+  width: 100%;
+}
+
+/* ترويسة السؤال */
+.l4q2-question-header {
+  width: 100%;
+  text-align: left;
+  color: black;
+  font-size: 1.25rem; /* 20px */
+}
+
+.l4q2-question-header h5 {
+  font-weight: 300;
+}
+
+.l4q2-question-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #67cadb;
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* مشغل الصوت */
+.l4q2-audio-player {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* رسالة النجاح */
+.l4q2-success-message {
+  margin-top: 15px;
+  font-size: 1.25rem; /* 20px */
+  font-weight: bold;
+  color: #28a745; /* أخضر */
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

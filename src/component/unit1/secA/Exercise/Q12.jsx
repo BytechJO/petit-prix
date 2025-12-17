@@ -1,56 +1,92 @@
-
 import React, { useState } from 'react';
+import InteractiveHotspotQuestion from './InteractiveHotspotQuestion';
+import ValidationAlert from '../../../Popup/ValidationAlert';
 import './Q12.css';
 
-export default function Q12() {
-  const [response, setResponse] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+import imgs1 from "../../../../assets/unit1/secA/page9/dem1.svg";
+import imgs2 from "../../../../assets/unit1/secA/page9/dem2.svg";
+import imgs3 from "../../../../assets/unit1/secA/page9/dem3.svg";
+import imgs4 from "../../../../assets/unit1/secA/page9/dem4.svg";
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); 
-    if (response.trim()) {
-      setSubmitted(true);
-      
-      setTimeout(() => {
-        setSubmitted(false);
-        setResponse('');
-      }, 3000);
+const images = [imgs1, imgs2, imgs3, imgs4];
+const CORRECT_INDICES = [0, 1];
+
+const Q12 = () => {
+  const [selectedIndices, setSelectedIndices] = useState([]);
+  const [showResult, setShowResult] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(false);
+
+  const handleSelect = (index) => {
+    if (showResult || showAnswer) return;
+
+    setSelectedIndices(prev =>
+      prev.includes(index)
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
+
+  const handleCheck = () => {
+    if (selectedIndices.length === 0) {
+      ValidationAlert.error("Attention", "Sélectionne au moins une image");
+      return;
+    }
+
+    setShowResult(true);
+
+    const correctCount = selectedIndices.filter(i =>
+      CORRECT_INDICES.includes(i)
+    ).length;
+
+    const isCorrect = correctCount === CORRECT_INDICES.length &&
+      selectedIndices.length === CORRECT_INDICES.length;
+
+    
+
+    if (isCorrect) {
+      ValidationAlert.success("Bravo!", "Réponse correcte 🎉");
+    } else {
+      ValidationAlert.error("Oops!", "Réponse incorrecte 😕");
     }
   };
 
+  // 👁️ إظهار الإجابة
+  const handleShowAnswer = () => {
+    setSelectedIndices(CORRECT_INDICES);
+    setShowAnswer(true);
+    setShowResult(true);
+  };
+
+  // 🔄 إعادة المحاولة
+  const handleStartAgain = () => {
+    setSelectedIndices([]);
+    setShowResult(false);
+    setShowAnswer(false);
+  };
+
   return (
-    <div className="q12-container">
-      <div className="q12-card">
-        <div className="q12-header">
-          <div className="q12-number">12</div>
-          <h2 className="q12-title">Présente-toi ainsi que tes ami(e)s</h2>
-        </div>
+    <div className="l4q2-container">
+      <InteractiveHotspotQuestion
+        imageSources={images}
+        selectedIndices={selectedIndices}
+        correctIndices={CORRECT_INDICES}
+        showResult={showResult}
+        onSelect={handleSelect}
+      />
 
-        {/* استخدام وسم <form> لتحسين الدلالة (semantics) */}
-        <form className="q12-form-container" onSubmit={handleSubmit}>
-          <textarea
-            value={response}
-            onChange={(e) => setResponse(e.target.value)}
-            placeholder="Écrivez ici votre présentation..."
-            className="q12-textarea"
-            rows={8} 
-          />
-
-          <button 
-            type="submit" 
-            className="q12-submit-btn"
-            disabled={!response.trim()}
-          >
-            Soumettre
-          </button>
-
-          {submitted && (
-            <div className="q12-success-message">
-              Votre réponse a bien été soumise ! ✓
-            </div>
-          )}
-        </form>
+      <div className="popup-buttons">
+        <button className="try-again-button" onClick={handleStartAgain}>
+          Recommencer ↻
+        </button>
+        <button className="show-answer-btn" onClick={handleShowAnswer}>
+          Afficher la réponse
+        </button>
+        <button className="check-button2" onClick={handleCheck}>
+          Vérifier la réponse ✓
+        </button>
       </div>
     </div>
   );
-}
+};
+
+export default Q12;

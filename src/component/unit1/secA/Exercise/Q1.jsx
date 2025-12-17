@@ -56,10 +56,10 @@ const Q1 = () => {
   ];
 
   const iconCustomStyles = [
-    { top: '84%', left: '28%', fontSize: '3rem' },
-    { top: '84%', left: '12.5%', fontSize: '3rem' },
-    { top: '84%', left: '5%', fontSize: '3rem' },
-    { top: '84%', left: '20%', fontSize: '3rem' }
+    { top: '84%', left: '28%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '84%', left: '12.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '84%', left: '5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '84%', left: '20%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' }
   ];
 
   const handleItemClick = (index) => {

@@ -1,0 +1,157 @@
+
+.feelings-quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* --- Faces and Droppable Areas --- */
+.faces-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.face-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.face-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.droppable-area {
+  width: 180px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9ecef;
+  border: 2px dashed #ced4da;
+  border-radius: 10px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.droppable-area.is-over {
+  background-color: #d4edda;
+  border-color: #28a745;
+}
+
+.placeholder-text {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* --- Draggable Items and Options --- */
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  min-height: 70px;
+  width: 100%;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.draggable-item {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 20px;
+  cursor: grab;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.2s, transform 0.2s;
+  user-select: none;
+}
+
+.draggable-item:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.draggable-item:active {
+  cursor: grabbing;
+  background-color: #004085;
+}
+
+/* --- Validation States --- */
+.droppable-area.correct .draggable-item {
+  background-color: #28a745; /* أخضر للإجابة الصحيحة */
+  border-color: #28a745;
+}
+
+.droppable-area.incorrect .draggable-item {
+  background-color: #dc3545; /* أحمر للإجابة الخاطئة */
+  border-color: #dc3545;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* --- Control Buttons --- */
+.quiz-controls-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.quiz-btn {
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.quiz-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.check-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.play-btn {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.reset-btn {
+  background-color: #ffc107;
+  color: #333;
+}

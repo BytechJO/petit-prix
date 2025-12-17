@@ -1,157 +1,120 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 import './Q3.css';
+
 import characterImage from '../../../../assets/unit1/secA/page6/characters1.png';
 import characterImage1 from '../../../../assets/unit1/secA/page6/character2.png';
 
-const answerOptions = ["Salut", "Bonjour"].sort(() => Math.random() - 0.5);
+const ANSWER_OPTIONS = ["Salut", "Bonjour"].sort(() => Math.random() - 0.5);
+const CORRECT_ANSWERS = ["Bonjour", "Salut"];
 
-const Q3 = ({
-  title,
-  questionNumber,
-  audioSrc,
-  correctAnswers = [],
-}) => {
-  if (!correctAnswers) {
-    console.error("Q3 missing correctAnswers prop");
-    return null;
-  }
-
-  const [answers, setAnswers] = useState(
-    Array(correctAnswers.length || 0).fill("")
-  );
-
-  const [checkResult, setCheckResult] = useState(null);
-  const [isSecondPart, setIsSecondPart] = useState(false);
-  const audioRef = useRef(null);
+const Q3 = () => {
+  const [answers, setAnswers] = useState(["", ""]);
   const [showAnswer, setShowAnswer] = useState(false);
 
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const handleTimeUpdate = () => {
-      if (!isSecondPart && audio.currentTime >= 16) {
-        audio.pause();
-        audio.currentTime = 16;
-      }
-    };
-
-    audio.addEventListener('timeupdate', handleTimeUpdate);
-
-    return () => {
-      audio.removeEventListener('timeupdate', handleTimeUpdate);
-    };
-  }, [isSecondPart]);
-
   const handleAnswerChange = (index, value) => {
-    const newAnswers = [...answers];
-    newAnswers[index] = value;
-    setAnswers(newAnswers);
+    const updated = [...answers];
+    updated[index] = value;
+    setAnswers(updated);
   };
 
   const handleCheck = () => {
-    const correctCount = answers.reduce((count, answer, index) => {
-      return (
-        count +
-        (answer &&
-          answer.toLowerCase() === correctAnswers[index].toLowerCase()
-          ? 1
-          : 0)
+
+    if (answers.some(answer => answer === "")) {
+      ValidationAlert.warning(
+        "Attention!",
+        "Veuillez répondre à toutes les questions avant de vérifier."
       );
-    }, 0);
+      return;
+    }
 
-    const total = correctAnswers.length;
-    const scoreText = `${correctCount} / ${total}`;
+    let correctCount = 0;
 
-    if (correctCount === total) {
+    answers.forEach((answer, index) => {
+      if (
+        answer &&
+        answer.toLowerCase() === CORRECT_ANSWERS[index].toLowerCase()
+      ) {
+        correctCount++;
+      }
+    });
+
+    const scoreText = `${correctCount}/2`;
+
+    if (correctCount === 2) {
       ValidationAlert.success(
         "Bravo!",
-        `🎉 Très bien! Vous avez ${scoreText} bonnes réponses.`,
         scoreText
       );
     } else {
       ValidationAlert.error(
         "Oops!",
-        `Vous avez seulement ${scoreText}. Essaie encore!`,
         scoreText
       );
     }
   };
 
   const handleStartAgain = () => {
-    setAnswers(Array(correctAnswers.length).fill(""));
-    setCheckResult(null);
+    setAnswers(["", ""]);
     setShowAnswer(false);
+    ValidationAlert?.close?.();
   };
 
-
   const handleShowAnswer = () => {
-    setAnswers([...correctAnswers]);
+    setAnswers([...CORRECT_ANSWERS]);
     setShowAnswer(true);
   };
 
-
   return (
-    <React.Fragment>
-      <div className="qustion1">
-        <h5>
-          <span className="qusetionnum">{questionNumber}.</span> {title}
-        </h5>
-      </div>
+    <div className="l2q1-page-container">
+      <div className="content-container">
+        <div className="images-flex-container">
 
-
-      <div className="l2q1-page-container">
-
-        <div className="content-container">
-          <div className="images-flex-container">
-            {/* Character 1 */}
-            <div className="image-box">
-              <img src={characterImage} alt="Character 1" className="character-img" />
-              <select
-                value={answers[0]}
-                onChange={(e) => handleAnswerChange(0, e.target.value)}
-                className="answer-select"
-              >
-                <option value="" disabled>Choisis...</option>
-                {answerOptions.map(option => (
-                  <option key={option} value={option}>{option}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Character 2 */}
-            <div className="image-box">
-              <img src={characterImage1} alt="Character 2" className="character-img" />
-              <select
-                value={answers[1]}
-                onChange={(e) => handleAnswerChange(1, e.target.value)}
-                className="answer-select"
-              >
-                <option value="" disabled>Choisis...</option>
-                {answerOptions.map(option => (
-                  <option key={option} value={option}>{option}</option>
-                ))}
-              </select>
-            </div>
+          {/* Character 1 */}
+          <div className="image-box">
+            <img src={characterImage} alt="Character 1" className="character-img" />
+            <select
+              value={answers[0]}
+              onChange={(e) => handleAnswerChange(0, e.target.value)}
+              className="answer-select"
+            >
+              <option value="" disabled>Choisis...</option>
+              {ANSWER_OPTIONS.map(option => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
           </div>
 
-          <div className="popup-buttons">
-            <button className="try-again-button" onClick={handleStartAgain}>
-              Recommencer ↻
-            </button>
-            <button className="show-answer-btn" onClick={handleShowAnswer}>
-              Afficher la réponse
-            </button>
-            <button className="check-button2" onClick={handleCheck}>
-              Vérifier la réponse ✓
-            </button>
+          {/* Character 2 */}
+          <div className="image-box">
+            <img src={characterImage1} alt="Character 2" className="character-img" />
+            <select
+              value={answers[1]}
+              onChange={(e) => handleAnswerChange(1, e.target.value)}
+              className="answer-select"
+            >
+              <option value="" disabled>Choisis...</option>
+              {ANSWER_OPTIONS.map(option => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
           </div>
 
         </div>
       </div>
-    </React.Fragment>
+
+      <div className="popup-buttons">
+        <button className="try-again-button" onClick={handleStartAgain}>
+          Recommencer ↻
+        </button>
+        <button className="show-answer-btn" onClick={handleShowAnswer}>
+          Afficher la réponse
+        </button>
+        <button className="check-button2" onClick={handleCheck}>
+          Vérifier la réponse ✓
+        </button>
+      </div>
+    </div>
   );
 };
 

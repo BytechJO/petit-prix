@@ -88,24 +88,20 @@ img {
 
 .popup-buttons {
   display: flex;
-  /* ترتيب الأزرار جنب بعض */
-  gap: 40px;
-  /* مسافة بين الأزرار */
+  gap: clamp(12px, 3vw, 20px);
   justify-content: center;
-  /* يضع كل الأزرار بالوسط */
   margin-top: 2%;
 }
 
 .popup-buttons button {
-  width: 150px;
-  /* نفس العرض لكل الأزرار */
+  width: clamp(180px, 25vw, 250px);
   text-align: center;
-  /* النص في الوسط */
-  padding: 10px 0;
+  padding: 0.3%;
+  margin-bottom: 3%;
   border: none;
-  border-radius: 6px;
+  border-radius: 5%;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 700;
   transition: all 0.3s ease;
 }
 
@@ -146,10 +142,8 @@ img {
     max-width: 100%;
   }
 }
-/* question */
-#u1saq1btn,
-#u1saq2btn
- {
+
+.btnopenpopup {
   position: absolute;
   background-color: #f89b5b;
   border: none;
@@ -168,24 +162,88 @@ img {
   justify-content: center;
   align-items: center;
 }
-/* voice */
-#u1sav2btn
- {
-  position: absolute;
-  background-color: #f89b5b;
-  border: none;
-  color: white;
-  padding: clamp(5px, 0.5vw, 10px);
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: clamp(10px, 1vw, 12px);
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 23px;
-  height: 18px;
+
+
+.audio-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: overlayFadeIn 0.3s ease forwards;
+}
+
+.audio-popup-container {
+  animation: popupEnter 0.35s ease-out forwards;
+  transform-origin: center;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.close-btn {
+  margin-left: 96%;
+  color: #fff;
+  font-weight: 900 !important;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  to {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@keyframes popupEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.audio-popup-overlay.closing {
+  animation: overlayFadeOut 0.25s ease forwards;
+}
+
+.audio-popup-container.closing {
+  animation: popupExit 0.25s ease forwards;
+}
+
+@keyframes overlayFadeOut {
+  from {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  to {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes popupExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
 }

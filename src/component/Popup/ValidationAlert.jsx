@@ -4,10 +4,27 @@ import good from "../../assets/alert/goodjob.gif";
 import wrong from "../../assets/alert/wrong.gif";
 import Notice from "../../assets/alert/Notice.gif";
 
+import correctSound from "../../assets/unit1/secA/sounds/correct.mp3";
+import wrongSound from "../../assets/unit1/secA/sounds/incorrect.mp3";
+
+const playSound = (isCorrect) => {
+  new Audio(isCorrect ? correctSound : wrongSound).play();
+};
+
+const vibrate = () => {
+  if (navigator.vibrate) navigator.vibrate(200);
+};
+
 const ValidationAlert = {
+
+
 
   success: (message, scoreMessage) => {
     Swal.fire({
+
+      didOpen: () => {
+        playSound(true);
+      },
 
       html: `
       <div style="font-size: 20px; text-align: center;">
@@ -40,6 +57,10 @@ const ValidationAlert = {
   warning: (message, scoreMessage) => {
     Swal.fire({
 
+      didOpen: () => {
+        playSound(false); 
+      },
+
       html: `
       <div style="font-size: 20px; text-align: center;">
         <p style="color: orange; font-weight: bold;">
@@ -69,6 +90,11 @@ const ValidationAlert = {
 
   error: (message, scoreMessage) => {
     Swal.fire({
+
+      didOpen: () => {
+        playSound(false);
+        vibrate();
+      },
 
       html: `
       <div style="font-size: 20px; text-align: center;">

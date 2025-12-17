@@ -8,11 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import sound1 from '../../../assets/unit1/secA/sounds/L1Q1.mp3';
 
 import { unit1SecAQuestions } from '../../pageData';
-import AudioWithCaption from '../../AudioWithCaption';
+import AudioPopup from '../../Popup/AudioPopup';
 
 const Page5 = ({ bgImage, openPopup }) => {
-
-  const [showAudioPopup, setShowAudioPopup] = useState(false);
   const [showAudio, setShowAudio] = useState(false);
 
   const questions = [
@@ -59,40 +57,27 @@ const Page5 = ({ bgImage, openPopup }) => {
       <img src={bgImage} />
 
       <button
-        id="u1saq2btn"
+        className='btnopenpopup'
+        id="page5q1"
         onClick={() => handleOpenQuestion(0)}
       >
         <FontAwesomeIcon icon={faArrowPointer} />
       </button>
 
       <button
-        id="u1sav2btn"
+        className='btnopenpopup'
+        id="page5audio"
         onClick={() => setShowAudio(true)}
       >
         <FontAwesomeIcon icon={faHeadphones} />
       </button>
 
-
-      {showAudio && (
-        <div className="audio-popup-overlay">
-          <div className="audio-popup-container">
-
-            <button
-              className="close-btn"
-              onClick={() => setShowAudio(false)}
-            >
-              ✕
-            </button>
-
-            <AudioWithCaption
-              src={sound1}
-              captions={caption}   // نفس captions اللي عندك
-            />
-            
-          </div>
-        </div>
-      )}
-
+      <AudioPopup
+        open={showAudio}
+        onClose={() => setShowAudio(false)}
+        src={sound1}
+        captions={caption}
+      />
 
 
     </div >

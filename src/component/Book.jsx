@@ -9,7 +9,7 @@ import Footer from "./footer";
 export default function Book() {
   const [pageIndex, setPageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1100);
-  const [activeTab, setActiveTab] = useState("workbook");
+  const [activeTab, setActiveTab] = useState("studentbook");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [viewMode, setViewMode] = useState("spread");

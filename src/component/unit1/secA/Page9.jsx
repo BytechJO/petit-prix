@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './page6.css';
+import './page9.css';
 import {
   faArrowPointer, faHeadphones
 } from "@fortawesome/free-solid-svg-icons";
@@ -9,21 +9,23 @@ import sound1 from '../../../assets/unit1/secA/sounds/L1Q1.mp3';
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
 
-const Page6 = ({ bgImage, openPopup }) => {
+const Page9 = ({ bgImage, openPopup }) => {
 
   const [showAudio, setShowAudio] = useState(false);
 
-  const handleOpenQuestion = () => {
-    openPopup({
-      questionText: unit1SecAQuestions[1].text,
-      questions: unit1SecAQuestions,
-      currentUnit: 1,
-      currentSection: "A",
-      startIndex: 2,
-      audioSrc: unit1SecAQuestions[1].audio,
-      captions: unit1SecAQuestions[1].captions,
-    });
-  };
+ const handleOpenQuestion = (questionIndex) => {
+   const q = unit1SecAQuestions[questionIndex];
+ 
+   openPopup({
+     questionText: q.text,
+     questions: unit1SecAQuestions,
+     currentUnit: 1,
+     currentSection: "A",
+     startIndex: questionIndex,
+     audioSrc: q.audio,
+     captions: q.captions,
+   });
+ };
 
   return (
     <div
@@ -34,8 +36,16 @@ const Page6 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="page6q1"
-        onClick={() => handleOpenQuestion(0)}
+        id="page9audioq1"
+        onClick={() => setShowAudio(true)}
+      >
+        <FontAwesomeIcon icon={faHeadphones} />
+      </button>
+
+      <button
+        className='btnopenpopup'
+        id="page9q2"
+        onClick={() => handleOpenQuestion(6)}
       >
         <FontAwesomeIcon icon={faArrowPointer} />
       </button>
@@ -43,23 +53,7 @@ const Page6 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="page6audioq1"
-        onClick={() => setShowAudio(true)}
-      >
-        <FontAwesomeIcon icon={faHeadphones} />
-      </button>
-
-      <button
-        className='btnopenpopup'
-        id="page6audioq2"
-        onClick={() => setShowAudio(true)}
-      >
-        <FontAwesomeIcon icon={faHeadphones} />
-      </button>
-
-      <button
-        className='btnopenpopup'
-        id="page6audioq4"
+        id="page9audioq2"
         onClick={() => setShowAudio(true)}
       >
         <FontAwesomeIcon icon={faHeadphones} />
@@ -79,4 +73,4 @@ const Page6 = ({ bgImage, openPopup }) => {
   )
 }
 
-export default Page6;
+export default Page9;

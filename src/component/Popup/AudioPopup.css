@@ -1,0 +1,72 @@
+.audio-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: overlayFadeIn 0.3s ease forwards;
+}
+
+.audio-popup-container {
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  animation: popupEnter 0.35s ease-out forwards;
+}
+
+.close-btn {
+  margin-left: auto;
+  display: block;
+  color: #fff;
+  font-weight: 900;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* closing */
+.audio-popup-overlay.closing {
+  animation: overlayFadeOut 0.25s ease forwards;
+}
+
+.audio-popup-container.closing {
+  animation: popupExit 0.25s ease forwards;
+}
+
+/* animations */
+@keyframes overlayFadeIn {
+  from { background: rgba(0,0,0,0); }
+  to { background: rgba(0,0,0,0.6); }
+}
+
+@keyframes overlayFadeOut {
+  from { background: rgba(0,0,0,0.6); }
+  to { background: rgba(0,0,0,0); }
+}
+
+@keyframes popupEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes popupExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+}

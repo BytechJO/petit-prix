@@ -1,0 +1,76 @@
+.q5-activity-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 18px;
+}
+
+.q5-body {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.q5-character-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.q5-character-group:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.q5-character-img {
+  width: 380px;
+  height: 350px;
+  margin-bottom: 12px;
+}
+
+.q5-input {
+  width: 300px;
+  padding: 10px 12px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 12px;
+  border: 2px solid #dfe6f1;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.q5-input::placeholder {
+  color: #b0b7c3;
+}
+
+.q5-input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+}
+
+
+
+
+
+
+
+/* استجابة للموبايل */
+@media (max-width: 600px) {
+  .q5-body {
+    gap: 20px;
+  }
+
+  .q5-character-img {
+    width: 110px;
+  }
+
+  .q5-input {
+    width: 120px;
+    font-size: 15px;
+  }
+}

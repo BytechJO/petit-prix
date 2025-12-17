@@ -1,10 +1,13 @@
-import Page1 from '../component/unit1/secA/Page1'
+// unit One section A
+import Page1 from '../component/unit1/secA/Page1';
 import Page2 from "../component/unit1/secA/Page2";
 import Page3 from "../component/unit1/secA/Page3";
 import Page4 from "../component/unit1/secA/Page4";
 import Page5 from "../component/unit1/secA/Page5";
 import Page6 from "../component/unit1/secA/Page6";
 import Page7 from "../component/unit1/secA/Page7";
+import Page8 from "../component/unit1/secA/Page8";
+import Page9 from "../component/unit1/secA/Page9";
 
 import img1 from "../assets/unit1/1.png";
 import img2 from "../assets/unit1/2.png";
@@ -13,18 +16,37 @@ import img4 from "../assets/unit1/secA/4.png";
 import img5 from "../assets/unit1/secA/5.png";
 import img6 from "../assets/unit1/secA/6.png";
 import img7 from "../assets/unit1/secA/7.png";
+import img8 from "../assets/unit1/secA/8.png";
+import img9 from "../assets/unit1/secA/9.png";
 
 import Q1 from '../component/unit1/secA/Exercise/Q1';
 import Q2 from '../component/unit1/secA/Exercise/Q2';
 import Q3 from '../component/unit1/secA/Exercise/Q3';
+import Q5 from '../component/unit1/secA/Exercise/Q5';
+import Q7 from '../component/unit1/secA/Exercise/Q7';
+import Q11 from '../component/unit1/secA/Exercise/Q11';
+import Q12 from '../component/unit1/secA/Exercise/Q12';
 
-import sound1 from '../assets/unit1/secA/sounds/L1Q1.mp3';
+import sound1 from '../assets/unit1/secA/sounds/page5.mp3';
 import sound2 from '../assets/unit1/secA/sounds/L1Q1.mp3';
+import sound3 from '../assets/unit1/secA/sounds/L1Q1-1.mp3';
+import sound4 from '../assets/unit1/secA/sounds/L1Q1-2.mp3';
+import sound5 from '../assets/unit1/secA/sounds/L1Q4.mp3';
+import sound6 from '../assets/unit1/secA/sounds/L2Q1.mp3';
+import sound7 from '../assets/unit1/secA/sounds/L2Q2.mp3';
+import sound8 from '../assets/unit1/secA/sounds/l2q11.mp3';
+import sound9 from '../assets/unit1/secA/sounds/l2q12.mp3';
+import sound10 from '../assets/unit1/secA/sounds/L3Q1.mp3';
+import sound11 from '../assets/unit1/secA/sounds/L4Q1.mp3';
+import sound12 from '../assets/unit1/secA/sounds/L4Q2.mp3';
+
+
+
 
 export const pageData = [
   {
-    id: "workbook",
-    title: "Workbook",
+    id: "studentbook",
+    title: "studentbook",
     units: [
       {
         id: "unit1",
@@ -64,10 +86,22 @@ export const pageData = [
                 component: Page6,
                 image: img6,
               },
+
               {
                 id: 7,
                 component: Page7,
                 image: img7,
+              },
+
+              {
+                id: 8,
+                component: Page8,
+                image: img8,
+              },
+              {
+                id: 9,
+                component: Page9,
+                image: img9,
               },
             ],
           },
@@ -77,7 +111,7 @@ export const pageData = [
   },
 
   {
-    id: "studentbook",
+    id: "workbook",
     title: "Student Book",
     units: [],
   },
@@ -112,6 +146,42 @@ export const unit1SecAQuestions = [
   { 
     id: 3, 
     component: Q3, 
+    audio: sound2, 
+    text: "Écoute, montre et écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  { 
+    id: 4, 
+    component: Q5, 
+    audio: sound2, 
+    text: "Écoute, montre et écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  { 
+    id: 5, 
+    component: Q7, 
+    audio: sound2, 
+    text: "Écoute, montre et écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  { 
+    id: 6, 
+    component: Q11, 
+    audio: sound2, 
+    text: "Écoute, montre et écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  { 
+    id: 7, 
+    component: Q12, 
     audio: sound2, 
     text: "Écoute, montre et écris.",
     captions: [

@@ -16,10 +16,6 @@ const Popup = (
     {
         isOpen,
         onClose,
-        children,
-        questionText,
-        audioSrc,
-        captions = [],
         isAudio = false,
         questions = [],
         startIndex = 0,
@@ -32,6 +28,7 @@ const Popup = (
 
     const [index, setIndex] = useState(startIndex);
     const currentQuestionData = questions[index] || {};
+
 
     useEffect(() => {
         setIndex(startIndex);
@@ -166,36 +163,29 @@ const Popup = (
                         display: "flex",
                         flexDirection: "row",
                         alignItems: "center",
-                        gap: "10%",          
+                        gap: "10%",
                         width: "100%",
                     }}
                 >
-                    {questionText && (
-                        <p
-                            className="question-text"
-                        >
-                            <span className='qusetionnum' style={{ fontWeight: "bold" }}>
+                    {currentQuestionData.text && (
+                        <p className="question-text">
+                            <span className="qusetionnum" style={{ fontWeight: "bold" }}>
                                 {index + 1}.
-                            </span>
-                            {questionText}
+                            </span>{" "}
+                            {currentQuestionData.text}
                         </p>
                     )}
 
-                    {audioSrc && (
-                        <div
-                            style={{
-                                width: "30%",
-                                transform: "scale(0.75)",
-                            }}
-                        >
 
-                            <AudioWithCaption
-                                src={audioSrc}
-                                captions={captions}
-                                onCaptionChange={(index) => console.log("Active caption:", index)}
-                            />
-                        </div>
-                    )}
+                    {currentQuestionData.audio && (
+  <div style={{ width: "30%", transform: "scale(0.75)" }}>
+    <AudioWithCaption
+      src={currentQuestionData.audio}
+      captions={currentQuestionData.captions || []}
+    />
+  </div>
+)}
+
                 </div>
 
 

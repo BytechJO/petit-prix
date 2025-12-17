@@ -1,62 +1,51 @@
-
-import { useState } from 'react';
-import { Check } from 'lucide-react';
+import React from 'react';
 import './Q7.css';
+import characterImage from '../../../../assets/unit1/secA/page7/conv.svg';
+import characterImage1 from '../../../../assets/unit1/secA/page7/conv2.svg';
 
+const customsBubbles = [
+  {
+    top: "10%",
+    left: "20%",
+    isFlipped: false,
+    content: (
+      <>
+        Je m’appelle Antoine. Et toi ?
+      </>
+    )
+  },
+  {
+    top: "10%",
+    left: "54%",
+    isFlipped: true,
+    content: (
+      <>
+        Moi, c’est Marie. Comment tu t’appelles ?
+      </>
+    )
+  }
+];
 const Q7 = () => {
-  const sentences = [
-    { id: 'a', text: 'Il y a cinq garçons sur la rampe.' },
-    { id: 'b', text: 'Ils se disent « Salut ».' },
-    { id: 'c', text: 'Un garçon tombe.' },
-    { id: 'd', text: 'Un autre garçon dit que son saut est horrible.' },
-    { id: 'e', text: 'Il lui demande son nom.' },
-    { id: 'f', text: 'Les noms des deux garçons sont Éric et Daniel' }
-  ];
-
-  const [checked, setChecked] = useState({});
-
-  const toggleCheck = (id) => {
-    setChecked(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
-
   return (
-    <div className="q7-page-container">
-      <div className="qustion1 ">
-        <h5>
-          <span className="qusetionnum">9.</span>
-          Cochez les phrases que vous entendez.
-        </h5> <br />
-      </div>
-      
-      <div className="q7-card">
-        <div className="q7-sentences-list">
-          {sentences.map((sentence) => (
-            // جعل العنصر بأكمله قابلاً للنقر
-            <div 
-              key={sentence.id} 
-              className={`q7-sentence-item ${checked[sentence.id] ? 'selected' : ''}`}
-              onClick={() => toggleCheck(sentence.id)}
-            >
-              <div
-                className="q7-check-button"
-              >
-                {/* الأيقونة تظهر فقط عند الاختيار */}
-                <Check className="q7-check-icon" strokeWidth={3} />
-              </div>
-              
-              <div className="q7-sentence-text">
-                <span className="q7-sentence-id">{sentence.id})</span>
-                <span className="q7-sentence-content">{sentence.text}</span>
-              </div>
+      <div className="popup-image-container3">
+
+        <img src={characterImage1} alt="Character" className="character-images1" />
+        <img src={characterImage} alt="Character" className="character-images1" />
+
+        {customsBubbles.map((bubble, index) => (
+          <div 
+            key={index}
+            className={`bubbles-cloud ${bubble.isFlipped ? "flipped" : ""}`}
+            style={{ top: `calc(${bubble.top} - 60px)`, left: bubble.left }}
+          >
+            <div className="bubble-content">
+              {bubble.content}
             </div>
-          ))}
-        </div>
+            <button className="close" onClick={(e) => e.target.parentElement.style.display = 'none'}>×</button>
+          </div>
+        ))}
       </div>
-    </div>
   );
-}
+};
 
 export default Q7;

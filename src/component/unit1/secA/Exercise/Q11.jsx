@@ -1,230 +1,240 @@
-import { useState, useRef } from 'react';
-import './Q11.css'; 
-import ValidationAlert from './ValidationAlert'; 
+import React, { useState, useRef, useEffect } from 'react';
+import { DndContext, useDroppable, useDraggable, closestCenter } from '@dnd-kit/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
-export default function Q11() {
-  const [answers, setAnswers] = useState({
-    blank1: '',
-    blank2: '',
-    blank3: '',
-    blank4: '',
-    blank5: ''
-  });
+import './Q11.css';
+import ValidationAlert from '../../../Popup/ValidationAlert';
 
-  const inputRefs = {
-    blank1: useRef(null),
-    blank2: useRef(null),
-    blank3: useRef(null),
-    blank4: useRef(null),
-    blank5: useRef(null),
+import sound6 from '../../../../assets/unit1/secA/sounds/L3Q1.mp3';
+import face1 from "../../../../assets/unit1/secA/page8/face1.svg";
+import face2 from "../../../../assets/unit1/secA/page8/face2.png";
+import face3 from "../../../../assets/unit1/secA/page8/face3.png";
+import face4 from "../../../../assets/unit1/secA/page8/face4.png";
+import face5 from "../../../../assets/unit1/secA/page8/face5.png";
+
+const feelingsData = [
+  { id: '0', name: 'Comment ça va', face: face1 },
+  { id: '1', name: 'Mal', face: face2 },
+  { id: '2', name: 'Comme ci, comme ça', face: face3 },
+  { id: '3', name: 'Bien', face: face4 },
+  { id: '4', name: 'Super', face: face5 },
+];
+
+// دالة لخلط عناصر المصفوفة
+const shuffleArray = (array) => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
+function DraggableItem({ id, content, isDragging }) {
+  const { attributes, listeners, setNodeRef, transform, transition } = useDraggable({ id });
+  const style = {
+    transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
+    transition,
+    zIndex: isDragging ? 100 : 'auto',
+    opacity: isDragging ? 0.5 : 1,
   };
 
-  const correctAnswers = {
-    blank1: 'monsieur Antoine',
-    blank2: 'm\'appelle',
-    blank3: 'je',
-    blank4: 'comment',
-    blank5: 'Marie'
+  return (
+    <div ref={setNodeRef} style={style} {...listeners} {...attributes} className="draggable-item">
+      {content}
+    </div>
+  );
+}
+
+function DroppableArea({ id, children, validationStatus, isOver }) {
+  const { setNodeRef } = useDroppable({ id });
+
+  const validationClass = validationStatus === true ? 'correct' : validationStatus === false ? 'incorrect' : '';
+  const overClass = isOver ? 'is-over' : '';
+
+  return (
+    <div ref={setNodeRef} className={`droppable-area ${validationClass} ${overClass}`}>
+      {children || <span className="placeholder-text">Déposer ici</span>}
+    </div>
+  );
+}
+
+const Q11 = ({ stopPoint }) => {
+  const audioRef = useRef(null);
+  const [currentSegment, setCurrentSegment] = useState(0);
+  const [containers, setContainers] = useState(() => ({
+    options: shuffleArray(feelingsData.map(f => f.name)),
+    ...feelingsData.reduce((acc, f) => ({ ...acc, [f.id]: [] }), {})
+  }));
+  const [validation, setValidation] = useState({});
+  const [activeId, setActiveId] = useState(null);
+
+  const stopPoints = [12.5, 15, 18, 20.5];
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleTimeUpdate = () => {
+      // التحقق من نقطة التوقف الحالية
+      if (currentSegment < stopPoints.length && audio.currentTime >= stopPoints[currentSegment]) {
+        audio.pause();
+        audio.currentTime = stopPoints[currentSegment];
+      }
+    };
+
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+    return () => audio.removeEventListener('timeupdate', handleTimeUpdate);
+  }, [currentSegment]);
+
+  const handleDragStart = (event) => setActiveId(event.active.id);
+
+  const handleDragEnd = ({ active, over }) => {
+    setActiveId(null);
+    if (!over) return;
+
+    const activeContainer = Object.keys(containers).find(key => containers[key].includes(active.id));
+    if (!activeContainer || activeContainer === over.id) return;
+
+    setContainers(prev => {
+      const newContainers = { ...prev };
+
+      newContainers[activeContainer] = prev[activeContainer].filter(item => item !== active.id);
+
+      if (prev[over.id].length > 0) {
+        newContainers.options.push(prev[over.id][0]);
+      }
+
+      // إضافة العنصر الجديد إلى المنطقة المستهدفة
+      newContainers[over.id] = [active.id];
+      return newContainers;
+    });
   };
 
-  const [showResults, setShowResults] = useState(false);
+  const handleCheckAll = () => {
+    const newValidation = {};
+    let allCorrect = true;
+    const allFilled = feelingsData.every(h => containers[h.id]?.length > 0);
 
-  const handleInputChange = (blank, value) => {
-    setAnswers(prev => ({
-      ...prev,
-      [blank]: value
-    }));
+    if (!allFilled) {
+      return ValidationAlert.info("Attention", "Veuillez déposer une réponse pour chaque visage !");
+    }
 
-    const input = inputRefs[blank].current;
-    if (input) {
-      const tempSpan = document.createElement('span');
-      tempSpan.style.visibility = 'hidden';
-      tempSpan.style.position = 'absolute';
-      tempSpan.style.whiteSpace = 'pre';
-      tempSpan.style.font = getComputedStyle(input).font;
-      tempSpan.textContent = value || input.placeholder;
-      document.body.appendChild(tempSpan);
-      input.style.width = tempSpan.offsetWidth + 20 + 'px';
-      document.body.removeChild(tempSpan);
+    let correctCount = 0; // عداد الإجابات الصحيحة
+
+    feelingsData.forEach(h => {
+      const droppedWord = containers[h.id][0];
+      const isCorrect = droppedWord.toLowerCase() === h.name.toLowerCase();
+      newValidation[h.id] = isCorrect;
+      if (isCorrect) correctCount++;
+      if (!isCorrect) allCorrect = false;
+    });
+
+    setValidation(newValidation);
+
+    const scoreText = `${correctCount} / ${feelingsData.length}`; // مثال: 3 / 5
+
+    if (allCorrect) {
+      ValidationAlert.success("Bravo !", scoreText);
+    } else {
+      ValidationAlert.error("Oops...",scoreText);
+    }
+  };
+  const checkAnswers = () => {
+    handleCheckAll();
+  };
+
+  const handleShowAnswer = () => {
+    const newContainers = {
+      options: [],
+      ...feelingsData.reduce((acc, f) => ({ ...acc, [f.id]: [] }), {})
+    };
+
+    feelingsData.forEach(f => {
+      newContainers[f.id] = [f.name];
+    });
+
+    setContainers(newContainers);
+
+    const newValidation = {};
+    feelingsData.forEach(f => {
+      newValidation[f.id] = true;
+    });
+    setValidation(newValidation);
+  };
+
+  const handleTryAgain = () => {
+    handleReset();
+  };
+
+
+
+  const handleReset = () => {
+    setContainers({
+      options: shuffleArray(feelingsData.map(f => f.name)),
+      ...feelingsData.reduce((acc, f) => ({ ...acc, [f.id]: [] }), {})
+    });
+    setValidation({});
+    setCurrentSegment(0);
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.pause();
     }
   };
 
-  
+  return (
+    <div className="feelings-quiz-container">
+      <DndContext
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        collisionDetection={closestCenter}
+      >
 
-  const checkAnswers = () => {
-  const allFieldsFilled = Object.values(answers).every(answer => answer.trim() !== '');
-  if (!allFieldsFilled) {
-    ValidationAlert.info("Oops!", "Please complete all fields.");
-    return;
-  }
+        <div className="faces-container">
+          {feelingsData.map((feeling) => (
+            <div key={feeling.id} className="face-item">
+              <img src={feeling.face} alt={feeling.name} className="face-image" />
+              <DroppableArea
+                id={feeling.id}
+                validationStatus={validation[feeling.id]}
+              >
+                {containers[feeling.id]?.[0] && (
+                  <DraggableItem
+                    id={containers[feeling.id][0]}
+                    content={containers[feeling.id][0]}
+                    isDragging={activeId === containers[feeling.id][0]}
+                  />
+                )}
+              </DroppableArea>
+            </div>
+          ))}
+        </div>
 
-  const currentScore = Object.keys(answers).filter(blank => 
-    answers[blank].trim().toLowerCase() === correctAnswers[blank].toLowerCase()
-  ).length;
-
-  setShowResults(true);
-
-  const scoreText = `${currentScore}/5`;
-
-  if (currentScore === 5) {
-    ValidationAlert.success("Bravoo!", "You got all answers right!", scoreText);
-  } else {
-    ValidationAlert.error("Try Again!", "Some answers are incorrect.", scoreText);
-  }
+        <div className="options-container">
+          {containers.options.map(word => (
+            <DraggableItem
+              key={word}
+              id={word}
+              content={word}
+              isDragging={activeId === word}
+            />
+          ))}
+        </div>
+        <div className="popup-buttons">
+          <button className="try-again-button" onClick={handleTryAgain}>
+            Recommencer ↻
+          </button>
+          <button className="show-answer-btn" onClick={handleShowAnswer}>
+            Afficher la réponse
+          </button>
+          <button className="check-button2" onClick={checkAnswers}>
+            Vérifier la réponse ✓
+          </button>
+        </div>
+      </DndContext>
+    </div>
+  );
 };
 
-  const resetExercise = () => {
-    setAnswers({
-      blank1: '',
-      blank2: '',
-      blank3: '',
-      blank4: '',
-      blank5: ''
-    });
-    setShowResults(false);
-  };
-
-  const isCorrect = (blank) => {
-    if (!showResults) return null;
-    return answers[blank].trim().toLowerCase() === correctAnswers[blank].toLowerCase();
-  };
-
-  const getInputClass = (blank) => {
-    if (!showResults) return 'q11-input-default';
-    return isCorrect(blank) ? 'q11-input-correct' : 'q11-input-incorrect';
-  };
-
-  const score = Object.keys(answers).filter(blank => 
-    answers[blank].trim().toLowerCase() === correctAnswers[blank].toLowerCase()
-  ).length;
-
-  return (
-    <>
-    <div className="qustion1 q11qustion">
-        <h5><span className="qusetionnum">11.</span>Lis et écris l’information manquante</h5>
-      </div>
-    <div className="q11-container">
-      <div className="q11-card">
-        <div className="q11-header">
-          <p className="q11-subtitle">Complétez les espaces vides avec les mots appropriés de la liste.</p>
-        </div>
-
-        <div className="q11-word-bank">
-          <p className="q11-word-bank-title">Mots disponibles :</p>
-          <div className="q11-word-list">
-            {Object.values(correctAnswers).map((word, index) => (
-              <span key={index} className="q11-word">
-                {word}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="q11-exercise-section">
-          <div className="q11-questions-container">
-            <div className="q11-question-line">
-              <span className="q11-text">- Bonjour à tous, je m'appelle</span>
-              <input
-                ref={inputRefs.blank1}
-                type="text"
-                value={answers.blank1}
-                onChange={(e) => handleInputChange('blank1', e.target.value)}
-                className={`q11-input ${getInputClass('blank1')}`}
-                style={{ minWidth: '200px' }}
-                placeholder="mons..."
-                disabled={showResults}
-              />
-              <span className="q11-text">.</span>
-            </div>
-
-            <div className="q11-question-line">
-              <span className="q11-text">- Bonjour, je</span>
-              <input
-                ref={inputRefs.blank2}
-                type="text"
-                value={answers.blank2}
-                onChange={(e) => handleInputChange('blank2', e.target.value)}
-                className={`q11-input ${getInputClass('blank2')}`}
-                style={{ minWidth: '150px' }}
-                placeholder="m'app..."
-                disabled={showResults}
-              />
-              <span className="q11-text">Mark.</span>
-            </div>
-
-            <div className="q11-question-line">
-              <span className="q11-text">- Bonjour, monsieur Antoine,</span>
-              <input
-                ref={inputRefs.blank3}
-                type="text"
-                value={answers.blank3}
-                onChange={(e) => handleInputChange('blank3', e.target.value)}
-                className={`q11-input ${getInputClass('blank3')}`}
-                style={{ minWidth: '100px' }}
-                placeholder="j..."
-                disabled={showResults}
-              />
-              <span className="q11-text">m'appelle Claire.</span>
-            </div>
-
-            <div className="q11-question-line">
-              <span className="q11-text">- Bonjour, Claire. Et vous,</span>
-              <input
-                ref={inputRefs.blank4}
-                type="text"
-                value={answers.blank4}
-                onChange={(e) => handleInputChange('blank4', e.target.value)}
-                className={`q11-input ${getInputClass('blank4')}`}
-                style={{ minWidth: '150px' }}
-                placeholder="com..."
-                disabled={showResults}
-              />
-              <span className="q11-text">vous appelez-vous ?</span>
-            </div>
-
-            <div className="q11-question-line">
-              <span className="q11-text">- Je m'appelle</span>
-              <input
-                ref={inputRefs.blank5}
-                type="text"
-                value={answers.blank5}
-                onChange={(e) => handleInputChange('blank5', e.target.value)}
-                className={`q11-input ${getInputClass('blank5')}`}
-                style={{ minWidth: '150px' }}
-                placeholder="mar..."
-                disabled={showResults}
-              />
-              <span className="q11-text">.</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="q11-button-container">
-          <div className="q11-button-container">
-          
-          {/* زر إعادة المحاولة */}
-          <button 
-            onClick={resetExercise} 
-            className="q11-button q11-reset-button"
-          >
-            Réessayer ↻
-          </button>
-
-          {/* زر التحقق */}
-          <button 
-            onClick={checkAnswers} 
-            className="q11-button q11-check-button"
-            disabled={showResults} 
-          >
-            Vérifier ✓
-          </button>
-        </div>
-        </div>
-
-      
-
-      </div>
-    </div>
-    </>
-  );
-}
+export default Q11;
