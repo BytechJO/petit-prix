@@ -6,7 +6,7 @@ import characterImage1 from '../../../../assets/unit1/secA/page7/conv2.svg';
 const customsBubbles = [
   {
     top: "10%",
-    left: "20%",
+    left: "22%",
     isFlipped: false,
     content: (
       <>
@@ -16,7 +16,7 @@ const customsBubbles = [
   },
   {
     top: "10%",
-    left: "54%",
+    left: "52%",
     isFlipped: true,
     content: (
       <>

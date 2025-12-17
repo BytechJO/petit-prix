@@ -27,28 +27,39 @@ const Q12 = () => {
   };
 
   const handleCheck = () => {
-    if (selectedIndices.length === 0) {
-      ValidationAlert.error("Attention", "Sélectionne au moins une image");
-      return;
-    }
+  if (selectedIndices.length === 0) {
+    ValidationAlert.error(
+      "Attention",
+      "Sélectionne au moins une image"
+    );
+    return;
+  }
 
-    setShowResult(true);
+  setShowResult(true);
 
-    const correctCount = selectedIndices.filter(i =>
-      CORRECT_INDICES.includes(i)
-    ).length;
+  const correctCount = selectedIndices.filter(i =>
+    CORRECT_INDICES.includes(i)
+  ).length;
 
-    const isCorrect = correctCount === CORRECT_INDICES.length &&
-      selectedIndices.length === CORRECT_INDICES.length;
+  const isCorrect =
+    correctCount === CORRECT_INDICES.length &&
+    selectedIndices.length === CORRECT_INDICES.length;
 
-    
+  const score = `${correctCount} / ${CORRECT_INDICES.length}`;
 
-    if (isCorrect) {
-      ValidationAlert.success("Bravo!", "Réponse correcte 🎉");
-    } else {
-      ValidationAlert.error("Oops!", "Réponse incorrecte 😕");
-    }
-  };
+  if (isCorrect) {
+    ValidationAlert.success(
+      "Bravo!",
+      `Score: ${score}`
+    );
+  } else {
+    ValidationAlert.error(
+      "Oops!",
+      `Score: ${score}`
+    );
+  }
+};
+
 
   // 👁️ إظهار الإجابة
   const handleShowAnswer = () => {
