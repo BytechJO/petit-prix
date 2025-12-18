@@ -47,6 +47,23 @@ export default function Book() {
     }
   };
 
+
+  const studentBook = pageData.find(b => b.id === "studentbook");
+
+  const unitsForSidebar = studentBook.units.map((unit) => {
+    const allPages = unit.sections.flatMap(sec => sec.pages);
+    return {
+      id: unit.id,
+      label: unit.title,
+      start: allPages[0].id,
+      pages: allPages.length,
+    };
+  });
+
+  const coverImage =
+  studentBook.units[0].sections[0].pages[0].image;
+
+
   const [popupData, setPopupData] = useState({
     isOpen: false,
     questions: [],
@@ -308,7 +325,7 @@ export default function Book() {
             pageIndex={pageIndex}
             pages={pages}
             totalPages={pages.length}
-            activeTab={activeTab}     
+            activeTab={activeTab}
             goToPage={setPageIndex}
             isMobile={isMobile}
             viewMode={viewMode}
@@ -323,6 +340,12 @@ export default function Book() {
             toggleFullScreen={toggleFullScreen}
             setViewMode={setViewMode}
             handleMenuClick={handleMenuClick}
+            units={unitsForSidebar}
+            book={{
+              title: "Student Book",
+              pages: pages.length,
+              cover: coverImage,
+            }}
           />
         )}
       </div>

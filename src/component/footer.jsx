@@ -32,11 +32,9 @@ const Footer = ({
     toggleFullScreen,
     setViewMode,
     handleMenuClick,
+    units,
+    book,
 }) => {
-    const menuItems = [
-        { id: 1, label: "Home", icon: "🏠" },
-        { id: 2, label: "Units", icon: "📘" },
-    ];
 
     const rightItems = [
         { id: 1, label: "Home", icon: home },
@@ -178,36 +176,13 @@ const Footer = ({
 
             </footer>
 
-            <div
-                className={`
-          fixed left-0 bottom-0 w-64 h-[100%] bg-white shadow-2xl z-[99999] 
-          rounded-tr-2xl transform transition-transform duration-300
-          ${isSidebarOpen ? "translate-y-0" : "translate-y-full"}
-        `}
-            >
-                <div className="p-4 border-b flex justify-between items-center">
-                    <h2 className="text-xl text-[#2c5287] font-semibold">Menu</h2>
-                    <button
-                        onClick={() => setIsSidebarOpen(false)}
-                        className="text-yellow-500 text-xl"
-                    >
-                        ✕
-                    </button>
-                </div>
-                <ul className="p-3 space-y-2">
-                    {menuItems.map((item) => (
-                        <li
-                            key={item.id}
-                            onClick={() => handleMenuClick(item.id)}
-                            className="flex items-center gap-3 text-[#2c5287] p-3 rounded-lg cursor-pointer bg-gray-100 hover:bg-[#2c5287] hover:text-white transition"
-                        >
-                            <span className="text-xl">{item.icon}</span>
-                            <span className="text-base font-medium">{item.label}</span>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
+            <LeftSidebar
+                isOpen={isSidebarOpen}
+                close={() => setIsSidebarOpen(false)}
+                units={units}
+                goToPage={goToPage}
+                book={book}
+            />
 
 
 
@@ -230,26 +205,18 @@ const Footer = ({
                     </button>
                 </div>
                 <ul className="p-3 space-y-3">
-          {rightItems.map((item) => (
-            <li
-              key={item.key}
-              className="flex items-center gap-3 p-3 bg-purple-100 rounded-lg hover:bg-purple-300 cursor-pointer"
-            >
-              <img src={item.icon} className="h-12" style={{height:"35px",width:"35px"}} />
-              <span>{item.label}</span>
-            </li>
-          ))}
-        </ul>
+                    {rightItems.map((item) => (
+                        <li
+                            key={item.key}
+                            className="flex items-center gap-3 p-3 bg-purple-100 rounded-lg hover:bg-purple-300 cursor-pointer"
+                        >
+                            <img src={item.icon} className="h-12" style={{ height: "35px", width: "35px" }} />
+                            <span>{item.label}</span>
+                        </li>
+                    ))}
+                </ul>
 
             </div>
-
-
-            {isSidebarOpen && (
-                <div
-                    onClick={() => setIsSidebarOpen(false)}
-                    className="fixed inset-0 bg-black/40 z-[99998]"
-                ></div>
-            )}
 
             {isrightSidebarOpen && (
                 <div
