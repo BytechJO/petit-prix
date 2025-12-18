@@ -1,7 +1,7 @@
 .audio-popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background-color: transparent !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,20 +12,21 @@
 .audio-popup-container {
   border-radius: 16px;
   padding: 20px;
-  max-width: 500px;
-  width: 90%;
+  justify-items: center;
+  max-width: 1200px;
+  width: 100%;
   position: relative;
   animation: popupEnter 0.35s ease-out forwards;
 }
 
 .close-btn {
-  margin-left: auto;
+  margin-left: 55%;
   display: block;
   color: #fff;
   font-weight: 900;
   border: none;
   background: none;
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
 }
 

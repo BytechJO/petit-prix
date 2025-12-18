@@ -57,6 +57,7 @@ const Q12 = () => {
       "Oops!",
       `Score: ${score}`
     );
+    setShowResult(false);
   }
 };
 

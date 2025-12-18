@@ -11,8 +11,8 @@ import openBook from "../assets/footer/open-book.svg";
 
 const Footer = ({
     pageIndex,
-    totalPages,    
-    activeTab,      
+    totalPages,
+    activeTab,
     goToPage,
     isMobile,
     viewMode,
@@ -115,7 +115,11 @@ const Footer = ({
                                     e.key === "Enter" && goToPage(Number(e.target.value))
                                 }
                                 className="w-10 text-center outline-none text-[#430f68] text-sm"
-                                placeholder={pageIndex + 1}
+                                placeholder={
+                                    viewMode === "spread" && pageIndex > 0
+                                        ? `${pageIndex + 1}-${pageIndex + 2}`
+                                        : `${pageIndex + 1}`
+                                }
                             />
                             <span className="text-[#430f68] text-sm">| {totalPages}</span>
                         </>

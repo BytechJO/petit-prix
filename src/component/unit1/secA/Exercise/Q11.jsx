@@ -7,6 +7,7 @@ import './Q11.css';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
 import sound6 from '../../../../assets/unit1/secA/sounds/L3Q1.mp3';
+
 import face1 from "../../../../assets/unit1/secA/page8/face1.svg";
 import face2 from "../../../../assets/unit1/secA/page8/face2.png";
 import face3 from "../../../../assets/unit1/secA/page8/face3.png";
@@ -118,7 +119,7 @@ const Q11 = ({ stopPoint }) => {
     const allFilled = feelingsData.every(h => containers[h.id]?.length > 0);
 
     if (!allFilled) {
-      return ValidationAlert.info("Attention", "Veuillez déposer une réponse pour chaque visage !");
+      return ValidationAlert.warning("Attention", "Veuillez déposer une réponse pour chaque visage !");
     }
 
     let correctCount = 0; // عداد الإجابات الصحيحة

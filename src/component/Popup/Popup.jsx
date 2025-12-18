@@ -7,8 +7,10 @@ import LessonNavigator from './LessonNavigator';
 import { useState } from "react";
 import Swal from "sweetalert2";
 import "./LessonNavigator.css";
-import next from "../../assets/next btn.svg";
-import back from "../../assets/back btn.svg";
+
+import next from "../../assets/next btn white.svg";
+import back from "../../assets/back btn white.svg";
+
 import AudioWithCaption from '../AudioWithCaption';
 import '../AudioWithCaption.css'
 
@@ -98,8 +100,7 @@ const Popup = (
                         display: "flex",
                         width: "100%",
                         marginBottom: "30px",
-                        gap: "20px",
-                        justifyContent: "center", // الآن كل العناصر بالوسط
+                        justifyContent: "flex-start",
                         alignItems: "center",
                         backgroundColor: "#430f68",
                         padding: "10px 20px",
@@ -122,16 +123,15 @@ const Popup = (
                             marginRight: "20px", // مسافة بسيطة بين الزرين
                         }}
                     >
-                        <svg width="20" height="20" viewBox="0 0 90 90">
-                            <image href={back} x="0" y="0" width="90" height="90" />
-                        </svg>
+                        <img
+                            src={back}
+                            alt="back"
+                            style={{ width: "20px", height: "20px", marginRight: "8px" }}
+                        />
                         Previous Exercise
                     </button>
 
-                    {/* ممكن تحط مؤشر التقدم لو حاب */}
-                    <div style={{ color: "white", fontSize: "14px" }}>
-                        Question {index + 1} of {questions.length}
-                    </div>
+
 
                     <button
                         onClick={handleNext}
@@ -146,13 +146,19 @@ const Popup = (
                             background: "none",
                             border: "none",
                             transition: "opacity 0.3s",
-                            marginLeft: "20px", // مسافة بسيطة بين الزرين
+                            marginLeft: "20px",
                         }}
                     >
                         Next Exercise
-                        <svg width="20" height="20" viewBox="0 0 90 90">
-                            <image href={next} x="0" y="0" width="90" height="90" />
-                        </svg>
+                        <img
+                            src={next}
+                            alt="next"
+                            style={{
+                                width: "20px",
+                                height: "20px",
+                                marginLeft: "8px",
+                            }}
+                        />
                     </button>
                 </div>
 
@@ -161,12 +167,13 @@ const Popup = (
                     className="popup-question-container"
                     style={{
                         display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        gap: "10%",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "15px",
                         width: "100%",
                     }}
                 >
+
                     {currentQuestionData.text && (
                         <p className="question-text">
                             <span className="qusetionnum" style={{ fontWeight: "bold" }}>
@@ -178,13 +185,14 @@ const Popup = (
 
 
                     {currentQuestionData.audio && (
-  <div style={{ width: "30%", transform: "scale(0.75)" }}>
-    <AudioWithCaption
-      src={currentQuestionData.audio}
-      captions={currentQuestionData.captions || []}
-    />
-  </div>
-)}
+                        <div style={{ width: "100%", marginTop: "1%",marginLeft:"32%",marginBottom: "2%" }}>
+                            <AudioWithCaption
+                                src={currentQuestionData.audio}
+                                captions={currentQuestionData.captions || []}
+                            />
+                        </div>
+                    )}
+
 
                 </div>
 
