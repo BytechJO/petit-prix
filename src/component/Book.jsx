@@ -61,7 +61,7 @@ export default function Book() {
   });
 
   const coverImage =
-  studentBook.units[0].sections[0].pages[0].image;
+    studentBook.units[0].sections[0].pages[0].image;
 
 
   const [popupData, setPopupData] = useState({
@@ -168,6 +168,8 @@ export default function Book() {
       >
         {/* إخفاء Navbar عند فتح Popup */}
         {!popupData.isOpen && <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />}
+        {activeTab === "student" && <StudentBook />}
+        {activeTab === "work" && <WorkBook />}
 
         <div className="content-wrapper overflow-auto lg:overflow-hidden">
           <div

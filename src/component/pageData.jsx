@@ -113,14 +113,25 @@ export const pageData = [
   {
     id: "workbook",
     title: "Student Book",
-    units: [],
+    units: [{
+        id: "unit1",
+        title: "Unit 1",
+        sections: [
+          {
+            id: "secA",
+            title: "Section A",
+            pages: [
+              {
+                id: 1,
+                component: Page1,
+                image: img1,
+              },
+            ],
+          },
+        ],
+      },],
   },
 
-  {
-    id: "teacherbook",
-    title: "Teacher Book",
-    units: [],
-  },
 ];
 
 

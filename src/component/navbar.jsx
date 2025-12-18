@@ -4,11 +4,8 @@ import logo from "../assets/nav/PreissMurphy Logo-BGSDEhSA (1).svg";
 
 const Navbar = ({ activeTab, setActiveTab }) => {
     const tabs = [
-        { id: "student", label: "Student’s Book" },
-        { id: "work", label: "Workbook" },
-        { id: "teacher", label: "Teacher’s Book" },
-        { id: "flash", label: "Flashcards" },
-        { id: "poster", label: "Posters" },
+        { id: "studentbook", label: "Student’s Book" },
+        { id: "workbook", label: "Workbook" },
     ];
 
     return (
