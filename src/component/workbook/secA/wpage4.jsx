@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './wpage4.css';
 import {
-  faArrowPointer, faHeadphones
+    faArrowPointer, faHeadphones
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -9,48 +9,50 @@ import { Wunit1SecAQuestions } from '../../pageData';
 
 const WPage4 = ({ bgImage, openPopup }) => {
 
-  const [showAudio, setShowAudio] = useState(false);
+    const [showAudio, setShowAudio] = useState(false);
 
-  const handleOpenQuestion = () => {
-    openPopup({
-      questionText: Wunit1SecAQuestions[1].text,
-      questions: Wunit1SecAQuestions,
-      currentUnit: 1,
-      currentSection: "A",
-      startIndex: 2,
-      audioSrc: Wunit1SecAQuestions[1].audio,
-      captions: Wunit1SecAQuestions[1].captions,
-    });
-  };
+    const handleOpenQuestion = (questionIndex) => {
+        const q = Wunit1SecAQuestions[questionIndex];
 
-  return (
-    <div
-      className="page_1-background"
+        openPopup({
+            questionText: q.text,
+            questions: Wunit1SecAQuestions,
+            currentUnit: 1,
+            currentSection: "A",
+            startIndex: questionIndex,
+            audioSrc: q.audio,
+            captions: q.captions,
+        });
+    };
 
-    >
-      <img src={bgImage} />
+    return (
+        <div
+            className="page_1-background"
 
-      <button
-        className='btnopenpopup'
-        id="wpage4q1"
-        onClick={() => handleOpenQuestion(0)}
-      >
-        <FontAwesomeIcon icon={faArrowPointer} />
-      </button>
+        >
+            <img src={bgImage} />
 
-      <button
-        className='btnopenpopup'
-        id="wpage4q2"
-        onClick={() => handleOpenQuestion(0)}
-      >
-        <FontAwesomeIcon icon={faArrowPointer} />
-      </button>
+            <button
+                className='btnopenpopup'
+                id="wpage4q1"
+                onClick={() => handleOpenQuestion(2)}
+            >
+                <FontAwesomeIcon icon={faArrowPointer} />
+            </button>
+
+            <button
+                className='btnopenpopup'
+                id="wpage4q2"
+                onClick={() => handleOpenQuestion(3)}
+            >
+                <FontAwesomeIcon icon={faArrowPointer} />
+            </button>
 
 
-    </div>
+        </div>
 
 
-  )
+    )
 }
 
 export default WPage4;

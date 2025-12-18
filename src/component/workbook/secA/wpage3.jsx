@@ -5,23 +5,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { unit1SecAQuestions } from '../../pageData';
+import { Wunit1SecAQuestions } from '../../pageData';
 
 const WPage3 = ({ bgImage, openPopup }) => {
 
   const [showAudio, setShowAudio] = useState(false);
 
-  const handleOpenQuestion = () => {
-    openPopup({
-      questionText: unit1SecAQuestions[1].text,
-      questions: unit1SecAQuestions,
-      currentUnit: 1,
-      currentSection: "A",
-      startIndex: 2,
-      audioSrc: unit1SecAQuestions[1].audio,
-      captions: unit1SecAQuestions[1].captions,
-    });
-  };
+  const handleOpenQuestion = (questionIndex) => {
+   const q = Wunit1SecAQuestions[questionIndex];
+ 
+   openPopup({
+     questionText: q.text,
+     questions: Wunit1SecAQuestions,
+     currentUnit: 1,
+     currentSection: "A",
+     startIndex: questionIndex,
+     audioSrc: q.audio,
+     captions: q.captions,
+   });
+ };
 
   return (
     <div
@@ -41,7 +43,7 @@ const WPage3 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="wpage3q2"
-        onClick={() => handleOpenQuestion(0)}
+        onClick={() => handleOpenQuestion(1)}
       >
         <FontAwesomeIcon icon={faArrowPointer} />
       </button>
