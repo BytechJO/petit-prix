@@ -48,20 +48,31 @@ export default function Book() {
   };
 
 
-  const studentBook = pageData.find(b => b.id === "studentbook");
+ useEffect(() => {
+  if (activeTab === "studentbook") {
+    setPageIndex(0);
+  } else if (activeTab === "workbook") {
+    setPageIndex(0);
+  }
+}, [activeTab]);
 
-  const unitsForSidebar = studentBook.units.map((unit) => {
-    const allPages = unit.sections.flatMap(sec => sec.pages);
-    return {
-      id: unit.id,
-      label: unit.title,
-      start: allPages[0].id,
-      pages: allPages.length,
-    };
-  });
 
-  const coverImage =
-    studentBook.units[0].sections[0].pages[0].image;
+
+  const currentBook = pageData.find(b => b.id === activeTab);
+
+  const unitsForSidebar = currentBook.units.map((unit) => {
+  const allPages = unit.sections.flatMap(sec => sec.pages);
+  return {
+    id: unit.id,
+    label: unit.title,
+    start: allPages[0].id,
+    pages: allPages.length,
+  };
+});
+
+const coverImage =
+  currentBook.units[0].sections[0].pages[0].image;
+
 
 
   const [popupData, setPopupData] = useState({
@@ -170,6 +181,7 @@ export default function Book() {
         {!popupData.isOpen && <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />}
         {activeTab === "student" && <StudentBook />}
         {activeTab === "work" && <WorkBook />}
+        
 
         <div className="content-wrapper overflow-auto lg:overflow-hidden">
           <div
@@ -344,7 +356,7 @@ export default function Book() {
             handleMenuClick={handleMenuClick}
             units={unitsForSidebar}
             book={{
-              title: "Student Book",
+              title: currentBook.title,
               pages: pages.length,
               cover: coverImage,
             }}

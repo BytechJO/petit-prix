@@ -4,7 +4,7 @@ import { TbMessageCircle } from "react-icons/tb";
 import { IoMdSettings } from "react-icons/io";
 import "./AudioWithCaption.css";
 
-const AudioWithCaption = ({ src, captions, onCaptionChange }) => {
+const AudioWithCaption = ({ src, captions, onCaptionChange, showClose = false, onClose, }) => {
   const audioRef = useRef(null);
   const settingsRef = useRef(null);
   const captionRef = useRef(null);
@@ -67,6 +67,13 @@ const AudioWithCaption = ({ src, captions, onCaptionChange }) => {
     <div className="audio-popup">
       {/* مؤشر السرعة */}
       <div className="audio-inner player-ui">
+        {showClose && onClose && (
+          <button className="close-btn" onClick={onClose}>
+            ✕
+          </button>
+        )}
+
+
         <audio
           ref={audioRef}
           src={src}
@@ -98,9 +105,8 @@ const AudioWithCaption = ({ src, captions, onCaptionChange }) => {
               updateCaption(Number(e.target.value));
             }}
             style={{
-              background: `linear-gradient(to right, #430f68 ${
-                (current / duration) * 100
-              }%, #d9d9d9ff ${(current / duration) * 100}%)`,
+              background: `linear-gradient(to right, #430f68 ${(current / duration) * 100
+                }%, #d9d9d9ff ${(current / duration) * 100}%)`,
             }}
           />
 

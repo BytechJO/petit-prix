@@ -25,11 +25,9 @@ const AudioPopup = ({ open, onClose, src, captions }) => {
         className={`audio-popup-container ${isClosing ? "closing" : ""}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="close-btn" onClick={handleClose}>
-          ✕
-        </button>
 
-        <AudioWithCaption src={src} captions={captions} />
+        <AudioWithCaption src={src} captions={captions} showClose={true}
+  onClose={onClose} />
       </div>
     </div>
   );

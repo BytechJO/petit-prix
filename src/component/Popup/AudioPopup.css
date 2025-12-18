@@ -19,17 +19,6 @@
   animation: popupEnter 0.35s ease-out forwards;
 }
 
-.close-btn {
-  margin-left: 55%;
-  display: block;
-  color: #fff;
-  font-weight: 900;
-  border: none;
-  background: none;
-  font-size: 25px;
-  cursor: pointer;
-}
-
 /* closing */
 .audio-popup-overlay.closing {
   animation: overlayFadeOut 0.25s ease forwards;
