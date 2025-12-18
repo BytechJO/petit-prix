@@ -11,6 +11,7 @@ export default function Book() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1100);
   const [activeTab, setActiveTab] = useState("studentbook");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isrightSidebarOpen, setIsrightSidebarOpen] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [viewMode, setViewMode] = useState("spread");
   const [selectedUnit, setSelectedUnit] = useState("unit1");
@@ -313,6 +314,8 @@ export default function Book() {
             viewMode={viewMode}
             isSidebarOpen={isSidebarOpen}
             setIsSidebarOpen={setIsSidebarOpen}
+            isrightSidebarOpen={isrightSidebarOpen}
+            setIsrightSidebarOpen={setIsrightSidebarOpen}
             goToIndex={goToIndex}
             setZoom={setZoom}
             setOffset={setOffset}
