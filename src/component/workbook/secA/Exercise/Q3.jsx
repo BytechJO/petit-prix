@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import bread from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-3.png";
-import flag from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-4.png";
-import Burger from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-5.png";
+import bread from "../../../../assets/workbook/Unit1/Lesson1/L1Q3-1.svg";
+import flag from "../../../../assets/workbook/Unit1/Lesson1/L1Q3-2.svg";
+import Burger from "../../../../assets/workbook/Unit1/Lesson1/L1Q3-3.svg";
 
 import ValidationAlert from '../../../Popup/ValidationAlert';
 // === الخطوة 2: تنظيم بيانات الأسئلة ===

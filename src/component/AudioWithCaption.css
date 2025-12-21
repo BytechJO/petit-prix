@@ -230,3 +230,18 @@
   transform: scale(0.95);
 }
 
+
+.segment-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.segment-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #430f68;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

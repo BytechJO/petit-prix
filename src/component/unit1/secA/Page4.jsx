@@ -9,34 +9,14 @@ import { unit1SecAQuestions } from '../../pageData';
 
 const Page4 = ({ bgImage, openPopup }) => {
 
-  const questions = [
-    { id: 1, component: Q1, audio: null, text: "Question 1" },
-  ];
-  const caption = [
-    {
-      start: 0,
-      end: 4.23,
-      text: "Page 8. Right Activities. Exercise A, number 1. ",
-    },
-    {
-      start: 4.25,
-      end: 8.28,
-      text: "Listen and write the missing letters. Number the pictures.  ",
-    },
-    { start: 8.3, end: 11.05, text: "1-tiger." },
-    { start: 11.07, end: 13.12, text: "2-taxi." },
-    { start: 13.14, end: 15.14, text: "3-duck." },
-    { start: 15.16, end: 17.13, text: "4-deer." },
-  ];
-
 
   const handleOpenQuestion = () => {
     openPopup({
       questionText: unit1SecAQuestions[0].text,
-      questions: unit1SecAQuestions, // كل الأسئلة
+      questions: unit1SecAQuestions, 
       currentUnit: 1,
       currentSection: "A",
-      startIndex: 0, // ابدأ من السؤال الأول
+      startIndex: 0, 
       audioSrc: unit1SecAQuestions[0].audio,
       captions: unit1SecAQuestions[0].captions,
     });

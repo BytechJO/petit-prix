@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import conv from "../../../../assets/workbook/Unit1/Lesson1/L1Q4.png";
+import conv from "../../../../assets/workbook/Unit1/Lesson1/L1Q4.svg";
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
 // الكلمات التي ستظهر في بنك الكلمات (بشكل عشوائي)
@@ -114,7 +114,7 @@ const Q4 = () => {
                         <img
                             src={conv}
                             alt="Dialogue scene"
-                            className="w-full h-full object-cover rounded-r-2xl"
+                            className="w-[80%] h-[80%]  rounded-r-2xl"
                         />
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import bear from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-1.png";
-import tower from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-2.png";
-import bread from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-3.png";
-import flag from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-4.png";
-import Burger from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-5.png";
+import bear from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-1.svg";
+import tower from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-2.svg";
+import bread from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-3.svg";
+import flag from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-4.svg";
+import Burger from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-5.svg";
 
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
@@ -124,7 +124,7 @@ const Q1 = () => {
                     {cards.length > 0 ? (
                         <motion.div
                             key={activeCard.id}
-                            className="absolute w-72 h-96 bg-white rounded-2xl shadow-2xl cursor-grab"
+                            className="absolute w-84 h-90 rounded-full shadow-2xl cursor-grab"
                             drag="x"
                             dragConstraints={{ left: 0, right: 0 }}
                             onDragEnd={(event, info) => {
