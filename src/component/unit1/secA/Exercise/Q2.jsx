@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import backgroundImage from "../../../../assets/unit1/secA/popup/page4.png";
+import backgroundImage from "../../../../../public/assets/unit1/secA/popup/page4.png";
 import ValidationAlert from "../../../Popup/ValidationAlert";
-import Rabbit from "../../../../assets/unit1/secA/page45/1.svg";
-import MySVG from "../../../../assets/unit1/secA/page45/2.svg";
 import InteractivePage from "../../interactive";
 
-import fence from "../../../../assets/unit1/secA/page45/ch1.svg";
-import book from "../../../../assets/unit1/secA/page45/ch3.svg";
-import pen from "../../../../assets/unit1/secA/page45/ch4.svg";
+import fence from "../../../../../public/assets/unit1/secA/page45/ch1.svg";
+import book from "../../../../../public/assets/unit1/secA/page45/ch3.svg";
+import pen from "../../../../../public/assets/unit1/secA/page45/ch4.svg";
 
 const Q1 = () => {
   const [foundItems, setFoundItems] = useState([false, false, false, false]);

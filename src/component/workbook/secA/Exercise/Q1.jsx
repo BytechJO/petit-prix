@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import bear from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-1.svg";
-import tower from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-2.svg";
-import bread from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-3.svg";
-import flag from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-4.svg";
-import Burger from "../../../../assets/workbook/Unit1/Lesson1/L1Q1-5.svg";
+import bear from "../../../../../public/assets/workbook/Unit1/Lesson1/L1Q1-1.svg";
+import tower from "../../../../../public/assets/workbook/Unit1/Lesson1/L1Q1-2.svg";
+import bread from "../../../../../public/assets/workbook/Unit1/Lesson1/L1Q1-3.svg";
+import flag from "../../../../../public/assets/workbook/Unit1/Lesson1/L1Q1-4.svg";
+import Burger from "../../../../../public/assets/workbook/Unit1/Lesson1/L1Q1-5.svg";
 
 import ValidationAlert from '../../../Popup/ValidationAlert';
 

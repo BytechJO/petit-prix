@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import next from "../assets/next btn.svg";
-import back from "../assets/back btn.svg";
+import next from "../../public/assets/next btn.svg";
+import back from "../../public/assets/back btn.svg";
 import Popup from "./Popup/Popup";
 import { pageData } from "./pageData";
 import Navbar from "./navbar";

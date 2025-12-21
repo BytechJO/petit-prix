@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 import './Q3.css';
 
-import characterImage from '../../../../assets/unit1/secA/page6/characters1.png';
-import characterImage1 from '../../../../assets/unit1/secA/page6/character2.png';
+import characterImage from '../../../../../public/assets/unit1/secA/page6/characters1.png';
+import characterImage1 from '../../../../../public/assets/unit1/secA/page6/character2.png';
 
 const ANSWER_OPTIONS = ["Salut", "Bonjour"].sort(() => Math.random() - 0.5);
 const CORRECT_ANSWERS = ["Bonjour", "Salut"];

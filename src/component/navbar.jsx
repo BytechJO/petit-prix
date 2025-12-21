@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/nav/PreissMurphy Logo-BGSDEhSA (1).svg";
+import logo from "../../public/assets/nav/PreissMurphy Logo-BGSDEhSA (1).svg";
 
 
 const Navbar = ({ activeTab, setActiveTab }) => {

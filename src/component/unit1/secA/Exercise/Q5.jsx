@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import './Q5.css';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-import boyImage from '../../../../assets/unit1/secA/page7/Q11.png';
-import girlImage from '../../../../assets/unit1/secA/page7/Q12.png';
+import boyImage from '../../../../../public/assets/unit1/secA/page7/Q11.png';
+import girlImage from '../../../../../public/assets/unit1/secA/page7/Q12.png';
 
 const Q5 = ({ sound }) => {
   const [boyName, setBoyName] = useState('');

@@ -9,15 +9,15 @@ import Page7 from "../component/unit1/secA/Page7";
 import Page8 from "../component/unit1/secA/Page8";
 import Page9 from "../component/unit1/secA/Page9";
 
-import img1 from "../assets/unit1/1.png";
-import img2 from "../assets/unit1/2.png";
-import img3 from "../assets/unit1/secA/3.png";
-import img4 from "../assets/unit1/secA/4.png";
-import img5 from "../assets/unit1/secA/5.png";
-import img6 from "../assets/unit1/secA/6.png";
-import img7 from "../assets/unit1/secA/7.png";
-import img8 from "../assets/unit1/secA/8.png";
-import img9 from "../assets/unit1/secA/9.png";
+import img1 from "../../public/assets/unit1/1.png";
+import img2 from "../../public/assets/unit1/2.png";
+import img3 from "../../public/assets/unit1/secA/3.png";
+import img4 from "../../public/assets/unit1/secA/4.png";
+import img5 from "../../public/assets/unit1/secA/5.png";
+import img6 from "../../public/assets/unit1/secA/6.png";
+import img7 from "../../public/assets/unit1/secA/7.png";
+import img8 from "../../public/assets/unit1/secA/8.png";
+import img9 from "../../public/assets/unit1/secA/9.png";
 
 import Q1 from '../component/unit1/secA/Exercise/Q1';
 import Q2 from '../component/unit1/secA/Exercise/Q2';
@@ -27,24 +27,24 @@ import Q7 from '../component/unit1/secA/Exercise/Q7';
 import Q11 from '../component/unit1/secA/Exercise/Q11';
 import Q12 from '../component/unit1/secA/Exercise/Q12';
 
-import sound1 from '../assets/unit1/secA/sounds/page5.mp3';
-import sound2 from '../assets/unit1/secA/sounds/L1Q1.mp3';
-import sound3 from '../assets/unit1/secA/sounds/L1Q1-1.mp3';
-import sound4 from '../assets/unit1/secA/sounds/L1Q1-2.mp3';
-import sound5 from '../assets/unit1/secA/sounds/L1Q4.mp3';
-import sound6 from '../assets/unit1/secA/sounds/L2Q1.mp3';
-import sound7 from '../assets/unit1/secA/sounds/L2Q2.mp3';
-import sound8 from '../assets/unit1/secA/sounds/l2q11.mp3';
-import sound9 from '../assets/unit1/secA/sounds/l2q12.mp3';
-import sound10 from '../assets/unit1/secA/sounds/L3Q1.mp3';
-import sound11 from '../assets/unit1/secA/sounds/L4Q1.mp3';
-import sound12 from '../assets/unit1/secA/sounds/L4Q2.mp3';
+import sound1 from '../../public/assets/unit1/secA/sounds/page5.mp3';
+import sound2 from '../../public/assets/unit1/secA/sounds/L1Q1.mp3';
+import sound3 from '../../public/assets/unit1/secA/sounds/L1Q1-1.mp3';
+import sound4 from '../../public/assets/unit1/secA/sounds/L1Q1-2.mp3';
+import sound5 from '../../public/assets/unit1/secA/sounds/L1Q4.mp3';
+import sound6 from '../../public/assets/unit1/secA/sounds/L2Q1.mp3';
+import sound7 from '../../public/assets/unit1/secA/sounds/L2Q2.mp3';
+import sound8 from '../../public/assets/unit1/secA/sounds/l2q11.mp3';
+import sound9 from '../../public/assets/unit1/secA/sounds/l2q12.mp3';
+import sound10 from '../../public/assets/unit1/secA/sounds/L3Q1.mp3';
+import sound11 from '../../public/assets/unit1/secA/sounds/L4Q1.mp3';
+import sound12 from '../../public/assets/unit1/secA/sounds/L4Q2.mp3';
 
 // workbook
-import Wimg1 from '../assets/workbook/Unit1/Lesson1/cover.png';
-import Wimg2 from '../assets/workbook/Unit1/Lesson1/1.png';
-import Wimg3 from '../assets/workbook/Unit1/Lesson1/2.png';
-import Wimg4 from '../assets/workbook/Unit1/Lesson1/3.png';
+import Wimg1 from '../../public/assets/workbook/Unit1/Lesson1/cover.png';
+import Wimg2 from '../../public/assets/workbook/Unit1/Lesson1/1.png';
+import Wimg3 from '../../public/assets/workbook/Unit1/Lesson1/2.png';
+import Wimg4 from '../../public/assets/workbook/Unit1/Lesson1/3.png';
 
 import WPage1 from '../component/workbook/secA/wpage1';
 import WPage2 from '../component/workbook/secA/wpage2';

@@ -1,30 +1,30 @@
 // src/components/Footer.js
 
 import React from "react";
-import menu from "../assets/footer/menu.svg";
+import menu from "../../public/assets/footer/menu.svg";
 
-import home from "../assets/footer/home.svg";
-import zoomIn from "../assets/footer/zoom in.svg";
-import zoomOut from "../assets/footer/zoom out.svg";
-import fullScreen from "../assets/footer/fullscreen.svg";
-import onePage from "../assets/footer/one page.svg";
-import openBook from "../assets/footer/open-book.svg";
+import home from "../../public/assets/footer/home.svg";
+import zoomIn from "../../public/assets/footer/zoom in.svg";
+import zoomOut from "../../public/assets/footer/zoom out.svg";
+import fullScreen from "../../public/assets/footer/fullscreen.svg";
+import onePage from "../../public/assets/footer/one page.svg";
+import openBook from "../../public/assets/footer/open-book.svg";
 
 import { FaKey } from "react-icons/fa";
 
 // rightbar
-import quiz from "../assets/footer/icons/1.svg";
-import audio from "../assets/footer/icons/2.svg";
-import backbtn from "../assets/footer/icons/3.svg";
-import Fullscreen from "../assets/footer/icons/4.svg";
-import homee from "../assets/footer/icons/5.svg";
-import menuu from "../assets/footer/icons/6.svg";
-import next from "../assets/footer/icons/7.svg";
-import onepage from "../assets/footer/icons/8.svg";
-import twopage from "../assets/footer/icons/9.svg";
-import logo from "../assets/footer/icons/10.svg";
-import zoomin from "../assets/footer/icons/11.svg";
-import zoomout from "../assets/footer/icons/12.svg";
+import quiz from "../../public/assets/footer/icons/1.svg";
+import audio from "../../public/assets/footer/icons/2.svg";
+import backbtn from "../../public/assets/footer/icons/3.svg";
+import Fullscreen from "../../public/assets/footer/icons/4.svg";
+import homee from "../../public/assets/footer/icons/5.svg";
+import menuu from "../../public/assets/footer/icons/6.svg";
+import next from "../../public/assets/footer/icons/7.svg";
+import onepage from "../../public/assets/footer/icons/8.svg";
+import twopage from "../../public/assets/footer/icons/9.svg";
+import logo from "../../public/assets/footer/icons/10.svg";
+import zoomin from "../../public/assets/footer/icons/11.svg";
+import zoomout from "../../public/assets/footer/icons/12.svg";
 
 const rightItems = [
     { id: 1, label: "logo", icon: logo },
