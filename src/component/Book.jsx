@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import next from "../../public/assets/next btn.svg";
-import back from "../../public/assets/back btn.svg";
 import Popup from "./Popup/Popup";
 import { pageData } from "./pageData";
 import Navbar from "./navbar";
 import Footer from "./footer";
+
+const next = "/assets/next btn.svg";
+const back = "/assets/back btn.svg";
+
 
 export default function Book() {
   const [pageIndex, setPageIndex] = useState(0);

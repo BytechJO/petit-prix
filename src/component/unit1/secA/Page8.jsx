@@ -4,20 +4,23 @@ import {
     faArrowPointer, faHeadphones
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import sound1 from '../../../../public/assets/unit1/secA/sounds/L1Q1.mp3';
+
+const sound1 ="/assets/unit1/secA/sounds/L1Q1.mp3";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
 import Character from './Character';
-import winkStaticsvg from "../../../../public/assets/unit1/secA/page8/1.svg";
-import winkAnimatedsvg from "../../../../public/assets/unit1/secA/page8/2.svg";
-import happyStaticsvg from "../../../../public/assets/unit1/secA/page8/3.svg";
-import happyAnimatedsvg from "../../../../public/assets/unit1/secA/page8/4.svg";
 
-import winkStatic from "../../../../public/assets/unit1/secA/page8/1.gif";
-import winkAnimated from "../../../../public/assets/unit1/secA/page8/2.gif";
-import happyStatic from "../../../../public/assets/unit1/secA/page8/3.gif";
-import happyAnimated from "../../../../public/assets/unit1/secA/page8/4.gif";
+const winkStaticsvg = "/assets/unit1/secA/page8/1.svg";
+const winkAnimatedsvg = "/assets/unit1/secA/page8/2.svg";
+const happyStaticsvg = "/assets/unit1/secA/page8/3.svg";
+const happyAnimatedsvg = "/assets/unit1/secA/page8/4.svg";
+
+const winkStatic = "/assets/unit1/secA/page8/1.gif";
+const winkAnimated = "/assets/unit1/secA/page8/2.gif";
+const happyStatic = "/assets/unit1/secA/page8/3.gif";
+const happyAnimated = "/assets/unit1/secA/page8/4.gif";
+
 
 const Page8 = ({ bgImage, openPopup }) => {
 
@@ -42,7 +45,7 @@ const Page8 = ({ bgImage, openPopup }) => {
             className="page_1-background"
 
         >
-            <img src={bgImage} />
+            <img src={bgImage} loading="lazy"/>
 
             <button
                 className='btnopenpopup'

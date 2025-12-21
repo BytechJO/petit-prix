@@ -3,10 +3,10 @@ import InteractiveHotspotQuestion from './InteractiveHotspotQuestion';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 import './Q12.css';
 
-import imgs1 from "../../../../../public/assets/unit1/secA/page9/dem1.svg";
-import imgs2 from "../../../../../public/assets/unit1/secA/page9/dem2.svg";
-import imgs3 from "../../../../../public/assets/unit1/secA/page9/dem3.svg";
-import imgs4 from "../../../../../public/assets/unit1/secA/page9/dem4.svg";
+const imgs1 = "/assets/unit1/secA/page9/dem1.svg";
+const imgs2 = "/assets/unit1/secA/page9/dem2.svg";
+const imgs3 = "/assets/unit1/secA/page9/dem3.svg";
+const imgs4 = "/assets/unit1/secA/page9/dem4.svg";
 
 const images = [imgs1, imgs2, imgs3, imgs4];
 const CORRECT_INDICES = [0, 1];

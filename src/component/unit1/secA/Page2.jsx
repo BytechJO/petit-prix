@@ -1,11 +1,11 @@
-import React from 'react'
+
 const Page2 = ({ bgImage }) => {
   return (
     <div
       className="page_1-background"
 
     >
-      <img src={bgImage}/>
+      <img src={bgImage} loading="lazy"/>
     </div>
   )
 }

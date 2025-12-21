@@ -30,7 +30,7 @@ const WPage4 = ({ bgImage, openPopup }) => {
             className="page_1-background"
 
         >
-            <img src={bgImage} />
+            <img src={bgImage} loading="lazy"/>
 
             <button
                 className='btnopenpopup'

@@ -1,30 +1,31 @@
 // src/components/Footer.js
 
 import React from "react";
-import menu from "../../public/assets/footer/menu.svg";
+const menu = "/assets/footer/menu.svg";
 
-import home from "../../public/assets/footer/home.svg";
-import zoomIn from "../../public/assets/footer/zoom in.svg";
-import zoomOut from "../../public/assets/footer/zoom out.svg";
-import fullScreen from "../../public/assets/footer/fullscreen.svg";
-import onePage from "../../public/assets/footer/one page.svg";
-import openBook from "../../public/assets/footer/open-book.svg";
+const home = "/assets/footer/home.svg";
+const zoomIn = "/assets/footer/zoom in.svg";
+const zoomOut = "/assets/footer/zoom out.svg";
+const fullScreen = "/assets/footer/fullscreen.svg";
+const onePage = "/assets/footer/one page.svg";
+const openBook = "/assets/footer/open-book.svg";
 
 import { FaKey } from "react-icons/fa";
 
 // rightbar
-import quiz from "../../public/assets/footer/icons/1.svg";
-import audio from "../../public/assets/footer/icons/2.svg";
-import backbtn from "../../public/assets/footer/icons/3.svg";
-import Fullscreen from "../../public/assets/footer/icons/4.svg";
-import homee from "../../public/assets/footer/icons/5.svg";
-import menuu from "../../public/assets/footer/icons/6.svg";
-import next from "../../public/assets/footer/icons/7.svg";
-import onepage from "../../public/assets/footer/icons/8.svg";
-import twopage from "../../public/assets/footer/icons/9.svg";
-import logo from "../../public/assets/footer/icons/10.svg";
-import zoomin from "../../public/assets/footer/icons/11.svg";
-import zoomout from "../../public/assets/footer/icons/12.svg";
+const quiz = "/assets/footer/icons/1.svg";
+const audio = "/assets/footer/icons/2.svg";
+const backbtn = "/assets/footer/icons/3.svg";
+const Fullscreen = "/assets/footer/icons/4.svg";
+const homee = "/assets/footer/icons/5.svg";
+const menuu = "/assets/footer/icons/6.svg";
+const next = "/assets/footer/icons/7.svg";
+const onepage = "/assets/footer/icons/8.svg";
+const twopage = "/assets/footer/icons/9.svg";
+const logo = "/assets/footer/icons/10.svg";
+const zoomin = "/assets/footer/icons/11.svg";
+const zoomout = "/assets/footer/icons/12.svg";
+
 
 const rightItems = [
     { id: 1, label: "logo", icon: logo },

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import "./LessonNavigator.css";
-import next from "../../../public/assets/next btn.svg";
-import back from "../../../public/assets/back btn.svg";
+
+const next = "/assets/next btn.svg";
+const back ="/assets/back btn.svg";
 
 export default function LessonNavigator({
     questions = [],

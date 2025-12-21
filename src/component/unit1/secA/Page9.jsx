@@ -4,7 +4,8 @@ import {
   faArrowPointer, faHeadphones
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import sound1 from '../../../../public/assets/unit1/secA/sounds/L1Q1.mp3';
+
+const sound1 = "/assets/unit1/secA/sounds/L1Q1.mp3";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
@@ -32,7 +33,7 @@ const Page9 = ({ bgImage, openPopup }) => {
       className="page_1-background"
 
     >
-      <img src={bgImage} />
+      <img src={bgImage} loading="lazy"/>
 
       <button
         className='btnopenpopup'

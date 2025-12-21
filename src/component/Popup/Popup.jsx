@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import './Popup.css';
-import LessonNavigator from './LessonNavigator';
 import { useState } from "react";
 import Swal from "sweetalert2";
 import "./LessonNavigator.css";
 
-import next from "../../../public/assets/next btn white.svg";
-import back from "../../../public/assets/back btn white.svg";
+const next ="/assets/next btn white.svg";
+const back = "/assets/back btn white.svg";
 
 import AudioWithCaption from '../AudioWithCaption';
 import '../AudioWithCaption.css'

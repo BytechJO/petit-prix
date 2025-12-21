@@ -5,7 +5,7 @@ const WPage2 = ({ bgImage }) => {
       className="page_1-background"
 
     >
-      <img src={bgImage}/>
+      <img src={bgImage} loading="lazy"/>
     </div>
   )
 }

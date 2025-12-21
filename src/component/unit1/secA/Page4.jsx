@@ -1,5 +1,4 @@
-import React from 'react'
-import Q1 from './Exercise/Q1';
+
 import './page4.css';
 import {
   faArrowPointer
@@ -28,7 +27,7 @@ const Page4 = ({ bgImage, openPopup }) => {
     <div
       className="page_1-background"
     >
-      <img src={bgImage} />
+      <img src={bgImage} loading="lazy"/>
 
       <button
         className='btnopenpopup'

@@ -1,12 +1,14 @@
 import Swal from "sweetalert2";
 import './ValidationAlert.css';
-import good from "../../../public/assets/alert/goodjob.gif";
-import wrong from "../../../public/assets/alert/wrong.gif";
-import Notice from "../../../public/assets/alert/Notice.gif";
 
-import correctSound from "../../../public/assets/alert/correct.mp3";
-import wrongSound from "../../../public/assets/alert/incorrect.mp3";
-import Warning from "../../../public/assets/alert/warning.mp3";
+const good = "/assets/alert/goodjob.gif";
+const wrong = "/assets/alert/wrong.gif";
+const Notice = "/assets/alert/Notice.gif";
+
+const correctSound = "/assets/alert/correct.mp3";
+const wrongSound = "/assets/alert/incorrect.mp3";
+const Warning = "/assets/alert/warning.mp3";
+
 
 const playSound = (isCorrect) => {
   new Audio(isCorrect ? correctSound : wrongSound).play();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import conv from "../../../../../public/assets/workbook/Unit1/Lesson1/L1Q4.svg";
+const conv ="/assets/workbook/Unit1/Lesson1/L1Q4.svg";
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
 // الكلمات التي ستظهر في بنك الكلمات (بشكل عشوائي)

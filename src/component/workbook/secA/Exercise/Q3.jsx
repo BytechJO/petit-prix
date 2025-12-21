@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-import bread from "../../../../../public/assets/workbook/Unit1/Lesson1/L1Q3-1.svg";
-import flag from "../../../../../public/assets/workbook/Unit1/Lesson1/L1Q3-2.svg";
-import Burger from "../../../../../public/assets/workbook/Unit1/Lesson1/L1Q3-3.svg";
+const bread = "/assets/workbook/Unit1/Lesson1/L1Q3-1.svg";
+const flag = "/assets/workbook/Unit1/Lesson1/L1Q3-2.svg";
+const Burger = "/assets/workbook/Unit1/Lesson1/L1Q3-3.svg";
+
 
 import ValidationAlert from '../../../Popup/ValidationAlert';
 // === الخطوة 2: تنظيم بيانات الأسئلة ===
@@ -123,7 +124,7 @@ const Q3 = () => {
                             <div key={q.id} className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-white p-6 rounded-2xl shadow-md">
 
                                 <div className="w-full h-64 rounded-lg overflow-hidden">
-                                    <img src={q.image} alt={`Question ${q.id}`} className="w-full h-full object-cover" />
+                                    <img src={q.image} alt={`Question ${q.id}`} className="w-full h-full object-cover" loading='lazy'/>
                                 </div>
 
                                 <div className="flex flex-col space-y-4">
