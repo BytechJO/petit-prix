@@ -59,11 +59,11 @@ import WQ4 from '../component/workbook/secA/Exercise/Q4';
 export const pageData = [
   {
     id: "studentbook",
-    title: "studentbook",
+    title: "MÉTHODE DE FRANÇAIS",
     units: [
       {
         id: "unit1",
-        title: "Unit 1",
+        title: "Unité 1",
         sections: [
           {
             id: "secA",
@@ -123,11 +123,11 @@ export const pageData = [
 
   {
     id: "workbook",
-    title: "Work Book",
+    title: "LIVRE DE GRAMMAIRE",
     units: [
       {
         id: "unit1",
-        title: "Unit 1",
+        title: "Unité 1",
         sections: [
           {
             id: "secA",

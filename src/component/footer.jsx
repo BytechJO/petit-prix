@@ -58,7 +58,7 @@ const Footer = ({
                     height="30"
                     viewBox="0 0 90 90"
                     onClick={() => setIsSidebarOpen(true)}
-                    className="absolute left-3 text-white p-0.5 rounded-lg shadow hover:bg-[#bc90ff] transition"
+                    className="absolute left-3 text-white p-0.5 rounded-lg shadow hover:bg-[#bc90ff] transition cursor-pointer"
                 >
                     <image href={menu} x="0" y="0" width="90" height="90" />
                 </svg>
@@ -69,7 +69,7 @@ const Footer = ({
                         height="30"
                         viewBox="0 0 90 90"
                         onClick={goToIndex}
-                        className="absolute left-12 text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition"
+                        className="absolute left-12 text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition cursor-pointer"
                     >
                         <image href={home} x="0" y="0" width="90" height="90" />
                     </svg>
@@ -80,7 +80,7 @@ const Footer = ({
                     height="30"
                     viewBox="0 0 90 90"
                     onClick={() => setZoom((z) => z + 0.2)}
-                    className="text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition"
+                    className="text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition cursor-pointer"
                 >
                     <image href={zoomIn} x="0" y="0" width="90" height="90" />
                 </svg>
@@ -93,7 +93,7 @@ const Footer = ({
                         setOffset({ x: 0, y: 0 });
                         setIsPanning(false);
                     }}
-                    className="text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition"
+                    className="text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition cursor-pointer"
                 >
                     <image href={zoomOut} x="0" y="0" width="90" height="90" />
                 </svg>
@@ -103,12 +103,12 @@ const Footer = ({
                     height="30"
                     viewBox="0 0 90 90"
                     onClick={toggleFullScreen}
-                    className="text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition"
+                    className="text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition cursor-pointer"
                 >
                     <image href={fullScreen} x="0" y="0" width="90" height="90" />
                 </svg>
 
-                <div className="flex items-center gap-1 px-2 py-0.5 border-2 border-[#430f68] rounded text-sm">
+                <div className="flex items-center gap-1 px-2 py-0.5 border-2 border-[#430f68] rounded text-sm ">
                     {activeTab === "work" ? (
                         <>
                             {" "}
@@ -148,7 +148,7 @@ const Footer = ({
                             height="30"
                             viewBox="0 0 90 90"
                             onClick={() => setViewMode("single")}
-                            className={`rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition ${viewMode === "single" ? "text-white" : " text-gray-900"
+                            className={`rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition ${viewMode === "single" ? "text-white" : " text-gray-900 cursor-pointer"
                                 }`}
                         >
                             <image href={onePage} x="0" y="0" width="90" height="90" />
@@ -158,7 +158,7 @@ const Footer = ({
                             height="30"
                             viewBox="0 0 90 90"
                             onClick={() => setViewMode("spread")}
-                            className={`rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition ${viewMode === "spread" ? " text-white" : " text-gray-900"
+                            className={`cursor-pointer rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition ${viewMode === "spread" ? " text-white" : " text-gray-900 "
                                 }`}
                         >
                             <image href={openBook} x="0" y="0" width="90" height="90" />
@@ -166,12 +166,19 @@ const Footer = ({
                     </>
                 )}
 
+
                 <div
                     onClick={() => setIsrightSidebarOpen(true)}
-                    className="absolute right-0 text-white p-0.5 rounded-lg shadow hover:bg-[#bc90ff] transition cursor-pointer"
+                    className="absolute right-0 flex items-center gap-2
+               text-white px-2 py-1 rounded-lg shadow
+               hover:bg-[#bc90ff] transition cursor-pointer"
                 >
-                    <FaKey size={30} className="text-[#430f68]" />
+                    <span className="text-[#430f68] text-sm font-medium">
+                        Icon Key
+                    </span>
+                    <FaKey size={24} className="text-[#430f68]" />
                 </div>
+
 
 
             </footer>

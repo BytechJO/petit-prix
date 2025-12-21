@@ -71,26 +71,35 @@ export default function LeftSidebar({ isOpen, close, units, goToPage, book }) {
                                     )}
                                 </div>
 
-                                {openUnit === u.id && (
-                                    <ul className="ml-4 mb-2 space-y-1">
-                                        {Array.from({ length: u.pages }).map((_, i) => {
-                                            const pageNumber = u.start + i;
+                                <div
+    className={`
+        overflow-hidden
+        transition-all duration-1200 ease-out
+        ${openUnit === u.id ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}
+    `}
+>
+    <ul className="ml-4 mb-2 space-y-1 pt-2">
+        {Array.from({ length: u.pages }).map((_, i) => {
+            const pageNumber = u.start + i;
 
-                                            return (
-                                                <li
-                                                    key={pageNumber}
-                                                    className="py-1 px-2 text-gray-600 hover:text-blue-600 cursor-pointer transition"
-                                                    onClick={() => {
-                                                        goToPage(pageNumber);
-                                                        close();
-                                                    }}
-                                                >
-                                                    Page {pageNumber}
-                                                </li>
-                                            );
-                                        })}
-                                    </ul>
-                                )}
+            return (
+                <li
+                    key={pageNumber}
+                    className="py-1 px-2 text-gray-600 cursor-pointer
+                               transition-all duration-300
+                               hover:text-blue-600"
+                    onClick={() => {
+                        goToPage(pageNumber);
+                        close();
+                    }}
+                >
+                    Page {pageNumber}
+                </li>
+            );
+        })}
+    </ul>
+</div>
+
                             </li>
                         ))}
                     </ul>

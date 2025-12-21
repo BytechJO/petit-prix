@@ -6,8 +6,8 @@ import characterImage1 from '../../../../assets/unit1/secA/page7/conv2.svg';
 const customsBubbles = [
   {
     top: "10%",
-    left: "22%",
-    isFlipped: false,
+    left: "8%",
+    isFlipped: true,
     content: (
       <>
         Je m’appelle Antoine. Et toi ?
@@ -16,8 +16,8 @@ const customsBubbles = [
   },
   {
     top: "10%",
-    left: "52%",
-    isFlipped: true,
+    left: "72%",
+    isFlipped: false,
     content: (
       <>
         Moi, c’est Marie. Comment tu t’appelles ?
