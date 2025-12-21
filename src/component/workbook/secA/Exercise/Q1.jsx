@@ -125,7 +125,8 @@ const Q1 = () => {
                     {cards.length > 0 ? (
                         <motion.div
                             key={activeCard.id}
-                            className="absolute w-80 h-80 rounded-full shadow-2xl cursor-grab"
+                            className="absolute w-90 h-100 cursor-grab rounded-3xl"
+
                             drag="x"
                             dragConstraints={{ left: 0, right: 0 }}
                             onDragEnd={(event, info) => {
@@ -146,8 +147,8 @@ const Q1 = () => {
 
                             style={{
                                 backgroundImage: `url(${activeCard.src})`,
-                                backgroundSize: 'cover',
-                                objectFit: 'cover',
+                                backgroundRepeat: 'no-repeat',
+                                backgroundSize:'cover',
                                 backgroundPosition: 'center',
                             }}
                         >
