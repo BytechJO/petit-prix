@@ -158,13 +158,17 @@ img {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 50%;
-  width: 23px;
-  height: 18px;
+  width: 24px;
+  height: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.btnopenpopup:hover
+{
+  background-color: #ff8c40;
+}
 
 .audio-popup-overlay {
   position: fixed;

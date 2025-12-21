@@ -62,7 +62,7 @@ const Q4 = () => {
 
     return (
         <div className=" min-h-screen p-4 sm:p-8 flex items-center justify-center">
-            <div className="w-full max-w-6xl mx-auto bg-white rounded-2xl shadow-xl flex flex-col">
+            <div className="w-full max-w-6xl mx-auto bg-white rounded-2xl flex flex-col">
                 <div className="grid grid-cols-1 md:grid-cols-2 flex-grow">
                     {/* القسم الأيسر: الحوار */}
                     <div className="p-8 flex flex-col justify-between">

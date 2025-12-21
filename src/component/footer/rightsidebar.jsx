@@ -26,7 +26,7 @@ const RightSidebar = ({
         </div>
 
         {/* ITEMS */}
-        <ul className="p-3 space-y-3">
+        <ul className="p-3 space-y-3 overflow-y-auto h-[calc(100vh-70px)]">
           {items.map((item) => (
             <li
               key={item.id}

@@ -2,6 +2,7 @@
 
 import React from "react";
 import menu from "../assets/footer/menu.svg";
+
 import home from "../assets/footer/home.svg";
 import zoomIn from "../assets/footer/zoom in.svg";
 import zoomOut from "../assets/footer/zoom out.svg";
@@ -10,6 +11,35 @@ import onePage from "../assets/footer/one page.svg";
 import openBook from "../assets/footer/open-book.svg";
 
 import { FaKey } from "react-icons/fa";
+
+// rightbar
+import quiz from "../assets/footer/icons/1.svg";
+import audio from "../assets/footer/icons/2.svg";
+import backbtn from "../assets/footer/icons/3.svg";
+import Fullscreen from "../assets/footer/icons/4.svg";
+import homee from "../assets/footer/icons/5.svg";
+import menuu from "../assets/footer/icons/6.svg";
+import next from "../assets/footer/icons/7.svg";
+import onepage from "../assets/footer/icons/8.svg";
+import twopage from "../assets/footer/icons/9.svg";
+import logo from "../assets/footer/icons/10.svg";
+import zoomin from "../assets/footer/icons/11.svg";
+import zoomout from "../assets/footer/icons/12.svg";
+
+const rightItems = [
+    { id: 1, label: "logo", icon: logo },
+    { id: 2, label: "ouvrir le son", icon: audio },
+    { id: 3, label: "revenir", icon: backbtn },
+    { id: 4, label: "Plein écran", icon: Fullscreen },
+    { id: 5, label: "rentrer à la maison", icon: homee },
+    { id: 6, label: "Ouvrir le menu", icon: menuu },
+    { id: 7, label: "allez ensuite", icon: next },
+    { id: 8, label: "vue d'une page", icon: onepage },
+    { id: 9, label: "vue sur deux pages", icon: twopage },
+    { id: 10, label: "questions ouvertes", icon: quiz },
+    { id: 11, label: "zoomer", icon: zoomin },
+    { id: 12, label: "dézoomer", icon: zoomout },
+];
 
 import RightSidebar from "./footer/rightsidebar";
 import LeftSidebar from "./footer/leftsidebar";
@@ -36,14 +66,7 @@ const Footer = ({
     book,
 }) => {
 
-    const rightItems = [
-        { id: 1, label: "Home", icon: home },
-        { id: 2, label: "Zoom In", icon: zoomIn },
-        { id: 3, label: "Zoom Out", icon: zoomOut },
-        { id: 4, label: "Full Screen", icon: fullScreen },
-        { id: 5, label: "One Page", icon: onePage },
-        { id: 6, label: "Open Book", icon: openBook },
-    ];
+
 
 
     return (
