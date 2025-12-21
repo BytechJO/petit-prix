@@ -174,7 +174,7 @@ const Footer = ({
                hover:bg-[#bc90ff] transition cursor-pointer"
                 >
                     <span className="text-[#430f68] text-sm font-medium">
-                        Icon Key
+                        Clé d'icône
                     </span>
                     <FaKey size={24} className="text-[#430f68]" />
                 </div>

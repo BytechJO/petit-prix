@@ -17,6 +17,7 @@
     "@jsplumb/browser-ui": "^6.2.10",
     "@tailwindcss/vite": "^4.1.16",
     "@tareqalsadaqa/subtitleinbubble": "^0.1.11",
+    "framer-motion": "^12.23.26",
     "lucide-react": "^0.555.0",
     "primeicons": "^7.0.0",
     "react": "^19.1.1",
