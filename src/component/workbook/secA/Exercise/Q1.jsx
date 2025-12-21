@@ -22,13 +22,13 @@ const images = [
 const Q1 = () => {
     const [cards, setCards] = useState(images);
     const [answers, setAnswers] = useState({});
-    const [result, setResult] = useState(null); 
+    const [result, setResult] = useState(null);
 
     const handleAnswer = (answer, id) => {
         setCards((prevCards) => prevCards.filter((card) => card.id !== id));
-       
+
         setAnswers((prev) => ({ ...prev, [id]: answer }));
-        
+
         setResult(answer);
         setTimeout(() => setResult(null), 500);
     };
@@ -37,15 +37,15 @@ const Q1 = () => {
 
 
     const handleTryAgain = () => {
-        setCards(images);    
-        setAnswers({});        
-        setResult(null);     
+        setCards(images);
+        setAnswers({});
+        setResult(null);
     };
 
     const handleShowAnswer = () => {
         if (!activeCard) return;
 
-        const frenchIds = [4, 3, 2]; 
+        const frenchIds = [4, 3, 2];
         const correctAnswer = frenchIds.includes(activeCard.id) ? 'oui' : 'non';
 
         setResult(correctAnswer);
@@ -54,7 +54,7 @@ const Q1 = () => {
     };
 
     const checkAnswers = () => {
-        const frenchIds = [5, 4, 3, 2, 1]; 
+        const frenchIds = [5, 4, 3, 2, 1];
         const totalQuestions = images.length;
         const answeredCount = Object.keys(answers).length;
 
@@ -116,15 +116,15 @@ const Q1 = () => {
         <div className="w-full min-h-screen flex flex-col justify-center items-center overflow-hidden p-4">
 
             <div className="relative w-full h-96 flex items-center justify-center">
-               
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 rotate-[-20deg] text-red-400 border-4 border-red-400 rounded-2xl px-6 py-2 font-bold text-4xl opacity-50">NON</div>
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 rotate-[20deg] text-green-400 border-4 border-green-400 rounded-2xl px-6 py-2 font-bold text-4xl opacity-50">OUI</div>
+
+                <div className="absolute left-18 top-1/2 -translate-y-1/2 -translate-x-1/2 rotate-[-20deg] text-red-400 border-4 border-red-400 rounded-2xl px-6 py-2 font-bold text-4xl opacity-50">NON</div>
+                <div className="absolute right-18 top-1/2 -translate-y-1/2 translate-x-1/2 rotate-[20deg] text-green-400 border-4 border-green-400 rounded-2xl px-6 py-2 font-bold text-4xl opacity-50">OUI</div>
 
                 <AnimatePresence>
                     {cards.length > 0 ? (
                         <motion.div
                             key={activeCard.id}
-                            className="absolute w-84 h-90 rounded-full shadow-2xl cursor-grab"
+                            className="absolute w-80 h-80 rounded-full shadow-2xl cursor-grab"
                             drag="x"
                             dragConstraints={{ left: 0, right: 0 }}
                             onDragEnd={(event, info) => {
@@ -146,6 +146,7 @@ const Q1 = () => {
                             style={{
                                 backgroundImage: `url(${activeCard.src})`,
                                 backgroundSize: 'cover',
+                                objectFit: 'cover',
                                 backgroundPosition: 'center',
                             }}
                         >
@@ -164,7 +165,7 @@ const Q1 = () => {
                         <div className="text-center">
                             <h2 className="text-2xl font-bold text-gray-700">Merci !</h2>
                             <p className="text-gray-500">Vous avez répondu à toutes les questions.</p>
-                            
+
                         </div>
                     )}
                 </AnimatePresence>

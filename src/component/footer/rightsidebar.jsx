@@ -16,7 +16,7 @@ const RightSidebar = ({
       >
         {/* HEADER */}
         <div className="p-4 border-b flex justify-between items-center">
-          <h2 className="text-xl text-[#2c5287] font-semibold">Icon Key</h2>
+          <h2 className="text-xl text-[#2c5287] font-semibold">Clé d'icône</h2>
           <button
             onClick={close}
             className="text-xl"

@@ -176,14 +176,7 @@ export const unit1SecAQuestions = [
   {
     id: 2,
     component: Q2,
-    audio: {
-      src: sound1,
-      segments: [
-        { id: 1, start: 0, end: 4 },
-        { id: 2, start: 4, end: 8 },
-        { id: 3, start: 8, end: 12 },
-      ],
-    },
+    audio: sound1,
     text: "Écoute et montre.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },

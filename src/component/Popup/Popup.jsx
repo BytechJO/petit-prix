@@ -1,8 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import './Popup.css';
+import LessonNavigator from './LessonNavigator';
+import { useState } from "react";
 import Swal from "sweetalert2";
 import "./LessonNavigator.css";
 
@@ -28,7 +30,6 @@ const Popup = (
 
     const [index, setIndex] = useState(startIndex);
     const currentQuestionData = questions[index] || {};
-    const audioRef = useRef(null);
 
 
     useEffect(() => {
@@ -38,6 +39,7 @@ const Popup = (
     const CurrentQuestion = questions[index]?.component || (() => <div>No question available</div>);
 
     const handleNext = () => {
+        const question = questions[index];
 
         if (index === questions.length - 1) {
             Swal.fire({
@@ -183,10 +185,9 @@ const Popup = (
 
 
                     {currentQuestionData.audio && (
-                        <div style={{ width: "100%", marginTop: "1%", marginLeft: "32%", marginBottom: "2%" }}>
+                        <div style={{ width: "100%", marginTop: "1%",marginLeft:"32%",marginBottom: "2%" }}>
                             <AudioWithCaption
-                                src={currentQuestionData.audio.src}
-                                segments={currentQuestionData.audio.segments}
+                                src={currentQuestionData.audio}
                                 captions={currentQuestionData.captions || []}
                             />
                         </div>
