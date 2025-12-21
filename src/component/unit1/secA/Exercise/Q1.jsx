@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import backgroundImage from "../../../../../public/assets/unit1/secA/popup/page41.png";
+
+const backgroundImage = "/assets/unit1/secA/popup/page41.png";
+
 import ValidationAlert from "../../../Popup/ValidationAlert";
 import InteractivePage from "../../interactive";
 
-import fence from "../../../../../public/assets/unit1/secA/page45/1.svg";
-import rose from "../../../../../public/assets/unit1/secA/page45/2.svg";
-import book from "../../../../../public/assets/unit1/secA/page45/3.svg";
-import pen from "../../../../../public/assets/unit1/secA/page45/4.svg";
+const fence = "/assets/unit1/secA/page45/1.svg";
+const rose = "/assets/unit1/secA/page45/2.svg";
+const book = "/assets/unit1/secA/page45/3.svg";
+const pen = "/assets/unit1/secA/page45/4.svg";
 
 const Q1 = () => {
   const [foundItems, setFoundItems] = useState([false, false, false, false]);

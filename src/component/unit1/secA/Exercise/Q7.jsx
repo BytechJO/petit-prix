@@ -1,7 +1,8 @@
 import React from 'react';
 import './Q7.css';
-import characterImage from '../../../../../public/assets/unit1/secA/page7/conv.svg';
-import characterImage1 from '../../../../../public/assets/unit1/secA/page7/conv2.svg';
+
+const characterImage = "/assets/unit1/secA/page7/conv.svg";
+const characterImage1 = "/assets/unit1/secA/page7/conv2.svg";
 
 const customsBubbles = [
   {

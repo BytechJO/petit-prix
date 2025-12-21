@@ -1,18 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { DndContext, useDroppable, useDraggable, closestCenter } from '@dnd-kit/core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+
 
 import './Q11.css';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-import sound6 from '../../../../../public/assets/unit1/secA/sounds/L3Q1.mp3';
-
-import face1 from "../../../../../public/assets/unit1/secA/page8/face1.svg";
-import face2 from "../../../../../public/assets/unit1/secA/page8/face2.png";
-import face3 from "../../../../../public/assets/unit1/secA/page8/face3.png";
-import face4 from "../../../../../public/assets/unit1/secA/page8/face4.png";
-import face5 from "../../../../../public/assets/unit1/secA/page8/face5.png";
+const face1 = "/assets/unit1/secA/page8/face1.svg";
+const face2 = "/assets/unit1/secA/page8/face2.webp";
+const face3 = "/assets/unit1/secA/page8/face3.png";
+const face4 = "/assets/unit1/secA/page8/face4.png";
+const face5 = "/assets/unit1/secA/page8/face5.png";
 
 const feelingsData = [
   { id: '0', name: 'Comment ça va', face: face1 },
