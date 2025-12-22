@@ -376,6 +376,7 @@ const coverImage =
         questionText={popupData.questionText}
         audioSrc={popupData.audioSrc}
         captions={popupData.captions}
+        pausePoints={popupData.pausePoints || []}
       >
         {popupData.content}
       </Popup>

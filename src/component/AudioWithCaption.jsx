@@ -4,7 +4,14 @@ import { TbMessageCircle } from "react-icons/tb";
 import { IoMdSettings } from "react-icons/io";
 import "./AudioWithCaption.css";
 
-const AudioWithCaption = ({ src, captions, onCaptionChange, showClose = false, onClose, }) => {
+const AudioWithCaption = ({ 
+  src, 
+  captions, 
+  onCaptionChange, 
+  showClose = false, 
+  onClose,
+  pausePoints = [] // ⭐ إضافة جديدة: مصفوفة نقاط التوقف
+}) => {
   const audioRef = useRef(null);
   const settingsRef = useRef(null);
   const captionRef = useRef(null);
@@ -15,6 +22,7 @@ const AudioWithCaption = ({ src, captions, onCaptionChange, showClose = false, o
   const [activeIndex, setActiveIndex] = useState(-1);
   const [volume, setVolume] = useState(1);
   const [showSettings, setShowSettings] = useState(false);
+  const lastPausePoint = useRef(-1); // ⭐ لتتبع آخر نقطة توقف تم تفعيلها
 
   // تحديث الهايلايت حسب الوقت
   const updateCaption = (time) => {
@@ -26,6 +34,23 @@ const AudioWithCaption = ({ src, captions, onCaptionChange, showClose = false, o
 
     setActiveIndex(index);
     if (onCaptionChange) onCaptionChange(index);
+  };
+
+  // ⭐ وظيفة جديدة: فحص نقاط التوقف
+  const checkPausePoints = (currentTime) => {
+    if (!pausePoints || pausePoints.length === 0) return;
+
+    for (let i = 0; i < pausePoints.length; i++) {
+      const pausePoint = pausePoints[i];
+      
+      // إذا وصلنا لنقطة توقف جديدة (لم نتوقف عندها من قبل)
+      if (currentTime >= pausePoint && lastPausePoint.current < i) {
+        lastPausePoint.current = i;
+        audioRef.current.pause();
+        setIsPlaying(false);
+        break;
+      }
+    }
   };
 
   // تشغيل/إيقاف
@@ -50,6 +75,7 @@ const AudioWithCaption = ({ src, captions, onCaptionChange, showClose = false, o
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
   useEffect(() => {
     if (activeIndex === -1) return;
 
@@ -73,19 +99,21 @@ const AudioWithCaption = ({ src, captions, onCaptionChange, showClose = false, o
           </button>
         )}
 
-
         <audio
           ref={audioRef}
           src={src}
           onTimeUpdate={(e) => {
-            setCurrent(e.target.currentTime);
-            updateCaption(e.target.currentTime);
+            const currentTime = e.target.currentTime;
+            setCurrent(currentTime);
+            updateCaption(currentTime);
+            checkPausePoints(currentTime); // ⭐ فحص نقاط التوقف
           }}
           onLoadedMetadata={(e) => setDuration(e.target.duration)}
           onEnded={() => {
             audioRef.current.currentTime = 0;
             setIsPlaying(false);
-            setActiveIndex(-1); // يرجّع الهايلايت لأول سطر
+            setActiveIndex(-1);
+            lastPausePoint.current = -1; // ⭐ إعادة تعيين نقاط التوقف
           }}
         />
         {/* الوقت - السلايدر - الوقت */}
@@ -101,8 +129,13 @@ const AudioWithCaption = ({ src, captions, onCaptionChange, showClose = false, o
             max={duration}
             value={current}
             onChange={(e) => {
-              audioRef.current.currentTime = e.target.value;
-              updateCaption(Number(e.target.value));
+              const newTime = Number(e.target.value);
+              audioRef.current.currentTime = newTime;
+              updateCaption(newTime);
+              
+              // ⭐ إعادة ضبط نقاط التوقف عند تحريك السلايدر
+              const passedPausePoints = pausePoints.filter(point => newTime >= point).length;
+              lastPausePoint.current = passedPausePoints - 1;
             }}
             style={{
               background: `linear-gradient(to right, #430f68 ${(current / duration) * 100
@@ -159,7 +192,7 @@ const AudioWithCaption = ({ src, captions, onCaptionChange, showClose = false, o
               </div>
             )}
           </div>
-        </div>{" "}
+        </div>
         {/* الكابشن تحت الأزرار */}
         {captions && captions.length > 0 && showCaption && (
           <>

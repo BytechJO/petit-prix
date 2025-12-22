@@ -22,7 +22,8 @@ const Popup = (
         startIndex = 0,
         currentUnit = 1,
         currentSection = "A",
-        onFinish = null
+        onFinish = null,
+        pausePoints = []
     }
 ) => {
     if (!isOpen) return null;
@@ -76,7 +77,6 @@ const Popup = (
             return;
         }
 
-        // انتقال عادي للسؤال التالي
         setIndex(index + 1);
     };
 
@@ -184,6 +184,7 @@ const Popup = (
                             <AudioWithCaption
                                 src={currentQuestionData.audio}
                                 captions={currentQuestionData.captions || []}
+                                pausePoints={pausePoints}
                             />
                         </div>
                     )}

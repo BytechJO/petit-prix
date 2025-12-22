@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
-import Q2 from './Exercise/Q2';
 import './page5.css';
 import {
   faArrowPointer, faHeadphones
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 const sound1 ="/assets/unit1/secA/sounds/L1Q1.mp3";
-
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
-
 const Page5 = ({ bgImage, openPopup }) => {
+
   const [showAudio, setShowAudio] = useState(false);
 
-  const questions = [
-    { id: 2, component: Q2, audio: sound1, text: "Question 2" },
-  ];
   const caption = [
     {
       start: 0,
@@ -34,29 +28,26 @@ const Page5 = ({ bgImage, openPopup }) => {
     { start: 15.16, end: 17.13, text: "4-deer." },
   ];
 
+
   const handleOpenQuestion = () => {
     openPopup({
       questionText: unit1SecAQuestions[1].text,
-      questions: unit1SecAQuestions, // نفس المصفوفة
+      questions: unit1SecAQuestions, 
       currentUnit: 1,
       currentSection: "A",
-      startIndex: 1, // ابدأ من السؤال الثاني
+      startIndex: 1, 
       audioSrc: unit1SecAQuestions[1].audio,
       captions: unit1SecAQuestions[1].captions,
+      pausePoints: unit1SecAQuestions[1].pausePoints,
     });
   };
-
-
-
-
-
-
+  
+  
   return (
     <div
       className="page_1-background"
     >
       <img src={bgImage} loading="lazy"/>
-
       <button
         className='btnopenpopup'
         id="page5q1"
@@ -64,7 +55,6 @@ const Page5 = ({ bgImage, openPopup }) => {
       >
         <FontAwesomeIcon icon={faArrowPointer} />
       </button>
-
       <button
         className='btnopenpopup'
         id="page5audio"
@@ -72,17 +62,14 @@ const Page5 = ({ bgImage, openPopup }) => {
       >
         <FontAwesomeIcon icon={faHeadphones} />
       </button>
-
       <AudioPopup
         open={showAudio}
         onClose={() => setShowAudio(false)}
         src={sound1}
         captions={caption}
+        
       />
-
-
     </div >
   )
 }
-
 export default Page5;

@@ -175,9 +175,6 @@ export const unit1SecAQuestions = [
     component: Q1,
     audio: null,
     text: "Observe et trouve",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 2,
@@ -186,7 +183,8 @@ export const unit1SecAQuestions = [
     text: "Écoute et montre.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    ],
+    pausePoints: [5,12,18],
   },
   {
     id: 3,
