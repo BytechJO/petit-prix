@@ -27,6 +27,7 @@ import Q5 from '../component/unit1/secA/Exercise/Q5';
 import Q7 from '../component/unit1/secA/Exercise/Q7';
 import Q11 from '../component/unit1/secA/Exercise/Q11';
 import Q12 from '../component/unit1/secA/Exercise/Q12';
+import Q13 from '../component/unit1/secA/Exercise/Q13';
 
 const sound1 = "/assets/unit1/secA/sounds/page5.mp3";
 const sound2 = "/assets/unit1/secA/sounds/L1Q1.mp3";
@@ -216,6 +217,15 @@ export const unit1SecAQuestions = [
     component: Q12,
     audio: sound2,
     text: "Écoute, montre et écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 8,
+    component: Q13,
+    audio: sound2,
+    text: "Écoute et trouve un objet dans la classe.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     ]
