@@ -36,6 +36,14 @@ const Q1 = () => {
 
     const activeCard = cards[cards.length - 1];
 
+    const correctAnswers = {
+        1: "oui",
+        2: "non",
+        3: "oui",
+        4: "oui",
+        5: "non",
+    };
+
 
     const handleTryAgain = () => {
         setCards(images);
@@ -46,8 +54,11 @@ const Q1 = () => {
     const handleShowAnswer = () => {
         if (!activeCard) return;
 
-        const frenchIds = [4, 3, 2];
-        const correctAnswer = frenchIds.includes(activeCard.id) ? 'oui' : 'non';
+        const correctAnswer = correctAnswers[activeCard.id];
+        setResult(correctAnswer);
+
+        setTimeout(() => setResult(null), 800);
+
 
         setResult(correctAnswer);
 
@@ -78,12 +89,7 @@ const Q1 = () => {
         let correct = 0;
 
         Object.entries(answers).forEach(([id, answer]) => {
-            const isFrench = frenchIds.includes(Number(id));
-
-            if (
-                (isFrench && answer === "oui") ||
-                (!isFrench && answer === "non")
-            ) {
+            if (correctAnswers[id] === answer) {
                 correct++;
             }
         });
@@ -148,7 +154,7 @@ const Q1 = () => {
                             style={{
                                 backgroundImage: `url(${activeCard.src})`,
                                 backgroundRepeat: 'no-repeat',
-                                backgroundSize:'cover',
+                                backgroundSize: 'cover',
                                 backgroundPosition: 'center',
                             }}
                         >
@@ -157,7 +163,7 @@ const Q1 = () => {
                                 className="w-full h-full rounded-2xl flex items-center justify-center text-4xl font-bold text-white"
                                 style={{
                                     opacity: result ? 1 : 0,
-                                    backgroundColor: result === 'oui' ? 'rgba(4, 120, 87, 0.7)' : 'rgba(185, 28, 28, 0.7)',
+                                    backgroundColor: result === 'oui' ? 'rgba(4, 120, 87, 0.7)' : 'rgba(124, 58, 237, 0.7)',
                                 }}
                             >
                                 {result?.toUpperCase()}

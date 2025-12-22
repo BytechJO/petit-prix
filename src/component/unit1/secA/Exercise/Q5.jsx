@@ -4,8 +4,8 @@ import './Q5.css';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
 
-const boyImage  ="/assets/unit1/secA/page7/Q11.webp'";
-const girlImage ="c/assets/unit1/secA/page7/Q12.webp";
+const boyImage  ="/assets/unit1/secA/page7/Q11.webp";
+const girlImage ="/assets/unit1/secA/page7/Q12.webp";
 
 const Q5 = ({ sound }) => {
   const [boyName, setBoyName] = useState('');
