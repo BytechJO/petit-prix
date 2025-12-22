@@ -35,13 +35,13 @@ const Page9 = ({ bgImage, openPopup }) => {
     >
       <img src={bgImage} loading="lazy" />
 
-      <button
+      {/* <button
         className='btnopenpopup'
         id="page9q1"
         onClick={() => handleOpenQuestion(7)}
       >
         <FontAwesomeIcon icon={faArrowPointer} />
-      </button>
+      </button> */}
 
       <button
         className='btnopenpopup'
