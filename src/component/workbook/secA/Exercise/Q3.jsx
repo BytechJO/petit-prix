@@ -110,7 +110,7 @@ const Q3 = () => {
 
 
     return (
-        <div className="bg-gray-50 min-h-screen p-4 sm:p-8">
+        <div className="p-4 sm:p-8">
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-10">
                 </div>

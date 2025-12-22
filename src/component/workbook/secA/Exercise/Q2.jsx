@@ -19,7 +19,7 @@ const Q2 = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="min-h-145 flex items-center justify-center p-4">
             <div className="w-full max-w-xl bg-white rounded-3xl shadow-2xl p-8 space-y-10">
 
                 {/* العنوان */}
