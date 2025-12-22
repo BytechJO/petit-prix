@@ -98,7 +98,7 @@ img {
 .popup-buttons button {
   max-width: 250px;
   text-align: center;
-  padding: 5px;
+  padding: 8px;
   margin-bottom: 3%;
   border: none;
   border-radius: 10px;
@@ -109,7 +109,7 @@ img {
 }
 
 .show-answer-btn {
-  background-color: #07b6a9;
+  background-color: rgb(44, 120, 180);
   color: white;
 }
 

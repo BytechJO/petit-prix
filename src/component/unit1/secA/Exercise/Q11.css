@@ -75,7 +75,7 @@
 
 .draggable-item {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #8889ba;
   color: white;
   border-radius: 20px;
   cursor: grab;
@@ -86,13 +86,13 @@
 }
 
 .draggable-item:hover {
-  background-color: #0056b3;
+  background-color: #8889ba;
   transform: translateY(-2px);
 }
 
 .draggable-item:active {
   cursor: grabbing;
-  background-color: #004085;
+  background-color: #8889ba;
 }
 
 /* --- Validation States --- */

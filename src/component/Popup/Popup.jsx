@@ -97,12 +97,11 @@ const Popup = (
                     className="nav-buttons"
                     style={{
                         display: "flex",
-                        width: "100%",
                         marginBottom: "30px",
                         justifyContent: "flex-start",
                         alignItems: "center",
                         backgroundColor: "#430f68",
-                        padding: "10px 20px",
+                        padding: "10px 3px",
                     }}
                 >
                     <button
@@ -112,14 +111,12 @@ const Popup = (
                             display: "flex",
                             alignItems: "center",
                             color: "white",
-                            fontSize: "16px",
-                            fontWeight: "500",
+                            fontSize: "14px",
                             cursor: index === 0 ? "not-allowed" : "pointer",
                             opacity: index === 0 ? 0.5 : 1,
                             background: "none",
                             border: "none",
                             transition: "opacity 0.3s",
-                            marginRight: "20px", // مسافة بسيطة بين الزرين
                         }}
                     >
                         <img
@@ -127,7 +124,7 @@ const Popup = (
                             alt="back"
                             style={{ width: "20px", height: "20px", marginRight: "8px" }}
                         />
-                        Previous Exercise
+                        Exercice précédent
                     </button>
 
 
@@ -139,8 +136,7 @@ const Popup = (
                             display: "flex",
                             alignItems: "center",
                             color: "white",
-                            fontSize: "16px",
-                            fontWeight: "500",
+                            fontSize: "14px",
                             cursor: "pointer",
                             background: "none",
                             border: "none",
@@ -148,7 +144,7 @@ const Popup = (
                             marginLeft: "20px",
                         }}
                     >
-                        Next Exercise
+                        Exercice suivant
                         <img
                             src={next}
                             alt="next"
