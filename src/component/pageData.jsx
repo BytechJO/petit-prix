@@ -16,7 +16,7 @@ const img4 = "/assets/unit1/secA/4.webp";
 const img5 = "/assets/unit1/secA/5.webp";
 const img6 = "/assets/unit1/secA/6.webp";
 const img7 = "/assets/unit1/secA/7.webp";
-const img8 = "/assets/unit1/secA/8.webp";
+const img8 = "/assets/unit1/secA/8.png";
 const img9 = "/assets/unit1/secA/9.webp";
 
 

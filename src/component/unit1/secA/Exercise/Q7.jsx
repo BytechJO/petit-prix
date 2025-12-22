@@ -6,8 +6,8 @@ const characterImage1 = "/assets/unit1/secA/page7/conv2.svg";
 
 const customsBubbles = [
   {
-    top: "10%",
-    left: "8%",
+    top: "12%",
+    left: "3%",
     isFlipped: true,
     content: (
       <>

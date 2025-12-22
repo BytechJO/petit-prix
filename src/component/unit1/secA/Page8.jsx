@@ -9,17 +9,6 @@ const sound1 ="/assets/unit1/secA/sounds/L1Q1.mp3";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
-import Character from './Character';
-
-const winkStaticsvg = "/assets/unit1/secA/page8/1.svg";
-const winkAnimatedsvg = "/assets/unit1/secA/page8/2.svg";
-const happyStaticsvg = "/assets/unit1/secA/page8/3.svg";
-const happyAnimatedsvg = "/assets/unit1/secA/page8/4.svg";
-
-const winkStatic = "/assets/unit1/secA/page8/1.gif";
-const winkAnimated = "/assets/unit1/secA/page8/2.gif";
-const happyStatic = "/assets/unit1/secA/page8/3.gif";
-const happyAnimated = "/assets/unit1/secA/page8/4.gif";
 
 
 const Page8 = ({ bgImage, openPopup }) => {
@@ -70,32 +59,6 @@ const Page8 = ({ bgImage, openPopup }) => {
                 onClose={() => setShowAudio(false)}
                 src={sound1}
             />
-
-            <div className="characters-wrapper">
-                <Character
-                    staticImg={winkStaticsvg}
-                    animatedImg={winkStatic}
-                    altText="Winking boy"
-                />
-
-                <Character
-                    staticImg={happyStaticsvg}
-                    animatedImg={happyStatic}
-                    altText="Happy boy"
-                />
-
-                <Character
-                    staticImg={winkAnimatedsvg}
-                    animatedImg={winkAnimated}
-                    altText="Happy boy"
-                />
-
-                <Character
-                    staticImg={happyAnimatedsvg}
-                    animatedImg={happyAnimated}
-                    altText="Happy boy"
-                />
-            </div>
         </div>
 
 

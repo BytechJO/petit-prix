@@ -4,8 +4,8 @@ import './Q5.css';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
 
-const boyImage  ="/assets/unit1/secA/page7/Q11.webp";
-const girlImage ="/assets/unit1/secA/page7/Q12.webp";
+const boyImage = "/assets/unit1/secA/page7/Q11.webp";
+const girlImage = "/assets/unit1/secA/page7/Q12.webp";
 
 const Q5 = ({ sound }) => {
   const [boyName, setBoyName] = useState('');
@@ -75,26 +75,32 @@ const Q5 = ({ sound }) => {
       <div className="q5-body">
         <div className="q5-character-group">
           <img src={boyImage} alt="Garçon" className="q5-character-img" />
-          <input
-            type="text"
+          <select
             id="q5-boy-name"
             value={boyName}
             onChange={handleInputChange(setBoyName)}
-            placeholder="Antoine"
             className="q5-input"
-          />
+          >
+            <option value="">Choisis...</option>
+            <option value="Antoine">A</option>
+            <option value="Paul">B</option>
+          </select>
+
         </div>
 
         <div className="q5-character-group">
           <img src={girlImage} alt="Fille" className="q5-character-img" />
-          <input
-            type="text"
+          <select
             id="q5-girl-name"
             value={girlName}
             onChange={handleInputChange(setGirlName)}
-            placeholder="aime"
             className="q5-input"
-          />
+          >
+            <option value="">Choisis...</option>
+            <option value="deteste">A</option>
+            <option value="aime">B</option>
+          </select>
+
         </div>
       </div>
 

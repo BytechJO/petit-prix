@@ -137,7 +137,6 @@ const Q1 = () => {
           />
         </div>
       </div>
-
       <div className="popup-buttons">
         <button className="try-again-button" onClick={handleStartAgain}>
           Recommencer ↻

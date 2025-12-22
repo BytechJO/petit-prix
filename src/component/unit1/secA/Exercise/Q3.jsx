@@ -5,8 +5,8 @@ import './Q3.css';
 const characterImage  = "/assets/unit1/secA/page6/characters1.webp";
 const characterImage1 = "/assets/unit1/secA/page6/character2.webp";
 
-const ANSWER_OPTIONS = ["Salut", "Bonjour"].sort(() => Math.random() - 0.5);
-const CORRECT_ANSWERS = ["Bonjour", "Salut"];
+const ANSWER_OPTIONS = ["B", "A"].sort(() => Math.random() - 0.5);
+const CORRECT_ANSWERS = ["A", "B"];
 
 const Q3 = () => {
   const [answers, setAnswers] = useState(["", ""]);

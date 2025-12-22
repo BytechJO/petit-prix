@@ -1,11 +1,20 @@
 .audio-popup {
+  position: relative;
   background: #ffffff;
-  padding: clamp(14px, 3vw, 20px);
-  border-radius: clamp(10px, 2vw, 14px);
-  width: 100%;
+  padding: 10px 20px 5px;
+  border-radius: clamp(10px, 2vw, 50%);
+  width: 50%;
   max-width: clamp(320px, 90vw, 520px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
+
+.audio-popup.with-close {
+  position: relative;
+  background: #ffffff;
+  padding: 30px 20px 5px 20px;
+}
+
+
 @media (max-width: 768px) {
   .audio-popup {
     border-radius: 10px;
@@ -92,6 +101,7 @@
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 /*================ CAPTION POPUP ================*/
 .caption-popup {
   position: absolute;
@@ -123,6 +133,7 @@
 .caption-popup::-webkit-scrollbar {
   width: 6px;
 }
+
 .caption-popup::-webkit-scrollbar-thumb {
   background: #c2b3ff;
   border-radius: 5px;
@@ -185,12 +196,12 @@
 }
 
 .close-btn {
+  position: absolute;
   align-self: flex-end;
-  width: 36px;
-  height: 36px;
+  right: 5%;
+  height: 30px;
   border-radius: 50%;
   border: none;
-  outline: none;
   color: #000 !important;
   font-size: 20px;
   font-weight: bold;

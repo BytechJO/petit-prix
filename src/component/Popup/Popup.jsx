@@ -180,7 +180,7 @@ const Popup = (
 
 
                     {currentQuestionData.audio && (
-                        <div style={{ width: "100%", marginTop: "1%",marginLeft:"32%",marginBottom: "2%" }}>
+                        <div className= "popaud" style={{ marginTop: "1%",marginLeft:"36%",marginBottom: "2%" }}>
                             <AudioWithCaption
                                 src={currentQuestionData.audio}
                                 captions={currentQuestionData.captions || []}

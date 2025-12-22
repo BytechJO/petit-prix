@@ -61,3 +61,10 @@
     background-color: #67cadb;
     color: #000 !important;
 }
+
+.popaud{
+  width: 850px;
+}
+.question-container{
+  padding-bottom: 100px;
+}

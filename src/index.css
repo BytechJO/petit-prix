@@ -89,17 +89,26 @@ img {
 }
 
 .popup-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(255, 255, 255);
   display: flex;
-  gap: clamp(12px, 3vw, 20px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px -2px 10px;
+  gap: 20px;
   justify-content: center;
-  margin-top: 2%;
+  width: 100%;
+  padding: 20px;
+  border-radius: 16px;
+  z-index: 10000;
+  justify-content: center;
 }
 
 .popup-buttons button {
   max-width: 250px;
   text-align: center;
-  padding: 8px;
-  margin-bottom: 3%;
+  padding: 13px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
