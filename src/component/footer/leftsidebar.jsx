@@ -21,7 +21,7 @@ export default function LeftSidebar({ isOpen, close, units, goToPage, book }) {
                     <h2 className="text-xl text-[#430f68] font-semibold">
                         Table des matières
                     </h2>
-                    <button onClick={close} className="text-2xl">
+                    <button onClick={close} className="text-2xl cursor-pointer">
                         ✕
                     </button>
                 </div>

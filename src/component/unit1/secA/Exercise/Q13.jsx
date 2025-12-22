@@ -53,6 +53,7 @@ const Q13 = () => {
                 const newMatch = { id: word.id, wordId: `word-${word.id}`, colorId: `color-${color.id}` };
                 setMatchedPairs([...matchedPairs, newMatch]);
             } else {
+
             }
 
             setTimeout(() => {
@@ -61,7 +62,7 @@ const Q13 = () => {
                 if (word.id !== color.id) {
                     return ValidationAlert.warning("Attention", "Veuillez déposer une réponse pour chaque visage !");
                 }
-            }, 100000);
+            });
         }
     };
 

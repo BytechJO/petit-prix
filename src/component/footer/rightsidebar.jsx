@@ -18,7 +18,7 @@ const RightSidebar = ({
           <h2 className="text-xl text-[#2c5287] font-semibold">Clé d'icône</h2>
           <button
             onClick={close}
-            className="text-xl"
+            className="text-xl cursor-pointer"
           >
             ✕
           </button>
@@ -29,7 +29,7 @@ const RightSidebar = ({
           {items.map((item) => (
             <li
               key={item.id}
-              className="flex items-center gap-3 p-3 bg-purple-100 rounded-lg hover:bg-purple-300 cursor-pointer"
+              className="flex items-center gap-3 p-3 bg-purple-100 rounded-lg hover:bg-purple-300"
             >
               <img
                 src={item.icon}
