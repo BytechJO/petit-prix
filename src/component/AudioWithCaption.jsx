@@ -65,7 +65,7 @@ const AudioWithCaption = ({ src, captions, onCaptionChange, showClose = false, o
 
   return (
     <div className={`audio-popup ${showClose ? "with-close" : ""}`}>
-      {/* مؤشر السرعة */}
+      
       <div className="audio-inner player-ui">
         {showClose && onClose && (
           <button className="close-btn" onClick={onClose}>

@@ -29,9 +29,21 @@ import Q11 from '../component/unit1/secA/Exercise/Q11';
 import Q12 from '../component/unit1/secA/Exercise/Q12';
 import Q13 from '../component/unit1/secA/Exercise/Q13';
 
-const sound1 = "/assets/unit1/secA/sounds/page5.mp3";
-const sound2 = "/assets/unit1/secA/sounds/L1Q1.mp3";
-const sound3 = "/assets/unit1/secA/sounds/L1Q1-1.mp3";
+// audio
+const sound1 = "/assets/unit1/secA/page45/u1q2.wav";
+
+const sound2 = "/assets/unit1/secA/page6/u1l1q1.wav";
+const sound3 = "/assets/unit1/secA/page6/u1l1q2.wav";
+const sound4 = "/assets/unit1/secA/page6/u1l1q4.wav";
+
+const sound5 = "/assets/unit1/secA/page7/u1l2q1.wav";
+const sound6 = "/assets/unit1/secA/page7/u1l2q2.wav";
+
+const sound7 = "/assets/unit1/secA/page8/L3Q1.mp3";
+
+const sound8 = "/assets/unit1/secA/page9/u1l4q1.wav";
+
+const sound9 = "/assets/unit1/secA/page9/u1l4q2.wav";
 
 
 // workbook
@@ -179,7 +191,7 @@ export const unit1SecAQuestions = [
   {
     id: 3,
     component: Q3,
-    audio: sound3,
+    audio: sound2,
     text: "Écoute et réponds.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -188,7 +200,7 @@ export const unit1SecAQuestions = [
   {
     id: 4,
     component: Q5,
-    audio: sound2,
+    audio: sound5,
     text: "Écoute, montre et écris.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -197,7 +209,7 @@ export const unit1SecAQuestions = [
   {
     id: 5,
     component: Q7,
-    audio: sound2,
+    audio: sound6,
     text: "Écoute, montre et écris.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -206,7 +218,7 @@ export const unit1SecAQuestions = [
   {
     id: 6,
     component: Q11,
-    audio: sound2,
+    audio: sound7,
     text: "Écoute, montre et écris.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -215,21 +227,21 @@ export const unit1SecAQuestions = [
   {
     id: 7,
     component: Q12,
-    audio: sound2,
+    audio: sound9,
     text: "Écoute, montre et écris.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     ]
   },
-  {
-    id: 8,
-    component: Q13,
-    audio: sound2,
-    text: "Écoute et trouve un objet dans la classe.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
-  },
+  // {
+  //   id: 8,
+  //   component: Q13,
+  //   audio: sound8,
+  //   text: "Écoute et trouve un objet dans la classe.",
+  //   captions: [
+  //     { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   ]
+  // },
 ];
 
 export const Wunit1SecAQuestions = [
