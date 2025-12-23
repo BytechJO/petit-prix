@@ -76,17 +76,24 @@ const Q4 = () => {
 
                             <div>
 
-                                <div className="flex flex-wrap gap-2 p-4 bg-gray-100 rounded-lg">
+                                <div className="grid grid-cols-3 p-4 bg-gray-100 rounded-lg">
                                     {wordBank.map((word, index) => (
                                         <button
                                             key={index}
                                             onClick={() => handleWordBankClick(word)}
-                                            className="bg-white px-4 py-2 rounded-md shadow-sm border border-gray-300 hover:bg-blue-100 hover:border-blue-400 transition-all"
+                                            className={`
+        bg-white px-4 py-2 rounded-md shadow-sm border border-gray-300
+        hover:bg-blue-100 hover:border-blue-400 transition-all
+        ${index === 0 ? 'justify-self-start' : ''}
+        ${index === 1 ? 'justify-self-center' : ''}
+        ${index === 2 ? 'justify-self-end' : ''}
+      `}
                                         >
                                             {word}
                                         </button>
                                     ))}
                                 </div>
+
                             </div>
 
                             {/* الحوار */}

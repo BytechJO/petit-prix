@@ -28,9 +28,9 @@
 }
 
 .face-image {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 50%;
   padding: 5px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
