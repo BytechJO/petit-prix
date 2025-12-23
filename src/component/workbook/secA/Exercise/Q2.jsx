@@ -73,7 +73,7 @@ const Q2 = () => {
 
     return (
         <div className="min-h-145 flex items-center justify-center p-4 ">
-            <div className="w-full max-w-200 bg-white rounded-3xl shadow-2xl p-8 space-y-10">
+            <div className="w-full max-w-200 rounded-3xl p-8 space-y-10">
 
 
                 <div className="space-y-12">
@@ -85,7 +85,7 @@ const Q2 = () => {
 
                         return (
                             <div key={word.id} className="relative">
-                                <label className="block mb-3 text-lg font-semibold text-gray-600">
+                                <label className="block mb-3 text-2xl font-semibold text-gray-600">
                                     {word.label}
                                 </label>
 
@@ -107,15 +107,6 @@ const Q2 = () => {
                                         }
                                     `}
                                 />
-
-                                {/* علامة الصح */}
-                                {isCorrect && (
-                                    <div className="absolute right-2 top-1/2 -translate-y-1/2">
-                                        <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white text-xl shadow-lg animate-bounce">
-                                            ✓
-                                        </div>
-                                    </div>
-                                )}
                             </div>
                         );
                     })}

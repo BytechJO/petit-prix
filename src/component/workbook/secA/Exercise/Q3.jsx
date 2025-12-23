@@ -53,7 +53,7 @@ const Q3 = () => {
             <div className="max-w-7xl mx-auto">
                 
                 {/* حاوية الأسئلة */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                     {questions.map((q) => {
                         const userAnswerId = userAnswers[q.id];
                         const isAnswered = !!userAnswerId;
@@ -61,10 +61,10 @@ const Q3 = () => {
                         return (
                             <div
                                 key={q.id}
-                                className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform duration-300"
+                                className=" ml-55 w-75 bg-white rounded-2xl overflow-hidden flex flex-col transition-transform duration-300"
                             >
-                                <div className="p-6 border-b border-gray-200">
-                                    <div className="h-52 flex items-center justify-center">
+                                <div className="border-b border-gray-200">
+                                    <div className=" h-58 flex items-center justify-center">
                                         <img
                                             src={q.image}
                                             alt={`Question ${q.id}`}

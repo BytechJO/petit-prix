@@ -61,22 +61,22 @@ const Q4 = () => {
     };
 
     return (
-        <div className="flex items-center justify-center p-4 sm:p-8 overflow-hidden">
+        <div className="flex items-center justify-center overflow-hidden">
             <div className="w-full max-w-6xl bg-white rounded-2xl flex flex-col h-130">
 
                 {/* المحتوى الرئيسي */}
-                <div className="grid grid-cols-1 md:grid-cols-2 flex-grow overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] flex-grow overflow-hidden">
+
 
                     {/* القسم الأيسر */}
-                    <div className="p-8 flex flex-col overflow-hidden">
+                    <div className="ml-35 p-8 flex flex-col overflow-hidden">
 
                         {/* Scroll هنا فقط */}
                         <div className="flex-grow overflow-y-auto pr-2 space-y-6 text-lg sm:text-xl">
 
-                            {/* بنك الكلمات */}
                             <div>
 
-                                <div className="flex flex-wrap gap-3 p-4 bg-gray-100 rounded-lg">
+                                <div className="flex flex-wrap gap-2 p-4 bg-gray-100 rounded-lg">
                                     {wordBank.map((word, index) => (
                                         <button
                                             key={index}
@@ -92,7 +92,7 @@ const Q4 = () => {
                             {/* الحوار */}
                             {dialogueParts.map((part) => (
                                 <div key={part.id} className="flex items-end">
-                                    <span className="font-bold text-gray-800 mr-2 min-w-[70px]">
+                                    <span className="font-bold text-gray-800 min-w-[70px]">
                                         {part.speaker}:
                                     </span>
 
@@ -119,11 +119,11 @@ const Q4 = () => {
                     </div>
 
                     {/* القسم الأيمن: الصورة */}
-                    <div className="hidden md:flex items-center justify-center overflow-hidden">
+                    <div className="hidden md:flex overflow-hidden max-w-50%">
                         <img
                             src={conv}
                             alt="Dialogue scene"
-                            className="max-w-[90%] max-h-[90%] object-contain rounded-r-2xl"
+                            className="max-w-[90%] max-h-[90%] object-contain"
                         />
                     </div>
                 </div>
