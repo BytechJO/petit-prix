@@ -177,8 +177,6 @@ export default function Book() {
 
   return (
     <>
-      <div style={{ position: 'relative' }}>
-        <Snowfall />
 
         <div
           className="w-full flex flex-col pb-20"
@@ -372,7 +370,6 @@ export default function Book() {
           )}
         </div>
 
-      </div>
       <Popup
         isOpen={popupData.isOpen}
         onClose={closePopup}

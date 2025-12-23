@@ -89,7 +89,7 @@ const Popup = (
 
     return ReactDOM.createPortal(
         <div className="popup-overlay">
-            <Snowfall />
+            
             <button className={`popup-close-btn ${isAudio ? "audio" : ""}`} onClick={onClose} style={{ zIndex: "99999999999" }}>
                 <FontAwesomeIcon icon={faTimes} />
             </button>
@@ -160,6 +160,7 @@ const Popup = (
                 </div>
 
 
+                <div className="main-content-area">
                 <div
                     className="popup-question-container"
                     style={{
@@ -193,14 +194,11 @@ const Popup = (
 
 
                 </div>
-
-
-
-
-
+                
                 {/* الـ content */}
                 <div className="question-container">
                     <CurrentQuestion />
+                </div>
                 </div>
             </div>
 

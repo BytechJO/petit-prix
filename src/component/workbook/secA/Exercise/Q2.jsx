@@ -75,14 +75,7 @@ const Q2 = () => {
         <div className="min-h-145 flex items-center justify-center p-4">
             <div className="w-full max-w-xl bg-white rounded-3xl shadow-2xl p-8 space-y-10">
 
-                {/* العنوان */}
-                <div className="text-center">
-                    <h2 className="text-3xl font-bold text-[#2c5287]">
-                        Écris chaque mot correctement ✍️
-                    </h2>
-                </div>
 
-                {/* الأسئلة */}
                 <div className="space-y-12">
                     {wordsToWrite.map((word) => {
                         const isCorrect =
