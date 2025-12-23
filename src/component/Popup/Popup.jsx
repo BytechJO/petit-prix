@@ -12,6 +12,7 @@ const back = "/assets/back btn white.svg";
 
 import AudioWithCaption from '../AudioWithCaption';
 import '../AudioWithCaption.css'
+import Snowfall from 'react-snowfall';
 
 const Popup = (
     {
@@ -88,6 +89,7 @@ const Popup = (
 
     return ReactDOM.createPortal(
         <div className="popup-overlay">
+            <Snowfall />
             <button className={`popup-close-btn ${isAudio ? "audio" : ""}`} onClick={onClose} style={{ zIndex: "99999999999" }}>
                 <FontAwesomeIcon icon={faTimes} />
             </button>
@@ -122,7 +124,7 @@ const Popup = (
                         <img
                             src={back}
                             alt="back"
-                            style={{ width: "20px", height: "20px", marginRight: "8px" }}
+                            style={{ width: "10px", height: "20px", marginRight: "8px" }}
                         />
                         Exercice précédent
                     </button>
@@ -149,7 +151,7 @@ const Popup = (
                             src={next}
                             alt="next"
                             style={{
-                                width: "20px",
+                                width: "10px",
                                 height: "20px",
                                 marginLeft: "8px",
                             }}

@@ -73,31 +73,45 @@ const Q3 = () => {
           {/* Character 1 */}
           <div className="image-box">
             <img src={characterImage} alt="Character 1" className="character-img" />
-            <select
-              value={answers[0]}
-              onChange={(e) => handleAnswerChange(0, e.target.value)}
-              className="answer-select"
-            >
-              <option value="" disabled>Choisis...</option>
-              {ANSWER_OPTIONS.map(option => (
-                <option key={option} value={option}>{option}</option>
-              ))}
-            </select>
+            <div className="flex gap-3">
+            {ANSWER_OPTIONS.map(option => (
+              <button
+                key={option}
+                onClick={() => handleAnswerChange(0, option)}
+                className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
+                  ${
+                    answers[0] === option
+                      ? "bg-blue-600 text-white border-blue-600"
+                      : "bg-white text-gray-700 border-gray-300 hover:bg-blue-100"
+                  }
+                `}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
           </div>
 
           {/* Character 2 */}
           <div className="image-box">
             <img src={characterImage1} alt="Character 2" className="character-img" />
-            <select
-              value={answers[1]}
-              onChange={(e) => handleAnswerChange(1, e.target.value)}
-              className="answer-select"
-            >
-              <option value="" disabled>Choisis...</option>
-              {ANSWER_OPTIONS.map(option => (
-                <option key={option} value={option}>{option}</option>
-              ))}
-            </select>
+             <div className="flex gap-3">
+            {ANSWER_OPTIONS.map(option => (
+              <button
+                key={option}
+                onClick={() => handleAnswerChange(1, option)}
+                className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
+                  ${
+                    answers[1] === option
+                      ? "bg-blue-600 text-white border-blue-600"
+                      : "bg-white text-gray-700 border-gray-300 hover:bg-blue-100"
+                  }
+                `}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
           </div>
 
         </div>

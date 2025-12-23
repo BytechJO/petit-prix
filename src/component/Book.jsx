@@ -4,6 +4,8 @@ import { pageData } from "./pageData";
 import Navbar from "./navbar";
 import Footer from "./footer";
 
+import Snowfall from 'react-snowfall';
+
 const next = "/assets/next btn.svg";
 const back = "/assets/back btn.svg";
 
@@ -50,30 +52,30 @@ export default function Book() {
   };
 
 
- useEffect(() => {
-  if (activeTab === "studentbook") {
-    setPageIndex(0);
-  } else if (activeTab === "workbook") {
-    setPageIndex(0);
-  }
-}, [activeTab]);
+  useEffect(() => {
+    if (activeTab === "studentbook") {
+      setPageIndex(0);
+    } else if (activeTab === "workbook") {
+      setPageIndex(0);
+    }
+  }, [activeTab]);
 
 
 
   const currentBook = pageData.find(b => b.id === activeTab);
 
   const unitsForSidebar = currentBook.units.map((unit) => {
-  const allPages = unit.sections.flatMap(sec => sec.pages);
-  return {
-    id: unit.id,
-    label: unit.title,
-    start: allPages[0].id,
-    pages: allPages.length,
-  };
-});
+    const allPages = unit.sections.flatMap(sec => sec.pages);
+    return {
+      id: unit.id,
+      label: unit.title,
+      start: allPages[0].id,
+      pages: allPages.length,
+    };
+  });
 
-const coverImage =
-  currentBook.units[0].sections[0].pages[0].image;
+  const coverImage =
+    currentBook.units[0].sections[0].pages[0].image;
 
 
 
@@ -175,197 +177,202 @@ const coverImage =
 
   return (
     <>
-      <div
-        className="w-full flex flex-col pb-20"
-        style={{ overflowX: "hidden", overflowY: "auto" }}
-      >
-        {/* إخفاء Navbar عند فتح Popup */}
-        {!popupData.isOpen && <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />}
-        {activeTab === "student" && <StudentBook />}
-        {activeTab === "work" && <WorkBook />}
-        
+      <div style={{ position: 'relative' }}>
+        <Snowfall />
 
-        <div className="content-wrapper overflow-auto lg:overflow-hidden">
-          <div
-            className="w-full h-[88vh] flex items-center justify-center relative"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-          >
-            {/* MOBILE VIEW */}
-            {isMobile ? (
-              <>
-                {!hideArrows && (
-                  <>
-                    {pageIndex > 0 && (
-                      <svg
-                        width="30"
-                        height="30"
-                        viewBox="0 0 90 90"
-                        onClick={prevPage}
-                        className="nav-btn absolute left-10 w-14 h-14 rounded-full flex items-center justify-center z-[9999] transition cursor-pointer"
-                      >
-                        <image href={back} x="0" y="0" width="90" height="90" />
-                      </svg>
-                    )}
-                  </>
-                )}
+        <div
+          className="w-full flex flex-col pb-20"
+          style={{ overflowX: "hidden", overflowY: "auto" }}
+        >
 
-                <div
-                  className="bg-white sm:w-auto h-[85vh] rounded-2xl shadow-2xl border flex items-center justify-center overflow-hidden"
-                  style={{
-                    transform: `scale(${zoom})`,
-                    transformOrigin: "center top",
-                  }}
-                >
-                  {pages[pageIndex]}
-                </div>
+          {/* إخفاء Navbar عند فتح Popup */}
+          {!popupData.isOpen && <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />}
+          {activeTab === "student" && <StudentBook />}
+          {activeTab === "work" && <WorkBook />}
 
-                {!hideArrows && pageIndex < pages.length - 1 && (
-                  <svg
-                    width="30"
-                    height="30"
-                    viewBox="0 0 90 90"
-                    onClick={nextPage}
-                    className="nav-btn absolute right-10 w-14 h-14 rounded-full flex items-center justify-center transition cursor-pointer"
+
+          <div className="content-wrapper overflow-auto lg:overflow-hidden">
+            <div
+              className="w-full h-[88vh] flex items-center justify-center relative"
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+            >
+              {/* MOBILE VIEW */}
+              {isMobile ? (
+                <>
+                  {!hideArrows && (
+                    <>
+                      {pageIndex > 0 && (
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 90 90"
+                          onClick={prevPage}
+                          className="nav-btn absolute left-10 w-14 h-14 rounded-full flex items-center justify-center z-[9999] transition cursor-pointer"
+                        >
+                          <image href={back} x="0" y="0" width="90" height="90" />
+                        </svg>
+                      )}
+                    </>
+                  )}
+
+                  <div
+                    className="bg-white sm:w-auto h-[85vh] rounded-2xl shadow-2xl border flex items-center justify-center overflow-hidden"
+                    style={{
+                      transform: `scale(${zoom})`,
+                      transformOrigin: "center top",
+                    }}
                   >
-                    <image href={next} x="0" y="0" width="90" height="90" />
-                  </svg>
-                )}
-              </>
-            ) : (
-              <>
-                {/* DESKTOP */}
-                {pageIndex === 0 || viewMode === "single" ? (
-                  // SINGLE PAGE
-                  <>
-                    {!hideArrows && (
-                      <>
-                        {pageIndex > 0 && (
-                          <svg
-                            width="30"
-                            height="30"
-                            viewBox="0 0 90 90"
-                            onClick={prevPage}
-                            className="nav-btn absolute left-10 w-14 h-14 rounded-full flex items-center justify-center z-[9999] transition cursor-pointer"
-                          >
-                            <image href={back} x="0" y="0" width="90" height="90" />
-                          </svg>
-                        )}
-                      </>
-                    )}
+                    {pages[pageIndex]}
+                  </div>
 
-                    <div
-                      className="bg-white sm:w-auto h-[85vh] rounded-2xl shadow-2xl border flex items-center justify-center overflow-hidden"
-                      style={{
-                        transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
-                        transformOrigin: "center top",
-                        cursor: zoom === 1 ? "default" : isDragging ? "grabbing" : "grab",
-                      }}
+                  {!hideArrows && pageIndex < pages.length - 1 && (
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 90 90"
+                      onClick={nextPage}
+                      className="nav-btn absolute right-10 w-14 h-14 rounded-full flex items-center justify-center transition cursor-pointer"
                     >
-                      <div className="max-w-full max-h-full flex justify-center items-center">
-                        {pages[pageIndex]}
-                      </div>
-                    </div>
+                      <image href={next} x="0" y="0" width="90" height="90" />
+                    </svg>
+                  )}
+                </>
+              ) : (
+                <>
+                  {/* DESKTOP */}
+                  {pageIndex === 0 || viewMode === "single" ? (
+                    // SINGLE PAGE
+                    <>
+                      {!hideArrows && (
+                        <>
+                          {pageIndex > 0 && (
+                            <svg
+                              width="30"
+                              height="30"
+                              viewBox="0 0 90 90"
+                              onClick={prevPage}
+                              className="nav-btn absolute left-10 w-14 h-14 rounded-full flex items-center justify-center z-[9999] transition cursor-pointer"
+                            >
+                              <image href={back} x="0" y="0" width="90" height="90" />
+                            </svg>
+                          )}
+                        </>
+                      )}
 
-                    {!hideArrows && pageIndex < pages.length - 1 && (
-                      <svg
-                        width="30"
-                        height="30"
-                        viewBox="0 0 90 90"
-                        onClick={nextPage}
-                        className="nav-btn absolute right-10 w-14 h-14 rounded-full flex items-center justify-center transition cursor-pointer"
+                      <div
+                        className="bg-white sm:w-auto h-[85vh] rounded-2xl shadow-2xl border flex items-center justify-center overflow-hidden"
+                        style={{
+                          transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
+                          transformOrigin: "center top",
+                          cursor: zoom === 1 ? "default" : isDragging ? "grabbing" : "grab",
+                        }}
                       >
-                        <image href={next} x="0" y="0" width="90" height="90" />
-                      </svg>
-                    )}
-                  </>
-                ) : (
-                  // SPREAD 2 PAGES
-                  <>
-                    {!hideArrows && (
-                      <>
-                        {pageIndex > 0 && (
-                          <svg
-                            width="30"
-                            height="30"
-                            viewBox="0 0 90 90"
-                            onClick={prevPage}
-                            className="nav-btn absolute left-10 w-14 h-14 rounded-full flex items-center justify-center z-[9999] transition cursor-pointer"
-                          >
-                            <image href={back} x="0" y="0" width="90" height="90" />
-                          </svg>
-                        )}
-                      </>
-                    )}
-
-                    <div
-                      className="bg-white sm:w-auto h-[85vh] rounded-2xl shadow-2xl border grid grid-cols-2 overflow-hidden"
-                      style={{
-                        transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
-                        transformOrigin: "center top",
-                        cursor: zoom === 1 ? "default" : isDragging ? "grabbing" : "grab",
-                      }}
-                    >
-                      <div className="flex justify-center items-center border-r">
-                        {pages[pageIndex]}
+                        <div className="max-w-full max-h-full flex justify-center items-center">
+                          {pages[pageIndex]}
+                        </div>
                       </div>
 
-                      <div className="flex justify-center items-center border-l">
-                        {pages[pageIndex + 1]}
-                      </div>
-                    </div>
+                      {!hideArrows && pageIndex < pages.length - 1 && (
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 90 90"
+                          onClick={nextPage}
+                          className="nav-btn absolute right-10 w-14 h-14 rounded-full flex items-center justify-center transition cursor-pointer"
+                        >
+                          <image href={next} x="0" y="0" width="90" height="90" />
+                        </svg>
+                      )}
+                    </>
+                  ) : (
+                    // SPREAD 2 PAGES
+                    <>
+                      {!hideArrows && (
+                        <>
+                          {pageIndex > 0 && (
+                            <svg
+                              width="30"
+                              height="30"
+                              viewBox="0 0 90 90"
+                              onClick={prevPage}
+                              className="nav-btn absolute left-10 w-14 h-14 rounded-full flex items-center justify-center z-[9999] transition cursor-pointer"
+                            >
+                              <image href={back} x="0" y="0" width="90" height="90" />
+                            </svg>
+                          )}
+                        </>
+                      )}
 
-                    {!hideArrows && pageIndex < pages.length - 2 && (
-                      <svg
-                        width="30"
-                        height="30"
-                        viewBox="0 0 90 90"
-                        onClick={nextPage}
-                        className="nav-btn absolute right-10 w-14 h-14 rounded-full flex items-center justify-center transition cursor-pointer"
+                      <div
+                        className="bg-white sm:w-auto h-[85vh] rounded-2xl shadow-2xl border grid grid-cols-2 overflow-hidden"
+                        style={{
+                          transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
+                          transformOrigin: "center top",
+                          cursor: zoom === 1 ? "default" : isDragging ? "grabbing" : "grab",
+                        }}
                       >
-                        <image href={next} x="0" y="0" width="90" height="90" />
-                      </svg>
-                    )}
-                  </>
-                )}
-              </>
-            )}
+                        <div className="flex justify-center items-center border-r">
+                          {pages[pageIndex]}
+                        </div>
+
+                        <div className="flex justify-center items-center border-l">
+                          {pages[pageIndex + 1]}
+                        </div>
+                      </div>
+
+                      {!hideArrows && pageIndex < pages.length - 2 && (
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 90 90"
+                          onClick={nextPage}
+                          className="nav-btn absolute right-10 w-14 h-14 rounded-full flex items-center justify-center transition cursor-pointer"
+                        >
+                          <image href={next} x="0" y="0" width="90" height="90" />
+                        </svg>
+                      )}
+                    </>
+                  )}
+                </>
+              )}
+            </div>
           </div>
+
+          {/* FOOTER - إخفاءه أيضاً عند فتح Popup */}
+          {!popupData.isOpen && (
+            <Footer
+              pageIndex={pageIndex}
+              pages={pages}
+              totalPages={pages.length}
+              activeTab={activeTab}
+              goToPage={setPageIndex}
+              isMobile={isMobile}
+              viewMode={viewMode}
+              isSidebarOpen={isSidebarOpen}
+              setIsSidebarOpen={setIsSidebarOpen}
+              isrightSidebarOpen={isrightSidebarOpen}
+              setIsrightSidebarOpen={setIsrightSidebarOpen}
+              goToIndex={goToIndex}
+              setZoom={setZoom}
+              setOffset={setOffset}
+              setIsPanning={setIsPanning}
+              toggleFullScreen={toggleFullScreen}
+              setViewMode={setViewMode}
+              handleMenuClick={handleMenuClick}
+              units={unitsForSidebar}
+              book={{
+                title: currentBook.title,
+                pages: pages.length,
+                cover: coverImage,
+              }}
+            />
+          )}
         </div>
 
-        {/* FOOTER - إخفاءه أيضاً عند فتح Popup */}
-        {!popupData.isOpen && (
-          <Footer
-            pageIndex={pageIndex}
-            pages={pages}
-            totalPages={pages.length}
-            activeTab={activeTab}
-            goToPage={setPageIndex}
-            isMobile={isMobile}
-            viewMode={viewMode}
-            isSidebarOpen={isSidebarOpen}
-            setIsSidebarOpen={setIsSidebarOpen}
-            isrightSidebarOpen={isrightSidebarOpen}
-            setIsrightSidebarOpen={setIsrightSidebarOpen}
-            goToIndex={goToIndex}
-            setZoom={setZoom}
-            setOffset={setOffset}
-            setIsPanning={setIsPanning}
-            toggleFullScreen={toggleFullScreen}
-            setViewMode={setViewMode}
-            handleMenuClick={handleMenuClick}
-            units={unitsForSidebar}
-            book={{
-              title: currentBook.title,
-              pages: pages.length,
-              cover: coverImage,
-            }}
-          />
-        )}
       </div>
-
       <Popup
         isOpen={popupData.isOpen}
         onClose={closePopup}

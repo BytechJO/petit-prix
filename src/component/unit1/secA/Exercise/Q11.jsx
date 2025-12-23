@@ -183,12 +183,22 @@ const Q11 = ({ stopPoint }) => {
 
   return (
     <div className="feelings-quiz-container">
+      
       <DndContext
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
         collisionDetection={closestCenter}
       >
-
+         <div className="options-container">
+          {containers.options.map(word => (
+            <DraggableItem
+              key={word}
+              id={word}
+              content={word}
+              isDragging={activeId === word}
+            />
+          ))}
+        </div>
         <div className="faces-container">
           {feelingsData.map((feeling) => (
             <div key={feeling.id} className="face-item">
@@ -209,16 +219,7 @@ const Q11 = ({ stopPoint }) => {
           ))}
         </div>
 
-        <div className="options-container">
-          {containers.options.map(word => (
-            <DraggableItem
-              key={word}
-              id={word}
-              content={word}
-              isDragging={activeId === word}
-            />
-          ))}
-        </div>
+       
         <div className="popup-buttons">
           <button className="try-again-button" onClick={handleTryAgain}>
             Recommencer ↻

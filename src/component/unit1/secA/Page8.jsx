@@ -5,28 +5,30 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const sound1 ="/assets/unit1/secA/sounds/L1Q1.mp3";
+const sound1 = "/assets/unit1/secA/sounds/L1Q1.mp3";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
 
+const arrow = "/assets/arrow.svg";
+const audio = "/assets/audio.svg";
 
 const Page8 = ({ bgImage, openPopup }) => {
 
     const [showAudio, setShowAudio] = useState(false);
 
     const handleOpenQuestion = (questionIndex) => {
-      const q = unit1SecAQuestions[questionIndex];
-    
-      openPopup({
-        questionText: q.text,
-        questions: unit1SecAQuestions,
-        currentUnit: 1,
-        currentSection: "A",
-        startIndex: questionIndex,
-        audioSrc: q.audio,
-        captions: q.captions,
-      });
+        const q = unit1SecAQuestions[questionIndex];
+
+        openPopup({
+            questionText: q.text,
+            questions: unit1SecAQuestions,
+            currentUnit: 1,
+            currentSection: "A",
+            startIndex: questionIndex,
+            audioSrc: q.audio,
+            captions: q.captions,
+        });
     };
 
     return (
@@ -34,14 +36,19 @@ const Page8 = ({ bgImage, openPopup }) => {
             className="page_1-background"
 
         >
-            <img src={bgImage} loading="lazy"/>
+            <img src={bgImage} loading="lazy" />
 
             <button
                 className='btnopenpopup'
                 id="page8q1"
                 onClick={() => handleOpenQuestion(5)}
             >
-                <FontAwesomeIcon icon={faArrowPointer} />
+                <img
+                    src={arrow}
+                    className="icon"
+                    alt="Open question"
+                    loading="lazy"
+                />
             </button>
 
 
@@ -50,7 +57,12 @@ const Page8 = ({ bgImage, openPopup }) => {
                 id="page8audioq1"
                 onClick={() => setShowAudio(true)}
             >
-                <FontAwesomeIcon icon={faHeadphones} />
+                <img
+                    src={audio}
+                    className="icon"
+                    alt="Open question"
+                    loading="lazy"
+                />
             </button>
 
 

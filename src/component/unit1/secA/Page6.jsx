@@ -10,6 +10,9 @@ const sound1 = "/assets/unit1/secA/sounds/L1Q1.mp3";
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
 
+const arrow = "/assets/arrow.svg";
+const audio = "/assets/audio.svg";
+
 const Page6 = ({ bgImage, openPopup }) => {
 
   const [showAudio, setShowAudio] = useState(false);
@@ -38,7 +41,12 @@ const Page6 = ({ bgImage, openPopup }) => {
         id="page6q1"
         onClick={() => handleOpenQuestion(0)}
       >
-        <FontAwesomeIcon icon={faArrowPointer} />
+        <img
+          src={arrow}
+          className="icon"
+          alt="Open question"
+          loading="lazy"
+        />
       </button>
 
 
@@ -47,7 +55,12 @@ const Page6 = ({ bgImage, openPopup }) => {
         id="page6audioq1"
         onClick={() => setShowAudio(true)}
       >
-        <FontAwesomeIcon icon={faHeadphones} />
+        <img
+          src={audio}
+          className="icon"
+          alt="Open question"
+          loading="lazy"
+        />
       </button>
 
       <button
@@ -55,7 +68,12 @@ const Page6 = ({ bgImage, openPopup }) => {
         id="page6audioq2"
         onClick={() => setShowAudio(true)}
       >
-        <FontAwesomeIcon icon={faHeadphones} />
+        <img
+          src={audio}
+          className="icon"
+          alt="Open question"
+          loading="lazy"
+        />
       </button>
 
       <button
@@ -63,7 +81,12 @@ const Page6 = ({ bgImage, openPopup }) => {
         id="page6audioq4"
         onClick={() => setShowAudio(true)}
       >
-        <FontAwesomeIcon icon={faHeadphones} />
+        <img
+          src={audio}
+          className="icon"
+          alt="Open question"
+          loading="lazy"
+        />
       </button>
 
 

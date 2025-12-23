@@ -4,9 +4,13 @@ import {
   faArrowPointer, faHeadphones
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-const sound1 ="/assets/unit1/secA/sounds/L1Q1.mp3";
+const sound1 = "/assets/unit1/secA/sounds/L1Q1.mp3";
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
+
+const arrow = "/assets/arrow.svg";
+const audio = "/assets/audio.svg";
+
 const Page5 = ({ bgImage, openPopup }) => {
 
   const [showAudio, setShowAudio] = useState(false);
@@ -32,42 +36,50 @@ const Page5 = ({ bgImage, openPopup }) => {
   const handleOpenQuestion = () => {
     openPopup({
       questionText: unit1SecAQuestions[1].text,
-      questions: unit1SecAQuestions, 
+      questions: unit1SecAQuestions,
       currentUnit: 1,
       currentSection: "A",
-      startIndex: 1, 
+      startIndex: 1,
       audioSrc: unit1SecAQuestions[1].audio,
       captions: unit1SecAQuestions[1].captions,
       pausePoints: unit1SecAQuestions[1].pausePoints,
     });
   };
-  
-  
+
+
   return (
     <div
       className="page_1-background"
     >
-      <img src={bgImage} loading="lazy"/>
+      <img src={bgImage} loading="lazy" />
       <button
         className='btnopenpopup'
         id="page5q1"
         onClick={() => handleOpenQuestion(0)}
       >
-        <FontAwesomeIcon icon={faArrowPointer} />
+        <img
+          src={arrow}
+          alt="Open question"
+          loading="lazy"
+        />
       </button>
       <button
         className='btnopenpopup'
         id="page5audio"
         onClick={() => setShowAudio(true)}
       >
-        <FontAwesomeIcon icon={faHeadphones} />
+        <img
+          src={audio}
+          alt="Open question"
+          loading="lazy"
+        />
       </button>
       <AudioPopup
         open={showAudio}
         onClose={() => setShowAudio(false)}
         src={sound1}
         captions={caption}
-        
+
       />
     </div >
   )

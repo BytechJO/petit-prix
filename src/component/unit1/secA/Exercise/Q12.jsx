@@ -26,79 +26,88 @@ const Q12 = () => {
     );
   };
 
-  const handleCheck = () => {
-  if (selectedIndices.length === 0) {
-    ValidationAlert.error(
-      "Attention",
-      "Sélectionne au moins une image"
-    );
-    return;
-  }
+ 
 
+
+// 👁️ إظهار الإجابة
+const handleShowAnswer = () => {
+  setSelectedIndices(CORRECT_INDICES);
+  setShowAnswer(true);
   setShowResult(true);
-
-  const correctCount = selectedIndices.filter(i =>
-    CORRECT_INDICES.includes(i)
-  ).length;
-
-  const isCorrect =
-    correctCount === CORRECT_INDICES.length &&
-    selectedIndices.length === CORRECT_INDICES.length;
-
-  const score = `${correctCount} / ${CORRECT_INDICES.length}`;
-
-  if (isCorrect) {
-    ValidationAlert.success(
-      "Bravo!",
-      `Score: ${score}`
-    );
-  } else {
-    ValidationAlert.error(
-      "Oops!",
-      `Score: ${score}`
-    );
-    setShowResult(false);
-  }
 };
 
+// 🔄 إعادة المحاولة
+const handleStartAgain = () => {
+  setSelectedIndices([]);
+  setShowResult(false);
+  setShowAnswer(false);
+};
 
-  // 👁️ إظهار الإجابة
-  const handleShowAnswer = () => {
-    setSelectedIndices(CORRECT_INDICES);
-    setShowAnswer(true);
+ const handleCheck = () => {
+    if (selectedIndices.length === 0) {
+      ValidationAlert.error(
+        "Attention",
+        "Sélectionne au moins une image"
+      );
+      return;
+    }
+
     setShowResult(true);
-  };
 
-  // 🔄 إعادة المحاولة
-  const handleStartAgain = () => {
-    setSelectedIndices([]);
-    setShowResult(false);
-    setShowAnswer(false);
-  };
+    const correctCount = selectedIndices.filter(i =>
+      CORRECT_INDICES.includes(i)
+    ).length;
 
-  return (
-    <div className="l4q2-container">
-      <InteractiveHotspotQuestion
-        imageSources={images}
-        selectedIndices={selectedIndices}
-        correctIndices={CORRECT_INDICES}
-        showResult={showResult}
-        onSelect={handleSelect}
-      />
+    const isCorrect =
+      correctCount === CORRECT_INDICES.length &&
+      selectedIndices.length === CORRECT_INDICES.length;
 
-      <div className="popup-buttons">
-        <button className="try-again-button" onClick={handleStartAgain}>
-          Recommencer ↻
-        </button>
-        <button className="show-answer-btn" onClick={handleShowAnswer}>
-          Afficher la réponse
-        </button>
-        <button className="check-button2" onClick={handleCheck}>
-          Vérifier la réponse ✓
-        </button>
-      </div>
-    </div>
+    const score = `${correctCount} / ${CORRECT_INDICES.length}`;
+
+    if (isCorrect) {
+      ValidationAlert.success(
+        "Bravo!",
+        `Score: ${score}`
+      );
+    } else if (selectedIndices.length > isCorrect) {
+      ValidationAlert.warning(
+      " Sélectionnez seulement 2 images",
+      "Réessayez!"
+    )
+  }
+  else {
+  ValidationAlert.error(
+    "Oops!",
+    `Score: ${score}`
   );
+  setShowResult(false);
+}
+handleStartAgain();
+};
+
+return (
+  <div className="l4q2-container">
+    <InteractiveHotspotQuestion
+      imageSources={images}
+      selectedIndices={selectedIndices}
+      correctIndices={CORRECT_INDICES}
+      showResult={showResult}
+      onSelect={handleSelect}
+    />
+
+    <div className="popup-buttons">
+      <button className="try-again-button" onClick={handleStartAgain}>
+        Recommencer ↻
+      </button>
+      <button className="show-answer-btn" onClick={handleShowAnswer}>
+        Afficher la réponse
+      </button>
+      <button className="check-button2" onClick={handleCheck}>
+        Vérifier la réponse ✓
+      </button>
+    </div>
+  </div>
+);
 };
 
 export default Q12;

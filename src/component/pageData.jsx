@@ -77,6 +77,7 @@ export const pageData = [
             pages: [
               {
                 id: 1,
+                className: "coverimg",
                 component: Page1,
                 image: img1,
               },

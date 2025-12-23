@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import ValidationAlert from "../../../Popup/ValidationAlert";
 
 const wordsToWrite = [
-    { id: 1, label: "bonjour", correct: "bonjour" },
-    { id: 2, label: "salut", correct: "salut" },
+    { id: 1, label: "Bonjour", correct: "Bonjour" },
+    { id: 2, label: "Salut", correct: "Salut" },
 ];
 
 const Q2 = () => {
+    const [checked, setChecked] = useState(false);
+
     const [userInputs, setUserInputs] = useState({
         1: "",
         2: "",
@@ -18,6 +21,56 @@ const Q2 = () => {
         }));
     };
 
+    const checkAnswers = () => {
+        // تحقق إنو ما في حقول فاضية
+        const hasEmpty = wordsToWrite.some(
+            word => userInputs[word.id].trim() === ""
+        );
+
+        if (hasEmpty) {
+            ValidationAlert.info();
+            return;
+        }
+
+        // عدّ الإجابات الصحيحة
+        const correctCount = wordsToWrite.filter(
+            word =>
+                userInputs[word.id].trim().toLowerCase() ===
+                word.correct.toLowerCase()
+        ).length;
+
+        if (correctCount === wordsToWrite.length) {
+            ValidationAlert.success(
+                "Excellent ! 🎉",
+                `${correctCount} / ${wordsToWrite.length} réponses correctes`
+            );
+        } else {
+            ValidationAlert.error(
+                "Oops 😕",
+                `${correctCount} / ${wordsToWrite.length} réponses correctes`
+            );
+        }
+    };
+
+
+    const handleTryAgain = () => {
+        setUserInputs({
+            1: "",
+            2: "",
+        });
+        setChecked(false);
+    };
+
+    const handleShowAnswer = () => {
+        const answers = {};
+        wordsToWrite.forEach(word => {
+            answers[word.id] = word.correct;
+        });
+        setUserInputs(answers);
+        setChecked(true);
+    };
+
+
     return (
         <div className="min-h-145 flex items-center justify-center p-4">
             <div className="w-full max-w-xl bg-white rounded-3xl shadow-2xl p-8 space-y-10">
@@ -25,7 +78,7 @@ const Q2 = () => {
                 {/* العنوان */}
                 <div className="text-center">
                     <h2 className="text-3xl font-bold text-[#2c5287]">
-                         Écris chaque mot correctement ✍️
+                        Écris chaque mot correctement ✍️
                     </h2>
                 </div>
 
@@ -33,8 +86,9 @@ const Q2 = () => {
                 <div className="space-y-12">
                     {wordsToWrite.map((word) => {
                         const isCorrect =
+                            checked &&
                             userInputs[word.id].trim().toLowerCase() ===
-                            word.correct;
+                            word.correct.toLowerCase();
 
                         return (
                             <div key={word.id} className="relative">
@@ -54,10 +108,9 @@ const Q2 = () => {
                                         bg-transparent border-b-4 px-2 py-3
                                         transition-all duration-300
                                         focus:outline-none
-                                        ${
-                                            isCorrect
-                                                ? "border-green-500 text-green-600"
-                                                : "border-gray-300 focus:border-[#2c5287] text-gray-700"
+                                        ${isCorrect
+                                            ? "border-green-500 text-green-600"
+                                            : "border-gray-300 focus:border-[#2c5287] text-gray-700"
                                         }
                                     `}
                                 />
@@ -74,6 +127,17 @@ const Q2 = () => {
                         );
                     })}
                 </div>
+            </div>
+            <div className="popup-buttons">
+                <button className="try-again-button" onClick={handleTryAgain}>
+                    Recommencer ↻
+                </button>
+                <button className="show-answer-btn" onClick={handleShowAnswer}>
+                    Afficher la réponse
+                </button>
+                <button className="check-button2" onClick={checkAnswers}>
+                    Vérifier la réponse ✓
+                </button>
             </div>
         </div>
     );

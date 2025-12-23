@@ -75,31 +75,63 @@ const Q5 = ({ sound }) => {
       <div className="q5-body">
         <div className="q5-character-group">
           <img src={boyImage} alt="Garçon" className="q5-character-img" />
-          <select
-            id="q5-boy-name"
-            value={boyName}
-            onChange={handleInputChange(setBoyName)}
-            className="q5-input"
-          >
-            <option value="">Choisis...</option>
-            <option value="Antoine">A</option>
-            <option value="Paul">B</option>
-          </select>
+          <div className="flex gap-3 mt-3">
+            <button
+              onClick={() => setBoyName('Antoine')}
+              className={`px-5 py-2 rounded-xl font-bold border transition cursor-pointer
+      ${boyName === 'Antoine'
+                  ? 'bg-[#430f68] text-white border-blue-600'
+                  : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-100'
+                }
+    `}
+            >
+              A
+            </button>
+
+            <button
+              onClick={() => setBoyName('Paul')}
+              className={`px-5 py-2 rounded-xl font-bold border transition cursor-pointer
+      ${boyName === 'Paul'
+                  ? 'bg-[#430f68] text-white border-blue-600'
+                  : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-100'
+                }
+    `}
+            >
+              B
+            </button>
+          </div>
+
 
         </div>
 
         <div className="q5-character-group">
           <img src={girlImage} alt="Fille" className="q5-character-img" />
-          <select
-            id="q5-girl-name"
-            value={girlName}
-            onChange={handleInputChange(setGirlName)}
-            className="q5-input"
-          >
-            <option value="">Choisis...</option>
-            <option value="deteste">A</option>
-            <option value="aime">B</option>
-          </select>
+          <div className="flex gap-3 mt-3">
+            <button
+              onClick={() => setGirlName('deteste')}
+              className={`px-5 py-2 rounded-xl font-bold border transition cursor-pointer
+      ${girlName === 'deteste'
+                  ? 'bg-[#430f68] text-white border-blue-600'
+                  : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-100'
+                }
+    `}
+            >
+              A
+            </button>
+
+            <button
+              onClick={() => setGirlName('aime')}
+              className={`px-5 py-2 rounded-xl font-bold border transition cursor-pointer
+      ${girlName === 'aime'
+                  ? 'bg-[#430f68] text-white border-blue-600'
+                  : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-100'
+                }
+    `}
+            >
+              B
+            </button>
+          </div>
+
 
         </div>
       </div>

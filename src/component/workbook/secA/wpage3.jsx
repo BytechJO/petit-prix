@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Wunit1SecAQuestions } from '../../pageData';
 
+const arrow = "/assets/arrow.svg";
+
 const WPage3 = ({ bgImage, openPopup }) => {
 
   const [showAudio, setShowAudio] = useState(false);
@@ -37,7 +39,11 @@ const WPage3 = ({ bgImage, openPopup }) => {
         id="wpage3q1"
         onClick={() => handleOpenQuestion(0)}
       >
-        <FontAwesomeIcon icon={faArrowPointer} />
+        <img
+          src={arrow}
+          alt="Open question"
+          loading="lazy"
+        />
       </button>
 
       <button
@@ -45,7 +51,11 @@ const WPage3 = ({ bgImage, openPopup }) => {
         id="wpage3q2"
         onClick={() => handleOpenQuestion(1)}
       >
-        <FontAwesomeIcon icon={faArrowPointer} />
+        <img
+          src={arrow}
+          alt="Open question"
+          loading="lazy"
+        />
       </button>
 
 

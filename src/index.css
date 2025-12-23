@@ -157,7 +157,6 @@ img {
 
 .btnopenpopup {
   position: absolute;
-  background-color: #f89b5b;
   border: none;
   color: white;
   padding: clamp(5px, 0.5vw, 10px);
@@ -168,16 +167,21 @@ img {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 50%;
-  width: 24px;
-  height: 22px;
+  width: 8%;
+  height: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.4s ease;
 }
 
 .btnopenpopup:hover
 {
-  background-color: #ff8c40;
+  transform: scale(1.2);
+}
+
+button> img{
+  height: 100% !important;
 }
 
 .audio-popup-overlay {
