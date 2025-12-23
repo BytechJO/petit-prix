@@ -49,7 +49,7 @@ const Q3 = () => {
     };
 
     return (
-        <div className="font-sans p-4 sm:p-8 min-h-screen">
+        <div className="font-sans p-4 sm:p-8 ">
             <div className="max-w-7xl mx-auto">
                 
                 {/* حاوية الأسئلة */}
@@ -69,7 +69,7 @@ const Q3 = () => {
                                             src={q.image}
                                             alt={`Question ${q.id}`}
                                             loading="lazy"
-                                            className="max-h-full object-contain"
+                                            className="max-w-65 max-h-65 object-contain"
                                         />
                                     </div>
                                 </div>

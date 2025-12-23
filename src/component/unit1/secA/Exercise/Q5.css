@@ -1,8 +1,8 @@
 .q5-activity-container {
   width: 100%;
   margin: 0 auto;
-  padding: 30px;
   border-radius: 18px;
+  height: 45vh;
 }
 
 .q5-body {

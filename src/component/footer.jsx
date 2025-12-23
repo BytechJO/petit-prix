@@ -13,8 +13,8 @@ const openBook = "/assets/footer/open-book.svg";
 import { FaKey } from "react-icons/fa";
 
 // rightbar
-const quiz = "/assets/footer/icons/1.svg";
-const audio = "/assets/footer/icons/2.svg";
+const quiz = "/assets/arrow.svg";
+const audio = "/assets/audio.svg";
 const backbtn = "/assets/footer/icons/3.svg";
 const Fullscreen = "/assets/footer/icons/4.svg";
 const homee = "/assets/footer/icons/5.svg";

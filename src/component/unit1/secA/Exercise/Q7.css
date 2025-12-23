@@ -1,20 +1,22 @@
 /* الحاوية الرئيسية */
 .popup-image-container3 {
   position: relative;
-  width: 70%;
-  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   justify-items: center;
   justify-self: center;
   box-sizing: border-box;
+  height: 50vh;
 }
 
-/* صور الشخصيات */
 .character-images1 {
+  margin-top: 50px;
   width: 30%;
   height: auto;
+  transform: scale(1.5);
 }
+
 
 
 /* الفقاعة الرئيسية */
