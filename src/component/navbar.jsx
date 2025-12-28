@@ -3,8 +3,8 @@ const logo ="/assets/nav/PreissMurphy Logo-BGSDEhSA (1).svg";
 
 const Navbar = ({ activeTab, setActiveTab }) => {
     const tabs = [
-        { id: "studentbook", label: "MÉTHODE DE FRANÇAIS" },
-        { id: "workbook", label: "LIVRE DE GRAMMAIRE" },
+        { id: "studentbook", label: "Méthode de français Livre de l’élève" },
+        { id: "workbook", label: "Cahier D'activités" },
     ];
 
     return (
@@ -49,7 +49,7 @@ const Navbar = ({ activeTab, setActiveTab }) => {
             {/* RIGHT SECTION */}
             <div className="flex items-center gap-4">
                 <span className="cursor-pointer text-[#430f68] hover:opacity-75">
-                    Student Edition
+                    Édition Élève
                 </span>
             </div>
         </nav>

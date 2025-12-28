@@ -1,19 +1,22 @@
 .audio-popup {
   position: relative;
   background: #ffffff;
-  padding: 30px 20px 25px 20px !important;
-  border-radius: clamp(10px, 2vw, 12px);
-  width: 50%;
+  padding: 0 25px;
+  border-radius: 25px;
+  width: 52%;
   max-width: clamp(320px, 90vw, 520px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .audio-popup.with-close {
   position: relative;
   background: #ffffff;
-  padding: 30px 20px 5px 20px;
+  padding: 20px;
+  max-width: 520px;
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px #00000026;
 }
-
 
 @media (max-width: 768px) {
   .audio-popup {
@@ -198,8 +201,8 @@
 .close-btn {
   position: absolute;
   align-self: flex-end;
-  right: 1%;
-  height: 30px;
+  right: 2%;
+  height: 23px;
   border-radius: 50%;
   border: none;
   color: #000 !important;

@@ -73,13 +73,13 @@ const Footer = ({
     return (
         <>
             <footer
-                className="w-full bg-white border-t border-gray-300 shadow
-           flex items-center justify-center gap-3 
-           py-0 fixed bottom-0 left-0 z-[9999]"
+                className="w-full bg-white border-t shadow 
+  flex items-center justify-center gap-2 
+  py-1 fixed bottom-0 left-0 z-[9999] h-[40px]"
             >
                 <svg
-                    width="30"
-                    height="30"
+                    width="29"
+                    height="29"
                     viewBox="0 0 90 90"
                     onClick={() => setIsSidebarOpen(true)}
                     className="absolute left-3 text-white p-0.5 rounded-lg shadow hover:bg-[#bc90ff] transition cursor-pointer"

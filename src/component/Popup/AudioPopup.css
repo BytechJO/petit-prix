@@ -14,7 +14,7 @@
   padding: 20px;
   justify-items: center;
   max-width: 1200px;
-  width: 100%;
+  width: 55%;
   position: relative;
   animation: popupEnter 0.35s ease-out forwards;
 }

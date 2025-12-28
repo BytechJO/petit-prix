@@ -1,4 +1,4 @@
-// studentbook
+// studentbook-unitOne-secA
 import Page1 from '../component/unit1/secA/Page1';
 import Page2 from "../component/unit1/secA/Page2";
 import Page3 from "../component/unit1/secA/Page3";
@@ -9,7 +9,7 @@ import Page7 from "../component/unit1/secA/Page7";
 import Page8 from "../component/unit1/secA/Page8";
 import Page9 from "../component/unit1/secA/Page9";
 
-const img1 = "/assets/unit1/1.webp";
+const img1 = "/assets/unit1/1.png";
 const img2 = "/assets/unit1/2.webp";
 const img3 = "/assets/unit1/secA/3.webp";
 const img4 = "/assets/unit1/secA/4.webp";
@@ -18,7 +18,6 @@ const img6 = "/assets/unit1/secA/6.webp";
 const img7 = "/assets/unit1/secA/7.webp";
 const img8 = "/assets/unit1/secA/8.png";
 const img9 = "/assets/unit1/secA/9.webp";
-
 
 import Q1 from '../component/unit1/secA/Exercise/Q1';
 import Q2 from '../component/unit1/secA/Exercise/Q2';
@@ -44,6 +43,23 @@ const sound7 = "/assets/unit1/secA/page8/L3Q1.mp3";
 const sound8 = "/assets/unit1/secA/page9/u1l4q1.wav";
 
 const sound9 = "/assets/unit1/secA/page9/u1l4q2.wav";
+
+
+// studentbook-unitOne-review
+import Page10 from '../component/unit1/review/Page1';
+import Page11 from "../component/unit1/review/Page2";
+import Page12 from "../component/unit1/review/Page3";
+import Page13 from "../component/unit1/review/Page4";
+import Page14 from "../component/unit1/review/Page5";
+import Page15 from "../component/unit1/review/Page6";
+
+const img10 = "/assets/unit1/10.png";
+const img11 = "/assets/unit1/11.png";
+const img12 = "/assets/unit1/review/12.png";
+const img13 = "/assets/unit1/review/13.png";
+const img14 = "/assets/unit1/review/14.png";
+const img15 = "/assets/unit1/review/15.png";
+
 
 
 // workbook
@@ -121,6 +137,51 @@ export const pageData = [
                 component: Page9,
                 image: img9,
               },
+
+            ],
+          },
+        ],
+      },
+      {
+        id: "Review1",
+        title: "Revoir 1",
+        sections: [
+          {
+            id: "unitOnereview",
+            title: "Section A",
+            pages: [
+              //review
+              {
+                id: 10,
+                className: "coverimg",
+                component: Page10,
+                image: img10,
+              },
+              {
+                id: 11,
+                component: Page11,
+                image: img11,
+              },
+              {
+                id: 12,
+                component: Page12,
+                image: img12,
+              },
+              {
+                id: 13,
+                component: Page13,
+                image: img13,
+              },
+              {
+                id: 14,
+                component: Page14,
+                image: img14,
+              },
+              {
+                id: 15,
+                component: Page15,
+                image: img15,
+              },
             ],
           },
         ],
@@ -185,7 +246,7 @@ export const unit1SecAQuestions = [
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     ],
-    pausePoints: [5,12,18],
+    pausePoints: [5, 12, 18],
   },
   {
     id: 3,
