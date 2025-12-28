@@ -142,50 +142,50 @@ export const pageData = [
           },
         ],
       },
-      {
-        id: "Review1",
-        title: "Revoir 1",
-        sections: [
-          {
-            id: "unitOnereview",
-            title: "Section A",
-            pages: [
-              //review
-              {
-                id: 10,
-                className: "coverimg",
-                component: Page10,
-                image: img10,
-              },
-              {
-                id: 11,
-                component: Page11,
-                image: img11,
-              },
-              {
-                id: 12,
-                component: Page12,
-                image: img12,
-              },
-              {
-                id: 13,
-                component: Page13,
-                image: img13,
-              },
-              {
-                id: 14,
-                component: Page14,
-                image: img14,
-              },
-              {
-                id: 15,
-                component: Page15,
-                image: img15,
-              },
-            ],
-          },
-        ],
-      },
+      // {
+      //   id: "Review1",
+      //   title: "Revoir 1",
+      //   sections: [
+      //     {
+      //       id: "unitOnereview",
+      //       title: "Section A",
+      //       pages: [
+      //         //review
+      //         {
+      //           id: 10,
+      //           className: "coverimg",
+      //           component: Page10,
+      //           image: img10,
+      //         },
+      //         {
+      //           id: 11,
+      //           component: Page11,
+      //           image: img11,
+      //         },
+      //         {
+      //           id: 12,
+      //           component: Page12,
+      //           image: img12,
+      //         },
+      //         {
+      //           id: 13,
+      //           component: Page13,
+      //           image: img13,
+      //         },
+      //         {
+      //           id: 14,
+      //           component: Page14,
+      //           image: img14,
+      //         },
+      //         {
+      //           id: 15,
+      //           component: Page15,
+      //           image: img15,
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
     ],
   },
 
