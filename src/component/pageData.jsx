@@ -9,7 +9,7 @@ import Page7 from "../component/unit1/secA/Page7";
 import Page8 from "../component/unit1/secA/Page8";
 import Page9 from "../component/unit1/secA/Page9";
 
-const img1 = "/assets/unit1/1.png";
+const img1 = "/assets/unit1/1.webp";
 const img2 = "/assets/unit1/2.webp";
 const img3 = "/assets/unit1/secA/3.webp";
 const img4 = "/assets/unit1/secA/4.webp";
