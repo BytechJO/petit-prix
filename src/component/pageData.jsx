@@ -9,6 +9,7 @@ import Page7 from "../component/unit1/secA/Page7";
 import Page8 from "../component/unit1/secA/Page8";
 import Page9 from "../component/unit1/secA/Page9";
 
+// unit1 student img
 const img1 = "/assets/unit1/1.webp";
 const img2 = "/assets/unit1/2.webp";
 const img3 = "/assets/unit1/secA/3.webp";
@@ -18,6 +19,7 @@ const img6 = "/assets/unit1/secA/6.webp";
 const img7 = "/assets/unit1/secA/7.webp";
 const img8 = "/assets/unit1/secA/8.png";
 const img9 = "/assets/unit1/secA/9.webp";
+
 
 import Q1 from '../component/unit1/secA/Exercise/Q1';
 import Q2 from '../component/unit1/secA/Exercise/Q2';
@@ -60,7 +62,24 @@ const img13 = "/assets/unit1/review/13.png";
 const img14 = "/assets/unit1/review/14.png";
 const img15 = "/assets/unit1/review/15.png";
 
+// unit2 student img
+const U2img1 = "/assets/unit2/1.png";
+const U2img2 = "/assets/unit2/2.png";
+const U2img3 = "/assets/unit2/secA/3.png";
+const U2img4 = "/assets/unit2/secA/4.png";
+const U2img5 = "/assets/unit2/secA/5.png";
+const U2img6 = "/assets/unit2/secA/6.png";
+const U2img7 = "/assets/unit2/secA/7.png";
+const U2img8 = "/assets/unit2/secA/8.png";
 
+import U2Page1 from '../component/unit2/secA/Page1';
+import U2Page2 from "../component/unit2/secA/Page2";
+import U2Page3 from "../component/unit2/secA/Page3";
+import U2Page4 from "../component/unit2/secA/Page4";
+import U2Page5 from "../component/unit2/secA/Page5";
+import U2Page6 from "../component/unit2/secA/Page6";
+import U2Page7 from "../component/unit2/secA/Page7";
+import U2Page8 from "../component/unit2/secA/Page8";
 
 // workbook
 const Wimg1 = "/assets/workbook/Unit1/Lesson1/cover.png";
@@ -137,55 +156,109 @@ export const pageData = [
                 component: Page9,
                 image: img9,
               },
-
             ],
           },
         ],
       },
-      // {
-      //   id: "Review1",
-      //   title: "Revoir 1",
-      //   sections: [
-      //     {
-      //       id: "unitOnereview",
-      //       title: "Section A",
-      //       pages: [
-      //         //review
-      //         {
-      //           id: 10,
-      //           className: "coverimg",
-      //           component: Page10,
-      //           image: img10,
-      //         },
-      //         {
-      //           id: 11,
-      //           component: Page11,
-      //           image: img11,
-      //         },
-      //         {
-      //           id: 12,
-      //           component: Page12,
-      //           image: img12,
-      //         },
-      //         {
-      //           id: 13,
-      //           component: Page13,
-      //           image: img13,
-      //         },
-      //         {
-      //           id: 14,
-      //           component: Page14,
-      //           image: img14,
-      //         },
-      //         {
-      //           id: 15,
-      //           component: Page15,
-      //           image: img15,
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
+      {
+        id: "Review1",
+        title: "Revoir 1",
+        sections: [
+          {
+            id: "unitOnereview",
+            title: "Section A",
+            pages:
+            [
+              //review
+              {
+                id: 10,
+                className: "coverimg",
+                component: Page10,
+                image: img10,
+              },
+              {
+                id: 11,
+                component: Page11,
+                image: img11,
+              },
+              {
+                id: 12,
+                component: Page12,
+                image: img12,
+              },
+              {
+                id: 13,
+                component: Page13,
+                image: img13,
+              },
+              {
+                id: 14,
+                component: Page14,
+                image: img14,
+              },
+              {
+                id: 15,
+                component: Page15,
+                image: img15,
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        id: "unit2",
+        title: "Unité 2",
+        sections: [
+          {
+            id: "secA",
+            title: "Section A",
+            pages: [
+              {
+                id: 16,
+                className: "coverimg",
+                component: U2Page1,
+                image: U2img1,
+              },
+              {
+                id: 17,
+                component: U2Page2,
+                image: U2img2,
+              },
+              {
+                id: 18,
+                component: U2Page3,
+                image: U2img3,
+              },
+              {
+                id: 19,
+                component: U2Page4,
+                image: U2img4,
+              },
+              {
+                id: 20,
+                component: U2Page5,
+                image: U2img5,
+              },
+              {
+                id: 21,
+                component: U2Page6,
+                image: U2img6,
+              },
+              {
+                id: 22,
+                component: U2Page7,
+                image: U2img7,
+              },
+              {
+                id: 23,
+                component: U2Page8,
+                image: U2img8,
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 
@@ -246,7 +319,7 @@ export const unit1SecAQuestions = [
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     ],
-    pausePoints: [5, 12, 18],
+    pausePoints: [11, 17],
   },
   {
     id: 3,
@@ -273,7 +346,8 @@ export const unit1SecAQuestions = [
     text: "Écoute, montre et écris.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    ],
+    pausePoints: [12, 14, 17, 20],
   },
   {
     id: 6,
