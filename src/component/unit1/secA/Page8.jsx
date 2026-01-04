@@ -15,11 +15,15 @@ const audio = "/assets/audio.svg";
 
 const Page8 = ({ bgImage, openPopup }) => {
 
-    const [showAudio, setShowAudio] = useState(false);
+    const [audioData, setAudioData] = useState(null);
+
+    const openAudio = (src, captions) => {
+        setAudioData({ src, captions });
+    };
 
     const handleOpenQuestion = (questionId) => {
         const q = unit1SecAQuestions.find(item => item.id === questionId);
-        console.log("pausePoints:"+q.pausePoints)
+        console.log("pausePoints:" + q.pausePoints)
         openPopup({
             questionText: q.text,
             questions: unit1SecAQuestions,
@@ -35,7 +39,6 @@ const Page8 = ({ bgImage, openPopup }) => {
     return (
         <div
             className="page_1-background"
-
         >
             <img src={bgImage} loading="lazy" />
 
@@ -56,7 +59,7 @@ const Page8 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="page8audioq1"
-                onClick={() => setShowAudio(true)}
+                onClick={() => openAudio(sound1, unit1SecAQuestions[5].captions)}
             >
                 <img
                     src={audio}
@@ -67,11 +70,15 @@ const Page8 = ({ bgImage, openPopup }) => {
             </button>
 
 
-            <AudioPopup
-                open={showAudio}
-                onClose={() => setShowAudio(false)}
-                src={sound1}
-            />
+            {audioData && (
+                <AudioPopup
+                    open={true}
+                    onClose={() => setAudioData(null)}
+                    src={audioData.src}
+                    captions={audioData.captions}
+                />
+            )}
+
         </div>
 
 

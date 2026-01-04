@@ -36,6 +36,39 @@ const Page6 = ({ bgImage, openPopup }) => {
     });
   };
 
+  const captions1 = [
+    { start: 0, end: 0.9, text: "Unité 1." },
+    { start: 1.1, end: 2.1, text: "leçon 1." },
+    { start: 2.45, end: 4.5, text: "Salut tout le monde !" },
+    { start: 4.5, end: 5.5, text: "Exercice 1." },
+    { start: 6.2, end: 6.6, text: "Écoute," },
+    { start: 7.0, end: 8.0, text: "montre et écris." },
+    { start: 9.2, end: 9.4, text: "A." },
+    { start: 10.2, end: 11.1, text: "Salut Léo !" },
+    { start: 11.9, end: 12.0, text: "Oh," },
+    { start: 12.4, end: 13.3, text: "salut Lily !" },
+    { start: 14.4, end: 14.9, text: "B." },
+    { start: 15.1, end: 16.5, text: "Bonjour les enfants !" },
+    { start: 17.0, end: 19.0, text: "Bonjour Madame Dubois !" },
+
+  ];
+
+  const captions2 = [
+    { start: 0, end: 2.0, text: "Unité 1, Leçon 1" },
+    { start: 2.0, end: 4.0, text: "Salut tout le monde !" },
+    { start: 4.0, end: 5.0, text: "Exercice 2" },
+    { start: 5.0, end: 9.0, text: "Écoute et lis !" },
+    { start: 9.0, end: 11.0, text: "A. Salut Léo !" },
+    { start: 11.0, end: 13.0, text: "Oh, salut Lily !" },
+    { start: 13.0, end: 16.0, text: "B. Bonjour les enfants ! " },
+    { start: 16.0, end: 18.0, text: "Bonjour Madame Dubois !" },
+    { start: 18.0, end: 20.0, text: "Bonjour Madame Dubois !" },
+  ];
+  const captions3 = [
+    { start: 0, end: 4.0, text: "Unité 1, Leçon 1. Salut tout le monde !" },
+    { start: 4.0, end: 10.0, text: "Exercice 4. Écoute la chanson, mime et chante." },
+    { start: 10.0, end: 25.0, text: "Je te dis bonjour, tu me dis bonjour, on se dit bonjour et bonne journée." },
+  ];
   return (
     <div
       className="page_1-background"
@@ -60,7 +93,7 @@ const Page6 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="page6audioq1"
-        onClick={() => openAudio(sound1, unit1SecAQuestions[1].captions)}
+        onClick={() => openAudio(sound1, captions1)}
       >
         <img
           src={audio}
@@ -73,7 +106,7 @@ const Page6 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="page6audioq2"
-        onClick={() => openAudio(sound2, unit1SecAQuestions[1].captions)}
+        onClick={() => openAudio(sound2, captions2)}
       >
         <img
           src={audio}
@@ -86,7 +119,7 @@ const Page6 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="page6audioq4"
-        onClick={() => openAudio(sound3, unit1SecAQuestions[1].captions)}
+        onClick={() => openAudio(sound3, captions3)}
       >
         <img
           src={audio}

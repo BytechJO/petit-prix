@@ -275,40 +275,40 @@ export const pageData = [
             id: "unitOnereview",
             title: "Section A",
             pages:
-            [
-              //review
-              {
-                id: 10,
-                className: "coverimg",
-                component: Page10,
-                image: img10,
-              },
-              {
-                id: 11,
-                component: Page11,
-                image: img11,
-              },
-              {
-                id: 12,
-                component: Page12,
-                image: img12,
-              },
-              {
-                id: 13,
-                component: Page13,
-                image: img13,
-              },
-              {
-                id: 14,
-                component: Page14,
-                image: img14,
-              },
-              {
-                id: 15,
-                component: Page15,
-                image: img15,
-              },
-            ],
+              [
+                //review
+                {
+                  id: 10,
+                  className: "coverimg",
+                  component: Page10,
+                  image: img10,
+                },
+                {
+                  id: 11,
+                  component: Page11,
+                  image: img11,
+                },
+                {
+                  id: 12,
+                  component: Page12,
+                  image: img12,
+                },
+                {
+                  id: 13,
+                  component: Page13,
+                  image: img13,
+                },
+                {
+                  id: 14,
+                  component: Page14,
+                  image: img14,
+                },
+                {
+                  id: 15,
+                  component: Page15,
+                  image: img15,
+                },
+              ],
           },
         ],
       },
@@ -374,29 +374,29 @@ export const pageData = [
             id: "unitOnereview",
             title: "Section A",
             pages:
-            [
-              {
-                id: 24,
-                className: "coverimg",
-                component: U2RPage1,
-                image: U2Rimg12,
-              },
-              {
-                id: 25,
-                component: U2RPage2,
-                image: U2Rimg13,
-              },
-              {
-                id: 26,
-                component: U2RPage3,
-                image: U2Rimg14,
-              },
-              {
-                id: 27,
-                component: U2RPage4,
-                image: U2Rimg12,
-              },
-            ],
+              [
+                {
+                  id: 24,
+                  className: "coverimg",
+                  component: U2RPage1,
+                  image: U2Rimg12,
+                },
+                {
+                  id: 25,
+                  component: U2RPage2,
+                  image: U2Rimg13,
+                },
+                {
+                  id: 26,
+                  component: U2RPage3,
+                  image: U2Rimg14,
+                },
+                {
+                  id: 27,
+                  component: U2RPage4,
+                  image: U2Rimg12,
+                },
+              ],
           },
         ],
       },
@@ -462,29 +462,29 @@ export const pageData = [
             id: "unitOnereview",
             title: "Section A",
             pages:
-            [
-              {
-                id: 36,
-                className: "coverimg",
-                component: U3RPage1,
-                image: U3Rimg12,
-              },
-              {
-                id: 37,
-                component: U3RPage2,
-                image: U3Rimg13,
-              },
-              {
-                id: 38,
-                component: U3RPage3,
-                image: U3Rimg14,
-              },
-              {
-                id: 39,
-                component: U3RPage4,
-                image: U3Rimg12,
-              },
-            ],
+              [
+                {
+                  id: 36,
+                  className: "coverimg",
+                  component: U3RPage1,
+                  image: U3Rimg12,
+                },
+                {
+                  id: 37,
+                  component: U3RPage2,
+                  image: U3Rimg13,
+                },
+                {
+                  id: 38,
+                  component: U3RPage3,
+                  image: U3Rimg14,
+                },
+                {
+                  id: 39,
+                  component: U3RPage4,
+                  image: U3Rimg12,
+                },
+              ],
           },
         ],
       },
@@ -550,29 +550,29 @@ export const pageData = [
             id: "unitOnereview",
             title: "Section A",
             pages:
-            [
-              {
-                id: 47,
-                className: "coverimg",
-                component: U4RPage1,
-                image: U4Rimg12,
-              },
-              {
-                id: 48,
-                component: U4RPage2,
-                image: U4Rimg13,
-              },
-              {
-                id: 49,
-                component: U4RPage3,
-                image: U4Rimg14,
-              },
-              {
-                id: 50,
-                component: U4RPage4,
-                image: U4Rimg12,
-              },
-            ],
+              [
+                {
+                  id: 47,
+                  className: "coverimg",
+                  component: U4RPage1,
+                  image: U4Rimg12,
+                },
+                {
+                  id: 48,
+                  component: U4RPage2,
+                  image: U4Rimg13,
+                },
+                {
+                  id: 49,
+                  component: U4RPage3,
+                  image: U4Rimg14,
+                },
+                {
+                  id: 50,
+                  component: U4RPage4,
+                  image: U4Rimg12,
+                },
+              ],
           },
         ],
       },
@@ -686,9 +686,22 @@ export const unit1SecAQuestions = [
     audio: sound1,
     text: "Écoute et montre.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+      { start: 0, end: 1.3, text: "Unité 1." },
+      { start: 1.3, end: 1.8, text: "Bonjour." },
+      { start: 3.0, end: 4.5, text: "Exercice 2." },
+      { start: 5.0, end: 6.5, text: "Écoute et montre." },
+      { start: 7.3, end: 7.8, text: "A." },
+      { start: 8.3, end: 9.1, text: "Salut Robert." },
+      { start: 9.8, end: 10.7, text: "Salut Théo." },
+      { start: 10.7, end: 10.8, text: "B." },
+      { start: 13.3, end: 14.1, text: "Qu'est-ce que c'est ?" },
+      { start: 14.7, end: 15.8, text: "C'est un crayon pour toi." },
+      { start: 16.0, end: 16.4, text: "C." },
+      { start: 18.4, end: 20.1, text: "Qu'est-ce que c'est ?" },
+      { start: 20.3, end: 20.9, text: "C'est une fleur." },
+
     ],
-    pausePoints: [11, 17],
+    // pausePoints: [11, 17],
   },
   {
     id: 3,
@@ -696,8 +709,21 @@ export const unit1SecAQuestions = [
     audio: sound2,
     text: "Écoute et réponds.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0, end: 0.9, text: "Unité 1." },
+      { start: 1.1, end: 2.1, text: "leçon 1." },
+      { start: 2.45, end: 4.5, text: "Salut tout le monde !" },
+      { start: 4.5, end: 5.5, text: "Exercice 1." },
+      { start: 6.2, end: 6.6, text: "Écoute," },
+      { start: 7.0, end: 8.0, text: "montre et écris." },
+      { start: 9.2, end: 9.4, text: "A." },
+      { start: 10.2, end: 11.1, text: "Salut Léo !" },
+      { start: 11.9, end: 12.0, text: "Oh," },
+      { start: 12.4, end: 13.3, text: "salut Lily !" },
+      { start: 14.4, end: 14.9, text: "B." },
+      { start: 15.1, end: 16.5, text: "Bonjour les enfants !" },
+      { start: 17.0, end: 19.0, text: "Bonjour Madame Dubois !" },
+
+    ],
   },
   {
     id: 4,
@@ -705,8 +731,14 @@ export const unit1SecAQuestions = [
     audio: sound5,
     text: "Écoute, montre et écris.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0, end: 5.0, text: "Unité 1. Leçon 2. Comment tu t'appelles ?" },
+      { start: 5.0, end: 9.0, text: "Exercice 1. Écoute, montre et écris." },
+      { start: 9.0, end: 14.0, text: "A. Salut, je m'appelle Henri. Et toi ?" },
+      { start: 14.0, end: 16.0, text: " Je m'appelle Jacques" },
+      { start: 16.0, end: 20.0, text: "B. Moi c'est Robert. Et toi ?" },
+      { start: 20.0, end: 25.0, text: "Je m'appelle Lissy. Et toi, comment tu t'appelles ?" },
+      { start: 25.0, end: 35.0, text: "Moi, je m'appelle Anna." },
+    ],
   },
   {
     id: 5,
@@ -714,9 +746,10 @@ export const unit1SecAQuestions = [
     audio: sound6,
     text: "Écoute, montre et écris.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+      { start: 0, end: 5.0, text: "Unité un.Leçon deux.Comment tu t'appelles ?" },
+      { start: 5.0, end: 9.0, text: "Exercice deux.Écoute et réponds.Je m'appelle Antoine.Et toi ?" },
+      { start: 9.0, end: 14.0, text: "Moi, c'est Marie.Comment tu t'appelles ?" },
     ],
-    pausePoints: [12, 14, 17, 20],
   },
   {
     id: 6,
@@ -724,8 +757,14 @@ export const unit1SecAQuestions = [
     audio: sound7,
     text: "Écoute, montre et écris.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0, end: 5.0, text: "Unité un, leçon trois.Comment ça va ?" },
+      { start: 5.0, end: 9.0, text: "Exercice un : écoute, montre et écris." },
+      { start: 9.0, end: 14.0, text: "A : comment ça va ?" },
+      { start: 14.0, end: 15.5, text: "B : mal" },
+      { start: 15.5, end: 17.5, text: "C : comme ci comme ça." },
+      { start: 17.5, end: 19.5, text: "D : bien." },
+      { start: 19.5, end: 22.0, text: "E : super." },
+    ],
   },
   {
     id: 7,
@@ -733,8 +772,14 @@ export const unit1SecAQuestions = [
     audio: sound9,
     text: "Écoute, montre et écris.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0, end: 4.0, text: "Unité un, leçon quatre.De quelle couleur c'est ?" },
+      { start: 4.0, end: 6.0, text: "Exercice deux" },
+      { start: 6.0, end: 10.0, text: "Écoute, montre et corrige les erreurs" },
+      { start: 10.0, end: 13.0, text: "J'ai un vélo vert." },
+      { start: 13.0, end: 15.0, text: "J'ai un tracteur jaune." },
+      { start: 15.0, end: 18.0, text: "J'ai une voiture rouge" },
+      { start: 18.0, end: 20.0, text: ".J'ai un robot bleu." },
+    ],
   },
   // {
   //   id: 8,

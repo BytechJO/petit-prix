@@ -36,6 +36,18 @@ const Page9 = ({ bgImage, openPopup }) => {
     });
   };
 
+  const captions1 = [
+    { start: 0, end: 4.0, text: "Unité un, leçon quatre.De quelle couleur c'est ?" },
+    { start: 4.0, end: 6.0, text: "Exercice un." },
+    { start: 6.0, end: 9.0, text: "Écoute et trouve un objet dans la classe." },
+    { start: 9.5, end: 12.0, text: "A- bleu" },
+    { start: 12.5, end: 14.0, text: "B- vert" },
+    { start: 14.0, end: 16.0, text: "C- jaune" },
+    { start: 16.0, end: 18.0, text: "D- rouge," },
+    { start: 18.0, end: 20.0, text: "E- blanc" },
+    { start: 20.5, end: 22.5, text: "F- noir." },
+  ];
+    
   return (
     <div
       className="page_1-background"
@@ -54,7 +66,7 @@ const Page9 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="page9audioq1"
-        onClick={() => openAudio(sound1, unit1SecAQuestions[1].captions)}
+        onClick={() => openAudio(sound1, captions1)}
       >
         <img
           src={audio}
@@ -82,7 +94,7 @@ const Page9 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="page9audioq2"
-        onClick={() => openAudio(sound2, unit1SecAQuestions[1].captions)}
+        onClick={() => openAudio(sound2, unit1SecAQuestions[6].captions)}
       >
         <img
           src={audio}
