@@ -1,20 +1,22 @@
 
 import { unit1SecAQuestions } from '../../pageData';
-
+import './page4.css';
 const arrow = "/assets/arrow.svg";
 
 const Page4 = ({ bgImage, openPopup }) => {
 
 
-  const handleOpenQuestion = () => {
+  const handleOpenQuestion = (questionIndex) => {
+    const q = unit1SecAQuestions[questionIndex];
+
     openPopup({
-      questionText: unit1SecAQuestions[0].text,
+      questionText: q.text,
       questions: unit1SecAQuestions,
       currentUnit: 1,
       currentSection: "A",
-      startIndex: 0,
-      audioSrc: unit1SecAQuestions[0].audio,
-      captions: unit1SecAQuestions[0].captions,
+      startIndex: questionIndex,
+      audioSrc: q.audio,
+      captions: q.captions,
     });
   };
 
@@ -25,7 +27,17 @@ const Page4 = ({ bgImage, openPopup }) => {
       className="page_1-background"
     >
       <img src={bgImage} loading="lazy" />
-
+      <button
+        className='btnopenpopup'
+        id="u1rpage4q1"
+        onClick={() => handleOpenQuestion(18)}
+      >
+        <img
+          src={arrow}
+          alt="Open question"
+          loading="lazy"
+        />
+      </button>
     </div >
   )
 }

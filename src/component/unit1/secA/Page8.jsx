@@ -5,7 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const sound1 = "/assets/unit1/secA/sounds/L1Q1.mp3";
+const sound1 = "/assets/unit1/secA/page8/L3Q1.mp3";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';

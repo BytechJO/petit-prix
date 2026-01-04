@@ -63,6 +63,17 @@ const img13 = "/assets/unit1/review/13.png";
 const img14 = "/assets/unit1/review/14.png";
 const img15 = "/assets/unit1/review/15.png";
 
+import U1RQ1 from '../component/unit1/review/Exercise/Q1';
+import U1RQ2 from '../component/unit1/review/Exercise/Q2';
+import U1RQ3 from '../component/unit1/review/Exercise/Q3';
+import U1RQ4 from '../component/unit1/review/Exercise/Q4';
+import U1RQ5 from '../component/unit1/review/Exercise/Q5';
+import U1RQ6 from '../component/unit1/review/Exercise/Q6';
+import U1RQ7 from '../component/unit1/review/Exercise/Q7';
+import U1RQ8 from '../component/unit1/review/Exercise/Q8';
+import U1RQ9 from '../component/unit1/review/Exercise/Q9';
+
+
 // unit2 student img
 const U2img1 = "/assets/unit2/1.png";
 const U2img2 = "/assets/unit2/2.png";
@@ -662,6 +673,7 @@ export const pageData = [
 
 
 export const unit1SecAQuestions = [
+  // unit 1 sb
   {
     id: 1,
     component: Q1,
@@ -733,6 +745,88 @@ export const unit1SecAQuestions = [
   //     { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
   //   ]
   // },
+
+  // unit 1 review
+  {
+    id: 8,
+    component: U1RQ1,
+    audio: null,
+    text: "Lance le dé, joue et parle.",
+  },
+  {
+    id: 9,
+    component: U1RQ2,
+    audio: null,
+    text: "Regarde la peintureet réponds.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ],
+    // pausePoints: [11, 17],
+  },
+  {
+    id: 10,
+    component: U1RQ3,
+    audio: null,
+    text: "Montre les couleurs :",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 11,
+    component: U1RQ4,
+    audio: null,
+    text: "Écoute, montre et écris.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 12,
+    component: U1RQ5,
+    audio: null,
+    text: "Et maintenant créeton prénom.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ],
+    // pausePoints: [12, 14, 17, 20],
+  },
+  {
+    id: 13,
+    component: U1RQ6,
+    audio: null,
+    text: "Trouve et entoure les mots français.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 14,
+    component: U1RQ7,
+    audio: null,
+    text: "Trouve la bonne image.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 15,
+    component: U1RQ8,
+    audio: null,
+    text: "Relie les mots aux images.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 16,
+    component: U1RQ9,
+    audio: null,
+    text: "Souligne la bonne couleur.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
 ];
 
 export const Wunit1SecAQuestions = [

@@ -4,7 +4,9 @@ import {
   faArrowPointer, faHeadphones
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-const sound1 = "/assets/unit1/secA/sounds/L1Q1.mp3";
+
+const sound1 = "/assets/unit1/secA/page45/u1q2.wav";
+
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
 

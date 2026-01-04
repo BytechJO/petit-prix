@@ -5,7 +5,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const sound1 = "/assets/unit1/secA/sounds/L1Q1.mp3";
+const sound1 = "/assets/unit1/secA/page9/u1l4q1.wav";
+const sound2 = "/assets/unit1/secA/page9/u1l4q2.wav";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
@@ -15,7 +16,11 @@ const audio = "/assets/audio.svg";
 
 const Page9 = ({ bgImage, openPopup }) => {
 
-  const [showAudio, setShowAudio] = useState(false);
+  const [audioData, setAudioData] = useState(null);
+
+  const openAudio = (src, captions) => {
+    setAudioData({ src, captions });
+  };
 
   const handleOpenQuestion = (questionIndex) => {
     const q = unit1SecAQuestions[questionIndex];
@@ -49,7 +54,7 @@ const Page9 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="page9audioq1"
-        onClick={() => setShowAudio(true)}
+        onClick={() => openAudio(sound1, unit1SecAQuestions[1].captions)}
       >
         <img
           src={audio}
@@ -77,7 +82,7 @@ const Page9 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="page9audioq2"
-        onClick={() => setShowAudio(true)}
+        onClick={() => openAudio(sound2, unit1SecAQuestions[1].captions)}
       >
         <img
           src={audio}
@@ -88,12 +93,14 @@ const Page9 = ({ bgImage, openPopup }) => {
       </button>
 
 
-      <AudioPopup
-        open={showAudio}
-        className="icon"
-        onClose={() => setShowAudio(false)}
-        src={sound1}
-      />
+      {audioData && (
+        <AudioPopup
+          open={true}
+          onClose={() => setAudioData(null)}
+          src={audioData.src}
+          captions={audioData.captions}
+        />
+      )}
 
 
     </div>
