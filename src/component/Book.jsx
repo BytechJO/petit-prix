@@ -191,6 +191,7 @@ export default function Book() {
     if (id === 2) goToIndex();
   };
 
+  console.log (pageIndex === pages.length-1)
   return (
     <>
 
@@ -257,12 +258,12 @@ export default function Book() {
             ) : (
               <>
                 {/* DESKTOP */}
-                {pageIndex === 0 || viewMode === "single" ? (
+                {pageIndex === 0 || pageIndex === pages.length - 1|| viewMode === "single" ? (
                   // SINGLE PAGE
                   <>
                     {!hideArrows && (
                       <>
-                        {pageIndex > 0 && (
+                        {(pageIndex > 0 || pageIndex=== pages.length - 1)&& (
                           <svg
                             width="30"
                             height="30"
@@ -306,7 +307,7 @@ export default function Book() {
                   <>
                     {!hideArrows && (
                       <>
-                        {pageIndex > 0 && (
+                        {pageIndex > 0  && (
                           <svg
                             width="30"
                             height="30"
