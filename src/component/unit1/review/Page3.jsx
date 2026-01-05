@@ -2,8 +2,16 @@ import { unit1SecAQuestions } from '../../pageData';
 import './page3.css';
 const arrow = "/assets/arrow.svg";
 
-const handleOpenQuestion = (questionIndex) => {
+
+
+const Page3 = ({ bgImage, openPopup }) => {
+
+  const handleOpenQuestion = (questionIndex) => {
     const q = unit1SecAQuestions[questionIndex];
+
+    console.log(openPopup);
+    console.log(unit1SecAQuestions.length);
+
 
     openPopup({
       questionText: q.text,
@@ -16,17 +24,16 @@ const handleOpenQuestion = (questionIndex) => {
     });
   };
 
-const Page3 = ({ bgImage }) => {
   return (
     <div
       className="page_1-background"
     >
-      <img src={bgImage} loading="lazy"/>
+      <img src={bgImage} loading="lazy" />
 
       <button
         className='btnopenpopup'
         id="u1rpage3q1"
-        onClick={() => handleOpenQuestion(16)}
+        onClick={() => handleOpenQuestion(8)}
       >
         <img
           src={arrow}
@@ -38,7 +45,7 @@ const Page3 = ({ bgImage }) => {
       <button
         className='btnopenpopup'
         id="u1rpage3q2"
-        onClick={() => handleOpenQuestion(17)}
+        onClick={() => handleOpenQuestion(9)}
       >
         <img
           src={arrow}

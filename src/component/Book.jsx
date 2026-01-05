@@ -191,7 +191,6 @@ export default function Book() {
     if (id === 2) goToIndex();
   };
 
-  console.log (pageIndex === pages.length-1)
   return (
     <>
 
