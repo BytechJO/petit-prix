@@ -90,7 +90,7 @@ const Q5 = () => {
             
 
             {/* حاوية الكلمات */}
-            <div className="flex flex-wrap justify-center items-center gap-4 p-8 min-h-[400px]">
+            <div className="flex flex-wrap justify-center items-center gap-5 p-8 min-h-[400px]">
                 {wordsData.map(word => (
                     <Word
                         key={word.text}

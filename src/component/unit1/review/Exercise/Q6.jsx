@@ -50,6 +50,8 @@ const Q6WithAlerts = () => {
             const selected = selectedAnswers[zone.id];
             if (selected === zone.correctAnswerId) {
                 correctCount++;
+                feedback[zone.id] === 'correct',
+                correctAnswers[zone.id] = zone.correctAnswerId;
             }
         });
 
@@ -78,7 +80,7 @@ const Q6WithAlerts = () => {
   p-2 text-xs rounded-lg shadow-sm w-full text-left
   ${feedback[zone.id] === 'correct' ? 'bg-green-200 border border-green-500' :
                                             feedback[zone.id] === 'incorrect' ? 'bg-red-200 border border-red-500' :
-                                                selectedAnswers[zone.id] === conv.id ? 'bg-gray-200' : 'bg-gray-100 hover:bg-gray-200'
+                                                selectedAnswers[zone.id] === conv.id ? 'bg-gray-400' : 'bg-gray-100 hover:bg-gray-200'
                                         }
   transition-colors
 `}
@@ -95,14 +97,14 @@ const Q6WithAlerts = () => {
             </div>
 
             {/* أزرار التحكم */}
-            <div className="popup-buttons shrink-0 flex justify-center gap-4">
-                <button onClick={handleTryAgain} className="px-6 py-2 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition-colors">
+            <div className="popup-buttons shrink-0">
+                <button className="try-again-button" onClick={handleTryAgain}>
                     Recommencer
                 </button>
-                <button onClick={handleShowAnswer} className="px-6 py-2 bg-yellow-500 text-white font-semibold rounded-lg shadow-md hover:bg-yellow-600 transition-colors">
+                <button className="show-answer-btn" onClick={handleShowAnswer}>
                     Afficher la réponse
                 </button>
-                <button onClick={checkAnswers} className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+                <button className="check-button2" onClick={checkAnswers}>
                     Vérifier la réponse
                 </button>
             </div>
