@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import './page5.css';
-import {
-  faArrowPointer, faHeadphones
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const sound1 = "/assets/unit1/secA/page45/u1q2.wav";
 
@@ -65,6 +61,7 @@ const Page5 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
+      
       <button
         className='btnopenpopup'
         id="page5audio"
@@ -76,12 +73,12 @@ const Page5 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
+
       <AudioPopup
         open={showAudio}
         onClose={() => setShowAudio(false)}
         src={sound1}
         captions={caption}
-
       />
     </div >
   )

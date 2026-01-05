@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
+import './page6.css';
 
-import {
-  faArrowPointer, faHeadphones
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-const sound1 = "/assets/unit1/secA/sounds/L1Q1.mp3";
+const sound1 = "/assets/unit1/secA/page8/L3Q1.mp3";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
@@ -15,40 +11,101 @@ const audio = "/assets/audio.svg";
 
 const Page6 = ({ bgImage, openPopup }) => {
 
-  const [showAudio, setShowAudio] = useState(false);
+    const [audioData, setAudioData] = useState(null);
 
-  const handleOpenQuestion = () => {
-    openPopup({
-      questionText: unit1SecAQuestions[1].text,
-      questions: unit1SecAQuestions,
-      currentUnit: 1,
-      currentSection: "A",
-      startIndex: 2,
-      audioSrc: unit1SecAQuestions[1].audio,
-      captions: unit1SecAQuestions[1].captions,
-    });
-  };
+    const openAudio = (src, captions) => {
+        setAudioData({ src, captions });
+    };
 
-  return (
-    <div
-      className="page_1-background"
+    const handleOpenQuestion = (questionId) => {
+        const q = unit1SecAQuestions.find(item => item.id === questionId);
+        console.log("pausePoints:" + q.pausePoints)
+        openPopup({
+            questionText: q.text,
+            questions: unit1SecAQuestions,
+            currentUnit: 1,
+            currentSection: "A",
+            startIndex: questionId,
+            audioSrc: q.audio,
+            captions: q.captions,
+            pausePoints: q.pausePoints || []
+        });
+    };
 
-    >
-      <img src={bgImage} loading="lazy"/>
+    return (
+        <div
+            className="page_1-background"
+        >
+            <img src={bgImage} loading="lazy" />
+
+            <button
+                className='btnopenpopup'
+                id="U2page21q1"
+                onClick={() => handleOpenQuestion(5)}
+            >
+                <img
+                    src={arrow}
+                    className="icon"
+                    alt="Open question"
+                    loading="lazy"
+                />
+            </button>
 
 
+            <button
+                className='btnopenpopup'
+                id="U2page21audioq1"
+                onClick={() => openAudio(sound1, unit1SecAQuestions[5].captions)}
+            >
+                <img
+                    src={audio}
+                    className="icon"
+                    alt="Open question"
+                    loading="lazy"
+                />
+            </button>
 
-      <AudioPopup
-        open={showAudio}
-        onClose={() => setShowAudio(false)}
-        src={sound1}
-      />
+            <button
+                className='btnopenpopup'
+                id="U2page21q2"
+                onClick={() => handleOpenQuestion(5)}
+            >
+                <img
+                    src={arrow}
+                    className="icon"
+                    alt="Open question"
+                    loading="lazy"
+                />
+            </button>
 
 
-    </div>
+            <button
+                className='btnopenpopup'
+                id="U2page21audioq2"
+                onClick={() => openAudio(sound1, unit1SecAQuestions[5].captions)}
+            >
+                <img
+                    src={audio}
+                    className="icon"
+                    alt="Open question"
+                    loading="lazy"
+                />
+            </button>
 
 
-  )
+            {audioData && (
+                <AudioPopup
+                    open={true}
+                    onClose={() => setAudioData(null)}
+                    src={audioData.src}
+                    captions={audioData.captions}
+                />
+            )}
+
+        </div>
+
+
+    )
 }
 
 export default Page6;

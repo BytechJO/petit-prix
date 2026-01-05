@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import './page6.css';
-import {
-  faArrowPointer, faHeadphones
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const sound1 = "/assets/unit1/secA/page6/u1l1q1.wav";
 const sound2 = "/assets/unit1/secA/page6/u1l1q2.wav";

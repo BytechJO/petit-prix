@@ -100,6 +100,29 @@ import U2Page6 from "../component/unit2/secA/Page6";
 import U2Page7 from "../component/unit2/secA/Page7";
 import U2Page8 from "../component/unit2/secA/Page8";
 
+// audio unit 2
+const sound10 = "/assets/unit1/secA/page16/1.wav";
+
+const sound11 = "/assets/unit1/secA/page17/2.wav";
+
+const sound12 = "/assets/unit1/secA/page18/1.wav";
+const sound122 = "/assets/unit1/secA/page18/2.wav";
+const sound123 = "/assets/unit1/secA/page18/3.wav";
+
+const sound13 = "/assets/unit1/secA/page19/1.wav";
+const sound133 = "/assets/unit1/secA/page19/2.wav";
+
+const sound14 = "/assets/unit1/secA/page20/1.wav";
+const sound144 = "/assets/unit1/secA/page20/2.wav";
+
+const sound15 = "/assets/unit1/secA/page21/1.wav";
+const sound155 = "/assets/unit1/secA/page21/2.wav";
+
+const sound16 = "/assets/unit1/secA/page24/1.wav";
+
+const sound17 = "/assets/unit1/secA/page26/1.wav";
+
+
 // review unit 2 page
 import U2RPage1 from '../component/unit2/review/Page1';
 import U2RPage2 from "../component/unit2/review/Page2";
@@ -267,366 +290,366 @@ export const pageData = [
           },
         ],
       },
-      {
-        id: "Review1",
-        title: "Revoir 1",
-        sections: [
-          {
-            id: "unitOnereview",
-            title: "Section A",
-            pages:
-              [
-                //review
-                {
-                  id: 10,
-                  className: "coverimg",
-                  component: Page10,
-                  image: img10,
-                },
-                {
-                  id: 11,
-                  component: Page11,
-                  image: img11,
-                },
-                {
-                  id: 12,
-                  component: Page12,
-                  image: img12,
-                },
-                {
-                  id: 13,
-                  component: Page13,
-                  image: img13,
-                },
-                {
-                  id: 14,
-                  component: Page14,
-                  image: img14,
-                },
-                {
-                  id: 15,
-                  component: Page15,
-                  image: img15,
-                },
-              ],
-          },
-        ],
-      },
+      // {
+      //   id: "Review1",
+      //   title: "Revoir 1",
+      //   sections: [
+      //     {
+      //       id: "unitOnereview",
+      //       title: "Section A",
+      //       pages:
+      //         [
+      //           //review
+      //           {
+      //             id: 10,
+      //             className: "coverimg",
+      //             component: Page10,
+      //             image: img10,
+      //           },
+      //           {
+      //             id: 11,
+      //             component: Page11,
+      //             image: img11,
+      //           },
+      //           {
+      //             id: 12,
+      //             component: Page12,
+      //             image: img12,
+      //           },
+      //           {
+      //             id: 13,
+      //             component: Page13,
+      //             image: img13,
+      //           },
+      //           {
+      //             id: 14,
+      //             component: Page14,
+      //             image: img14,
+      //           },
+      //           {
+      //             id: 15,
+      //             component: Page15,
+      //             image: img15,
+      //           },
+      //         ],
+      //     },
+      //   ],
+      // },
       // unit 2
-      {
-        id: "unit2",
-        title: "Unité 2",
-        sections: [
-          {
-            id: "secA",
-            title: "Section A",
-            pages: [
-              {
-                id: 16,
-                className: "coverimg",
-                component: U2Page1,
-                image: U2img1,
-              },
-              {
-                id: 17,
-                component: U2Page2,
-                image: U2img2,
-              },
-              {
-                id: 18,
-                component: U2Page3,
-                image: U2img3,
-              },
-              {
-                id: 19,
-                component: U2Page4,
-                image: U2img4,
-              },
-              {
-                id: 20,
-                component: U2Page5,
-                image: U2img5,
-              },
-              {
-                id: 21,
-                component: U2Page6,
-                image: U2img6,
-              },
-              {
-                id: 22,
-                component: U2Page7,
-                image: U2img7,
-              },
-              {
-                id: 23,
-                component: U2Page8,
-                image: U2img8,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "Review2",
-        title: "Revoir 2",
-        sections: [
-          {
-            id: "unitOnereview",
-            title: "Section A",
-            pages:
-              [
-                {
-                  id: 24,
-                  className: "coverimg",
-                  component: U2RPage1,
-                  image: U2Rimg12,
-                },
-                {
-                  id: 25,
-                  component: U2RPage2,
-                  image: U2Rimg13,
-                },
-                {
-                  id: 26,
-                  component: U2RPage3,
-                  image: U2Rimg14,
-                },
-                {
-                  id: 27,
-                  component: U2RPage4,
-                  image: U2Rimg12,
-                },
-              ],
-          },
-        ],
-      },
+      // {
+      //   id: "unit2",
+      //   title: "Unité 2",
+      //   sections: [
+      //     {
+      //       id: "secA",
+      //       title: "Section A",
+      //       pages: [
+      //         {
+      //           id: 16,
+      //           className: "coverimg",
+      //           component: U2Page1,
+      //           image: U2img1,
+      //         },
+      //         {
+      //           id: 17,
+      //           component: U2Page2,
+      //           image: U2img2,
+      //         },
+      //         {
+      //           id: 18,
+      //           component: U2Page3,
+      //           image: U2img3,
+      //         },
+      //         {
+      //           id: 19,
+      //           component: U2Page4,
+      //           image: U2img4,
+      //         },
+      //         {
+      //           id: 20,
+      //           component: U2Page5,
+      //           image: U2img5,
+      //         },
+      //         {
+      //           id: 21,
+      //           component: U2Page6,
+      //           image: U2img6,
+      //         },
+      //         {
+      //           id: 22,
+      //           component: U2Page7,
+      //           image: U2img7,
+      //         },
+      //         {
+      //           id: 23,
+      //           component: U2Page8,
+      //           image: U2img8,
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
+      // {
+      //   id: "Review2",
+      //   title: "Revoir 2",
+      //   sections: [
+      //     {
+      //       id: "unitOnereview",
+      //       title: "Section A",
+      //       pages:
+      //         [
+      //           {
+      //             id: 24,
+      //             className: "coverimg",
+      //             component: U2RPage1,
+      //             image: U2Rimg12,
+      //           },
+      //           {
+      //             id: 25,
+      //             component: U2RPage2,
+      //             image: U2Rimg13,
+      //           },
+      //           {
+      //             id: 26,
+      //             component: U2RPage3,
+      //             image: U2Rimg14,
+      //           },
+      //           {
+      //             id: 27,
+      //             component: U2RPage4,
+      //             image: U2Rimg12,
+      //           },
+      //         ],
+      //     },
+      //   ],
+      // },
       // unit 3
-      {
-        id: "unit3",
-        title: "Unité 3",
-        sections: [
-          {
-            id: "secA",
-            title: "Section A",
-            pages: [
-              {
-                id: 28,
-                className: "coverimg",
-                component: U3Page1,
-                image: U3img1,
-              },
-              {
-                id: 29,
-                component: U3Page2,
-                image: U3img2,
-              },
-              {
-                id: 30,
-                component: U3Page3,
-                image: U3img3,
-              },
-              {
-                id: 31,
-                component: U3Page4,
-                image: U3img4,
-              },
-              {
-                id: 32,
-                component: U3Page5,
-                image: U3img5,
-              },
-              {
-                id: 33,
-                component: U3Page6,
-                image: U3img6,
-              },
-              {
-                id: 34,
-                component: U3Page7,
-                image: U3img7,
-              },
-              {
-                id: 35,
-                component: U3Page8,
-                image: U3img8,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "Review3",
-        title: "Revoir 3",
-        sections: [
-          {
-            id: "unitOnereview",
-            title: "Section A",
-            pages:
-              [
-                {
-                  id: 36,
-                  className: "coverimg",
-                  component: U3RPage1,
-                  image: U3Rimg12,
-                },
-                {
-                  id: 37,
-                  component: U3RPage2,
-                  image: U3Rimg13,
-                },
-                {
-                  id: 38,
-                  component: U3RPage3,
-                  image: U3Rimg14,
-                },
-                {
-                  id: 39,
-                  component: U3RPage4,
-                  image: U3Rimg12,
-                },
-              ],
-          },
-        ],
-      },
+      // {
+      //   id: "unit3",
+      //   title: "Unité 3",
+      //   sections: [
+      //     {
+      //       id: "secA",
+      //       title: "Section A",
+      //       pages: [
+      //         {
+      //           id: 28,
+      //           className: "coverimg",
+      //           component: U3Page1,
+      //           image: U3img1,
+      //         },
+      //         {
+      //           id: 29,
+      //           component: U3Page2,
+      //           image: U3img2,
+      //         },
+      //         {
+      //           id: 30,
+      //           component: U3Page3,
+      //           image: U3img3,
+      //         },
+      //         {
+      //           id: 31,
+      //           component: U3Page4,
+      //           image: U3img4,
+      //         },
+      //         {
+      //           id: 32,
+      //           component: U3Page5,
+      //           image: U3img5,
+      //         },
+      //         {
+      //           id: 33,
+      //           component: U3Page6,
+      //           image: U3img6,
+      //         },
+      //         {
+      //           id: 34,
+      //           component: U3Page7,
+      //           image: U3img7,
+      //         },
+      //         {
+      //           id: 35,
+      //           component: U3Page8,
+      //           image: U3img8,
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
+      // {
+      //   id: "Review3",
+      //   title: "Revoir 3",
+      //   sections: [
+      //     {
+      //       id: "unitOnereview",
+      //       title: "Section A",
+      //       pages:
+      //         [
+      //           {
+      //             id: 36,
+      //             className: "coverimg",
+      //             component: U3RPage1,
+      //             image: U3Rimg12,
+      //           },
+      //           {
+      //             id: 37,
+      //             component: U3RPage2,
+      //             image: U3Rimg13,
+      //           },
+      //           {
+      //             id: 38,
+      //             component: U3RPage3,
+      //             image: U3Rimg14,
+      //           },
+      //           {
+      //             id: 39,
+      //             component: U3RPage4,
+      //             image: U3Rimg12,
+      //           },
+      //         ],
+      //     },
+      //   ],
+      // },
       // unit 4
-      {
-        id: "unit4",
-        title: "Unité 4",
-        sections: [
-          {
-            id: "secA",
-            title: "Section A",
-            pages: [
-              {
-                id: 39,
-                className: "coverimg",
-                component: U4Page1,
-                image: U4img1,
-              },
-              {
-                id: 40,
-                component: U4Page2,
-                image: U4img2,
-              },
-              {
-                id: 41,
-                component: U4Page3,
-                image: U4img3,
-              },
-              {
-                id: 42,
-                component: U4Page4,
-                image: U4img4,
-              },
-              {
-                id: 43,
-                component: U4Page5,
-                image: U4img5,
-              },
-              {
-                id: 44,
-                component: U4Page6,
-                image: U4img6,
-              },
-              {
-                id: 45,
-                component: U4Page7,
-                image: U4img7,
-              },
-              {
-                id: 46,
-                component: U4Page8,
-                image: U4img8,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: "Review4",
-        title: "Revoir 4",
-        sections: [
-          {
-            id: "unitOnereview",
-            title: "Section A",
-            pages:
-              [
-                {
-                  id: 47,
-                  className: "coverimg",
-                  component: U4RPage1,
-                  image: U4Rimg12,
-                },
-                {
-                  id: 48,
-                  component: U4RPage2,
-                  image: U4Rimg13,
-                },
-                {
-                  id: 49,
-                  component: U4RPage3,
-                  image: U4Rimg14,
-                },
-                {
-                  id: 50,
-                  component: U4RPage4,
-                  image: U4Rimg12,
-                },
-              ],
-          },
-        ],
-      },
+      // {
+      //   id: "unit4",
+      //   title: "Unité 4",
+      //   sections: [
+      //     {
+      //       id: "secA",
+      //       title: "Section A",
+      //       pages: [
+      //         {
+      //           id: 39,
+      //           className: "coverimg",
+      //           component: U4Page1,
+      //           image: U4img1,
+      //         },
+      //         {
+      //           id: 40,
+      //           component: U4Page2,
+      //           image: U4img2,
+      //         },
+      //         {
+      //           id: 41,
+      //           component: U4Page3,
+      //           image: U4img3,
+      //         },
+      //         {
+      //           id: 42,
+      //           component: U4Page4,
+      //           image: U4img4,
+      //         },
+      //         {
+      //           id: 43,
+      //           component: U4Page5,
+      //           image: U4img5,
+      //         },
+      //         {
+      //           id: 44,
+      //           component: U4Page6,
+      //           image: U4img6,
+      //         },
+      //         {
+      //           id: 45,
+      //           component: U4Page7,
+      //           image: U4img7,
+      //         },
+      //         {
+      //           id: 46,
+      //           component: U4Page8,
+      //           image: U4img8,
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
+      // {
+      //   id: "Review4",
+      //   title: "Revoir 4",
+      //   sections: [
+      //     {
+      //       id: "unitOnereview",
+      //       title: "Section A",
+      //       pages:
+      //         [
+      //           {
+      //             id: 47,
+      //             className: "coverimg",
+      //             component: U4RPage1,
+      //             image: U4Rimg12,
+      //           },
+      //           {
+      //             id: 48,
+      //             component: U4RPage2,
+      //             image: U4Rimg13,
+      //           },
+      //           {
+      //             id: 49,
+      //             component: U4RPage3,
+      //             image: U4Rimg14,
+      //           },
+      //           {
+      //             id: 50,
+      //             component: U4RPage4,
+      //             image: U4Rimg12,
+      //           },
+      //         ],
+      //     },
+      //   ],
+      // },
       // vocabulaire
-      {
-        id: "vocabulaire",
-        title: "vocabulaire",
-        sections: [
-          {
-            id: "secA",
-            title: "Section A",
-            pages: [
-              {
-                id: 51,
-                className: "coverimg",
-                component: vocabulairePage1,
-                image: vocabulaireimg1,
-              },
-              {
-                id: 52,
-                component: vocabulairePage2,
-                image: vocabulaireimg2,
-              },
-              {
-                id: 53,
-                component: vocabulairePage3,
-                image: vocabulaireimg3,
-              },
-              {
-                id: 54,
-                component: vocabulairePage4,
-                image: vocabulaireimg4,
-              },
-              {
-                id: 55,
-                component: vocabulairePage5,
-                image: vocabulaireimg5,
-              },
-              {
-                id: 56,
-                className: "coverimg",
-                component: Page1,
-                image: img1,
-              },
-              {
-                id: 57,
-                className: "coverimg",
-                component: Page1,
-                image: img1,
-              },
-            ],
-          },
-        ],
-      },
+      // {
+      //   id: "vocabulaire",
+      //   title: "vocabulaire",
+      //   sections: [
+      //     {
+      //       id: "secA",
+      //       title: "Section A",
+      //       pages: [
+      //         {
+      //           id: 51,
+      //           className: "coverimg",
+      //           component: vocabulairePage1,
+      //           image: vocabulaireimg1,
+      //         },
+      //         {
+      //           id: 52,
+      //           component: vocabulairePage2,
+      //           image: vocabulaireimg2,
+      //         },
+      //         {
+      //           id: 53,
+      //           component: vocabulairePage3,
+      //           image: vocabulaireimg3,
+      //         },
+      //         {
+      //           id: 54,
+      //           component: vocabulairePage4,
+      //           image: vocabulaireimg4,
+      //         },
+      //         {
+      //           id: 55,
+      //           component: vocabulairePage5,
+      //           image: vocabulaireimg5,
+      //         },
+      //         {
+      //           id: 56,
+      //           className: "coverimg",
+      //           component: Page1,
+      //           image: img1,
+      //         },
+      //         {
+      //           id: 57,
+      //           className: "coverimg",
+      //           component: Page1,
+      //           image: img1,
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
     ],
   },
 
@@ -792,86 +815,176 @@ export const unit1SecAQuestions = [
   // },
 
   // unit 1 review
-  {
-    id: 8,
-    component: U1RQ1,
-    audio: null,
-    text: "Lance le dé, joue et parle.",
-  },
-  {
-    id: 9,
-    component: U1RQ2,
-    audio: null,
-    text: "Regarde la peintureet réponds.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ],
-    // pausePoints: [11, 17],
-  },
-  {
-    id: 10,
-    component: U1RQ3,
-    audio: null,
-    text: "Montre les couleurs :",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
-  },
-  {
-    id: 11,
-    component: U1RQ4,
-    audio: null,
-    text: "Écoute, montre et écris.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
-  },
-  {
-    id: 12,
-    component: U1RQ5,
-    audio: null,
-    text: "Et maintenant créeton prénom.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ],
-    // pausePoints: [12, 14, 17, 20],
-  },
-  {
-    id: 13,
-    component: U1RQ6,
-    audio: null,
-    text: "Trouve et entoure les mots français.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
-  },
-  {
-    id: 14,
-    component: U1RQ7,
-    audio: null,
-    text: "Trouve la bonne image.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
-  },
-  {
-    id: 15,
-    component: U1RQ8,
-    audio: null,
-    text: "Relie les mots aux images.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
-  },
-  {
-    id: 16,
-    component: U1RQ9,
-    audio: null,
-    text: "Souligne la bonne couleur.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
-  },
+  // {
+  //   id: 8,
+  //   component: U1RQ1,
+  //   audio: null,
+  //   text: "Lance le dé, joue et parle.",
+  // },
+  // {
+  //   id: 9,
+  //   component: U1RQ2,
+  //   audio: null,
+  //   text: "Regarde la peintureet réponds.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ],
+  //   // pausePoints: [11, 17],
+  // },
+  // {
+  //   id: 10,
+  //   component: U1RQ3,
+  //   audio: null,
+  //   text: "Montre les couleurs :",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  // {
+  //   id: 11,
+  //   component: U1RQ4,
+  //   audio: null,
+  //   text: "Écoute, montre et écris.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  // {
+  //   id: 12,
+  //   component: U1RQ5,
+  //   audio: null,
+  //   text: "Et maintenant créeton prénom.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ],
+  //   // pausePoints: [12, 14, 17, 20],
+  // },
+  // {
+  //   id: 13,
+  //   component: U1RQ6,
+  //   audio: null,
+  //   text: "Trouve et entoure les mots français.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  // {
+  //   id: 14,
+  //   component: U1RQ7,
+  //   audio: null,
+  //   text: "Trouve la bonne image.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  // {
+  //   id: 15,
+  //   component: U1RQ8,
+  //   audio: null,
+  //   text: "Relie les mots aux images.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  // {
+  //   id: 16,
+  //   component: U1RQ9,
+  //   audio: null,
+  //   text: "Souligne la bonne couleur.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  //unit 2 sb
+  // {
+  //   id: 17,
+  //   component: U1RQ1,
+  //   audio: null,
+  //   text: "Lance le dé, joue et parle.",
+  // },
+  // {
+  //   id: 18,
+  //   component: U1RQ2,
+  //   audio: null,
+  //   text: "Regarde la peintureet réponds.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ],
+  //   // pausePoints: [11, 17],
+  // },
+  // {
+  //   id: 19,
+  //   component: U1RQ3,
+  //   audio: null,
+  //   text: "Montre les couleurs :",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  // {
+  //   id: 20,
+  //   component: U1RQ4,
+  //   audio: null,
+  //   text: "Écoute, montre et écris.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  // {
+  //   id: 21,
+  //   component: U1RQ5,
+  //   audio: null,
+  //   text: "Et maintenant créeton prénom.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ],
+  //   // pausePoints: [12, 14, 17, 20],
+  // },
+  // {
+  //   id: 22,
+  //   component: U1RQ6,
+  //   audio: null,
+  //   text: "Trouve et entoure les mots français.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  // {
+  //   id: 23,
+  //   component: U1RQ7,
+  //   audio: null,
+  //   text: "Trouve la bonne image.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  // {
+  //   id: 24,
+  //   component: U1RQ8,
+  //   audio: null,
+  //   text: "Relie les mots aux images.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  // {
+  //   id: 25,
+  //   component: U1RQ9,
+  //   audio: null,
+  //   text: "Souligne la bonne couleur.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
+  // {
+  //   id: 26,
+  //   component: U1RQ9,
+  //   audio: null,
+  //   text: "Souligne la bonne couleur.",
+  //   // captions: [
+  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+  //   // ]
+  // },
 ];
 
 export const Wunit1SecAQuestions = [
