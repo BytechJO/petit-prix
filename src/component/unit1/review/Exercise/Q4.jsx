@@ -2,12 +2,14 @@ import React, { useRef, useEffect, useState } from 'react';
 
 const scissorsIconUrl = '/assets/icons/scissors.svg';
 
-// المكون الرئيسي للتمرين
 const Q4 = () => {
     const canvasRef = useRef(null);
-    const [isCutting, setIsCutting] = useState(false); // هل المستخدم يقوم بالقص حالياً؟
+    const [isCutting, setIsCutting] = useState(false); 
     const [lastPosition, setLastPosition] = useState(null);
     const cutSoundRef = useRef(null);
+    const scissorsRef = useRef(null);
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
 
     useEffect(() => {
         cutSoundRef.current = new Audio('/assets/sounds/scissors.mp3');
@@ -15,21 +17,17 @@ const Q4 = () => {
         cutSoundRef.current.volume = 0.6;
     }, []);
 
-    // إعداد لوحة الرسم عند تحميل المكون
     useEffect(() => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
 
-        // تعيين أبعاد اللوحة لتناسب حجم الحاوية
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
 
-        // رسم خلفية الورقة (لون أصفر فاتح كورق الملاحظات)
-        context.fillStyle = '#FFFACD'; // لون ورقي
+        context.fillStyle = '#FFFACD'; 
         context.fillRect(0, 0, canvas.width, canvas.height);
 
-        // إضافة خطوط زرقاء خفيفة لمحاكاة ورقة دفتر
-        context.strokeStyle = 'rgba(173, 216, 230, 0.5)'; // Light blue
+        context.strokeStyle = 'rgba(173, 216, 230, 0.5)'; 
         context.lineWidth = 1;
         for (let i = 30; i < canvas.height; i += 30) {
             context.beginPath();
@@ -40,7 +38,6 @@ const Q4 = () => {
 
     }, []);
 
-    // دالة لبدء عملية القص
     const startCutting = ({ nativeEvent }) => {
         const { offsetX, offsetY } = nativeEvent;
         setIsCutting(true);
@@ -51,7 +48,6 @@ const Q4 = () => {
         }
     };
 
-    // دالة لإيقاف عملية القص
     const stopCutting = () => {
         setIsCutting(false);
         setLastPosition(null);
@@ -61,7 +57,6 @@ const Q4 = () => {
         }
     };
 
-    // دالة الرسم أثناء تحريك المقص
     const cut = ({ nativeEvent }) => {
         if (!isCutting) return;
 
@@ -83,15 +78,12 @@ const Q4 = () => {
         setLastPosition({ x: offsetX, y: offsetY });
     };
 
-    // دالة لمسح اللوحة والبدء من جديد
     const handleReset = () => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
-        // إعادة رسم الخلفية
         context.fillStyle = '#FFFACD';
         context.fillRect(0, 0, canvas.width, canvas.height);
-        // إعادة رسم الخطوط
         context.strokeStyle = 'rgba(173, 216, 230, 0.5)';
         for (let i = 30; i < canvas.height; i += 30) {
             context.beginPath();
@@ -101,20 +93,26 @@ const Q4 = () => {
         }
     };
 
+    const handleMouseMove = (e) => {
+        const rect = canvasRef.current.getBoundingClientRect();
+
+        setMousePos({
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top,
+        });
+
+        cut(e);
+    };
+
+
     return (
         <div className="w-full max-w-4xl mx-auto p-6  rounded-2xl shadow-lg">
-            <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
-                Et maintenant, crée ton prénom !
-            </h2>
-            <p className="text-center text-gray-600 mb-6">
-                Utilise les ciseaux pour découper les lettres de ton prénom dans le papier.
-            </p>
+            
 
-            {/* حاوية لوحة الرسم مع تنسيق مؤشر المقص */}
             <div
                 className="relative w-full h-96 bg-white rounded-lg shadow-inner overflow-hidden"
                 style={{
-                    cursor: `url('${scissorsIconUrl}') 10 10, crosshair`
+                    cursor: `none`
                 }}
             >
                 <canvas
@@ -122,16 +120,30 @@ const Q4 = () => {
                     className="absolute top-0 left-0 w-full h-full"
                     onMouseDown={startCutting}
                     onMouseUp={stopCutting}
-                    onMouseLeave={stopCutting} // إيقاف القص عند خروج الماوس
-                    onMouseMove={cut}
+                    onMouseLeave={stopCutting} 
+                    onMouseMove={handleMouseMove}
                 />
+                <img
+                    ref={scissorsRef}
+                    src={scissorsIconUrl}
+                    alt="scissors"
+                    className="absolute pointer-events-none select-none"
+                    style={{
+                        left: mousePos.x - 20,
+                        top: mousePos.y - 20,
+                        width: 40,
+                        height: 40,
+                        transform: isCutting ? 'rotate(-15deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.1s ease',
+                    }}
+                />
+
             </div>
 
-            {/* زر لإعادة المحاولة */}
             <div className="text-center mt-6">
                 <button
                     onClick={handleReset}
-                    className="px-6 py-2 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 transition-colors"
+                    className="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition-colors"
                 >
                     Recommencer
                 </button>

@@ -1,5 +1,5 @@
 
-import './Page1.css';
+import './page1.css';
 
 import { unit1SecAQuestions } from '../../pageData';
 
