@@ -183,9 +183,14 @@ const Q12 = () => {
       {/* الشبكة الرئيسية للعناصر */}
       <div className="grid grid-cols-2 gap-52 ">
         {/* عمود الجمل */}
+        {/* عمود الجمل */}
         <div className="flex flex-col gap-28.5">
           {SENTENCES.map(sentence => (
-            <div key={sentence.id} className="flex items-center justify-end gap-2">
+            <div
+              key={sentence.id}
+              className="flex items-center justify-end gap-2 cursor-pointer"
+              onClick={() => handlePointClick(sentence.id, 'sentence')} // النقرة على النص
+            >
               <p className="p-3 bg-blue-100 text-blue-800 rounded-lg text-center font-semibold">
                 {sentence.text}
               </p>
@@ -193,6 +198,7 @@ const Q12 = () => {
             </div>
           ))}
         </div>
+
 
         {/* عمود الصور */}
         <div className="flex flex-col gap-14">
