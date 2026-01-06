@@ -3,23 +3,29 @@ import ValidationAlert from '../../../Popup/ValidationAlert';
 
 // بيانات الكلمات: الكلمة، هل هي فرنسية، والخط المقترح
 // تم تصحيح "mercie" إلى "Merci"
+
+const img1 = '/assets/unit1/review/page14/ahlan.svg';
+const img2 = '/assets/unit1/review/page14/bonjour.svg';
+const img3 = '/assets/unit1/review/page14/hello.svg';
+const img4 = '/assets/unit1/review/page14/merci.svg';
+
 const wordsData = [
-    { text: 'Bonjour', isFrench: true, font: "'Pacifico', cursive" },
-    { text: 'hello', isFrench: false, font: "'Roboto', sans-serif" },
-    { text: 'Merci', isFrench: true, font: "'Caveat', cursive" },
-    { text: 'أهلاً وسهلاً', isFrench: false, font: "'Noto Kufi Arabic', sans-serif" },
-].sort(() => Math.random() - 0.5); // عرض الكلمات بترتيب عشوائي في كل مرة
+    { image: img1, isFrench: false, font: "'Pacifico', cursive" },
+    { image: img2, isFrench: true, font: "'Roboto', sans-serif" },
+    { image: img3, isFrench: false, font: "'Caveat', cursive" },
+    { image: img4, isFrench: true, font: "'Noto Kufi Arabic', sans-serif" },
+].sort(() => Math.random() - 0.5);
 
 // مكون الكلمة القابلة للنقر
-const Word = ({ text, isFrench, font, onSelect, isSelected, isCorrect }) => {
+const Word = ({ image, isFrench, font, onSelect, isSelected, isCorrect }) => {
     const getBorderColor = () => {
-        if (!isSelected) return 'border-transparent'; // لا يوجد إطار قبل الاختيار
-        return isCorrect ? 'border-green-500' : 'border-red-500'; // أخضر للصحيح، أحمر للخاطئ
+        if (!isSelected) return 'border-transparent';
+        return isCorrect ? 'border-green-500' : 'border-red-500';
     };
 
     return (
         <div
-            onClick={() => onSelect(text, isFrench)}
+            onClick={() => onSelect(image, isFrench)}
             className={`
                 p-4 m-3 rounded-full border-4 transition-all duration-300 cursor-pointer
                 hover:scale-110 transform hover:shadow-lg
@@ -28,7 +34,7 @@ const Word = ({ text, isFrench, font, onSelect, isSelected, isCorrect }) => {
             `}
             style={{ fontFamily: font }}
         >
-            <span className="text-2xl md:text-3xl font-bold text-gray-700">{text}</span>
+            <img src={image} alt="word" className="max-w-28 max-h-27 object-contain" />
         </div>
     );
 };
@@ -37,10 +43,10 @@ const Word = ({ text, isFrench, font, onSelect, isSelected, isCorrect }) => {
 const Q5 = () => {
     const [selections, setSelections] = useState({}); // لتخزين اختيارات المستخدم
 
-    const handleSelectWord = (text, isFrench) => {
+    const handleSelectWord = (image, isFrench) => {
         setSelections(prev => ({
             ...prev,
-            [text]: { isSelected: true, isCorrect: isFrench },
+            [image]: { isSelected: true, isCorrect: isFrench },
         }));
 
         // إذا كانت الإجابة خاطئة، أزل الدائرة الحمراء بعد فترة قصيرة
@@ -48,7 +54,7 @@ const Q5 = () => {
             setTimeout(() => {
                 setSelections(prev => {
                     const newSelections = { ...prev };
-                    delete newSelections[text];
+                    delete newSelections[image];
                     return newSelections;
                 });
             }, 500); // إزالة بعد ثانية واحدة
@@ -63,7 +69,7 @@ const Q5 = () => {
     const handleShowAnswer = () => {
         const newSelections = {};
         wordsData.forEach(word => {
-            newSelections[word.text] = { isSelected: true, isCorrect: word.isFrench };
+            newSelections[word.image] = { isSelected: true, isCorrect: word.isFrench };
         });
         setSelections(newSelections); // تعيين جميع الإجابات الصحيحة
         setShowAnswer(true);
@@ -72,7 +78,7 @@ const Q5 = () => {
     const checkAnswers = () => {
         let correctCount = 0;
         wordsData.forEach(word => {
-            const userChoice = selections[word.text];
+            const userChoice = selections[word.image];
             if (userChoice?.isCorrect) correctCount++;
         });
 
@@ -87,17 +93,17 @@ const Q5 = () => {
 
     return (
         <div className="w-full max-w-2xl mx-auto p-8 bg-sky-50 rounded-2xl shadow-lg mt-7">
-            
+
 
             {/* حاوية الكلمات */}
             <div className="flex flex-wrap justify-center items-center gap-5 p-8 min-h-[400px]">
                 {wordsData.map(word => (
                     <Word
-                        key={word.text}
+                        key={word.image}
                         {...word}
                         onSelect={handleSelectWord}
-                        isSelected={selections[word.text]?.isSelected || false}
-                        isCorrect={selections[word.text]?.isCorrect || false}
+                        isSelected={selections[word.image]?.isSelected || false}
+                        isCorrect={selections[word.image]?.isCorrect || false}
                     />
                 ))}
             </div>
