@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-
-const bear = "/assets/workbook/Unit1/Lesson1/L1Q1-1.svg";
-const tower = "/assets/workbook/Unit1/Lesson1/L1Q1-2.svg";
-const bread = "/assets/workbook/Unit1/Lesson1/L1Q1-3.svg";
+const bear = '/assets/unit1/review/page15/car.svg';
+const tower = '/assets/unit1/review/page15/ball.svg';
+const bread = '/assets/unit1/review/page15/yoyo.svg';
 
 import ValidationAlert from '../../../Popup/ValidationAlert';
 

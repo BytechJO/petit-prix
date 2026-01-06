@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
 // --- مسارات الصور ---
-const img1 = '/assets/unit1/secA/page7/Q12.webp';
-const img2 = '/assets/unit1/secA/page7/Q11.webp';
+const img1 = '/assets/unit1/review/page14/ch1.svg';
+const img2 = '/assets/unit1/review/page14/ch2.svg';
 
 // --- بيانات التمرين ---
 const dropZonesData = [
@@ -70,7 +70,7 @@ const Q6WithAlerts = () => {
             <div className="flex flex-col md:flex-row gap-40 justify-center">
                 {dropZonesData.map(zone => (
                     <div key={zone.id} className="flex flex-col items-center gap-6 w-full h-full max-h-140">
-                        <img src={zone.image} alt={zone.title} className="w-full h-full max-h-70 object-cover rounded-lg shadow-md" />
+                        <img src={zone.image} alt={zone.title} className="w-full h-full max-h-60 object-cover rounded-lg shadow-md" />
                         <div className="flex flex-col gap-6 w-full">
                             {conversationsData.map(conv => (
                                 <button

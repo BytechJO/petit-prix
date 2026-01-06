@@ -8,9 +8,9 @@ const WORDS = [
     { id: 'word-3', text: 'Bien', correctMatch: 'img-3' },
 ]
 
-const img1 = '/assets/unit1/secA/page8/face1.svg';
-const img2 = '/assets/unit1/secA/page8/face1.svg';
-const img3 = '/assets/unit1/secA/page8/face1.svg';
+const img1 = '/assets/unit1/review/page15/face1.svg';
+const img2 = '/assets/unit1/review/page15/face2.svg';
+const img3 = '/assets/unit1/review/page15/face3.svg';
 
 const IMAGES = [
     { id: 'img-1', src: img1, alt: 'Super' },

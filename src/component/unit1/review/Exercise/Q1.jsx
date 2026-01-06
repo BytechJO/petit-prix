@@ -9,6 +9,12 @@ const Q1 = () => {
     const [isRolling, setIsRolling] = useState(false);
     const [isMoving, setIsMoving] = useState(false);
 
+    const audio = '/assets/unit1/review/page10/Dice.mp3';
+    const arrivalSound = "/assets/unit1/review/page10/arrived.mp3";
+
+    const diceAudioRef = useRef(new Audio(audio));
+    const arrivalAudioRef = useRef(new Audio(arrivalSound));
+
     const storyImages = Array.from({ length: 12 }, (_, i) =>
         `/assets/unit1/review/page10/${i + 1}.svg`
     );
@@ -30,29 +36,51 @@ const Q1 = () => {
         audio.play().catch(err => console.log('Error playing sound:', err));
     };
 
+    const playDiceSound = () => {
+        const diceAudio = diceAudioRef.current;
+        diceAudio.currentTime = 0;
+        diceAudio.play().catch(() => { });
+    };
+
+    const stopDiceSound = () => {
+        const diceAudio = diceAudioRef.current;
+        diceAudio.pause();
+        diceAudio.currentTime = 0;
+    };
+    const playArrivalSound = () => {
+        const audio = arrivalAudioRef.current;
+        audio.currentTime = 0;
+        audio.play().catch(() => { });
+    };
+
+
+
+
     const handleDiceRoll = (value) => {
+        stopDiceSound();
         setDiceValue(value);
         setIsRolling(false);
 
         setTimeout(() => {
             const newStep = Math.min(currentStep + value, storyImages.length - 1);
             setIsMoving(true);
-            
+
             // تحريك الشخصية خطوة بخطوة
             let step = currentStep;
             const interval = setInterval(() => {
                 step++;
                 setCurrentStep(step);
-                
+
                 if (step >= newStep) {
                     clearInterval(interval);
                     setIsMoving(false);
-                    
+                    playArrivalSound();
+
                     // عرض الـ popup بعد انتهاء الحركة
                     setTimeout(() => {
                         setShowPopup(true);
                         playSound(storySounds[newStep]);
-                    }, 300);
+                    }, 1000);
                 }
             }, 500); // كل خطوة تأخذ 500ms
         }, 500);
@@ -60,6 +88,7 @@ const Q1 = () => {
 
     const handleRollClick = () => {
         if (!isRolling && currentStep < storyImages.length - 1 && !isMoving) {
+            playDiceSound();
             setIsRolling(true);
         }
     };
@@ -151,7 +180,7 @@ const Q1 = () => {
             </div>
 
             {/* النرد وزر الرمي */}
-            <div className="dic">
+            <div className="dic" onClick={handleRollClick}>
                 <Dice
                     onRoll={handleDiceRoll}
                     size={100}
