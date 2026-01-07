@@ -23,7 +23,6 @@ const Q6 = () => {
   ];
 
   const handleImageClick = (index) => {
-    if (answered) return; // بعد الإجابة، لا يمكن تغيير الاختيار
     setSelected(index);
   };
 
