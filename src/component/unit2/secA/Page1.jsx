@@ -8,17 +8,18 @@ const arrow = "/assets/arrow.svg";
 const Page1 = ({ bgImage, openPopup }) => {
 
 
-  const handleOpenQuestion = () => {
+  const handleOpenQuestion = (index) => {
     openPopup({
-      questionText: unit1SecAQuestions[0].text,
+      questionText: unit1SecAQuestions[index].text,
       questions: unit1SecAQuestions,
       currentUnit: 1,
       currentSection: "A",
-      startIndex: 0,
-      audioSrc: unit1SecAQuestions[0].audio,
-      captions: unit1SecAQuestions[0].captions,
+      startIndex: index,
+      audioSrc: unit1SecAQuestions[index].audio,
+      captions: unit1SecAQuestions[index].captions,
     });
   };
+
 
 
 
@@ -31,7 +32,7 @@ const Page1 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="u2page1q1"
-        onClick={() => handleOpenQuestion(0)}
+        onClick={() => handleOpenQuestion(15)}
       >
         <img
           src={arrow}

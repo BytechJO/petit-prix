@@ -20,17 +20,18 @@ const Page6 = ({ bgImage, openPopup }) => {
   };
 
 
-  const handleOpenQuestion = () => {
+  const handleOpenQuestion = (index) => {
     openPopup({
-      questionText: unit1SecAQuestions[1].text,
+      questionText: unit1SecAQuestions[index].text,
       questions: unit1SecAQuestions,
       currentUnit: 1,
       currentSection: "A",
-      startIndex: 2,
-      audioSrc: unit1SecAQuestions[1].audio,
-      captions: unit1SecAQuestions[1].captions,
+      startIndex: index,
+      audioSrc: unit1SecAQuestions[index].audio,
+      captions: unit1SecAQuestions[index].captions,
     });
   };
+
 
   const captions1 = [
     { start: 0, end: 0.9, text: "Unité 1." },
@@ -75,7 +76,7 @@ const Page6 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="page6q1"
-        onClick={() => handleOpenQuestion(0)}
+        onClick={() => handleOpenQuestion(2)}
       >
         <img
           src={arrow}

@@ -1,9 +1,13 @@
 // src/components/InteractivePage.js
-
-import React from 'react';
+import React, { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import './interactive.css'; // يمكنك إبقاء الأنماط العامة هنا
+import './interactive.css';
+
+
+const clicksound = '/assets/sounds/click.mp3';
+
+const clickAudioRef = new Audio(clicksound);
 
 const InteractivePage = ({ items, foundItems, recentlyFound, onItemClick, iconStyles }) => {
     return (
@@ -14,7 +18,11 @@ const InteractivePage = ({ items, foundItems, recentlyFound, onItemClick, iconSt
                     key={item.index}
                     className="clickable-area"
                     style={{ top: item.top, left: item.left, width: item.width, height: item.height }}
-                    onClick={() => onItemClick(item.index)}
+                    onClick={() => {
+                        clickAudioRef.currentTime = 0;
+                        clickAudioRef.play();
+                        onItemClick(item.index);
+                    }}
                     aria-label={item['aria-label']}
                 >
                     {foundItems[item.index] && (

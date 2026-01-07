@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-const backgroundImage = "/assets/unit1/secA/popup/page41.png";
+const backgroundImage = "/assets/unit2/secA/page16/cover.png";
 
 import ValidationAlert from "../../../Popup/ValidationAlert";
-import InteractivePage from "../../interactive";
+import InteractivePage from "../../../unit1/interactive";
 
-const fence = "/assets/unit1/secA/page45/1.svg";
-const rose = "/assets/unit1/secA/page45/2.svg";
-const book = "/assets/unit1/secA/page45/3.svg";
-const pen = "/assets/unit1/secA/page45/4.svg";
+const bear = "/assets/unit2/secA/page16/bear.svg";
+const clock = "/assets/unit2/secA/page16/clock.svg";
+const comb = "/assets/unit2/secA/page16/comb.webp";
+const pen = "/assets/unit2/secA/page16/pen.svg";
 
 const Q1 = () => {
   const [foundItems, setFoundItems] = useState([false, false, false, false]);
@@ -19,47 +19,47 @@ const Q1 = () => {
   const Items = [
     {
       index: 0,
-      top: "26%",
-      left: "37%",
-      width: "63%",
-      height: "30%",
-      image: fence,
+      top: "45.5%",
+      left: "81.6%",
+      width: "10%",
+      height: "20%",
+      image: bear,
       "aria-label": "Restaurant area 1",
     },
     {
       index: 1,
-      top: "43.5%",
-      left: "24%",
-      width: "4%",
-      height: "2%",
-      image: pen,
+      top: "22.8%",
+      left: "30%",
+      width: "10%",
+      height: "10%",
+      image: clock,
       "aria-label": "Restaurant area 2",
     },
     {
       index: 2,
-      top: "75%",
-      left: "46%",
-      width: "3%",
-      height: "5%",
-      image: book,
+      top: "47.5%",
+      left: "32.5%",
+      width: "15%",
+      height: "10%",
+      image: comb,
       "aria-label": "Restaurant area 3",
     },
     {
       index: 3,
-      top: "77%",
-      left: "79.5%",
-      width: "13%",
-      height: "13%",
-      image: rose,
+      top: "52%",
+      left: "58.8%",
+      width: "7%",
+      height: "7%",
+      image: pen,
       "aria-label": "Restaurant area 4",
     }
   ];
 
   const iconCustomStyles = [
-    { top: '85%', left: '28.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
-    { top: '85%', left: '13%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
-    { top: '85%', left: '5.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
-    { top: '85%', left: '20.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' }
+    { top: '83%', left: '29.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '83%', left: '12%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '83%', left: '3.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '83%', left: '20.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' }
   ];
 
   const handleItemClick = (index) => {

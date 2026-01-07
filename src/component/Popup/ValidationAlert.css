@@ -48,6 +48,7 @@
   align-items: center !important;
   justify-content: center !important;
   transition: all 0.3s ease !important;
+  cursor: pointer;
 }
 
 .my-button:hover {
@@ -68,6 +69,7 @@
   align-items: center !important;
   justify-content: center !important;
   transition: all 0.3s ease !important;
+  cursor: pointer;
 }
 
 .my-button2:hover{
@@ -88,6 +90,7 @@
   align-items: center !important;
   justify-content: center !important;
   transition: all 0.3s ease !important;
+  cursor: pointer;
 }
 
 .my-button3:hover{
@@ -120,6 +123,7 @@
   justify-content: center;
   transition: transform 0.3s ease, background 0.3s ease;
   transform-origin: center;
+  cursor: pointer;
 }
 
 .my-button1:hover {

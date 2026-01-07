@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-const backgroundImage ="/assets/unit1/secA/popup/page4.png";
+const backgroundImage = "/assets/unit2/secA/page17/cover.png";
 
 import ValidationAlert from "../../../Popup/ValidationAlert";
-import InteractivePage from "../../interactive";
+import InteractivePage from "../../../unit1/interactive";
 
 const fence = "/assets/unit1/secA/page45/ch1.svg";
 const book = "/assets/unit1/secA/page45/ch3.svg";
 const pen = "/assets/unit1/secA/page45/ch4.svg";
 
-const Q1 = () => {
+const Q2 = () => {
   const [foundItems, setFoundItems] = useState([false, false, false, false]);
   const [recentlyFound, setRecentlyFound] = useState(null);
   const [checkResult, setCheckResult] = useState(null);
@@ -135,4 +135,4 @@ const Q1 = () => {
   );
 };
 
-export default Q1;
+export default Q2;

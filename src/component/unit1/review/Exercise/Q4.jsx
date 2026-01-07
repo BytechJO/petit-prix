@@ -4,7 +4,7 @@ const scissorsIconUrl = '/assets/icons/scissors.svg';
 
 const Q4 = () => {
     const canvasRef = useRef(null);
-    const [isCutting, setIsCutting] = useState(false); 
+    const [isCutting, setIsCutting] = useState(false);
     const [lastPosition, setLastPosition] = useState(null);
     const cutSoundRef = useRef(null);
     const scissorsRef = useRef(null);
@@ -24,10 +24,10 @@ const Q4 = () => {
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
 
-        context.fillStyle = '#FFFACD'; 
+        context.fillStyle = '#FFFACD';
         context.fillRect(0, 0, canvas.width, canvas.height);
 
-        context.strokeStyle = 'rgba(173, 216, 230, 0.5)'; 
+        context.strokeStyle = 'rgba(173, 216, 230, 0.5)';
         context.lineWidth = 1;
         for (let i = 30; i < canvas.height; i += 30) {
             context.beginPath();
@@ -104,10 +104,24 @@ const Q4 = () => {
         cut(e);
     };
 
+    const handleDownload = () => {
+        const canvas = canvasRef.current;
+
+        // تحويل الكانفاس إلى صورة
+        const imageUrl = canvas.toDataURL('image/png');
+
+        // إنشاء رابط تحميل
+        const link = document.createElement('a');
+        link.href = imageUrl;
+        link.download = 'cutting-result.png';
+        link.click();
+    };
+
+
 
     return (
         <div className="w-full max-w-4xl mx-auto p-6  rounded-2xl shadow-lg">
-            
+
 
             <div
                 className="relative w-full h-96 bg-white rounded-lg shadow-inner overflow-hidden"
@@ -120,7 +134,7 @@ const Q4 = () => {
                     className="absolute top-0 left-0 w-full h-full"
                     onMouseDown={startCutting}
                     onMouseUp={stopCutting}
-                    onMouseLeave={stopCutting} 
+                    onMouseLeave={stopCutting}
                     onMouseMove={handleMouseMove}
                 />
                 <img
@@ -140,14 +154,37 @@ const Q4 = () => {
 
             </div>
 
-            <div className="text-center mt-6">
+            <div className="flex justify-center gap-4 mt-6">
                 <button
                     onClick={handleReset}
-                    className="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition-colors"
+                    className="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition-colors cursor-pointer"
                 >
                     Recommencer
                 </button>
+
+                <button
+                    onClick={handleDownload}
+                    className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors cursor-pointer"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-download"
+                    >
+                        <path d="M12 15V3" />
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <path d="m7 10 5 5 5-5" />
+                    </svg>
+                </button>
             </div>
+
         </div>
     );
 };

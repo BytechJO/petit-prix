@@ -71,7 +71,6 @@ import U1RQ5 from '../component/unit1/review/Exercise/Q5';
 import U1RQ6 from '../component/unit1/review/Exercise/Q6';
 import U1RQ7 from '../component/unit1/review/Exercise/Q7';
 import U1RQ8 from '../component/unit1/review/Exercise/Q8';
-import U1RQ9 from '../component/unit1/review/Exercise/Q9';
 
 
 // unit2 student img
@@ -81,14 +80,27 @@ const U2img3 = "/assets/unit2/secA/3.png";
 const U2img4 = "/assets/unit2/secA/4.png";
 const U2img5 = "/assets/unit2/secA/5.png";
 const U2img6 = "/assets/unit2/secA/6.png";
+
+
+// question unit 2
+import U2Q1 from '../component/unit2/secA/Exercise/Q1';
+import U2Q2 from '../component/unit2/secA/Exercise/Q2';
+import U2Q3 from '../component/unit2/secA/Exercise/Q3';
+import U2Q4 from './unit2/secA/Exercise/Q4';
+import U2Q5 from './unit2/secA/Exercise/Q5';
+import U2Q6 from '../component/unit2/secA/Exercise/Q6';
+import U2Q7 from '../component/unit2/secA/Exercise/Q7';
+import U2Q8 from '../component/unit2/secA/Exercise/Q8';
+import U2Q9 from '../component/unit2/secA/Exercise/Q9';
+import U2Q10 from '../component/unit2/secA/Exercise/Q10';
+// review unit 2
 const U2img7 = "/assets/unit2/secA/7.png";
 const U2img8 = "/assets/unit2/secA/8.png";
-
-// review unit 2
 const U2Rimg12 = "/assets/unit2/review/9.png";
 const U2Rimg13 = "/assets/unit2/review/10.png";
 const U2Rimg14 = "/assets/unit2/review/11.png";
 const U2Rimg15 = "/assets/unit2/review/12.png";
+
 
 // unit2 student page
 import U2Page1 from '../component/unit2/secA/Page1';
@@ -97,8 +109,7 @@ import U2Page3 from "../component/unit2/secA/Page3";
 import U2Page4 from "../component/unit2/secA/Page4";
 import U2Page5 from "../component/unit2/secA/Page5";
 import U2Page6 from "../component/unit2/secA/Page6";
-import U2Page7 from "../component/unit2/secA/Page7";
-import U2Page8 from "../component/unit2/secA/Page8";
+
 
 // audio unit 2
 const sound10 = "/assets/unit1/secA/page16/1.wav";
@@ -124,6 +135,8 @@ const sound17 = "/assets/unit1/secA/page26/1.wav";
 
 
 // review unit 2 page
+import U2Page7 from "../component/unit2/secA/Page7";
+import U2Page8 from "../component/unit2/secA/Page8";
 import U2RPage1 from '../component/unit2/review/Page1';
 import U2RPage2 from "../component/unit2/review/Page2";
 import U2RPage3 from "../component/unit2/review/Page3";
@@ -375,16 +388,6 @@ export const pageData = [
       //           component: U2Page6,
       //           image: U2img6,
       //         },
-      //         {
-      //           id: 22,
-      //           component: U2Page7,
-      //           image: U2img7,
-      //         },
-      //         {
-      //           id: 23,
-      //           component: U2Page8,
-      //           image: U2img8,
-      //         },
       //       ],
       //     },
       //   ],
@@ -398,6 +401,16 @@ export const pageData = [
       //       title: "Section A",
       //       pages:
       //         [
+      //           {
+      //             id: 22,
+      //             component: U2Page7,
+      //             image: U2img7,
+      //           },
+      //           {
+      //             id: 23,
+      //             component: U2Page8,
+      //             image: U2img8,
+      //           },
       //           {
       //             id: 24,
       //             className: "coverimg",
@@ -417,7 +430,7 @@ export const pageData = [
       //           {
       //             id: 27,
       //             component: U2RPage4,
-      //             image: U2Rimg12,
+      //             image: U2Rimg15,
       //           },
       //         ],
       //     },
@@ -886,25 +899,17 @@ export const unit1SecAQuestions = [
   //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
   //   // ]
   // },
-  // {
-  //   id: 16,
-  //   component: U1RQ9,
-  //   audio: null,
-  //   text: "Souligne la bonne couleur.",
-  //   // captions: [
-  //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-  //   // ]
-  // },
+
   //unit 2 sb
   // {
-  //   id: 17,
-  //   component: U1RQ1,
+  //   id: 16,
+  //   component: U2Q1,
   //   audio: null,
   //   text: "Lance le dé, joue et parle.",
   // },
   // {
-  //   id: 18,
-  //   component: U1RQ2,
+  //   id: 17,
+  //   component: U2Q2,
   //   audio: null,
   //   text: "Regarde la peintureet réponds.",
   //   // captions: [
@@ -913,8 +918,8 @@ export const unit1SecAQuestions = [
   //   // pausePoints: [11, 17],
   // },
   // {
-  //   id: 19,
-  //   component: U1RQ3,
+  //   id: 18,
+  //   component: U2Q3,
   //   audio: null,
   //   text: "Montre les couleurs :",
   //   // captions: [
@@ -922,17 +927,18 @@ export const unit1SecAQuestions = [
   //   // ]
   // },
   // {
-  //   id: 20,
-  //   component: U1RQ4,
+  //   id: 19,
+  //   component: U2Q4,
   //   audio: null,
   //   text: "Écoute, montre et écris.",
   //   // captions: [
   //   //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
   //   // ]
+  //   // pausePoints: [11, 17],
   // },
   // {
-  //   id: 21,
-  //   component: U1RQ5,
+  //   id: 20,
+  //   component: U2Q5,
   //   audio: null,
   //   text: "Et maintenant créeton prénom.",
   //   // captions: [
@@ -941,8 +947,8 @@ export const unit1SecAQuestions = [
   //   // pausePoints: [12, 14, 17, 20],
   // },
   // {
-  //   id: 22,
-  //   component: U1RQ6,
+  //   id: 21,
+  //   component: U2Q6,
   //   audio: null,
   //   text: "Trouve et entoure les mots français.",
   //   // captions: [
@@ -950,8 +956,8 @@ export const unit1SecAQuestions = [
   //   // ]
   // },
   // {
-  //   id: 23,
-  //   component: U1RQ7,
+  //   id: 22,
+  //   component: U2Q7,
   //   audio: null,
   //   text: "Trouve la bonne image.",
   //   // captions: [
@@ -959,8 +965,8 @@ export const unit1SecAQuestions = [
   //   // ]
   // },
   // {
-  //   id: 24,
-  //   component: U1RQ8,
+  //   id: 23,
+  //   component: U2Q8,
   //   audio: null,
   //   text: "Relie les mots aux images.",
   //   // captions: [
@@ -968,8 +974,8 @@ export const unit1SecAQuestions = [
   //   // ]
   // },
   // {
-  //   id: 25,
-  //   component: U1RQ9,
+  //   id: 24,
+  //   component: U2Q9,
   //   audio: null,
   //   text: "Souligne la bonne couleur.",
   //   // captions: [
@@ -977,8 +983,8 @@ export const unit1SecAQuestions = [
   //   // ]
   // },
   // {
-  //   id: 26,
-  //   component: U1RQ9,
+  //   id: 25,
+  //   component: U2Q10,
   //   audio: null,
   //   text: "Souligne la bonne couleur.",
   //   // captions: [

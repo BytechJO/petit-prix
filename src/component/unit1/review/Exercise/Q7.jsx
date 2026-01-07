@@ -32,9 +32,16 @@ const Q7 = () => {
         svgContainerRef.current.querySelectorAll('[data-pointid]').forEach(el => {
             const rect = el.getBoundingClientRect();
             const containerRect = svgContainerRef.current.getBoundingClientRect();
+
+            // نحدد اتجاه البداية والنهاية حسب نوع العنصر
+            const isWord = el.dataset.pointid.startsWith('word');
+            const isImage = el.dataset.pointid.startsWith('img');
+
             newPoints[el.dataset.pointid] = {
-                x: rect.left + rect.width / 2 - containerRect.left,
-                y: rect.top + rect.height / 2 - containerRect.top,
+                x: isWord
+                    ? rect.right - containerRect.left  // نهاية الجملة (يمين الـ div)
+                    : rect.left - containerRect.left,  // بداية الصورة (يسار الـ div)
+                y: rect.top + rect.height / 2 - containerRect.top, // منتصف العنصر عمودياً
             };
         });
         return newPoints;
@@ -90,10 +97,26 @@ const Q7 = () => {
         }
     };
 
-    const tryAgain = () => {
+    const handleTryAgain = () => {
         setConnections([]);
         setActiveLine(null);
         setFeedback({});
+    };
+
+    const handleShowAnswer = () => {
+        const correctConnections = WORDS.map(word => ({
+            startId: word.id,
+            endId: word.correctMatch
+        }));
+
+        setConnections(correctConnections);
+
+        // ضع الـ feedback لجميع الإجابات على أنها صحيحة
+        const newFeedback = {};
+        correctConnections.forEach((conn, index) => {
+            newFeedback[index] = 'correct';
+        });
+        setFeedback(newFeedback);
     };
 
     const getLinePoints = (connection) => {
@@ -160,9 +183,16 @@ const Q7 = () => {
                 </div>
             </div>
 
-            <div className="popup-buttons mt-8">
-                <button className="try-again-button" onClick={tryAgain}>Recommencer ↻</button>
-                <button className="check-button2" onClick={checkAnswers}>Vérifier ✓</button>
+            <div className="popup-buttons shrink-0">
+                <button className="try-again-button" onClick={handleTryAgain}>
+                    Recommencer
+                </button>
+                <button className="show-answer-btn" onClick={handleShowAnswer}>
+                    Afficher la réponse
+                </button>
+                <button className="check-button2" onClick={checkAnswers}>
+                    Vérifier la réponse
+                </button>
             </div>
         </div>
     );

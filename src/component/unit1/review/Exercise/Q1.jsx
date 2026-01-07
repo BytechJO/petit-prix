@@ -114,7 +114,7 @@ const Q1 = () => {
         const row = currentStep < 6 ? 0 : 1;
         const col = currentStep % 6;
         const left = (col + 0.5) * (100 / 6); // توسيط داخل كل عمود
-        const top = row * 150; // فرق الصفوف 150px
+        const top = row * 300; // فرق الصفوف 150px
         return { left: `${left}%`, top: `${top}px` };
     };
 
@@ -145,7 +145,7 @@ const Q1 = () => {
                         const row = index < 6 ? 0 : 1;
                         const col = index % 6;
                         const left = `${(col + 0.5) * (100 / 6)}%`;
-                        const top = `${row * 300}px`;
+                        const top = `${row * 310}px`;
 
                         return (
                             <div

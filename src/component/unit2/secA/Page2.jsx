@@ -35,18 +35,18 @@ const Page2 = ({ bgImage, openPopup }) => {
     ];
 
 
-  const handleOpenQuestion = () => {
+  const handleOpenQuestion = (index) => {
     openPopup({
-      questionText: unit1SecAQuestions[1].text,
+      questionText: unit1SecAQuestions[index].text,
       questions: unit1SecAQuestions,
       currentUnit: 1,
       currentSection: "A",
-      startIndex: 1,
-      audioSrc: unit1SecAQuestions[1].audio,
-      captions: unit1SecAQuestions[1].captions,
-      pausePoints: unit1SecAQuestions[1].pausePoints,
+      startIndex: index,
+      audioSrc: unit1SecAQuestions[index].audio,
+      captions: unit1SecAQuestions[index].captions,
     });
-  };
+};
+
 
 
   return (
@@ -57,7 +57,7 @@ const Page2 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="U2page2q1"
-        onClick={() => handleOpenQuestion(0)}
+        onClick={() => handleOpenQuestion(16)}
       >
         <img
           src={arrow}
@@ -65,6 +65,7 @@ const Page2 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
+
       <button
         className='btnopenpopup'
         id="U2page2audio"

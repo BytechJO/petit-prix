@@ -13,36 +13,36 @@ const Page5 = ({ bgImage, openPopup }) => {
 
   const [showAudio, setShowAudio] = useState(false);
 
-   const caption = [
-      { start: 0, end: 1.3, text: "Unité 1." },
-      { start: 1.3, end: 1.8, text: "Bonjour." },
-      { start: 3.0, end: 4.5, text: "Exercice 2." },
-      { start: 5.0, end: 6.5, text: "Écoute et montre." },
-      { start: 7.3, end: 7.8, text: "A." },
-      { start: 8.3, end: 9.1, text: "Salut Robert." },
-      { start: 9.8, end: 10.7, text: "Salut Théo." },
-      { start: 10.7, end: 10.8, text: "B." },
-      { start: 13.3, end: 14.1, text: "Qu'est-ce que c'est ?" },
-      { start: 14.7, end: 15.8, text: "C'est un crayon pour toi." },
-      { start: 16.0, end: 16.4, text: "C." },
-      { start: 18.4, end: 20.1, text: "Qu'est-ce que c'est ?" },
-      { start: 20.3, end: 20.9, text: "C'est une fleur." },
+  const caption = [
+    { start: 0, end: 1.3, text: "Unité 1." },
+    { start: 1.3, end: 1.8, text: "Bonjour." },
+    { start: 3.0, end: 4.5, text: "Exercice 2." },
+    { start: 5.0, end: 6.5, text: "Écoute et montre." },
+    { start: 7.3, end: 7.8, text: "A." },
+    { start: 8.3, end: 9.1, text: "Salut Robert." },
+    { start: 9.8, end: 10.7, text: "Salut Théo." },
+    { start: 10.7, end: 10.8, text: "B." },
+    { start: 13.3, end: 14.1, text: "Qu'est-ce que c'est ?" },
+    { start: 14.7, end: 15.8, text: "C'est un crayon pour toi." },
+    { start: 16.0, end: 16.4, text: "C." },
+    { start: 18.4, end: 20.1, text: "Qu'est-ce que c'est ?" },
+    { start: 20.3, end: 20.9, text: "C'est une fleur." },
 
-    ];
+  ];
 
 
-  const handleOpenQuestion = () => {
+  const handleOpenQuestion = (index) => {
     openPopup({
-      questionText: unit1SecAQuestions[1].text,
+      questionText: unit1SecAQuestions[index].text,
       questions: unit1SecAQuestions,
       currentUnit: 1,
       currentSection: "A",
-      startIndex: 1,
-      audioSrc: unit1SecAQuestions[1].audio,
-      captions: unit1SecAQuestions[1].captions,
-      pausePoints: unit1SecAQuestions[1].pausePoints,
+      startIndex: index,
+      audioSrc: unit1SecAQuestions[index].audio,
+      captions: unit1SecAQuestions[index].captions,
     });
   };
+
 
 
   return (
@@ -53,7 +53,7 @@ const Page5 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="page5q1"
-        onClick={() => handleOpenQuestion(0)}
+        onClick={() => handleOpenQuestion(1)}
       >
         <img
           src={arrow}
@@ -61,7 +61,7 @@ const Page5 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
-      
+
       <button
         className='btnopenpopup'
         id="page5audio"

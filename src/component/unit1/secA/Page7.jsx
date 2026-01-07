@@ -19,19 +19,18 @@ const Page7 = ({ bgImage, openPopup }) => {
     setAudioData({ src, captions });
   };
 
-  const handleOpenQuestion = (questionIndex) => {
-    const q = unit1SecAQuestions[questionIndex];
-
+  const handleOpenQuestion = (index) => {
     openPopup({
-      questionText: q.text,
+      questionText: unit1SecAQuestions[index].text,
       questions: unit1SecAQuestions,
       currentUnit: 1,
       currentSection: "A",
-      startIndex: questionIndex,
-      audioSrc: q.audio,
-      captions: q.captions,
+      startIndex: index,
+      audioSrc: unit1SecAQuestions[index].audio,
+      captions: unit1SecAQuestions[index].captions,
     });
-  };
+};
+
 
   return (
     <div
