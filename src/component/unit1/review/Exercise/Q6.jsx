@@ -38,7 +38,6 @@ const Q6WithAlerts = () => {
             correctAnswers[zone.id] = zone.correctAnswerId;
         });
         setSelectedAnswers(correctAnswers);
-        ValidationAlert.success("Voici les réponses correctes !", "Toutes les images sont maintenant associées correctement.");
     };
 
     // زر: التحقق من الإجابات
@@ -58,9 +57,9 @@ const Q6WithAlerts = () => {
         setFeedback(newFeedback);
 
         if (correctCount === dropZonesData.length) {
-            ValidationAlert.success("Bravo !", `Vous avez tout juste : ${correctCount}/${dropZonesData.length}`);
+            ValidationAlert.success(`${correctCount}/${dropZonesData.length}`);
         } else {
-            ValidationAlert.error("Certaines réponses sont incorrectes", `Correct: ${correctCount}/${dropZonesData.length}`);
+            ValidationAlert.error(`${correctCount}/${dropZonesData.length}`);
         }
     };
 

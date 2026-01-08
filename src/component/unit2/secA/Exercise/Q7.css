@@ -1,0 +1,134 @@
+/* الحاوية الرئيسية */
+.Q7-container {
+  display: flex;
+  margin-left: 27%;
+  margin-top: 1%;
+  
+}
+@media (max-width: 640px) {
+  .Q7-container {
+    margin-left: 10%; /* sm:ml-0 */
+  }
+}
+
+/* شبكة البطاقات */
+.Q7-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5.5rem;
+}
+
+@media(min-width: 640px) {
+  .Q7-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .Q7-grid > .Q7-card {
+    width: 10rem;
+    height: 15rem;
+  }
+}
+@media(max-width: 640px) {
+  .Q7-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+.Q7-card {
+  perspective: 1000px;
+  cursor: pointer;
+  width: 8rem;
+  height: 12rem;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.Q7-card-inner {
+    
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.Q7-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* الوجه الأمامي */
+.Q7-card-front, .Q7-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.Q7-card-front img, .Q7-card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Q7-card-back {
+  transform: rotateY(180deg);
+}
+
+/* نافذة Popup */
+.Q7-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.Q7-popup {
+  background-color: transparent;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  max-width: 24rem;
+  width: 100%;
+  margin: 1rem;
+  position: relative;
+  animation: Q7-fade-in-up 0.5s ease-out forwards;
+}
+
+.Q7-popup img {
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+/* زر الإغلاق */
+.Q7-popup-close {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background-color: #ef4444; /* أحمر */
+  color: white;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@keyframes Q7-fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

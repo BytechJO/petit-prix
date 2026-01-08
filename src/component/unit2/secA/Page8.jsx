@@ -1,54 +1,42 @@
-import React, { useState } from 'react';
-
-import {
-  faArrowPointer, faHeadphones
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-const sound1 = "/assets/unit1/secA/sounds/L1Q1.mp3";
 
 import { unit1SecAQuestions } from '../../pageData';
-import AudioPopup from '../../Popup/AudioPopup';
+import React, { useState } from 'react';
 
 const arrow = "/assets/arrow.svg";
 const audio = "/assets/audio.svg";
 
-const Page6 = ({ bgImage, openPopup }) => {
+const Page8 = ({ bgImage, openPopup }) => {
 
-  const [showAudio, setShowAudio] = useState(false);
 
-  const handleOpenQuestion = () => {
+  const [audioData, setAudioData] = useState(null);
+
+  const openAudio = (src, captions) => {
+    setAudioData({ src, captions });
+  };
+
+  const handleOpenQuestion = (questionIndex) => {
+    const q = unit1SecAQuestions[questionIndex];
+
     openPopup({
-      questionText: unit1SecAQuestions[1].text,
+      questionText: q.text,
       questions: unit1SecAQuestions,
       currentUnit: 1,
       currentSection: "A",
-      startIndex: 2,
-      audioSrc: unit1SecAQuestions[1].audio,
-      captions: unit1SecAQuestions[1].captions,
+      startIndex: questionIndex,
+      audioSrc: q.audio,
+      captions: q.captions,
     });
   };
 
   return (
     <div
       className="page_1-background"
-
     >
-      <img src={bgImage} loading="lazy"/>
+      <img src={bgImage} loading="lazy" />
 
 
-
-      <AudioPopup
-        open={showAudio}
-        onClose={() => setShowAudio(false)}
-        src={sound1}
-      />
-
-
-    </div>
-
-
+    </div >
   )
 }
 
-export default Page6;
+export default Page8;

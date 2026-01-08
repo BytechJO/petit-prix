@@ -79,12 +79,12 @@ const Q2 = () => {
 
     if (correctCount === totalCount) {
       setCheckResult("success");
-      ValidationAlert.success("Bravo!", scoreMessage);
+      ValidationAlert.success( scoreMessage);
     } else if (correctCount === 0) {
       setCheckResult("fail");
       ValidationAlert.warning("Oups !", "Trouvez tous les objets");
     } else {
-      ValidationAlert.error("Continue!", scoreMessage);
+      ValidationAlert.error(scoreMessage);
     }
   };
 

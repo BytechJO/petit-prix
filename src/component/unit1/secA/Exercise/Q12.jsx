@@ -95,9 +95,9 @@ const Q12 = () => {
         setFeedback(newFeedback);
         const total = WORDS.length;
         if (correctCount === total) {
-            ValidationAlert.success("Excellent!", `Score : ${correctCount} / ${total}`);
+            ValidationAlert.success(`${correctCount} / ${total}`);
         } else {
-            ValidationAlert.error("Bon effort!", `Score : ${correctCount} / ${total}`);
+            ValidationAlert.error(`${correctCount} / ${total}`);
         }
     };
 

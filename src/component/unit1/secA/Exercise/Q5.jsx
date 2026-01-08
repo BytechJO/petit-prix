@@ -41,12 +41,10 @@ const Q5 = ({ sound }) => {
 
     if (score === 2) {
       ValidationAlert.success(
-        "Bravo!",
         scoreText
       );
     } else {
       ValidationAlert.error(
-        "Essayez encore!",
         scoreText
       );
     }

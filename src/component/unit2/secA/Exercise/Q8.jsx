@@ -10,10 +10,10 @@ const Q6 = () => {
   // الصورة الصحيحة دائمًا الصورة الثالثة (index = 2)
   const correctIndex = 2;
 
-  const img1 = '/assets/unit2/secA/page20/Q21.svg';
-  const img2 = '/assets/unit2/secA/page20/Q22.svg';
-  const img3 = '/assets/unit2/secA/page20/Q23.svg';
-  const img4 = '/assets/unit2/secA/page20/Q24.svg';
+  const img1 = '/assets/unit2/secA/page20/Q21.png';
+  const img2 = '/assets/unit2/secA/page20/Q22.png';
+  const img3 = '/assets/unit2/secA/page20/Q23.png';
+  const img4 = '/assets/unit2/secA/page20/Q24.png';
 
   const images = [
     img1,
@@ -58,7 +58,7 @@ const Q6 = () => {
   return (
     <div className="w-full flex flex-col items-center gap-6">
       {/* الصور */}
-      <div className="flex gap-12 mt-6">
+      <div className="grid grid-cols-2 gap-6 mt-6">
         {images.map((img, index) => (
           <div
             key={index}

@@ -177,7 +177,7 @@ const Popup = (
                             <span className="qusetionnum" style={{ fontWeight: "bold" }}>
                                 {index + 1}.
                             </span>{" "}
-                            {currentQuestionData.text}
+                           <span className='questiontext'>{currentQuestionData.text}</span> 
                         </p>
                     )}
 

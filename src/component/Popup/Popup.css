@@ -58,6 +58,15 @@
     background-color: #67cadb;
     color: #000 !important;
 }
+.questiontext {
+  font-size: 1.5rem;      
+  font-weight: 600;         
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;    
+}
+
 
 .popaud{
   width: 850px;

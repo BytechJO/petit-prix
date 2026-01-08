@@ -43,12 +43,10 @@ const Q3 = () => {
 
     if (correctCount === 2) {
       ValidationAlert.success(
-        "Bravo!",
         scoreText
       );
     } else {
       ValidationAlert.error(
-        "Oops!",
         scoreText
       );
     }

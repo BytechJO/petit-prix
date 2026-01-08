@@ -97,7 +97,6 @@ const Q13 = () => {
   `;
         if (score === total) {
             ValidationAlert.success(
-                "Bravo ! 🎉",
                 scoreMessage
             );
         }
@@ -109,7 +108,6 @@ const Q13 = () => {
         }
         else {
             ValidationAlert.error(
-                "Continue !",
                 scoreMessage
             );
         }

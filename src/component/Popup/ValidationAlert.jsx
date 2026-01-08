@@ -22,7 +22,7 @@ const ValidationAlert = {
 
 
 
-  success: (message, scoreMessage) => {
+  success: (scoreMessage) => {
     Swal.fire({
 
       didOpen: () => {
@@ -32,10 +32,10 @@ const ValidationAlert = {
       html: `
       <div style="font-size: 20px; text-align: center;">
       <p style="color: green; font-weight: bold;">
-          ${message}
+          "Bravo ! Toutes les réponses sont correctes 🎉",
         </p>  
       <p style="color: green; font-weight: bold;">
-          ${scoreMessage}
+        Score: ${scoreMessage}
         </p>
       </div>`,
       imageUrl: good,
@@ -57,7 +57,7 @@ const ValidationAlert = {
   },
 
 
-  warning: (message, scoreMessage) => {
+  warning: () => {
     Swal.fire({
 
       didOpen: () => {
@@ -67,11 +67,8 @@ const ValidationAlert = {
       html: `
       <div style="font-size: 20px; text-align: center;">
         <p style="color: orange; font-weight: bold;">
-          ${message}
-        </p>  
-        <p style="color: orange; font-weight: bold;">
-          ${scoreMessage}
-        </p>
+          "Oups !", "Trouvez tous les objets"
+        </p> 
       </div>`,
       imageUrl: Notice,
       imageWidth: 200,
@@ -91,7 +88,7 @@ const ValidationAlert = {
     });
   },
 
-  error: (message, scoreMessage) => {
+  error: (scoreMessage) => {
     Swal.fire({
 
       didOpen: () => {
@@ -102,10 +99,10 @@ const ValidationAlert = {
       html: `
       <div style="font-size: 20px; text-align: center;">
       <p style="color: red; font-weight: bold;">
-          ${message}
+          Certaines réponses sont incorrectes.
         </p>  
         <p style="color: red; font-weight: bold;">
-          ${scoreMessage}
+          Score: ${scoreMessage}
         </p>
         
       </div>`,

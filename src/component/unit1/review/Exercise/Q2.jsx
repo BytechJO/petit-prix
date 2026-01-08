@@ -4,7 +4,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { DndProvider } from 'react-dnd';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const eiffelTowerImage = "/assets/workbook/Unit1/Lesson1/L1Q4.svg";
+const eiffelTowerImage = '/assets/unit1/secA/page12/eiffeltower.png';
 // تعريف نوع العنصر للسحب والإفلات (Drag and Drop)
 const ItemTypes = {
     ANSWER: 'answer',
@@ -96,9 +96,9 @@ const Q2 = () => {
 
         const scoreMessage = `${correctCount} / ${questions.length}`;
         if (correctCount === questions.length) {
-            ValidationAlert.success("Excellent ! Toutes les réponses sont correctes.", scoreMessage);
+            ValidationAlert.success( scoreMessage);
         } else {
-            ValidationAlert.error("Bon effort ! Essaie encore.", scoreMessage);
+            ValidationAlert.error( scoreMessage);
         }
     };
 
@@ -110,11 +110,11 @@ const Q2 = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 flex-grow overflow-hidden gap-1 p-5">
                         {/* القسم الأيسر: الصورة وبنك الإجابات */}
                         <div className="flex flex-col items-center justify-center space-y-6 ml-50">
-                            <div className="w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
+                            <div className="w-full h-64 md:h-80 rounded-xl overflow-hidden ">
                                 <img
                                     src={eiffelTowerImage}
                                     alt="La Tour Eiffel"
-                                    className="w-full h-full object-cover"
+                                    className="max-w-full max-h-full object-cover"
                                 />
                             </div>
                             <div className="w-full p-4 bg-gray-100 rounded-lg">

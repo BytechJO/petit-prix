@@ -100,17 +100,14 @@ const Q8 = () => {
         // النتيجة النهائية
         if (correct === totalQuestions) {
             ValidationAlert.success(
-                "Excellent ! 🎉",
                 scoreMessage
             );
         } else if (correct > 0) {
             ValidationAlert.error(
-                "Bon effort 💪",
                 scoreMessage
             );
         } else {
             ValidationAlert.error(
-                "Oops ❌",
                 scoreMessage
             );
         }

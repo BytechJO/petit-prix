@@ -60,14 +60,14 @@ export default function Q10() {
       if (correctAnswers.has(key)) correctCount++;
     });
 
-    const score = `Score: ${correctCount} / ${correctAnswers.size}`;
+    const score = `${correctCount} / ${correctAnswers.size}`;
 
     if (correctCount === correctAnswers.size) {
       // كل الإجابات صحيحة
-      ValidationAlert.success("Bravo !", score);
+      ValidationAlert.success( score);
     } else {
       // بعض الإجابات خاطئة أو ناقصة
-      ValidationAlert.error("Certaines réponses sont incorrectes", score);
+      ValidationAlert.error( score);
     }
 
     setAnswered(true);

@@ -83,9 +83,9 @@ const Q5 = () => {
         });
 
         if (correctCount === wordsData.filter(w => w.isFrench).length) {
-            ValidationAlert.success("Toutes les réponses sont correctes !", `Score: ${correctCount}/${wordsData.filter(w => w.isFrench).length}`);
+            ValidationAlert.success( `${correctCount}/${wordsData.filter(w => w.isFrench).length}`);
         } else if (correctCount === 0) {
-            ValidationAlert.error("Aucune réponse correcte.", `Score: ${correctCount}/${wordsData.filter(w => w.isFrench).length}`);
+            ValidationAlert.error( `${correctCount}/${wordsData.filter(w => w.isFrench).length}`);
         } else {
             ValidationAlert.warning("Presque !", `Score: ${correctCount}/${wordsData.filter(w => w.isFrench).length}`);
         }

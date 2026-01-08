@@ -134,9 +134,9 @@ const Q11 = ({ stopPoint }) => {
     const scoreText = `${correctCount} / ${feelingsData.length}`; // مثال: 3 / 5
 
     if (allCorrect) {
-      ValidationAlert.success("Bravo !", scoreText);
+      ValidationAlert.success( scoreText);
     } else {
-      ValidationAlert.error("Oops...",scoreText);
+      ValidationAlert.error(scoreText);
     }
   };
   const checkAnswers = () => {
