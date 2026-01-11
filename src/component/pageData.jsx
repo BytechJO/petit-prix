@@ -141,20 +141,20 @@ import U2RPage4 from "../component/unit2/review/Page4";
 
 
 // unit3 student img
-const U3img1 = "/assets/unit3/1.png";
-const U3img2 = "/assets/unit3/2.png";
-const U3img3 = "/assets/unit3/secA/3.png";
-const U3img4 = "/assets/unit3/secA/4.png";
-const U3img5 = "/assets/unit3/secA/5.png";
-const U3img6 = "/assets/unit3/secA/6.png";
-const U3img7 = "/assets/unit3/secA/7.png";
-const U3img8 = "/assets/unit3/secA/8.png";
+const U3img1 = "/assets/unit3/1.jpg";
+const U3img2 = "/assets/unit3/2.jpg";
+const U3img3 = "/assets/unit3/secA/3.jpg";
+const U3img4 = "/assets/unit3/secA/4.jpg";
+const U3img5 = "/assets/unit3/secA/5.jpg";
+const U3img6 = "/assets/unit3/secA/6.jpg";
+const U3img7 = "/assets/unit3/secA/7.jpg";
+const U3img8 = "/assets/unit3/secA/8.jpg";
 
 // review unit 3
-const U3Rimg12 = "/assets/unit3/review/9.png";
-const U3Rimg13 = "/assets/unit3/review/10.png";
-const U3Rimg14 = "/assets/unit3/review/11.png";
-const U3Rimg15 = "/assets/unit3/review/12.png";
+const U3Rimg12 = "/assets/unit3/review/9.jpg";
+const U3Rimg13 = "/assets/unit3/review/10.jpg";
+const U3Rimg14 = "/assets/unit3/review/11.jpg";
+const U3Rimg15 = "/assets/unit3/review/12.jpg";
 
 // unit3 student page
 import U3Page1 from '../component/unit3/secA/Page1';
@@ -172,6 +172,15 @@ import U3RPage2 from "../component/unit3/review/Page2";
 import U3RPage3 from "../component/unit3/review/Page3";
 import U3RPage4 from "../component/unit3/review/Page4";
 
+// question unit3
+import U3Q1 from '../component/unit3/secA/Exercise/Q1';
+import U3Q2 from '../component/unit3/secA/Exercise/Q2';
+import U3Q3 from '../component/unit3/secA/Exercise/Q3';
+import U3Q4 from '../component/unit3/secA/Exercise/Q4';
+import U3Q5 from '../component/unit3/secA/Exercise/Q5';
+import U3Q6 from '../component/unit3/secA/Exercise/Q6';
+import U3Q7 from '../component/unit3/secA/Exercise/Q7';
+import U3Q8 from '../component/unit3/secA/Exercise/Q8';
 
 // unit4 student img
 const U4img1 = "/assets/unit4/1.png";
@@ -515,7 +524,7 @@ export const pageData = [
                 {
                   id: 39,
                   component: U3RPage4,
-                  image: U3Rimg12,
+                  image: U3Rimg15,
                 },
               ],
           },
@@ -603,7 +612,7 @@ export const pageData = [
                 {
                   id: 50,
                   component: U4RPage4,
-                  image: U4Rimg12,
+                  image: U4Rimg15,
                 },
               ],
           },
@@ -1056,6 +1065,89 @@ export const unit1SecAQuestions = [
     component: U2RQ7,
     audio: null,
     text: "Associe les images aux phrases.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+
+  //unit 3 sb
+  {
+    id: 33,
+    component: U3Q1,
+    audio: null,
+    text: "Observe et trouve.",
+    captions: [
+      { start: 0, end: 4.0, text: "Unité un, leçon quatre.De quelle couleur c'est ?" },
+      { start: 4.0, end: 6.0, text: "Exercice deux" },
+      { start: 6.0, end: 10.0, text: "Écoute, montre et corrige les erreurs" },
+      { start: 10.0, end: 13.0, text: "J'ai un vélo vert." },
+      { start: 13.0, end: 15.0, text: "J'ai un tracteur jaune." },
+      { start: 15.0, end: 18.0, text: "J'ai une voiture rouge" },
+      { start: 18.0, end: 20.0, text: ".J'ai un robot bleu." },
+    ],
+  },
+  {
+    id: 34,
+    component: U3Q2,
+    audio: null,
+    text: "Écoute et montre.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ],
+    // pausePoints: [11, 17],
+  },
+  {
+    id: 35,
+    component: U3Q3,
+    audio: null,
+    text: "Écoute et relie.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 36,
+    component: U3Q4,
+    audio: null,
+    text: "Écoute et relie.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+    // pausePoints: [11, 17],
+  },
+  {
+    id: 37,
+    component: U3Q5,
+    audio: null,
+    text: "Écoute, place dans le bon ordre et corrige.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ],
+    // pausePoints: [12, 14, 17, 20],
+  },
+  {
+    id: 38,
+    component: U3Q6,
+    audio: null,
+    text: "Écoute et entoure la bonne réponse. Puis parle avec un(e) ami(e).",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 39,
+    component: U3Q7,
+    audio: null,
+    text: "Écoute, relie et place dans le bon ordre.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 40,
+    component: U3Q8,
+    audio: null,
+    text: "Écoute et relie.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     // ]

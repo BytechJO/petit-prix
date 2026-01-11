@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
-import './page7.css';
-
-const sound1 = "/assets/unit1/secA/sounds/L1Q1.mp3";
 
 import { unit1SecAQuestions } from '../../pageData';
-import AudioPopup from '../../Popup/AudioPopup';
+import React, { useState } from 'react';
+import './page7.css';
 
 const arrow = "/assets/arrow.svg";
 const audio = "/assets/audio.svg";
 
-
 const Page7 = ({ bgImage, openPopup }) => {
 
-  const [showAudio, setShowAudio] = useState(false);
+
+  const [audioData, setAudioData] = useState(null);
+
+  const openAudio = (src, captions) => {
+    setAudioData({ src, captions });
+  };
+
+  console.log()
 
   const handleOpenQuestion = (questionIndex) => {
     const q = unit1SecAQuestions[questionIndex];
@@ -31,27 +34,14 @@ const Page7 = ({ bgImage, openPopup }) => {
   return (
     <div
       className="page_1-background"
-
     >
       <img src={bgImage} loading="lazy" />
 
-      <button
-        className='btnopenpopup'
-        id="page7q1"
-        onClick={() => handleOpenQuestion(3)}
-      >
-        <img
-          src={arrow}
-          alt="Open question"
-          loading="lazy"
-        />
-      </button>
-
 
       <button
         className='btnopenpopup'
-        id="page7audioq1"
-        onClick={() => setShowAudio(true)}
+        id="U2page7audio"
+        onClick={() => openAudio(sound2, unit1SecAQuestions[41].captions)}
       >
         <img
           src={audio}
@@ -62,20 +52,8 @@ const Page7 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="page7audioq2"
-        onClick={() => setShowAudio(true)}
-      >
-        <img
-          src={audio}
-          alt="Open question"
-          loading="lazy"
-        />
-      </button>
-
-      <button
-        className='btnopenpopup'
-        id="page7q2"
-        onClick={() => handleOpenQuestion(4)}
+        id="U2page7"
+        onClick={() => handleOpenQuestion(40)}
       >
         <img
           src={arrow}
@@ -84,17 +62,16 @@ const Page7 = ({ bgImage, openPopup }) => {
         />
       </button>
 
+      {audioData && (
+        <AudioPopup
+          open={true}
+          onClose={() => setAudioData(null)}
+          src={audioData.src}
+          captions={audioData.captions}
+        />
+      )}
 
-      <AudioPopup
-        open={showAudio}
-        onClose={() => setShowAudio(false)}
-        src={sound1}
-      />
-
-
-    </div>
-
-
+    </div >
   )
 }
 

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-const backgroundImage = "/assets/unit1/secA/popup/page41.png";
+const backgroundImage = "/assets/unit3/secA/page28/cover.png";
 
 import ValidationAlert from "../../../Popup/ValidationAlert";
-import InteractivePage from "../../interactive";
+import InteractivePage from "../../../unit1/interactive";
 
-const fence = "/assets/unit1/secA/page45/1.svg";
-const rose = "/assets/unit1/secA/page45/2.svg";
-const book = "/assets/unit1/secA/page45/3.svg";
-const pen = "/assets/unit1/secA/page45/4.svg";
+const bear = "/assets/unit3/secA/page28/1.svg";
+const clock = "/assets/unit3/secA/page28/2.svg";
+const comb = "/assets/unit3/secA/page28/3.svg";
+const pen = "/assets/unit3/secA/page28/4.svg";
 
 const Q1 = () => {
   const [foundItems, setFoundItems] = useState([false, false, false, false]);
@@ -19,46 +19,46 @@ const Q1 = () => {
   const Items = [
     {
       index: 0,
-      top: "26%",
-      left: "37%",
-      width: "63%",
-      height: "30%",
-      image: fence,
+      top: "46%",
+      left: "29.2%",
+      width: "26%",
+      height: "26%",
+      image: bear,
       "aria-label": "Restaurant area 1",
     },
     {
       index: 1,
-      top: "43.5%",
-      left: "24%",
-      width: "4%",
-      height: "2%",
-      image: pen,
+      top: "43%",
+      left: "53%",
+      width: "20%",
+      height: "20%",
+      image: clock,
       "aria-label": "Restaurant area 2",
     },
     {
       index: 2,
-      top: "75%",
-      left: "46%",
-      width: "3%",
-      height: "5%",
-      image: book,
+      top: "71%",
+      left: "53.5%",
+      width: "15%",
+      height: "18%",
+      image: comb,
       "aria-label": "Restaurant area 3",
     },
     {
       index: 3,
-      top: "77%",
-      left: "79.5%",
-      width: "13%",
-      height: "13%",
-      image: rose,
+      top: "28.5%",
+      left: "57.5%",
+      width: "24%",
+      height: "21%",
+      image: pen,
       "aria-label": "Restaurant area 4",
     }
   ];
 
   const iconCustomStyles = [
     { top: '85%', left: '28.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
-    { top: '85%', left: '13%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
-    { top: '85%', left: '5.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '85%', left: '12.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '85%', left: '4.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
     { top: '85%', left: '20.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' }
   ];
 
@@ -96,12 +96,12 @@ const Q1 = () => {
 
     if (correctCount === totalCount) {
       setCheckResult("success");
-      ValidationAlert.success("Bravo!", scoreMessage);
+      ValidationAlert.success(scoreMessage);
     } else if (correctCount === 0) {
       setCheckResult("fail");
       ValidationAlert.warning("Oups !", "Trouvez tous les objets");
     } else {
-      ValidationAlert.error("Continue!", scoreMessage);
+      ValidationAlert.error( scoreMessage);
     }
   };
 

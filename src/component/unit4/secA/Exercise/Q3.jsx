@@ -1,123 +1,141 @@
-import React, { useState } from 'react';
-import ValidationAlert from '../../../Popup/ValidationAlert';
-import './Q3.css';
+import { useRef } from "react";
+import "./Q3.css";
+import ValidationAlert from "../../../Popup/ValidationAlert";
 
-const characterImage  = "/assets/unit1/secA/page6/characters1.webp";
-const characterImage1 = "/assets/unit1/secA/page6/character2.webp";
+const backgroundImage = "/assets/unit2/secA/page18/Q1.svg";
 
-const ANSWER_OPTIONS = ["B", "A"].sort(() => Math.random() - 0.5);
-const CORRECT_ANSWERS = ["A", "B"];
+const correctAnswers = [
+  "livre",
+  "stylo",
+  "gomme",
+  "bagage",
+  "Crayons de couleur",
+];
+
+
+const inputsData = [
+  { placeholder: "livre", top: "78%", left: "32%" },
+  { placeholder: "stylo", top: "28%", left: "52%" },
+  { placeholder: "gomme", top: "37%", left: "29%" },
+  { placeholder: "bagage", top: "27%", left: "12%" },
+  { placeholder: "Crayons de couleur", top: "65%", left: "35%" },
+];
+
+
 
 const Q3 = () => {
-  const [answers, setAnswers] = useState(["", ""]);
-  const [showAnswer, setShowAnswer] = useState(false);
+  const inputRefs = useRef([]);
 
-  const handleAnswerChange = (index, value) => {
-    const updated = [...answers];
-    updated[index] = value;
-    setAnswers(updated);
+  const handleInput = (index) => {
+    const input = inputRefs.current[index];
+    if (!input) return;
+
+    // أقل وأقصى عرض
+    const minWidth = 3; // حروف
+    const maxWidth = 25;
+
+    const length = input.value.length || input.placeholder.length;
+
+    const widthInCh = Math.min(
+      Math.max(length + 1, minWidth),
+      maxWidth
+    );
+
+    input.style.width = `${widthInCh}ch`;
+  };
+
+
+  const handleStartAgain = () => {
+    inputRefs.current.forEach(input => {
+      if (input) {
+        input.value = "";
+        input.style.width = "5%";
+      }
+    });
+  };
+
+  const handleShowAnswer = () => {
+    inputRefs.current.forEach((input, index) => {
+      if (input) {
+        input.value = correctAnswers[index];
+        input.style.width = `${input.scrollWidth}px`;
+      }
+    });
   };
 
   const handleCheck = () => {
+    // 1️⃣ تحقق إذا في حقل فاضي
+    const hasEmpty = inputRefs.current.some(
+      input => !input || input.value.trim() === ""
+    );
 
-    if (answers.some(answer => answer === "")) {
+    if (hasEmpty) {
       ValidationAlert.warning(
-        "Attention!",
-        "Veuillez répondre à toutes les questions avant de vérifier."
+        "Attention !",
+        "Veuillez répondre à toutes les questions."
       );
       return;
     }
 
-    let correctCount = 0;
+    // 2️⃣ حساب السكور
+    let score = 0;
 
-    answers.forEach((answer, index) => {
+    inputRefs.current.forEach((input, index) => {
       if (
-        answer &&
-        answer.toLowerCase() === CORRECT_ANSWERS[index].toLowerCase()
+        input.value.trim().toLowerCase() ===
+        correctAnswers[index].toLowerCase()
       ) {
-        correctCount++;
+        score++;
       }
     });
 
-    const scoreText = `${correctCount}/2`;
+    const total = correctAnswers.length;
+    const color = score === total ? "#16a34a" : "#dc2626";
 
-    if (correctCount === 2) {
-      ValidationAlert.success(
-        "Bravo!",
-        scoreText
-      );
+    const scoreMessage = `
+    <div style="font-size:20px; text-align:center; margin-top:10px;">
+      <span style="color:${color}; font-weight:bold;">
+        Score : ${score} / ${total}
+      </span>
+    </div>
+  `;
+
+    // 3️⃣ عرض النتيجة
+    if (score === total) {
+      ValidationAlert.success(scoreMessage);
     } else {
-      ValidationAlert.error(
-        "Oops!",
-        scoreText
-      );
+      ValidationAlert.error(scoreMessage);
     }
   };
 
-  const handleStartAgain = () => {
-    setAnswers(["", ""]);
-    setShowAnswer(false);
-    ValidationAlert?.close?.();
-  };
 
-  const handleShowAnswer = () => {
-    setAnswers([...CORRECT_ANSWERS]);
-    setShowAnswer(true);
-  };
 
   return (
-    <div className="l2q1-page-container">
-      <div className="content-container">
-        <div className="images-flex-container">
-
-          {/* Character 1 */}
-          <div className="image-box">
-            <img src={characterImage} alt="Character 1" className="character-img" />
-            <div className="flex gap-3">
-            {ANSWER_OPTIONS.map(option => (
-              <button
-                key={option}
-                onClick={() => handleAnswerChange(0, option)}
-                className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
-                  ${
-                    answers[0] === option
-                      ? "bg-blue-600 text-white border-blue-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-blue-100"
-                  }
-                `}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-          </div>
-
-          {/* Character 2 */}
-          <div className="image-box">
-            <img src={characterImage1} alt="Character 2" className="character-img" />
-             <div className="flex gap-3">
-            {ANSWER_OPTIONS.map(option => (
-              <button
-                key={option}
-                onClick={() => handleAnswerChange(1, option)}
-                className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
-                  ${
-                    answers[1] === option
-                      ? "bg-blue-600 text-white border-blue-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-blue-100"
-                  }
-                `}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-          </div>
-
-        </div>
+    <div
+      className="U2Q1image-U2Q1container"
+      style={{
+        backgroundImage: `url(${backgroundImage})`
+      }}
+    >
+      <div className="U2Q1inputs-U2Q1wrapper">
+        {inputsData.map((item, index) => (
+          <input
+            key={index}
+            ref={(el) => (inputRefs.current[index] = el)}
+            type="text"
+            placeholder={item.placeholder}
+            className="U2Q1stretch-U2Q1input"
+            style={{
+              top: item.top,
+              left: item.left
+            }}
+            onInput={() => handleInput(index)}
+            onChange={() => handleInput(index)}
+          />
+        ))}
       </div>
 
-      <div className="popup-buttons">
+      <div className="popup-buttons mt-4 flex gap-4">
         <button className="try-again-button" onClick={handleStartAgain}>
           Recommencer ↻
         </button>
@@ -128,6 +146,7 @@ const Q3 = () => {
           Vérifier la réponse ✓
         </button>
       </div>
+
     </div>
   );
 };
