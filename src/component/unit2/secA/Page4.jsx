@@ -40,7 +40,7 @@ const Page4 = ({ bgImage, openPopup }) => {
     >
       <img src={bgImage} loading="lazy" />
 
-      {/* <button
+      <button
         className='btnopenpopup'
         id="U2page4q1"
         onClick={() => handleOpenQuestion(19)}
@@ -50,7 +50,7 @@ const Page4 = ({ bgImage, openPopup }) => {
           alt="Open question"
           loading="lazy"
         />
-      </button> */}
+      </button>
 
 
       <button

@@ -91,6 +91,8 @@ export default function Book() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const openPopup = (data) => {
+    // اطبع أي بيانات إضافية تحب
+    console.log("Popup data:", data.startIndex+1);
     setPopupData({ ...data, isOpen: true });
   };
 
@@ -257,12 +259,12 @@ export default function Book() {
             ) : (
               <>
                 {/* DESKTOP */}
-                {pageIndex === 0 || pageIndex === pages.length - 1|| viewMode === "single" ? (
+                {pageIndex === 0 || pageIndex === pages.length - 1 || viewMode === "single" ? (
                   // SINGLE PAGE
                   <>
                     {!hideArrows && (
                       <>
-                        {(pageIndex > 0 || pageIndex=== pages.length - 1)&& (
+                        {(pageIndex > 0 || pageIndex === pages.length - 1) && (
                           <svg
                             width="30"
                             height="30"
@@ -306,7 +308,7 @@ export default function Book() {
                   <>
                     {!hideArrows && (
                       <>
-                        {pageIndex > 0  && (
+                        {pageIndex > 0 && (
                           <svg
                             width="30"
                             height="30"

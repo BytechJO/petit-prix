@@ -45,7 +45,7 @@ export default function Q3() {
 
 
     return (
-        <div className="p-6 max-w-5xl mx-auto">
+        <div className="p-6 max-w-4xl lg:mx-100 sm:mx-auto">
             <div className="overflow-x-auto shadow-lg rounded-lg">
                 <table className="w-full border-collapse">
                     <thead>

@@ -10,12 +10,12 @@ const Q9 = () => {
   // الصورة الصحيحة دائمًا الصورة الثالثة (index = 2)
   const correctIndex = 2;
 
-  const img1 = '/assets/unit2/secA/page21/1.svg';
-  const img2 = '/assets/unit2/secA/page21/2.svg';
-  const img3 = '/assets/unit2/secA/page21/3.svg';
-  const img4 = '/assets/unit2/secA/page21/4.svg';
-  const img5 = '/assets/unit2/secA/page21/5.svg';
-  const img6 = '/assets/unit2/secA/page21/6.svg';
+  const img1 = '/assets/unit2/secA/page21/1.png';
+  const img2 = '/assets/unit2/secA/page21/2.png';
+  const img3 = '/assets/unit2/secA/page21/3.png';
+  const img4 = '/assets/unit2/secA/page21/4.png';
+  const img5 = '/assets/unit2/secA/page21/5.png';
+  const img6 = '/assets/unit2/secA/page21/6.png';
 
   const images = [
     img1,

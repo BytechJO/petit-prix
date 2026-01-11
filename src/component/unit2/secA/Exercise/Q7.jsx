@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Q7.css';
 
+const flipsound = "/assets/unit2/secA/page20/flip.mp3";
+
 const images = [
   "/assets/unit2/secA/page20/1.svg",
   "/assets/unit2/secA/page20/2.svg",
@@ -40,6 +42,8 @@ export default function Q7() {
     };
   }, [audio]);
 
+  const flipsoundAudio = new Audio(flipsound);
+
   const handleCardClick = (card) => {
     if (flippedCards.has(card.id)) return;
 
@@ -47,6 +51,10 @@ export default function Q7() {
     const newFlippedCards = new Set(flippedCards);
     newFlippedCards.add(card.id);
     setFlippedCards(newFlippedCards);
+
+    flipsoundAudio.currentTime = 0;
+    flipsoundAudio.play();
+
 
     // تشغيل الصوت فور قلب البطاقة
     if (audio) audio.pause();
