@@ -133,7 +133,7 @@ const Q2 = () => {
             foundItems={foundItems}
             recentlyFound={recentlyFound}
             onItemClick={handleItemClick}
-            iconStyles={iconCustomStyles} // ✨ تمرير التنسيقات المخصصة هنا
+            iconStyles={null} // ✨ تمرير التنسيقات المخصصة هنا
           />
         </div>
       </div>

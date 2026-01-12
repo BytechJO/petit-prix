@@ -1,144 +1,178 @@
-import React, { useState, useEffect } from 'react';
-import './Q7.css';
+import React, { useState } from 'react';
+import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const flipsound = "/assets/unit2/secA/page20/flip.mp3";
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+  useSortable,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 
-const images = [
-  "/assets/unit2/secA/page19/1.png",
-  "/assets/unit2/secA/page19/2.png",
-  "/assets/unit2/secA/page19/3.png",
-  "/assets/unit2/secA/page19/4.png",
-  "/assets/unit2/secA/page19/5.png",
-  "/assets/unit2/secA/page19/6.png",
-  "/assets/unit2/secA/page19/6.png",
+// البيانات لم تتغير
+const initialSentences = [
+  { id: 'a', text: 'Mais j’ai un frère.' },
+  { id: 'b', text: 'Je m’appelle Lucas.' },
+  { id: 'c', text: 'J’habite avec ma mère, mon grand-père et ma soeur.' },
+  { id: 'd', text: 'Salut tout le monde !' },
+  { id: 'e', text: 'Je n’ai pas de soeurs.' },
 ];
-const sounds = [
-  "/assets/unit2/secA/page20/12.mp3",
-  "/assets/unit2/secA/page20/13.mp3",
-  "/assets/unit2/secA/page20/14.mp3",
-  "/assets/unit2/secA/page20/15.mp3",
-  "/assets/unit2/secA/page20/16.mp3"
-];
-const redcard = '/assets/unit2/secA/page20/red.jpg';
 
-const CardData = images.map((img, index) => ({
-  id: index + 1,
-  frontImage: redcard,
-  backImage: img,
-  sound: sounds[index]
-}));
+const correctOrder = ['d', 'b', 'e', 'a', 'c'];
+const correctedSentenceC = 'J’habite avec ma mère et mon grand-père.';
 
-export default function Q5() {
-  const [flippedCards, setFlippedCards] = useState(new Set());
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [currentCard, setCurrentCard] = useState(null);
-  const [audio, setAudio] = useState(null);
+// مكوّن العنصر القابل للفرز (Sortable Item)
+function SortableItem({ id, text, isCorrected }) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id });
 
-  useEffect(() => {
-    return () => {
-      if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
-    };
-  }, [audio]);
-
-  const flipsoundAudio = new Audio(flipsound);
-
-  const handleCardClick = (card) => {
-    if (flippedCards.has(card.id)) return;
-
-    // قلب البطاقة
-    const newFlippedCards = new Set(flippedCards);
-    newFlippedCards.add(card.id);
-    setFlippedCards(newFlippedCards);
-
-    flipsoundAudio.currentTime = 0;
-    flipsoundAudio.play();
-
-
-    // تشغيل الصوت فور قلب البطاقة
-    if (audio) audio.pause();
-    const newAudio = new Audio(card.sound);
-    setAudio(newAudio);
-    newAudio.play();
-
-    // بعد 1 ثانية (1000ms) افتح الـ Popup
-    setTimeout(() => {
-      setCurrentCard(card);
-      setIsPopupOpen(true);
-    }, 1000); // هنا المدة بالميلي ثانية
-  };
-
-  const handleStartAgain = () => {
-    // قلب كل البطاقات مرة أخرى قبل إعادة تعيينها
-    const flippedCardsArray = Array.from(flippedCards);
-
-    // أضف class للبطاقات المقلوبة لتدور للخلف
-    flippedCardsArray.forEach((id) => {
-      const cardEl = document.querySelector(`.Q7-card[data-id='${id}'] .Q7-card-inner`);
-      if (cardEl) {
-        cardEl.classList.add('reverse-flip'); // class خاص لدوران للخلف
-      }
-    });
-
-    // بعد مدة الأنيميشن (مثلاً 0.7s) نعيد الحالة
-    setTimeout(() => {
-      setFlippedCards(new Set());
-      setCurrentCard(null);
-      setIsPopupOpen(false);
-
-      // إزالة class الأنيميشن
-      flippedCardsArray.forEach((id) => {
-        const cardEl = document.querySelector(`.Q7-card[data-id='${id}'] .Q7-card-inner`);
-        if (cardEl) {
-          cardEl.classList.remove('reverse-flip');
-        }
-      });
-    }, 700); // مدة الأنيميشن
-  };
-
-
-
-  const closePopup = () => {
-    setIsPopupOpen(false);
-    setCurrentCard(null);
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
-    }
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    zIndex: isDragging ? 10 : 'auto',
   };
 
   return (
-    <div className="Q7-container sm:ml-0">
-      <div className="Q7-grid">
-        {CardData.map((card) => (
-          <div key={card.id} className="Q7-card" onClick={() => handleCardClick(card)}>
-            <div className={`Q7-card-inner ${flippedCards.has(card.id) ? 'flipped' : ''}`}>
-              <div className="Q7-card-front">
-                <img src={card.frontImage} alt="Card Front" />
-              </div>
-              <div className="Q7-card-back">
-                <img src={card.backImage} alt="Card Back" />
-              </div>
-            </div>
-          </div>
-        ))}
-        <div className="popup-buttons mt-4 flex gap-4">
-          <button className="try-again-button" onClick={handleStartAgain}>
-            Recommencer ↻
-          </button>
-        </div>
-      </div>
-
-      {isPopupOpen && currentCard && (
-        <div className="Q7-popup-overlay" onClick={closePopup}>
-          <div className="Q7-popup" onClick={(e) => e.stopPropagation()}>
-            <button className="Q7-popup-close" onClick={closePopup}>&times;</button>
-            <img src={currentCard.backImage} alt="Story Content" />
-          </div>
-        </div>
-      )}
-    </div>
+    <li
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+      className={`p-4 rounded-lg border flex items-center transition-all duration-200
+        ${isDragging ? 'bg-blue-100 shadow-lg' : 'bg-gray-50 border-gray-200'}
+        ${isCorrected ? 'border-green-500 bg-green-50' : ''}
+      `}
+    >
+      <span className="text-gray-500 font-bold mr-4 cursor-grab select-none">☰</span>
+      <p className="text-gray-800">{text}</p>
+    </li>
   );
 }
+
+const Q5 = () => {
+  const [sentences, setSentences] = useState(() =>
+    [...initialSentences].sort(() => Math.random() - 0.5)
+  );
+  const [feedback, setFeedback] = useState({ message: '', type: '' });
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+
+    if (active.id !== over.id) {
+      setSentences((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id);
+        const newIndex = items.findIndex((item) => item.id === over.id);
+        return arrayMove(items, oldIndex, newIndex);
+      });
+      setFeedback({ message: '', type: '' });
+    }
+  };
+
+  const checkAnswers = () => {
+    const userOrder = sentences.map(s => s.id);
+    const isCorrect = JSON.stringify(userOrder) === JSON.stringify(correctOrder);
+    console.log(JSON.stringify(userOrder))
+
+    if (isCorrect) {
+      // استخدام تنبيه النجاح
+      ValidationAlert.success("Félicitations !", "Le texte est dans le bon ordre et la phrase a été corrigée.");
+      
+      // تحديث الجملة "c"
+      const updatedSentences = sentences.map(s =>
+        s.id === 'c' ? { ...s, text: correctedSentenceC } : s
+      );
+      setSentences(updatedSentences);
+      setIsAnswerCorrect(true); // تفعيل حالة النجاح لتلوين الحقل
+
+    } else if(!isCorrect) {
+      // استخدام تنبيه الخطأ
+      ValidationAlert.error("Incorrect !", "Ce n’est pas le bon ordre. Essayez encore !");
+      setIsAnswerCorrect(false);
+    } else{
+      ValidationAlert.warning();
+    }
+  };
+
+
+
+
+  const handleTryAgain = () => {
+    setSentences([...initialSentences].sort(() => Math.random() - 0.5));
+    setFeedback({ message: '', type: '' });
+  };
+
+  const handleShowAnswer = () => {
+    // رتب الجمل حسب correctOrder
+    const newOrder = correctOrder.map(id =>
+      sentences.find(s => s.id === id)
+    );
+
+    // صحح الجملة c
+    const updatedSentences = newOrder.map(s =>
+      s.id === 'c' ? { ...s, text: correctedSentenceC } : s
+    );
+
+    setSentences(updatedSentences);
+  };
+
+
+  return (
+    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg font-sans">
+
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
+      >
+        <SortableContext items={sentences} strategy={verticalListSortingStrategy}>
+          <ul className="space-y-3">
+            {sentences.map((sentence) => (
+              <SortableItem
+                key={sentence.id}
+                id={sentence.id}
+                text={sentence.text}
+                isCorrected={feedback.type === 'success' && sentence.id === 'c'}
+              />
+            ))}
+          </ul>
+        </SortableContext>
+      </DndContext>
+
+      <div className="popup-buttons shrink-0">
+        <button className="try-again-button" onClick={handleTryAgain}>
+          Recommencer
+        </button>
+        <button className="show-answer-btn" onClick={handleShowAnswer}>
+          Afficher la réponse
+        </button>
+        <button className="check-button2" onClick={checkAnswers}>
+          Vérifier la réponse
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Q5;

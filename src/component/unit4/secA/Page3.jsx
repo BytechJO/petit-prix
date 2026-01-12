@@ -79,8 +79,8 @@ const Page3 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="U2page3q1"
-        onClick={() => handleOpenQuestion(17)}
+        id="U4page3q1"
+        onClick={() => handleOpenQuestion(48)}
       >
         <img
           src={arrow}
@@ -90,10 +90,9 @@ const Page3 = ({ bgImage, openPopup }) => {
         />
       </button>
 
-
       <button
         className='btnopenpopup'
-        id="U2page3audioq1"
+        id="U4page3audioq1"
         onClick={() => openAudio(sound1, captions1)}
       >
         <img
@@ -106,8 +105,8 @@ const Page3 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="U2page3q2"
-        onClick={() => handleOpenQuestion(18)}
+        id="U4page3q2"
+        onClick={() => handleOpenQuestion(49)}
       >
         <img
           src={arrow}
@@ -119,21 +118,8 @@ const Page3 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="U2page3audioq2"
+        id="U4page3audioq2"
         onClick={() => openAudio(sound2, captions2)}
-      >
-        <img
-          src={audio}
-          className="icon"
-          alt="Open question"
-          loading="lazy"
-        />
-      </button>
-
-      <button
-        className='btnopenpopup'
-        id="U2page3audioq4"
-        onClick={() => openAudio(sound3, captions3)}
       >
         <img
           src={audio}

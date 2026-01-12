@@ -168,7 +168,6 @@ const Q3 = () => {
                                 </div>
 
                                 <div className="flex items-center gap-4">
-                                    {/* --- التغيير الوحيد هنا: إعادة الكلاسات الأصلية لحجم الصورة --- */}
                                     <div
                                         data-pointid={image.id}
                                         onClick={() => handlePointClick(image.id, 'image')}

@@ -37,23 +37,10 @@ const Page7 = ({ bgImage, openPopup }) => {
     >
       <img src={bgImage} loading="lazy" />
 
-
       <button
         className='btnopenpopup'
-        id="U2page7audio"
-        onClick={() => openAudio(sound2, unit1SecAQuestions[25].captions)}
-      >
-        <img
-          src={audio}
-          alt="Open question"
-          loading="lazy"
-        />
-      </button>
-
-      <button
-        className='btnopenpopup'
-        id="U2page7"
-        onClick={() => handleOpenQuestion(25)}
+        id="U4page7"
+        onClick={() => handleOpenQuestion(1)}
       >
         <img
           src={arrow}

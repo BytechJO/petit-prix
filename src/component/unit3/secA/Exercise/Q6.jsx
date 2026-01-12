@@ -1,91 +1,121 @@
-import { useRef, useState } from "react";
-import ValidationAlert from "../../../Popup/ValidationAlert";
+import React, { useState } from 'react';
+import ValidationAlert from '../../../Popup/ValidationAlert';
+import './Q3.css';
+
+const characterImage  = "/assets/unit3/secA/page32/1.svg";
+const characterImage1 = "/assets/unit3/secA/page32/2.svg";
+
+const ANSWER_OPTIONS = ["B", "A"].sort(() => Math.random() - 0.5);
+const CORRECT_ANSWERS = ["A", "B"];
 
 const Q6 = () => {
-  const audioRef = useRef(null);
+  const [answers, setAnswers] = useState(["", ""]);
+  const [showAnswer, setShowAnswer] = useState(false);
 
-  const [selected, setSelected] = useState(null);
-  const [answered, setAnswered] = useState(false);
-
-  const correctIndex = 2;
-
-  const images = [
-    "/assets/unit2/secA/page19/jeudi.png",
-    "/assets/unit2/secA/page19/mardi.png",
-    "/assets/unit2/secA/page19/mercredi.png",
-    "/assets/unit2/secA/page19/vendredi.png"
-  ];
-
-  const handleImageClick = (index) => {
-    setSelected(index);
+  const handleAnswerChange = (index, value) => {
+    const updated = [...answers];
+    updated[index] = value;
+    setAnswers(updated);
   };
 
   const handleCheck = () => {
-    if (selected === null) {
-      ValidationAlert.warning("Please select an image", "");
+
+    if (answers.some(answer => answer === "")) {
+      ValidationAlert.warning(
+        "Attention!",
+        "Veuillez répondre à toutes les questions avant de vérifier."
+      );
       return;
     }
 
-    setAnswered(true);
+    let correctCount = 0;
 
-    if (selected === correctIndex) {
-      ValidationAlert.success("Correct!", "Bien joué");
-      audioRef.current?.play();
+    answers.forEach((answer, index) => {
+      if (
+        answer &&
+        answer.toLowerCase() === CORRECT_ANSWERS[index].toLowerCase()
+      ) {
+        correctCount++;
+      }
+    });
+
+    const scoreText = `${correctCount}/2`;
+
+    if (correctCount === 2) {
+      ValidationAlert.success(
+        scoreText
+      );
     } else {
-      ValidationAlert.error("Wrong answer", "Try again");
+      ValidationAlert.error(
+        scoreText
+      );
     }
   };
 
   const handleStartAgain = () => {
-    setSelected(null);
-    setAnswered(false);
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.pause();
-    }
+    setAnswers(["", ""]);
+    setShowAnswer(false);
+    ValidationAlert?.close?.();
   };
 
   const handleShowAnswer = () => {
-    setSelected(correctIndex);
+    setAnswers([...CORRECT_ANSWERS]);
+    setShowAnswer(true);
   };
 
   return (
-    <div className="w-full flex flex-col items-center gap-6">
-      {/* الصور */}
-      <div className="grid grid-cols-2 lg:gap-6  sm-gap-1 lg:mt-5 sm:mt-0">
-  {images.map((img, index) => (
-    <div
-      key={index}
-      onClick={() => handleImageClick(index)}
-      className={`
-        cursor-pointer
-        rounded-xl
-        border-4
-        transition-all
-        duration-300
-        ${
-          selected === index
-            ? answered
-              ? selected === correctIndex
-                ? "border-green-500 scale-105"
-                : "border-red-500 scale-105"
-              : "border-blue-400 scale-105"
-            : "border-transparent"
-        }
-      `}
-    >
-      <img
-        src={img}
-        alt={`option-${index}`}
-        className="lg:max-w-60 lg:max-h-90 object-contain sm:max-w-30 sm:max-h-60"
-      />
-    </div>
-  ))}
-</div>
+    <div className="l2q1-page-container">
+      <div className="content-container">
+        <div className="images-flex-container">
 
+          {/* Character 1 */}
+          <div className="image-box">
+            <img src={characterImage} alt="Character 1" className="character-img" />
+            <div className="flex gap-3">
+            {ANSWER_OPTIONS.map(option => (
+              <button
+                key={option}
+                onClick={() => handleAnswerChange(0, option)}
+                className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
+                  ${
+                    answers[0] === option
+                      ? "bg-blue-600 text-white border-blue-600"
+                      : "bg-white text-gray-700 border-gray-300 hover:bg-blue-100"
+                  }
+                `}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+          </div>
 
-      {/* الأزرار */}
-      <div className="popup-buttons mt-4 flex gap-4">
+          {/* Character 2 */}
+          <div className="image-box">
+            <img src={characterImage1} alt="Character 2" className="character-img" />
+             <div className="flex gap-3">
+            {ANSWER_OPTIONS.map(option => (
+              <button
+                key={option}
+                onClick={() => handleAnswerChange(1, option)}
+                className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
+                  ${
+                    answers[1] === option
+                      ? "bg-blue-600 text-white border-blue-600"
+                      : "bg-white text-gray-700 border-gray-300 hover:bg-blue-100"
+                  }
+                `}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div className="popup-buttons">
         <button className="try-again-button" onClick={handleStartAgain}>
           Recommencer ↻
         </button>

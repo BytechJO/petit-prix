@@ -1,162 +1,237 @@
-import { useRef } from "react";
-import "./Q7.css";
-import ValidationAlert from "../../../Popup/ValidationAlert";
+import React, { useState, useRef, useEffect } from 'react';
+import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const backgroundImage = "/assets/unit2/review/page27/1.svg";
+// --- بيانات التمرين (تبقى كما هي) ---
+const WORDS = [
+    { id: 'word-1', text: 'Amy', correctMatch: 'img-1' },
+    { id: 'word-2', text: 'Claire', correctMatch: 'img-2' },
+    { id: 'word-3', text: 'Marc', correctMatch: 'img-3' },
+]
 
-const correctAnswers = ["c", "b", "d", "a"];
+const img1 = '/assets/unit3/review/page39/01.svg';
+const img2 = '/assets/unit3/review/page39/02.svg';
+const img3 = '/assets/unit3/review/page39/03.svg';
 
-const inputsData = [
-    { placeholder: "X", top: "78%", left: "68%" },
-    { placeholder: "X", top: "30%", left: "75%" },
-    { placeholder: "X", top: "78%", left: "13%" },
-    { placeholder: "X", top: "40%", left: "24%" },
-];
+const IMAGES = [
+    { id: 'img-1', src: img1, alt: 'Super' },
+    { id: 'img-2', src: img2, alt: 'Comme ci comme ça' },
+    { id: 'img-3', src: img3, alt: 'Bien' },
+]
 
-// قائمة الجمل قبل الصورة
-const sentencesList = [
-    "Mike aime le vélo.",
-    "Alice aime la peinture.",
-    "Alex aime le foot.",
-    "Anna aime le volley.",
-];
-
+// --- المكون الرئيسي ---
 const Q7 = () => {
-    const inputRefs = useRef([]);
+    // اللوجيك يبقى كما هو
+    const [connections, setConnections] = useState([]);
+    const [activeLine, setActiveLine] = useState(null);
+    const [feedback, setFeedback] = useState({});
+    const svgContainerRef = useRef(null);
 
-    const handleInput = (index) => {
-        const input = inputRefs.current[index];
-        if (!input) return;
+    const updatePointsCoordinates = () => {
+    if (!svgContainerRef.current) return {};
+    const newPoints = {};
+    const container = svgContainerRef.current;
+    const containerRect = container.getBoundingClientRect();
 
-        const minWidth = 3; // حروف
-        const maxWidth = 25;
+    container.querySelectorAll('[data-pointid]').forEach(el => {
+        const rect = el.getBoundingClientRect();
 
-        const length = input.value.length || input.placeholder.length;
-        const widthInCh = Math.min(Math.max(length + 1, minWidth), maxWidth);
-        input.style.width = `${widthInCh}ch`;
+        const isWord = el.dataset.pointid.startsWith('word');
+        const isImage = el.dataset.pointid.startsWith('img');
+
+        const x = rect.left + rect.width / 2 - containerRect.left;
+
+        // أهم تعديل هنا:
+        const y = isWord
+            ? rect.top + rect.height - containerRect.top    // أسفل الكلمة
+            : rect.top - containerRect.top;                 // أعلى الصورة
+
+        newPoints[el.dataset.pointid] = { x, y };
+    });
+
+    return newPoints;
+};
+
+
+
+
+    const handlePointClick = (id, type) => {
+        if (!activeLine && type === 'image') return;
+
+        if (!activeLine) {
+            setActiveLine({ startId: id, endPoint: null });
+        } else {
+            if (type === 'image' && activeLine.startId !== id) {
+                const newConnection = { startId: activeLine.startId, endId: id };
+                if (!connections.some(c => c.startId === newConnection.startId || c.endId === newConnection.endId)) {
+                    setConnections([...connections, newConnection]);
+                }
+                setActiveLine(null);
+            }
+        }
     };
 
-    const handleStartAgain = () => {
-        inputRefs.current.forEach((input) => {
-            if (input) {
-                input.value = "";
-                input.style.width = "3ch"; // إعادة الحجم الابتدائي
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            if (activeLine && svgContainerRef.current) {
+                const containerRect = svgContainerRef.current.getBoundingClientRect();
+                setActiveLine(prev => ({ ...prev, endPoint: { x: e.clientX - containerRect.left, y: e.clientY - containerRect.top } }));
             }
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, [activeLine]);
+
+    const checkAnswers = () => {
+        if (connections.length < WORDS.length) {
+            ValidationAlert.warning("Attention!", "Veuillez relier tous les mots aux images.");
+            return;
+        }
+        const newFeedback = {};
+        let correctCount = 0;
+        connections.forEach((conn, index) => {
+            const word = WORDS.find(w => w.id === conn.startId);
+            const isCorrect = word.correctMatch === conn.endId;
+            newFeedback[index] = isCorrect ? 'correct' : 'incorrect';
+            if (isCorrect) correctCount++;
         });
+        setFeedback(newFeedback);
+        const total = WORDS.length;
+        if (correctCount === total) {
+            ValidationAlert.success(` ${correctCount} / ${total}`);
+        } else {
+            ValidationAlert.error(` ${correctCount} / ${total}`);
+        }
+    };
+
+    const handleTryAgain = () => {
+        setConnections([]);
+        setActiveLine(null);
+        setFeedback({});
     };
 
     const handleShowAnswer = () => {
-        inputRefs.current.forEach((input, index) => {
-            if (input) {
-                input.value = correctAnswers[index];
-                input.style.width = `${correctAnswers[index].length + 1}ch`;
-            }
+        const correctConnections = WORDS.map(word => ({
+            startId: word.id,
+            endId: word.correctMatch
+        }));
+
+        setConnections(correctConnections);
+
+        // ضع الـ feedback لجميع الإجابات على أنها صحيحة
+        const newFeedback = {};
+        correctConnections.forEach((conn, index) => {
+            newFeedback[index] = 'correct';
         });
+        setFeedback(newFeedback);
     };
 
-    const handleCheck = () => {
-        const hasEmpty = inputRefs.current.some(
-            (input) => !input || input.value.trim() === ""
-        );
-
-        if (hasEmpty) {
-            ValidationAlert.warning(
-                "Attention !",
-                "Veuillez répondre à toutes les questions."
-            );
-            return;
-        }
-
-        let score = 0;
-        inputRefs.current.forEach((input, index) => {
-            if (
-                input.value.trim().toLowerCase() ===
-                correctAnswers[index].toLowerCase()
-            ) {
-                score++;
-            }
-        });
-
-        const total = correctAnswers.length;
-        const color = score === total ? "#16a34a" : "#dc2626";
-        const scoreMessage = `
-      <div style="font-size:20px; text-align:center; margin-top:10px;">
-        <span style="color:${color}; font-weight:bold;">
-          Score : ${score} / ${total}
-        </span>
-      </div>
-    `;
-
-        if (score === total) {
-            ValidationAlert.success(scoreMessage);
-        } else {
-            ValidationAlert.error(scoreMessage);
-        }
+    const getLinePoints = (connection) => {
+        const points = updatePointsCoordinates();
+        return { startPoint: points[connection.startId], endPoint: points[connection.endId] };
     };
 
     return (
-        <div className="max-w-2xl mx-auto p-6">
-            {/* --- عرض الجمل --- */}
-            <div className="p-4 bg-gray-100 rounded-lg">
-                <ul className="grid grid-cols-2 gap-2 list-inside list-[upper-alpha] font-bold">
-                    {sentencesList.map((s, idx) => (
-                        <li key={idx} className="text-black">{s}</li>
-                    ))}
-                </ul>
-            </div>
-
-
+        <div className="w-full max-w-3xl mx-auto p-4">
             <div
-                className="relative w-full bg-contain bg-no-repeat bg-center"
+                ref={svgContainerRef}
+                className="relative bg-white rounded-2xl shadow-lg p-6"
                 style={{
-                    backgroundImage: `url(${backgroundImage})`,
-                    paddingTop: "66.66%", // يحافظ على نسبة العرض إلى الارتفاع للصورة
+                    minHeight: '300px',
                 }}
             >
-                <div>
-                    {inputsData.map((item, index) => (
-                        <input
-                            key={index}
-                            ref={(el) => (inputRefs.current[index] = el)}
-                            type="text"
-                            placeholder={item.placeholder}
-                            className="bg-white absolute text-center border-2 border-gray-400 rounded-md p-1 text-lg font-semibold focus:border-blue-500 focus:ring-blue-500"
-                            style={{
-                                top: item.top,
-                                left: item.left,
-                                transform: "translate(-50%, -50%)", // لتوسيط الحقل بالضبط
-                                width: "5ch", // عرض ابتدائي
-                            }}
-                            onInput={() => handleInput(index)}
-                            maxLength={1}
-                        />
+                {/* SVG للخطوط */}
+                <svg className="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
+                    {connections.map((conn, index) => {
+                        const { startPoint, endPoint } = getLinePoints(conn);
+                        if (!startPoint || !endPoint) return null;
+                        const color =
+                            feedback[index] === 'correct'
+                                ? '#16a34a'
+                                : feedback[index] === 'incorrect'
+                                    ? '#dc2626'
+                                    : '#3b82f6';
+                        return (
+                            <line
+                                key={index}
+                                x1={startPoint.x}
+                                y1={startPoint.y}
+                                x2={endPoint.x}
+                                y2={endPoint.y}
+                                stroke={color}
+                                strokeWidth="5"
+                                strokeLinecap="round"
+                            />
+                        );
+                    })}
+                    {activeLine && activeLine.endPoint && (() => {
+                        const points = updatePointsCoordinates();
+                        const startPoint = points[activeLine.startId];
+                        if (!startPoint) return null;
+                        return (
+                            <line
+                                x1={startPoint.x}
+                                y1={startPoint.y}
+                                x2={activeLine.endPoint.x}
+                                y2={activeLine.endPoint.y}
+                                stroke="#60a5fa"
+                                strokeWidth="4"
+                                strokeDasharray="6 6"
+                            />
+                        );
+                    })()}
+                </svg>
+
+                {/* الكلمات في صف أفقي */}
+                <div className="flex justify-around mb-16">
+                    {WORDS.map((word) => (
+                        <div
+                            key={word.id}
+                            data-pointid={word.id}
+                            onClick={() => handlePointClick(word.id, 'word')}
+                            className="bg-[#FEF0E8] p-4 rounded-lg shadow-sm cursor-pointer text-center"
+                        >
+                            <span className="font-semibold text-gray-800 text-xl">{word.text}</span>
+                        </div>
+                    ))}
+                </div>
+
+                {/* الصور في صف أفقي */}
+                <div className="flex justify-around mt-16 max-h-35 lg:mt-55">
+                    {IMAGES.map((image) => (
+                        <div
+                            key={image.id}
+                            data-pointid={image.id}
+                            onClick={() => handlePointClick(image.id, 'image')}
+                            className="p-2 rounded-xl cursor-pointer"
+                        >
+                            <img
+                                src={image.src}
+                                alt={image.alt}
+                                className="w-24 max-h-35 object-contain"
+                            />
+                        </div>
                     ))}
                 </div>
             </div>
 
-            {/* --- أزرار التحكم --- */}
-            <div className="popup-buttons mt-4 flex gap-4 justify-center">
-                <button
-                    className="try-again-button px-4 py-2 bg-gray-200 rounded-lg font-semibold"
-                    onClick={handleStartAgain}
-                >
-                    Recommencer ↻
+            {/* أزرار التحكم */}
+            <div className="popup-buttons shrink-0 flex justify-center gap-4 mt-4">
+                <button className="try-again-button" onClick={handleTryAgain}>
+                    Recommencer
                 </button>
-                <button
-                    className="show-answer-btn px-4 py-2 bg-yellow-400 rounded-lg font-semibold"
-                    onClick={handleShowAnswer}
-                >
+                <button className="show-answer-btn" onClick={handleShowAnswer}>
                     Afficher la réponse
                 </button>
-                <button
-                    className="check-button2 px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold"
-                    onClick={handleCheck}
-                >
-                    Vérifier la réponse ✓
+                <button className="check-button2" onClick={checkAnswers}>
+                    Vérifier la réponse
                 </button>
             </div>
         </div>
+
     );
 };
+
+
 
 export default Q7;

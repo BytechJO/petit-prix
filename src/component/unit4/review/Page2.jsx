@@ -36,21 +36,6 @@ const Page2 = ({ bgImage, openPopup }) => {
     >
       <img src={bgImage} loading="lazy" />
 
-
-      
-
-      <button
-        className='btnopenpopup'
-        id="R2page2"
-        onClick={() => handleOpenQuestion(27)}
-      >
-        <img
-          src={arrow}
-          alt="Open question"
-          loading="lazy"
-        />
-      </button>
-
       {audioData && (
         <AudioPopup
           open={true}

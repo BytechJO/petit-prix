@@ -54,29 +54,8 @@ const Page2 = ({ bgImage, openPopup }) => {
       className="page_1-background"
     >
       <img src={bgImage} loading="lazy" />
-      <button
-        className='btnopenpopup'
-        id="U2page2q1"
-        onClick={() => handleOpenQuestion(16)}
-      >
-        <img
-          src={arrow}
-          alt="Open question"
-          loading="lazy"
-        />
-      </button>
 
-      <button
-        className='btnopenpopup'
-        id="U2page2audio"
-        onClick={() => setShowAudio(true)}
-      >
-        <img
-          src={audio}
-          alt="Open question"
-          loading="lazy"
-        />
-      </button>
+     
       <AudioPopup
         open={showAudio}
         onClose={() => setShowAudio(false)}

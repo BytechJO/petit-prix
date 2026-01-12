@@ -124,9 +124,23 @@ const Q7 = () => {
                             style={{
                                 top: item.top,
                                 left: item.left,
-                                transform: "translate(-50%, -50%)", // لتوسيط الحقل بالضبط
-                                width: "5ch", // عرض ابتدائي
+                                transform: "translate(-50%, -50%)",
+                                width: "5ch",
+                                color: "#000000",
+                                fontFamily: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
+                                fontWeight: "bolder",
+                                position: "absolute",
+                                background: "linear-gradient(120deg, #fafafaff 25%, #00f2fe 37%, #8d97a0ff 63%)",
+                                backgroundSize: "400% 400%",
+                                animation: "shine 2s ease-in-out infinite",
+                                border: "none",
+                                borderRadius: "6px",
+                                padding: "6px 10px",
+                                fontSize: "16px",
+                                outline: "none",
+                                transition: "width 0.2s ease",
                             }}
+
                             onInput={() => handleInput(index)}
                             maxLength={1}
                         />

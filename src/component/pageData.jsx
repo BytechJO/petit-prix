@@ -182,6 +182,15 @@ import U3Q6 from '../component/unit3/secA/Exercise/Q6';
 import U3Q7 from '../component/unit3/secA/Exercise/Q7';
 import U3Q8 from '../component/unit3/secA/Exercise/Q8';
 
+// review question unit3
+import RU3Q1 from '../component/unit3/review/Exercise/Q1';
+import RU3Q2 from '../component/unit3/review/Exercise/Q2';
+import RU3Q3 from '../component/unit3/review/Exercise/Q3';
+import RU3Q4 from '../component/unit3/review/Exercise/Q4';
+import RU3Q5 from '../component/unit3/review/Exercise/Q5';
+import RU3Q6 from '../component/unit3/review/Exercise/Q6';
+import RU3Q7 from '../component/unit3/review/Exercise/Q7';
+
 // unit4 student img
 const U4img1 = "/assets/unit4/1.png";
 const U4img2 = "/assets/unit4/2.png";
@@ -192,7 +201,7 @@ const U4img6 = "/assets/unit4/secA/6.png";
 const U4img7 = "/assets/unit4/secA/7.png";
 const U4img8 = "/assets/unit4/secA/8.png";
 
-// review unit 4
+// review unit 4 img
 const U4Rimg12 = "/assets/unit4/review/9.png";
 const U4Rimg13 = "/assets/unit4/review/10.png";
 const U4Rimg14 = "/assets/unit4/review/11.png";
@@ -214,15 +223,34 @@ import U4RPage2 from "../component/unit4/review/Page2";
 import U4RPage3 from "../component/unit4/review/Page3";
 import U4RPage4 from "../component/unit4/review/Page4";
 
+// question unit4
+import U4Q1 from '../component/unit4/secA/Exercise/Q1';
+import U4Q2 from '../component/unit4/secA/Exercise/Q2';
+import U4Q3 from '../component/unit4/secA/Exercise/Q3';
+import U4Q4 from '../component/unit4/secA/Exercise/Q4';
+import U4Q5 from '../component/unit4/secA/Exercise/Q5';
+import U4Q6 from '../component/unit4/secA/Exercise/Q6';
+import U4Q7 from '../component/unit4/secA/Exercise/Q7';
+import U4Q8 from '../component/unit4/secA/Exercise/Q8';
+import U4Q9 from '../component/unit4/secA/Exercise/Q9';
 
-// unit4 student img
+// review question unit 4
+import RU4RQ1 from '../component/unit4/review/Exercise/Q1';
+import RU4RQ2 from '../component/unit4/review/Exercise/Q2';
+import RU4RQ3 from '../component/unit4/review/Exercise/Q3';
+import RU4RQ4 from '../component/unit4/review/Exercise/Q4';
+import RU4RQ5 from '../component/unit4/review/Exercise/Q5';
+import RU4RQ6 from '../component/unit4/review/Exercise/Q6';
+
+
+// vocavulaire student img
 const vocabulaireimg1 = "/assets/vocabulaire/1.png";
 const vocabulaireimg2 = "/assets/vocabulaire/2.png";
 const vocabulaireimg3 = "/assets/vocabulaire/3.png";
 const vocabulaireimg4 = "/assets/vocabulaire/4.png";
 const vocabulaireimg5 = "/assets/vocabulaire/5.png";
 
-// unit4 student page
+// vocavulaire student page
 import vocabulairePage1 from '../component/unit4/secA/Page1';
 import vocabulairePage2 from "../component/unit4/secA/Page2";
 import vocabulairePage3 from "../component/unit4/secA/Page3";
@@ -955,7 +983,7 @@ export const unit1SecAQuestions = [
     id: 20,
     component: U2Q5,
     audio: null,
-    text: "",
+    text: "Écoute et répète",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     // ],
@@ -1148,6 +1176,170 @@ export const unit1SecAQuestions = [
     component: U3Q8,
     audio: null,
     text: "Écoute et relie.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  //unit 3 sb REVIEW
+  {
+    id: 41,
+    component: RU3Q1,
+    audio: null,
+    text: "Lis l’histoire.",
+    captions: [
+      { start: 0, end: 4.0, text: "Unité un, leçon quatre.De quelle couleur c'est ?" },
+      { start: 4.0, end: 6.0, text: "Exercice deux" },
+      { start: 6.0, end: 10.0, text: "Écoute, montre et corrige les erreurs" },
+      { start: 10.0, end: 13.0, text: "J'ai un vélo vert." },
+      { start: 13.0, end: 15.0, text: "J'ai un tracteur jaune." },
+      { start: 15.0, end: 18.0, text: "J'ai une voiture rouge" },
+      { start: 18.0, end: 20.0, text: ".J'ai un robot bleu." },
+    ],
+  },
+  {
+    id: 42,
+    component: RU3Q2,
+    audio: null,
+    text: "Montre et écris :",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ],
+    // pausePoints: [11, 17],
+  },
+  {
+    id: 43,
+    component: RU3Q3,
+    audio: null,
+    text: "Et maintenant crée ton arbre généalogique.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 44,
+    component: RU3Q4,
+    audio: null,
+    text: "Écoute et associe.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+    // pausePoints: [11, 17],
+  },
+  {
+    id: 45,
+    component: RU3Q5,
+    audio: null,
+    text: "Associe les phrases aux images.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ],
+    // pausePoints: [12, 14, 17, 20],
+  },
+  {
+    id: 46,
+    component: RU3Q6,
+    audio: null,
+    text: "Écoute et entoure la bonne réponse.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 47,
+    component: RU3Q7,
+    audio: null,
+    text: "Écoute et associe.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  //unit 4 sb
+  {
+    id: 48,
+    component: U4Q1,
+    audio: null,
+    text: "Observe et trouve.",
+    captions: [
+      { start: 0, end: 4.0, text: "Unité un, leçon quatre.De quelle couleur c'est ?" },
+      { start: 4.0, end: 6.0, text: "Exercice deux" },
+      { start: 6.0, end: 10.0, text: "Écoute, montre et corrige les erreurs" },
+      { start: 10.0, end: 13.0, text: "J'ai un vélo vert." },
+      { start: 13.0, end: 15.0, text: "J'ai un tracteur jaune." },
+      { start: 15.0, end: 18.0, text: "J'ai une voiture rouge" },
+      { start: 18.0, end: 20.0, text: ".J'ai un robot bleu." },
+    ],
+  },
+  {
+    id: 49,
+    component: U4Q2,
+    audio: null,
+    text: "Écoute et dis quel âge a Pierre.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ],
+    // pausePoints: [11, 17],
+  },
+  {
+    id: 50,
+    component: U4Q3,
+    audio: null,
+    text: "Écoute et choisis.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 51,
+    component: U4Q4,
+    audio: null,
+    text: "Écoute et choisis.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+    // pausePoints: [11, 17],
+  },
+  {
+    id: 52,
+    component: U4Q5,
+    audio: null,
+    text: "Écoute, observe et nomme.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ],
+    // pausePoints: [12, 14, 17, 20],
+  },
+  {
+    id: 53,
+    component: U4Q6,
+    audio: null,
+    text: "Écoute et entoure ce que Léo veut.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 54,
+    component: U4Q7,
+    audio: null,
+    text: "Écoute et mets dans l’ordre.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 55,
+    component: U4Q8,
+    audio: null,
+    text: "Écoute et relie.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 56,
+    component: U4Q9,
+    audio: null,
+    text: "Lance le dé, joue et parle.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     // ]

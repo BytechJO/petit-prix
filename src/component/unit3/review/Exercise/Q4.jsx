@@ -1,19 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const flage1 = '/assets/unit2/review/page26/flag1.svg';
-const flage2 = '/assets/unit2/review/page26/flag2.svg';
-const flage3 = '/assets/unit2/review/page26/flag3.svg';
-
+// --- بيانات التمرين (تبقى كما هي) ---
 const WORDS = [
-    { id: 'word-1', src: flage1 , correctMatch: 'img-2' },
-    { id: 'word-2', src: flage2 , correctMatch: 'img-3' },
-    { id: 'word-3', src: flage3 , correctMatch: 'img-1' },
+    { id: 'word-1', text: 'Lucas', correctMatch: 'img-1' },
+    { id: 'word-2', text: 'Belle', correctMatch: 'img-2' },
+    { id: 'word-3', text: 'Thomas', correctMatch: 'img-3' },
 ]
 
-const img1 = '/assets/unit2/review/page26/ch1.svg';
-const img2 = '/assets/unit2/review/page26/ch2.svg';
-const img3 = '/assets/unit2/review/page26/ch3.svg';
+const img1 = '/assets/unit3/review/page38/1.svg';
+const img2 = '/assets/unit3/review/page38/2.svg';
+const img3 = '/assets/unit3/review/page38/3.svg';
 
 const IMAGES = [
     { id: 'img-1', src: img1, alt: 'Super' },
@@ -94,9 +91,9 @@ const Q4 = () => {
         setFeedback(newFeedback);
         const total = WORDS.length;
         if (correctCount === total) {
-            ValidationAlert.success(`${correctCount} / ${total}`);
+            ValidationAlert.success( ` ${correctCount} / ${total}`);
         } else {
-            ValidationAlert.error(`${correctCount} / ${total}`);
+            ValidationAlert.error( ` ${correctCount} / ${total}`);
         }
     };
 
@@ -161,10 +158,8 @@ const Q4 = () => {
                                     <div
                                         data-pointid={word.id}
                                         onClick={() => handlePointClick(word.id, 'word')}
-                                        className="p-3 flex items-center gap-4">
-                                        <img 
-                                        src={word.src} 
-                                        className="w-36 h-36 max-w-36 max-h-28 object-contain" />
+                                        className="bg-[#FEF0E8] p-3 rounded-lg shadow-sm flex items-center gap-4">
+                                        <span className="font-semibold text-gray-800 text-xl">{word.text}</span>
 
                                     </div>
                                 </div>
@@ -174,11 +169,11 @@ const Q4 = () => {
                                     <div
                                         data-pointid={image.id}
                                         onClick={() => handlePointClick(image.id, 'image')}
-                                        className="p-2">
+                                        className="p-2 rounded-xl">
                                         <img
                                             src={image.src}
                                             alt={image.alt}
-                                            className="w-36 h-36 max-w-36 max-h-28 object-contain"
+                                            className="max-w-38 max-h-24 max-w-24 max-h-24 object-contain"
                                         />
                                     </div>
                                 </div>

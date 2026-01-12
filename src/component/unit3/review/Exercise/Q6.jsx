@@ -1,166 +1,102 @@
-import { useState } from "react";
-
+import { useRef, useState } from "react";
 import ValidationAlert from "../../../Popup/ValidationAlert";
 
-const questions = [
-    {
-        id: "a",
-        title: "Lundi ...",
-        options: ["Mercredi", "Jeudi", "Mardi"],
-        correct: 2,
-    },
-    {
-        id: "b",
-        title: "Dimanche ...",
-        options: ["Lundi", "Samedi", "Mercredi"],
-        correct: 1,
-    },
-    {
-        id: "c",
-        title: "Jeudi ...",
-        options: ["Mardi", "Lundi", "Vendredi"],
-        correct: 2,
-    },
-    {
-        id: "d",
-        title: "Vendredi ...",
-        options: ["Jeudi", "Samedi", "Dimanche"],
-        correct: 2,
-    },
-];
+const Q6 = () => {
+  const audioRef = useRef(null);
 
-export default function Q6() {
-    const [answers, setAnswers] = useState({});
-    const [checked, setChecked] = useState(false);
+  const [selected, setSelected] = useState(null);
+  const [answered, setAnswered] = useState(false);
 
-    const handleSelect = (qId, index) => {
-        if (checked) return;
-        setAnswers({ ...answers, [qId]: index });
-    };
+  // الصورة الصحيحة دائمًا الصورة الثانية (index = 1)
+  const correctIndex = 1;
 
-    const handleCheck = () => {
-        setChecked(true);
-    };
+  const images = [
+    "/assets/unit3/review/page39/1.svg",
+    "/assets/unit3/review/page39/2.svg",
+    "/assets/unit3/review/page39/3.svg",
+  ];
 
-    const handleReset = () => {
-        setAnswers({});
-        setChecked(false);
-    };
+  const handleImageClick = (index) => {
+    setSelected(index);
+  };
 
-    const checkAnswers = () => {
-        const totalCount = questions.length;
+  const handleCheck = () => {
+    if (selected === null) {
+      ValidationAlert.warning("veuillez sélectionner une image", "");
+      return;
+    }
 
-        const allAnswered = questions.every(
-            q => answers[q.id] !== undefined
-        );
+    setAnswered(true);
 
-        if (!allAnswered) {
-            ValidationAlert.warning(
-                "Veuillez répondre à toutes les questions.",
-                "Essayer à nouveau"
-            );
-            return;
-        }
+    if (selected === correctIndex) {
+      ValidationAlert.success("Correct!", "Bien joué");
+      audioRef.current?.play();
+    } else {
+      ValidationAlert.error("Wrong answer", "Try again");
+    }
+  };
 
-        let score = 0;
+  const handleStartAgain = () => {
+    setSelected(null);
+    setAnswered(false);
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.pause();
+    }
+  };
 
-        questions.forEach(q => {
-            if (answers[q.id] === q.correct) {
-                score++;
-            }
-        });
+  const handleShowAnswer = () => {
+    setSelected(correctIndex);
+  };
 
-        const color = score === totalCount ? "#16a34a" : "#dc2626"; // أخضر / أحمر
+  return (
+    <div className="w-full flex flex-col items-center gap-6">
+      {/* الصور */}
+      <div className="flex gap-12 mt-6">
+        {images.map((img, index) => (
+          <div
+            key={index}
+            onClick={() => handleImageClick(index)}
+            className={`
+    cursor-pointer
+    rounded-xl
+    border-4
+    transition-all
+    duration-300
+    ${selected === index
+                ? answered
+                  ? selected === correctIndex
+                    ? "border-green-500 scale-105"
+                    : "border-red-500 scale-105"
+                  : "border-blue-400 scale-105" // أثناء الاختيار قبل التأكيد
+                : "border-transparent"
+              }
+  `}
+          >
+            <img
+              src={img}
+              alt={`option-${index}`}
+              className="max-w-60 max-h-90 object-contain"
+            />
+          </div>
 
-        const scoreMessage = `
-    <div style="font-size: 20px; margin-top: 10px; text-align:center;">
-      <span style="color:${color}; font-weight:bold;">
-        Score: ${score} / ${totalCount}
-      </span>
+        ))}
+      </div>
+
+      {/* الأزرار */}
+      <div className="popup-buttons mt-4 flex gap-4">
+        <button className="try-again-button" onClick={handleStartAgain}>
+          Recommencer ↻
+        </button>
+        <button className="show-answer-btn" onClick={handleShowAnswer}>
+          Afficher la réponse
+        </button>
+        <button className="check-button2" onClick={handleCheck}>
+          Vérifier la réponse ✓
+        </button>
+      </div>
     </div>
-  `;
+  );
+};
 
-        if (score === totalCount) {
-            ValidationAlert.success(
-                scoreMessage
-            );
-        } else {
-            ValidationAlert.error(
-                scoreMessage
-            );
-        }
-    };
-
-
-
-    return (
-        <div className="max-w-3xl mx-auto p-6 space-y-6">
-
-            {questions.map((q) => (
-                <div
-                    key={q.id}
-                    className="bg-white rounded-2xl shadow-md p-5 space-y-4"
-                >
-                    <p className="text-lg font-semibold text-gray-700">
-                        {q.id}) {q.title}
-                    </p>
-
-                    <div className="flex flex-wrap gap-4">
-                        {q.options.map((opt, index) => {
-                            const isSelected = answers[q.id] === index;
-                            const isCorrect = checked && index === q.correct;
-                            const isWrong =
-                                checked && isSelected && index !== q.correct;
-
-                            return (
-                                <button
-                                    key={index}
-                                    onClick={() => handleSelect(q.id, index)}
-                                    className={`
-                    flex items-center gap-3 px-4 py-2 rounded-full border-2
-                    transition-all duration-200
-                    ${isCorrect
-                                            ? "border-green-500 bg-green-100 text-green-700"
-                                            : isWrong
-                                                ? "border-red-500 bg-red-100 text-red-700"
-                                                : isSelected
-                                                    ? "border-blue-500 bg-blue-100 text-blue-700"
-                                                    : "border-gray-300 hover:border-blue-400"
-                                        }
-                  `}
-                                >
-                                    <span
-                                        className={`
-                      w-5 h-5 rounded-full border-2
-                      ${isCorrect
-                                                ? "border-green-500 bg-green-500"
-                                                : isWrong
-                                                    ? "border-red-500 bg-red-500"
-                                                    : isSelected
-                                                        ? "border-blue-500 bg-blue-500"
-                                                        : "border-gray-400"
-                                            }
-                    `}
-                                    />
-                                    {opt}
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
-            ))}
-
-            <div className="popup-buttons shrink-0">
-                <button className="try-again-button" onClick={handleReset}>
-                    Recommencer ↻
-                </button>
-                <button className="show-answer-btn" onClick={handleCheck}>
-                    Afficher la réponse
-                </button>
-                <button className="check-button2" onClick={checkAnswers}>
-                    Vérifier la réponse ✓
-                </button>
-            </div>
-        </div>
-    );
-}
+export default Q6;

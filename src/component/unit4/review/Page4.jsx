@@ -39,7 +39,7 @@ const Page4 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="R2page4"
+        id="R4page4"
         onClick={() => handleOpenQuestion(30)}
       >
         <img
@@ -51,7 +51,7 @@ const Page4 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="R2page4audio"
+        id="R4page4audio"
         onClick={() => openAudio(sound2, unit1SecAQuestions[30].captions)}
       >
         <img
@@ -63,7 +63,7 @@ const Page4 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="R2page4q2"
+        id="R4page4q2"
         onClick={() => handleOpenQuestion(31)}
       >
         <img
@@ -75,7 +75,7 @@ const Page4 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="R2page4audioq2"
+        id="R4page4audioq2"
         onClick={() => openAudio(sound2, unit1SecAQuestions[31].captions)}
       >
         <img

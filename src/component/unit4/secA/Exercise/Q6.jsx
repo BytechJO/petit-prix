@@ -7,13 +7,27 @@ const Q6 = () => {
   const [selected, setSelected] = useState(null);
   const [answered, setAnswered] = useState(false);
 
+  // الصورة الصحيحة دائمًا الصورة الثالثة (index = 2)
   const correctIndex = 2;
 
+  const img1 = '/assets/unit2/secA/page21/1.png';
+  const img2 = '/assets/unit2/secA/page21/2.png';
+  const img3 = '/assets/unit2/secA/page21/3.png';
+  const img4 = '/assets/unit2/secA/page21/4.png';
+  const img5 = '/assets/unit2/secA/page21/5.png';
+  const img6 = '/assets/unit2/secA/page21/6.png';
+  const img7 = '/assets/unit2/secA/page21/1.png';
+  const img8 = '/assets/unit2/secA/page21/2.png';
+
   const images = [
-    "/assets/unit2/secA/page19/jeudi.png",
-    "/assets/unit2/secA/page19/mardi.png",
-    "/assets/unit2/secA/page19/mercredi.png",
-    "/assets/unit2/secA/page19/vendredi.png"
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8
   ];
 
   const handleImageClick = (index) => {
@@ -52,37 +66,35 @@ const Q6 = () => {
   return (
     <div className="w-full flex flex-col items-center gap-6">
       {/* الصور */}
-      <div className="grid grid-cols-2 lg:gap-6  sm-gap-1 lg:mt-5 sm:mt-0">
-  {images.map((img, index) => (
-    <div
-      key={index}
-      onClick={() => handleImageClick(index)}
-      className={`
-        cursor-pointer
-        rounded-xl
-        border-4
-        transition-all
-        duration-300
-        ${
-          selected === index
-            ? answered
-              ? selected === correctIndex
-                ? "border-green-500 scale-105"
-                : "border-red-500 scale-105"
-              : "border-blue-400 scale-105"
-            : "border-transparent"
-        }
-      `}
-    >
-      <img
-        src={img}
-        alt={`option-${index}`}
-        className="lg:max-w-60 lg:max-h-90 object-contain sm:max-w-30 sm:max-h-60"
-      />
-    </div>
-  ))}
-</div>
-
+      <div className="grid grid-cols-4 gap-6 mt-6 justify-items-center">
+        {images.map((img, index) => (
+          <div
+            key={index}
+            onClick={() => handleImageClick(index)}
+            className={`
+              cursor-pointer
+              rounded-xl
+              border-4
+              transition-all
+              duration-300
+              ${selected === index
+                ? answered
+                  ? selected === correctIndex
+                    ? "border-green-500 scale-105"
+                    : "border-red-500 scale-105"
+                  : "border-blue-400 scale-105"
+                : "border-transparent"
+              }
+            `}
+          >
+            <img
+              src={img}
+              alt={`option-${index}`}
+              className="max-w-60 max-h-90 object-contain"
+            />
+          </div>
+        ))}
+      </div>
 
       {/* الأزرار */}
       <div className="popup-buttons mt-4 flex gap-4">

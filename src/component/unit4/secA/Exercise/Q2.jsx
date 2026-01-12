@@ -1,134 +1,153 @@
 import React, { useState } from "react";
-
-const backgroundImage = "/assets/unit2/secA/page17/cover.png";
-
 import ValidationAlert from "../../../Popup/ValidationAlert";
-import InteractivePage from "../../../unit1/interactive";
-
-const fence = "/assets/unit1/secA/page45/ch1.svg";
-const book = "/assets/unit1/secA/page45/ch3.svg";
-const pen = "/assets/unit1/secA/page45/ch4.svg";
 
 const Q2 = () => {
-  const [foundItems, setFoundItems] = useState([false, false, false, false]);
-  const [recentlyFound, setRecentlyFound] = useState(null);
-  const [checkResult, setCheckResult] = useState(null);
-  const [showAnswer, setShowAnswer] = useState(false);
+  const imageSrc = '/assets/unit3/secA/page31/1.svg';
 
-  const Items = [
-    {
-      index: 0,
-      top: "59.5%",
-      left: "36%",
-      width: "60%",
-      height: "40%",
-      image: fence,
-      "aria-label": "Restaurant area 1",
-    },
-    {
-      index: 1,
-      top: "46%",
-      left: "69%",
-      width: "37%",
-      height: "44%",
-      image: pen,
-      "aria-label": "Restaurant area 2",
-    },
-    {
-      index: 2,
-      top: "31%",
-      left: "15.5%",
-      width: "20%",
-      height: "23%",
-      image: book,
-      "aria-label": "Restaurant area 3",
-    },
+  const leftOptions = [
+    { id: 1, text: "Un", value: 1 },
+    { id: 2, text: "Deux", value: 2 },
+    { id: 3, text: "Trois", value: 3 },
+    { id: 4, text: "Quatre", value: 4 },
+    { id: 5, text: "Cinq", value: 5 },
   ];
 
-  const handleItemClick = (index) => {
-    if (foundItems[index]) return;
-    const newFoundItems = [...foundItems];
-    newFoundItems[index] = true;
-    setFoundItems(newFoundItems);
-    setRecentlyFound(index);
-  };
+  const rightOptions = [
+    { id: 6, text: "Six", value: 6 },
+    { id: 7, text: "Sept", value: 7 },
+    { id: 8, text: "Huit", value: 8 },
+    { id: 9, text: "Neuf", value: 9 },
+    { id: 10, text: "Dix", value: 10 },
+  ];
 
-  const handleCheck = () => {
-    if (showAnswer) return;
+  const correctAnswer = 7; 
 
-    const correctCount = foundItems.filter(Boolean).length;
-    const totalCount = Items.length;
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
 
-    const color =
-  correctCount === totalCount
-    ? "green"
-    : correctCount === 0
-    ? "orange"
-    : correctCount >= 1 && correctCount < 4
-    ? "red"
-    : undefined;
-
-
-    const scoreMessage = `
-      <div style="font-size: 20px; margin-top: 10px; text-align:center;">
-        <span style="color:${color}; font-weight:bold;">
-          Score: ${correctCount} / ${totalCount}
-        </span>
-      </div>
-    `;
-
-    if (correctCount === totalCount) {
-      setCheckResult("success");
-      ValidationAlert.success( scoreMessage);
-    } else if (correctCount === 0) {
-      setCheckResult("fail");
-      ValidationAlert.warning("Oups !", "Trouvez tous les objets");
-    } else {
-      ValidationAlert.error(scoreMessage);
+  const handleSelectAnswer = (value) => {
+    if (!isChecked) {
+      setSelectedAnswer(value);
     }
   };
 
-  const handleStartAgain = () => {
-    setFoundItems([false, false, false, false]);
-    setRecentlyFound(null);
-    setCheckResult(null);
-    setShowAnswer(false);
-  };
+  const checkAnswers = () => {
+  if (selectedAnswer === null) {
+    ValidationAlert.warning();
+    return;
+  }
+
+  setIsChecked(true);
+
+  if (selectedAnswer === correctAnswer) {
+    ValidationAlert.success("Excellent");
+  } else {
+    ValidationAlert.error("Failed");
+  }
+};
+
 
   const handleShowAnswer = () => {
-    setShowAnswer(true);
-    setFoundItems([true, true, true, true]);
-    setCheckResult("success");
+    setSelectedAnswer(correctAnswer);
+    setIsChecked(true);
+  };
+
+  const handleTryAgain = () => {
+    setSelectedAnswer(null);
+    setIsChecked(false);
+  };
+
+  const getButtonStyle = (value) => {
+    if (!isChecked) {
+      return selectedAnswer === value
+        ? { backgroundColor: '#3b82f6', color: 'white' }
+        : {};
+    }
+
+    if (value === correctAnswer) {
+      return { backgroundColor: '#22c55e', color: 'white' };
+    }
+
+    if (selectedAnswer === value && value !== correctAnswer) {
+      return { backgroundColor: '#ef4444', color: 'white' };
+    }
+
+    return {};
   };
 
   return (
-    <div>
-      <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <div style={{ position: "relative" }}>
-          <img
-            src={backgroundImage}
-            alt="interactive"
-            style={{ width: "auto", height: "70vh", display: "block" }}
-          />
+    <div className="flex flex-col items-center p-8 gap-8">
 
-          <InteractivePage
-            items={Items}
-            foundItems={foundItems}
-            recentlyFound={recentlyFound}
-            onItemClick={handleItemClick}
+      {/* الخيارات والصورة */}
+      <div className="flex items-center justify-center gap-8">
+        {/* الخيارات اليسرى */}
+        <div className="flex flex-col gap-3">
+          {leftOptions.map((option) => (
+            <button
+              key={option.id}
+              onClick={() => handleSelectAnswer(option.value)}
+              disabled={isChecked}
+              style={{
+                ...getButtonStyle(option.value),
+                padding: '12px 32px',
+                borderRadius: '8px',
+                border: '2px solid #d1d5db',
+                fontSize: '18px',
+                fontWeight: '600',
+                cursor: isChecked ? 'not-allowed' : 'pointer',
+                transition: 'all 0.3s',
+                minWidth: '150px'
+              }}
+            >
+              {option.text}
+            </button>
+          ))}
+        </div>
+
+        {/* الصورة */}
+        <div className="flex items-center justify-center">
+          <img
+            src={imageSrc}
+            alt="Pierre"
+            className="max-w-xs max-h-96 object-contain "
           />
+        </div>
+
+        {/* الخيارات اليمنى */}
+        <div className="flex flex-col gap-3">
+          {rightOptions.map((option) => (
+            <button
+              key={option.id}
+              onClick={() => handleSelectAnswer(option.value)}
+              disabled={isChecked}
+              style={{
+                ...getButtonStyle(option.value),
+                padding: '12px 32px',
+                borderRadius: '8px',
+                border: '2px solid #d1d5db',
+                fontSize: '18px',
+                fontWeight: '600',
+                cursor: isChecked ? 'not-allowed' : 'pointer',
+                transition: 'all 0.3s',
+                minWidth: '150px'
+              }}
+            >
+              {option.text}
+            </button>
+          ))}
         </div>
       </div>
 
-      <div className="popup-buttons">
-        <button className="try-again-button" onClick={handleStartAgain}>
-          Recommencer ↻
+      {/* الأزرار */}
+      <div className="popup-buttons shrink-0">
+        <button className="try-again-button" onClick={handleTryAgain}>
+          Recommencer
         </button>
         <button className="show-answer-btn" onClick={handleShowAnswer}>
           Afficher la réponse
         </button>
-        <button className="check-button2" onClick={handleCheck}>
-          Vérifier la réponse ✓
+        <button className="check-button2" onClick={checkAnswers}>
+          Vérifier la réponse
         </button>
       </div>
     </div>

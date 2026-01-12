@@ -40,8 +40,8 @@ const Page6 = ({ bgImage, openPopup }) => {
 
             <button
                 className='btnopenpopup'
-                id="U2page21q1"
-                onClick={() => handleOpenQuestion(23)}
+                id="U4page21q1"
+                onClick={() => handleOpenQuestion(53)}
             >
                 <img
                     src={arrow}
@@ -54,7 +54,7 @@ const Page6 = ({ bgImage, openPopup }) => {
 
             <button
                 className='btnopenpopup'
-                id="U2page21audioq1"
+                id="U4page21audioq1"
                 onClick={() => openAudio(sound1, unit1SecAQuestions[23].captions)}
             >
                 <img
@@ -67,8 +67,8 @@ const Page6 = ({ bgImage, openPopup }) => {
 
             <button
                 className='btnopenpopup'
-                id="U2page21q2"
-                onClick={() => handleOpenQuestion(24)}
+                id="U4page21q2"
+                onClick={() => handleOpenQuestion(54)}
             >
                 <img
                     src={arrow}
@@ -81,7 +81,7 @@ const Page6 = ({ bgImage, openPopup }) => {
 
             <button
                 className='btnopenpopup'
-                id="U2page21audioq2"
+                id="U4page21audioq2"
                 onClick={() => openAudio(sound1, unit1SecAQuestions[24].captions)}
             >
                 <img
