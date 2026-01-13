@@ -235,12 +235,11 @@ import U4Q8 from '../component/unit4/secA/Exercise/Q8';
 import U4Q9 from '../component/unit4/secA/Exercise/Q9';
 
 // review question unit 4
-import RU4RQ1 from '../component/unit4/review/Exercise/Q1';
-import RU4RQ2 from '../component/unit4/review/Exercise/Q2';
-import RU4RQ3 from '../component/unit4/review/Exercise/Q3';
-import RU4RQ4 from '../component/unit4/review/Exercise/Q4';
-import RU4RQ5 from '../component/unit4/review/Exercise/Q5';
-import RU4RQ6 from '../component/unit4/review/Exercise/Q6';
+import RU4Q1 from '../component/unit4/review/Exercise/Q1';
+import RU4Q2 from '../component/unit4/review/Exercise/Q2';
+import RU4Q3 from '../component/unit4/review/Exercise/Q3';
+import RU4Q4 from '../component/unit4/review/Exercise/Q4';
+import RU4Q5 from '../component/unit4/review/Exercise/Q5';
 
 
 // vocavulaire student img
@@ -251,11 +250,11 @@ const vocabulaireimg4 = "/assets/vocabulaire/4.png";
 const vocabulaireimg5 = "/assets/vocabulaire/5.png";
 
 // vocavulaire student page
-import vocabulairePage1 from '../component/unit4/secA/Page1';
-import vocabulairePage2 from "../component/unit4/secA/Page2";
-import vocabulairePage3 from "../component/unit4/secA/Page3";
-import vocabulairePage4 from "../component/unit4/secA/Page4";
-import vocabulairePage5 from "../component/unit4/secA/Page5";
+import vocabulairePage1 from '../component/vocabulaire/secA/Page1';
+import vocabulairePage2 from "../component/vocabulaire/secA/Page2";
+import vocabulairePage3 from "../component/vocabulaire/secA/Page3";
+import vocabulairePage4 from "../component/vocabulaire/secA/Page4";
+import vocabulairePage5 from "../component/vocabulaire/secA/Page5";
 
 // workbook
 const Wimg1 = "/assets/workbook/Unit1/Lesson1/cover.png";
@@ -272,6 +271,7 @@ import WQ1 from '../component/workbook/secA/Exercise/Q1';
 import WQ2 from '../component/workbook/secA/Exercise/Q2';
 import WQ3 from '../component/workbook/secA/Exercise/Q3';
 import WQ4 from '../component/workbook/secA/Exercise/Q4';
+
 
 export const pageData = [
   {
@@ -681,18 +681,7 @@ export const pageData = [
                 component: vocabulairePage5,
                 image: vocabulaireimg5,
               },
-              {
-                id: 56,
-                className: "coverimg",
-                component: Page1,
-                image: img1,
-              },
-              {
-                id: 57,
-                className: "coverimg",
-                component: Page1,
-                image: img1,
-              },
+              
             ],
           },
         ],
@@ -1343,6 +1332,61 @@ export const unit1SecAQuestions = [
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     // ]
+  },
+  //unit 4 sb REVIEW
+  {
+    id: 57,
+    component: RU4Q1,
+    audio: null,
+    text: "Observe et trouve.",
+    captions: [
+      { start: 0, end: 4.0, text: "Unité un, leçon quatre.De quelle couleur c'est ?" },
+      { start: 4.0, end: 6.0, text: "Exercice deux" },
+      { start: 6.0, end: 10.0, text: "Écoute, montre et corrige les erreurs" },
+      { start: 10.0, end: 13.0, text: "J'ai un vélo vert." },
+      { start: 13.0, end: 15.0, text: "J'ai un tracteur jaune." },
+      { start: 15.0, end: 18.0, text: "J'ai une voiture rouge" },
+      { start: 18.0, end: 20.0, text: ".J'ai un robot bleu." },
+    ],
+  },
+  {
+    id: 58,
+    component: RU4Q2,
+    audio: null,
+    text: "Écoute et dis quel âge a Pierre.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ],
+    // pausePoints: [11, 17],
+  },
+  {
+    id: 59,
+    component: RU4Q3,
+    audio: null,
+    text: "Écoute et choisis.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 60,
+    component: RU4Q4,
+    audio: null,
+    text: "Écoute et choisis.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+    // pausePoints: [11, 17],
+  },
+  {
+    id: 61,
+    component: RU4Q5,
+    audio: null,
+    text: "Écoute, observe et nomme.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ],
+    // pausePoints: [12, 14, 17, 20],
   },
 ];
 

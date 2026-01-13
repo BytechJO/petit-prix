@@ -1,193 +1,167 @@
-import React, { useState, useRef, useEffect } from 'react';
-import ValidationAlert from '../../../Popup/ValidationAlert';
+import React, { useState } from "react";
+import ValidationAlert from "../../../Popup/ValidationAlert";
 
-const flage1 = '/assets/unit2/review/page26/flag1.svg';
-const flage2 = '/assets/unit2/review/page26/flag2.svg';
-const flage3 = '/assets/unit2/review/page26/flag3.svg';
-
-const WORDS = [
-    { id: 'word-1', src: flage1 , correctMatch: 'img-2' },
-    { id: 'word-2', src: flage2 , correctMatch: 'img-3' },
-    { id: 'word-3', src: flage3 , correctMatch: 'img-1' },
-]
-
-const img1 = '/assets/unit2/review/page26/ch1.svg';
-const img2 = '/assets/unit2/review/page26/ch2.svg';
-const img3 = '/assets/unit2/review/page26/ch3.svg';
-
-const IMAGES = [
-    { id: 'img-1', src: img1, alt: 'Super' },
-    { id: 'img-2', src: img2, alt: 'Comme ci comme ça' },
-    { id: 'img-3', src: img3, alt: 'Bien' },
-]
-
-// --- المكون الرئيسي ---
 const Q4 = () => {
-    // اللوجيك يبقى كما هو
-    const [connections, setConnections] = useState([]);
-    const [activeLine, setActiveLine] = useState(null);
-    const [feedback, setFeedback] = useState({});
-    const svgContainerRef = useRef(null);
+    const wordBox = [
+        "du Gâteau",
+        "une Table",
+        "du Jus d'orange",
+        "un Trampoline",
+        "un Ballon",
+        "un Cadeau",
+        "des Bonbons"
+    ];
 
-    const updatePointsCoordinates = () => {
-        if (!svgContainerRef.current) return {};
-        const newPoints = {};
-        svgContainerRef.current.querySelectorAll('[data-pointid]').forEach(el => {
-            const rect = el.getBoundingClientRect();
-            const containerRect = svgContainerRef.current.getBoundingClientRect();
+    const correctAnswers = [
+        "Il y a du gâteau.",
+        "Il y a une table.",
+        "Il y a du jus d'orange.",
+        "Il y a un trampoline.",
+        "Il y a un ballon.",
+        "Il y a un cadeau.",
+        "Il y a des bonbons."
+    ];
 
-            // نحدد اتجاه البداية والنهاية حسب نوع العنصر
-            const isWord = el.dataset.pointid.startsWith('word');
-            const isImage = el.dataset.pointid.startsWith('img');
+    const [answers, setAnswers] = useState([
+        "Il y a du gâteau.",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ]);
 
-            newPoints[el.dataset.pointid] = {
-                x: isWord
-                    ? rect.right - containerRect.left  // نهاية الجملة (يمين الـ div)
-                    : rect.left - containerRect.left,  // بداية الصورة (يسار الـ div)
-                y: rect.top + rect.height / 2 - containerRect.top, // منتصف العنصر عمودياً
-            };
-        });
-        return newPoints;
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleInputChange = (index, value) => {
+        const newAnswers = [...answers];
+        newAnswers[index] = value;
+        setAnswers(newAnswers);
     };
 
-    const handlePointClick = (id, type) => {
-        if (!activeLine && type === 'image') return;
-
-        if (!activeLine) {
-            setActiveLine({ startId: id, endPoint: null });
-        } else {
-            if (type === 'image' && activeLine.startId !== id) {
-                const newConnection = { startId: activeLine.startId, endId: id };
-                if (!connections.some(c => c.startId === newConnection.startId || c.endId === newConnection.endId)) {
-                    setConnections([...connections, newConnection]);
-                }
-                setActiveLine(null);
-            }
-        }
+    const normalizeText = (text) => {
+        return text
+            .toLowerCase()
+            .trim()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, " ");
     };
 
-
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            if (activeLine && svgContainerRef.current) {
-                const containerRect = svgContainerRef.current.getBoundingClientRect();
-                setActiveLine(prev => ({ ...prev, endPoint: { x: e.clientX - containerRect.left, y: e.clientY - containerRect.top } }));
-            }
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, [activeLine]);
+    const checkAnswer = (userAnswer, correctAnswer) => {
+        return normalizeText(userAnswer) === normalizeText(correctAnswer);
+    };
 
     const checkAnswers = () => {
-        if (connections.length < WORDS.length) {
-            ValidationAlert.warning("Attention!", "Veuillez relier tous les mots aux images.");
+        // التحقق من ملء جميع الحقول
+        const allFilled = answers.every(answer => answer.trim() !== "");
+
+        if (!allFilled) {
+            ValidationAlert.warning("Veuillez remplir toutes les phrases!");
             return;
         }
-        const newFeedback = {};
-        let correctCount = 0;
-        connections.forEach((conn, index) => {
-            const word = WORDS.find(w => w.id === conn.startId);
-            const isCorrect = word.correctMatch === conn.endId;
-            newFeedback[index] = isCorrect ? 'correct' : 'incorrect';
-            if (isCorrect) correctCount++;
-        });
-        setFeedback(newFeedback);
-        const total = WORDS.length;
-        if (correctCount === total) {
-            ValidationAlert.success(`${correctCount} / ${total}`);
-        } else {
-            ValidationAlert.error(`${correctCount} / ${total}`);
-        }
-    };
 
-    const handleTryAgain = () => {
-        setConnections([]);
-        setActiveLine(null);
-        setFeedback({});
+        // حساب النتيجة
+        let correctCount = 0;
+        answers.forEach((answer, index) => {
+            if (checkAnswer(answer, correctAnswers[index])) {
+                correctCount++;
+            }
+        });
+
+        setIsChecked(true);
+
+        const score = `${correctCount}/${correctAnswers.length}`;
+
+        if (correctCount === correctAnswers.length) {
+            ValidationAlert.success(score);
+        } else {
+            ValidationAlert.error(score);
+        }
     };
 
     const handleShowAnswer = () => {
-        const correctConnections = WORDS.map(word => ({
-            startId: word.id,
-            endId: word.correctMatch
-        }));
-
-        setConnections(correctConnections);
-
-        // ضع الـ feedback لجميع الإجابات على أنها صحيحة
-        const newFeedback = {};
-        correctConnections.forEach((conn, index) => {
-            newFeedback[index] = 'correct';
-        });
-        setFeedback(newFeedback);
+        setAnswers([...correctAnswers]);
+        setIsChecked(true);
     };
 
-    const getLinePoints = (connection) => {
-        const points = updatePointsCoordinates();
-        return { startPoint: points[connection.startId], endPoint: points[connection.endId] };
+    const handleTryAgain = () => {
+        setAnswers(Array(7).fill(""));
+        setIsChecked(false);
+    };
+
+    const getInputStyle = (index) => {
+        if (!isChecked) {
+            return {
+                backgroundColor: 'white',
+                color: '#1f2937'
+            };
+        }
+
+        if (checkAnswer(answers[index], correctAnswers[index])) {
+            return {
+                border: '2px solid #22c55e',
+                backgroundColor: '#f0fdf4',
+                color: '#15803d'
+            };
+        } else {
+            return {
+                border: '2px solid #ef4444',
+                backgroundColor: '#fef2f2',
+                color: '#dc2626'
+            };
+        }
     };
 
     return (
-        <div className="w-full max-w-3xl mx-auto p-4">
-            <div
-                ref={svgContainerRef}
-                className="relative bg-white pl-6 pr-6 rounded-2xl shadow-lg"
-                style={{
-                    backgroundImage: `repeating-linear-gradient(to bottom, transparent, transparent 39px, #E0E7FF 40px, #E0E7FF 41px)`,
-                    backgroundSize: '100% 42px',
-                }}
-            >
-                <svg className="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
-                    {connections.map((conn, index) => {
-                        const { startPoint, endPoint } = getLinePoints(conn);
-                        if (!startPoint || !endPoint) return null;
-                        const color = feedback[index] === 'correct' ? '#16a34a' : feedback[index] === 'incorrect' ? '#dc2626' : '#3b82f6';
-                        return <line key={index} x1={startPoint.x} y1={startPoint.y} x2={endPoint.x} y2={endPoint.y} stroke={color} strokeWidth="5" strokeLinecap="round" />;
-                    })}
-                    {activeLine && activeLine.endPoint && (() => {
-                        const points = updatePointsCoordinates();
-                        const startPoint = points[activeLine.startId];
-                        if (!startPoint) return null;
-                        return <line x1={startPoint.x} y1={startPoint.y} x2={activeLine.endPoint.x} y2={activeLine.endPoint.y} stroke="#60a5fa" strokeWidth="4" strokeDasharray="6 6" />;
-                    })()}
-                </svg>
+        <div className="flex flex-col items-center p-8 gap-8">
 
-                <div className="space-y-12 relative py-4">
-                    {WORDS.map((word, index) => {
-                        const image = IMAGES[index];
-                        return (
-                            <div key={word.id} className="flex justify-between items-center">
-                                <div className="flex items-center gap-4 cursor-pointer">
-                                    <div
-                                        data-pointid={word.id}
-                                        onClick={() => handlePointClick(word.id, 'word')}
-                                        className="p-3 flex items-center gap-4">
-                                        <img 
-                                        src={word.src} 
-                                        className="w-36 h-36 max-w-36 max-h-28 object-contain" />
+            {/* المحتوى الرئيسي */}
+            <div className="flex gap-8 w-full max-w-4xl">
+                {/* الجانب الأيسر - الـ inputs */}
+                <div className="flex-1 flex flex-col gap-4">
+                    {answers.map((answer, index) => (
+                        <div key={index} className="flex items-center gap-3">
+                            <span className="font-bold text-lg text-gray-700 w-6">
+                                {String.fromCharCode(97 + index)}.
+                            </span>
+                            <input
+                                type="text"
+                                value={answer}
+                                onChange={(e) => handleInputChange(index, e.target.value)}
+                                disabled={isChecked || index === 0}
+                                placeholder={index === 0 ? "Il y a du gâteau." : "Il y a....................................................."}
+                                className="flex-1 px-4 py-3 rounded-lg font-medium"
+                                style={{
+                                    ...getInputStyle(index),
+                                    outline: 'none',
+                                    cursor: index === 0 ? 'not-allowed' : 'text'
+                                }}
+                            />
+                        </div>
+                    ))}
+                </div>
 
-                                    </div>
-                                </div>
-
-                                <div className="flex items-center gap-4">
-                                    {/* --- التغيير الوحيد هنا: إعادة الكلاسات الأصلية لحجم الصورة --- */}
-                                    <div
-                                        data-pointid={image.id}
-                                        onClick={() => handlePointClick(image.id, 'image')}
-                                        className="p-2">
-                                        <img
-                                            src={image.src}
-                                            alt={image.alt}
-                                            className="w-36 h-36 max-w-36 max-h-28 object-contain"
-                                        />
-                                    </div>
-                                </div>
+                {/* الجانب الأيمن - البوكس */}
+                <div className="w-80 bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg shadow-lg p-6 border-4 border-purple-300">
+                    <h3 className="text-xl font-bold text-center text-purple-700 mb-4">
+                        Mots à utiliser
+                    </h3>
+                    <div className="flex flex-col gap-3">
+                        {wordBox.map((word, index) => (
+                            <div
+                                key={index}
+                                className="bg-white px-4 py-3 rounded-lg shadow-md border-2 border-purple-200 text-center font-semibold text-gray-800 hover:bg-purple-50 transition-colors"
+                            >
+                                {word}
                             </div>
-                        );
-                    })}
+                        ))}
+                    </div>
                 </div>
             </div>
 
+            {/* الأزرار */}
             <div className="popup-buttons shrink-0">
                 <button className="try-again-button" onClick={handleTryAgain}>
                     Recommencer
@@ -202,7 +176,5 @@ const Q4 = () => {
         </div>
     );
 };
-
-
 
 export default Q4;

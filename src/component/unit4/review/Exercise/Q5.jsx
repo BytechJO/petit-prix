@@ -1,151 +1,262 @@
 import React, { useState } from "react";
-import ValidationAlert from '../../../Popup/ValidationAlert';
+import ValidationAlert from "../../../Popup/ValidationAlert";
 
-const correctAnswers = {
-    trousse: "3",
-    livre: "2",
-    stylo: "1",
-    gomme: "4",
-};
+const WordSearch = () => {
+  const images = [
+    { id: 1, src: '/assets/unit1/secA/page9/1.svg', word: 'banane' },
+    { id: 2, src: '/assets/unit1/secA/page9/1.svg', word: 'gâteau' },
+    { id: 3, src: '/assets/unit1/secA/page9/1.svg', word: 'bonbons' },
+    { id: 4, src: '/assets/unit1/secA/page9/1.svg', word: 'pomme' },
+    { id: 5, src: '/assets/unit1/secA/page9/1.svg', word: 'poulet' },
+    { id: 6, src: '/assets/unit1/secA/page9/1.svg', word: "jus d'orange" }
+  ];
 
-const img = '/assets/unit2/review/page26/1.svg';
+  const grid = [
+    ['b', 'u', 'i', 'o', 'x', 'n', 'f', 'v', 'b', 'm', 'p', 'p'],
+    ['o', 'd', 'a', 'r', 'e', 't', 'r', 'i', 'o', 'l', 'k', 'o'],
+    ['n', 'y', 'r', 't', 'u', 'p', 'o', 'm', 'm', 'e', 'i', 'u'],
+    ['b', 'u', 'i', 'o', 'v', 'n', 'm', 'm', 'u', 'i', 'o', 'l'],
+    ['o', 's', 'a', 'o', 'j', 'h', 'a', 'n', 'y', 't', 'r', 'e'],
+    ['n', 'u', 'i', 'o', 'p', 'y', 'g', 'j', 'k', 'o', 'g', 't'],
+    ['s', 'b', 'a', 'n', 'a', 'n', 'e', 's', 'k', 'm', 'o', 'k'],
+    ['y', 'b', 'a', 'n', 'a', 'n', 'h', 'b', 'f', 'g', 'a', 'g'],
+    ['q', 'd', 'y', 'o', 'a', 'j', 'p', 'l', 'm', "'", 'b', 'p'],
+    ['z', 'x', 'c', 's', 'd', 'f', 'u', 'h', 'u', 'k', 'p', 'k'],
+    ['j', 'u', 's', 'd', "'", 'o', 'r', 'a', 'n', 'g', 'e', 'l']
+  ];
 
-const totalCount = Object.keys(correctAnswers).length;
+  const [selectedLetters, setSelectedLetters] = useState({});
+  const [answers, setAnswers] = useState(Array(6).fill(""));
+  const [activeImageIndex, setActiveImageIndex] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
 
-const Q5 = () => {
-    const [answers, setAnswers] = useState({
-        trousse: "",
-        livre: "",
-        stylo: "",
-        gomme: "",
+  const handleLetterClick = (rowIndex, colIndex, letter) => {
+    if (isChecked || activeImageIndex === null) return;
+
+    const key = `${rowIndex}-${colIndex}`;
+    
+    // إذا الحرف محدد، نشيله
+    if (selectedLetters[key]?.imageIndex === activeImageIndex) {
+      const newSelectedLetters = { ...selectedLetters };
+      delete newSelectedLetters[key];
+      setSelectedLetters(newSelectedLetters);
+      
+      // تحديث الـ answer
+      const newAnswers = [...answers];
+      newAnswers[activeImageIndex] = newAnswers[activeImageIndex].slice(0, -1);
+      setAnswers(newAnswers);
+    } else {
+      // إضافة الحرف
+      setSelectedLetters({
+        ...selectedLetters,
+        [key]: { imageIndex: activeImageIndex, letter }
+      });
+      
+      // إضافة الحرف للـ answer
+      const newAnswers = [...answers];
+      newAnswers[activeImageIndex] += letter;
+      setAnswers(newAnswers);
+    }
+  };
+
+  const normalizeText = (text) => {
+    return text
+      .toLowerCase()
+      .trim()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, "");
+  };
+
+  const checkAnswer = (userAnswer, correctAnswer) => {
+    return normalizeText(userAnswer) === normalizeText(correctAnswer);
+  };
+
+  const checkAnswers = () => {
+    const allFilled = answers.every(answer => answer.trim() !== "");
+    
+    if (!allFilled) {
+      ValidationAlert.warning("Veuillez trouver tous les mots!");
+      return;
+    }
+
+    let correctCount = 0;
+    answers.forEach((answer, index) => {
+      if (checkAnswer(answer, images[index].word)) {
+        correctCount++;
+      }
     });
 
-    const handleChange = (key, value) => {
-        if (value === "" || /^[1-4]$/.test(value)) {
-            setAnswers({ ...answers, [key]: value });
-        }
+    setIsChecked(true);
+
+    const score = `${correctCount}/${images.length}`;
+
+    if (correctCount === images.length) {
+      ValidationAlert.success(score);
+    } else {
+      ValidationAlert.error(score);
+    }
+  };
+
+  const handleShowAnswer = () => {
+    setAnswers(images.map(img => img.word));
+    setIsChecked(true);
+  };
+
+  const handleTryAgain = () => {
+    setAnswers(Array(6).fill(""));
+    setSelectedLetters({});
+    setActiveImageIndex(null);
+    setIsChecked(false);
+  };
+
+  const clearWord = (index) => {
+    if (isChecked) return;
+    
+    const newAnswers = [...answers];
+    newAnswers[index] = "";
+    setAnswers(newAnswers);
+    
+    // إزالة كل الحروف المحددة لهذه الصورة
+    const newSelectedLetters = { ...selectedLetters };
+    Object.keys(newSelectedLetters).forEach(key => {
+      if (newSelectedLetters[key].imageIndex === index) {
+        delete newSelectedLetters[key];
+      }
+    });
+    setSelectedLetters(newSelectedLetters);
+  };
+
+  const getAnswerStyle = (index) => {
+    if (!isChecked) {
+      return {
+        border: '3px solid #3b82f6',
+        backgroundColor: activeImageIndex === index ? '#dbeafe' : 'white',
+        color: '#1f2937'
+      };
+    }
+
+    if (checkAnswer(answers[index], images[index].word)) {
+      return {
+        border: '3px solid #22c55e',
+        backgroundColor: '#f0fdf4',
+        color: '#15803d'
+      };
+    } else {
+      return {
+        border: '3px solid #ef4444',
+        backgroundColor: '#fef2f2',
+        color: '#dc2626'
+      };
+    }
+  };
+
+  const getLetterStyle = (rowIndex, colIndex) => {
+    const key = `${rowIndex}-${colIndex}`;
+    const isSelected = selectedLetters[key];
+    
+    if (isSelected) {
+      const colors = [
+        '#fbbf24', // yellow
+        '#fb923c', // orange
+        '#f472b6', // pink
+        '#a78bfa', // purple
+        '#60a5fa', // blue
+        '#34d399'  // green
+      ];
+      return {
+        backgroundColor: colors[isSelected.imageIndex],
+        color: 'white',
+        fontWeight: 'bold',
+        transform: 'scale(1.1)',
+        border: '2px solid #1f2937'
+      };
+    }
+    
+    return {
+      backgroundColor: 'white',
+      color: '#1f2937',
+      border: '2px solid #d1d5db'
     };
+  };
 
-    const handleTryAgain = () => {
-        setAnswers({
-            trousse: "",
-            livre: "",
-            stylo: "",
-            gomme: "",
-        });
-    };
+  return (
+    <div className="flex flex-col items-center p-8 gap-8">
 
-    const handleShowAnswer = () => {
-        setAnswers(correctAnswers);
-    };
+      {/* الصور والإجابات */}
+      <div className="grid grid-cols-6 gap-4 w-full max-w-5xl">
+        {images.map((image, index) => (
+          <div
+            key={image.id}
+            className={`flex flex-col items-center gap-3 p-3 rounded-lg cursor-pointer transition-all ${
+              activeImageIndex === index ? 'bg-blue-100 shadow-lg' : 'bg-gray-50'
+            }`}
+            onClick={() => !isChecked && setActiveImageIndex(index)}
+          >
+            {/* الصورة */}
+            <div className="w-24 h-24 flex items-center justify-center bg-white rounded-lg shadow-md overflow-hidden">
+              <img
+                src={image.src}
+                alt={`Image ${index + 1}`}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
 
-    const checkAnswers = () => {
-        const allAnswered = Object.values(answers).every(v => v !== "");
-
-        if (!allAnswered) {
-            ValidationAlert.warning(
-                "Veuillez répondre à toutes les questions.",
-                "Essayer à nouveau"
-            );
-            return;
-        }
-
-        let score = 0;
-
-        Object.keys(correctAnswers).forEach(key => {
-            if (answers[key] === correctAnswers[key]) {
-                score++;
-            }
-        });
-
-        const color = score === totalCount ? "#16a34a" : "#dc2626";
-
-        const scoreMessage = `
-      <div style="font-size:20px; margin-top:10px; text-align:center;">
-        <span style="color:${color}; font-weight:bold;">
-          Score: ${score} / ${totalCount}
-        </span>
+            {/* عرض الكلمة */}
+            <div
+              className="w-full px-3 py-2 rounded-lg text-center font-bold text-sm min-h-[40px] flex items-center justify-center relative"
+              style={getAnswerStyle(index)}
+            >
+              {answers[index] || '...'}
+              {!isChecked && answers[index] && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    clearWord(index);
+                  }}
+                  className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full text-xs hover:bg-red-600"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
-    `;
 
-        if (score === totalCount) {
-            ValidationAlert.success(scoreMessage);
-        } else {
-            ValidationAlert.error(scoreMessage);
-        }
-    };
-
-    return (
-        <div className="max-w-3xl mx-auto p-2">
-            <div className="p-6">
-
-                {/* الصورة */}
-                <div className="flex justify-center">
-                    <div className="p-4">
-                        <img
-                            src={img}
-                            alt="School objects"
-                            className="max-w-full  max-h-80 rounded-lg"
-                        />
-                    </div>
-                </div>
-
-                {/* الأسئلة */}
-                <div className="space-y-4 mb-10">
-                    <QuestionRow
-                        label="Une trousse __________"
-                        value={answers.trousse}
-                        onChange={(v) => handleChange("trousse", v)}
-                    />
-                    <QuestionRow
-                        label="Un livre __________"
-                        value={answers.livre}
-                        onChange={(v) => handleChange("livre", v)}
-                    />
-                    <QuestionRow
-                        label="Un stylo __________"
-                        value={answers.stylo}
-                        onChange={(v) => handleChange("stylo", v)}
-                    />
-                    <QuestionRow
-                        label="Une gomme __________"
-                        value={answers.gomme}
-                        onChange={(v) => handleChange("gomme", v)}
-                    />
-                </div>
-            </div>
-            <div className="popup-buttons shrink-0">
-                <button className="try-again-button" onClick={handleTryAgain}>
-                    Recommencer
-                </button>
-                <button className="show-answer-btn" onClick={handleShowAnswer}>
-                    Afficher la réponse
-                </button>
-                <button className="check-button2" onClick={checkAnswers}>
-                    Vérifier la réponse
-                </button>
-            </div>
+      {/* شبكة الحروف */}
+      <div className=" rounded-lg shadow-xl p-6 border-4 border-[#4ead9b]">
+        <div className="grid grid-cols-12 gap-x-10 gap-y-2">
+          {grid.map((row, rowIndex) => (
+            row.map((letter, colIndex) => (
+              <button
+                key={`${rowIndex}-${colIndex}`}
+                onClick={() => handleLetterClick(rowIndex, colIndex, letter)}
+                disabled={isChecked}
+                className="w-10 h-10 flex items-center justify-center rounded-lg font-bold text-lg transition-all hover:scale-110 disabled:cursor-not-allowed"
+                style={getLetterStyle(rowIndex, colIndex)}
+              >
+                {letter}
+              </button>
+            ))
+          ))}
         </div>
-    );
+      </div>
 
+      {/* الأزرار */}
+      <div className="popup-buttons shrink-0">
+        <button className="try-again-button" onClick={handleTryAgain}>
+          Recommencer
+        </button>
+        <button className="show-answer-btn" onClick={handleShowAnswer}>
+          Afficher la réponse
+        </button>
+        <button className="check-button2" onClick={checkAnswers}>
+          Vérifier la réponse
+        </button>
+      </div>
+    </div>
+  );
 };
 
-const QuestionRow = ({ label, value, onChange }) => (
-    <div className="flex items-center justify-between bg-white p-4 rounded-xl shadow-sm">
-        <span className="text-lg font-medium text-gray-700">
-            {label}
-        </span>
-
-        <input
-            type="text"
-            maxLength={1}
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
-            className="w-12 h-12 text-center text-lg font-bold border-2 border-blue-300 rounded-full focus:outline-none focus:border-blue-600"
-            placeholder="1-4"
-        />
-    </div>
-);
-
-
-export default Q5;
+export default WordSearch;
