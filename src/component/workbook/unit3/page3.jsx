@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './page3.css';
 import {
   faArrowPointer, faHeadphones
 } from "@fortawesome/free-solid-svg-icons";
@@ -30,14 +30,13 @@ const WPage3 = ({ bgImage, openPopup }) => {
   return (
     <div
       className="page_1-background"
-
     >
       <img src={bgImage} loading="lazy"/>
 
       <button
         className='btnopenpopup'
-        id="wpage3q1"
-        onClick={() => handleOpenQuestion(0)}
+        id="wu3page3q1"
+        onClick={() => handleOpenQuestion(36)}
       >
         <img
           src={arrow}
@@ -48,8 +47,8 @@ const WPage3 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="wpage3q2"
-        onClick={() => handleOpenQuestion(1)}
+        id="wu3page3q2"
+        onClick={() => handleOpenQuestion(37)}
       >
         <img
           src={arrow}

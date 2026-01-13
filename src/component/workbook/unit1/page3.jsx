@@ -30,7 +30,6 @@ const WPage3 = ({ bgImage, openPopup }) => {
   return (
     <div
       className="page_1-background"
-
     >
       <img src={bgImage} loading="lazy"/>
 

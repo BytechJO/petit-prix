@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './page4.css';
 import {
     faArrowPointer, faHeadphones
 } from "@fortawesome/free-solid-svg-icons";
@@ -36,8 +36,8 @@ const WPage4 = ({ bgImage, openPopup }) => {
 
             <button
                 className='btnopenpopup'
-                id="wpage4q1"
-                onClick={() => handleOpenQuestion(2)}
+                id="wu3page4q1"
+                onClick={() => handleOpenQuestion(38)}
             >
                 <img
                     src={arrow}
@@ -48,8 +48,20 @@ const WPage4 = ({ bgImage, openPopup }) => {
 
             <button
                 className='btnopenpopup'
-                id="wpage4q2"
-                onClick={() => handleOpenQuestion(3)}
+                id="wu3page4q2"
+                onClick={() => handleOpenQuestion(39)}
+            >
+                <img
+                    src={arrow}
+                    alt="Open question"
+                    loading="lazy"
+                />
+            </button>
+
+            <button
+                className='btnopenpopup'
+                id="wu3page4q3"
+                onClick={() => handleOpenQuestion(40)}
             >
                 <img
                     src={arrow}

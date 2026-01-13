@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-
-import {
-  faArrowPointer, faHeadphones
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { Wunit1SecAQuestions } from '../../pageData';
-
+import './page8.css';
 const arrow = "/assets/arrow.svg";
 
 const WPage3 = ({ bgImage, openPopup }) => {
@@ -34,10 +28,10 @@ const WPage3 = ({ bgImage, openPopup }) => {
     >
       <img src={bgImage} loading="lazy"/>
 
-      {/* <button
+      <button
         className='btnopenpopup'
-        id="wpage3q1"
-        onClick={() => handleOpenQuestion(0)}
+        id="wu4page8q1"
+        onClick={() => handleOpenQuestion(48)}
       >
         <img
           src={arrow}
@@ -48,16 +42,15 @@ const WPage3 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="wpage3q2"
-        onClick={() => handleOpenQuestion(1)}
+        id="wu4page8q2"
+        onClick={() => handleOpenQuestion(49)}
       >
         <img
           src={arrow}
           alt="Open question"
           loading="lazy"
         />
-      </button> */}
-
+      </button>
 
     </div>
 

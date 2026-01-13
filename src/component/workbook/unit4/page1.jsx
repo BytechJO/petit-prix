@@ -1,14 +1,54 @@
-import React from 'react'
-const WPage1 = ({ bgImage }) => {
+import React from 'react';
+import { Wunit1SecAQuestions } from '../../pageData';
+import './page1.css';
+const arrow = "/assets/arrow.svg";
+const Page1 = ({ bgImage, openPopup }) => {
+
+  const handleOpenQuestion = (questionIndex) => {
+    const q = Wunit1SecAQuestions[questionIndex];
+
+    openPopup({
+      questionText: q.text,
+      questions: Wunit1SecAQuestions,
+      currentUnit: 1,
+      currentSection: "A",
+      startIndex: questionIndex,
+      audioSrc: q.audio,
+      captions: q.captions,
+    });
+  };
+
   return (
     <div
       className="page_1-background"
 
     >
-      <img src={bgImage} loading="lazy"/>
-      
+      <img src={bgImage} loading="lazy" />
+
+      <button
+        className='btnopenpopup'
+        id="wu4page1q1"
+        onClick={() => handleOpenQuestion(31)}
+      >
+        <img
+          src={arrow}
+          alt="Open question"
+          loading="lazy"
+        />
+      </button>
+      <button
+        className='btnopenpopup'
+        id="wu4page1q2"
+        onClick={() => handleOpenQuestion(32)}
+      >
+        <img
+          src={arrow}
+          alt="Open question"
+          loading="lazy"
+        />
+      </button>
     </div>
   )
 }
 
-export default WPage1;
+export default Page1;
