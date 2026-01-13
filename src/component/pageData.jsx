@@ -257,20 +257,159 @@ import vocabulairePage4 from "../component/vocabulaire/secA/Page4";
 import vocabulairePage5 from "../component/vocabulaire/secA/Page5";
 
 // workbook
-const Wimg1 = "/assets/workbook/Unit1/Lesson1/cover.png";
-const Wimg2 = "/assets/workbook/Unit1/Lesson1/1.png";
-const Wimg3 = "/assets/workbook/Unit1/Lesson1/2.png";
-const Wimg4 = "/assets/workbook/Unit1/Lesson1/3.png";
+const Wimg1 = "/assets/workbook/unit1/cover.png";
+const Wimg2 = "/assets/workbook/unit1/1.png";
+const Wimg3 = "/assets/workbook/unit1/2.png";
+const Wimg4 = "/assets/workbook/unit1/3.png";
+const Wimg5 = "/assets/workbook/unit1/5.png";
+const Wimg6 = "/assets/workbook/unit1/6.png";
+const Wimg7 = "/assets/workbook/unit1/7.png";
+const Wimg8 = "/assets/workbook/unit1/8.png";
+const Wimg9 = "/assets/workbook/unit1/9.png";
+const Wimg10 = "/assets/workbook/unit1/10.png";
 
-import WPage1 from '../component/workbook/secA/wpage1';
-import WPage2 from '../component/workbook/secA/wpage2';
-import WPage3 from '../component/workbook/secA/wpage3';
-import WPage4 from '../component/workbook/secA/wpage4';
+const Wimg11 = "/assets/workbook/unit2/11.png";
+const Wimg12 = "/assets/workbook/unit2/12.png";
+const Wimg13 = "/assets/workbook/unit2/13.png";
+const Wimg14 = "/assets/workbook/unit2/14.png";
+const Wimg15 = "/assets/workbook/unit2/15.png";
+const Wimg16 = "/assets/workbook/unit2/16.png";
+const Wimg17 = "/assets/workbook/unit2/17.png";
+const Wimg18 = "/assets/workbook/unit2/18.png";
 
-import WQ1 from '../component/workbook/secA/Exercise/Q1';
-import WQ2 from '../component/workbook/secA/Exercise/Q2';
-import WQ3 from '../component/workbook/secA/Exercise/Q3';
-import WQ4 from '../component/workbook/secA/Exercise/Q4';
+const Wimg19 = "/assets/workbook/unit3/19.png";
+const Wimg20 = "/assets/workbook/unit3/20.png";
+const Wimg21 = "/assets/workbook/unit3/21.png";
+const Wimg22 = "/assets/workbook/unit3/22.png";
+const Wimg23 = "/assets/workbook/unit3/23.png";
+const Wimg24 = "/assets/workbook/unit3/24.png";
+const Wimg25 = "/assets/workbook/unit3/25.png";
+const Wimg26 = "/assets/workbook/unit3/26.png";
+
+const Wimg27 = "/assets/workbook/unit4/27.png";
+const Wimg28 = "/assets/workbook/unit4/28.png";
+const Wimg29 = "/assets/workbook/unit4/29.png";
+const Wimg30 = "/assets/workbook/unit4/30.png";
+const Wimg31 = "/assets/workbook/unit4/31.png";
+const Wimg32 = "/assets/workbook/unit4/32.png";
+const Wimg33 = "/assets/workbook/unit4/33.png";
+const Wimg34 = "/assets/workbook/unit4/34.png";
+
+const Wimg35 = "/assets/workbook/revision/35.png";
+const Wimg36 = "/assets/workbook/revision/36.png";
+
+import WPage1 from './workbook/unit1/page1';
+import WPage2 from './workbook/unit1/page2';
+import WPage3 from './workbook/unit1/page3';
+import WPage4 from './workbook/unit1/page4';
+import WPage5 from './workbook/unit1/page5';
+import WPage6 from './workbook/unit1/page6';
+import WPage7 from './workbook/unit1/page7';
+import WPage8 from './workbook/unit1/page8';
+import WPage9 from './workbook/unit1/page9';
+import WPage10 from './workbook/unit1/page10';
+
+import WU2Page1 from './workbook/unit2/page1';
+import WU2Page2 from './workbook/unit2/page2';
+import WU2Page3 from './workbook/unit2/page3';
+import WU2Page4 from './workbook/unit2/page4';
+import WU2Page5 from './workbook/unit2/page5';
+import WU2Page6 from './workbook/unit2/page6';
+import WU2Page7 from './workbook/unit2/page7';
+import WU2Page8 from './workbook/unit2/page8';
+
+import WU3Page1 from './workbook/unit3/page1';
+import WU3Page2 from './workbook/unit3/page2';
+import WU3Page3 from './workbook/unit3/page3';
+import WU3Page4 from './workbook/unit3/page4';
+import WU3Page5 from './workbook/unit3/page5';
+import WU3Page6 from './workbook/unit3/page6';
+import WU3Page7 from './workbook/unit3/page7';
+import WU3Page8 from './workbook/unit3/page8';
+
+import WU4Page1 from './workbook/unit4/page1';
+import WU4Page2 from './workbook/unit4/page2';
+import WU4Page3 from './workbook/unit4/page3';
+import WU4Page4 from './workbook/unit4/page4';
+import WU4Page5 from './workbook/unit4/page5';
+import WU4Page6 from './workbook/unit4/page6';
+import WU4Page7 from './workbook/unit4/page7';
+import WU4Page8 from './workbook/unit4/page8';
+
+import WRPage1 from './workbook/revision/page1';
+import WRPage2 from './workbook/revision/page2';
+// workbook unit1
+import WU1Q1 from '../component/workbook/unit1/Exercise/Q1';
+import WU1Q2 from '../component/workbook/unit1/Exercise/Q2';
+import WU1Q3 from '../component/workbook/unit1/Exercise/Q3';
+import WU1Q4 from '../component/workbook/unit1/Exercise/Q4';
+import WU1Q5 from '../component/workbook/unit1/Exercise/Q5';
+import WU1Q6 from '../component/workbook/unit1/Exercise/Q6';
+import WU1Q7 from '../component/workbook/unit1/Exercise/Q7';
+import WU1Q8 from '../component/workbook/unit1/Exercise/Q8';
+import WU1Q9 from '../component/workbook/unit1/Exercise/Q9';
+import WU1Q10 from '../component/workbook/unit1/Exercise/Q10';
+import WU1Q11 from '../component/workbook/unit1/Exercise/Q11';
+import WU1Q12 from '../component/workbook/unit1/Exercise/Q12';
+import WU1Q13 from '../component/workbook/unit1/Exercise/Q13';
+import WU1Q14 from '../component/workbook/unit1/Exercise/Q14';
+import WU1Q15 from '../component/workbook/unit1/Exercise/Q15';
+// workbook unit2
+import WU2Q1 from '../component/workbook/unit2/Exercise/Q1';
+import WU2Q2 from '../component/workbook/unit2/Exercise/Q2';
+import WU2Q3 from '../component/workbook/unit2/Exercise/Q3';
+import WU2Q4 from '../component/workbook/unit2/Exercise/Q4';
+import WU2Q5 from '../component/workbook/unit2/Exercise/Q5';
+import WU2Q6 from '../component/workbook/unit2/Exercise/Q6';
+import WU2Q7 from '../component/workbook/unit2/Exercise/Q7';
+import WU2Q8 from '../component/workbook/unit2/Exercise/Q8';
+import WU2Q9 from '../component/workbook/unit2/Exercise/Q9';
+import WU2Q10 from '../component/workbook/unit2/Exercise/Q10';
+import WU2Q11 from '../component/workbook/unit2/Exercise/Q11';
+import WU2Q12 from '../component/workbook/unit2/Exercise/Q12';
+import WU2Q13 from '../component/workbook/unit2/Exercise/Q13';
+import WU2Q14 from '../component/workbook/unit2/Exercise/Q14';
+import WU2Q15 from '../component/workbook/unit2/Exercise/Q15';
+import WU2Q16 from '../component/workbook/unit2/Exercise/Q16';
+// workbook unit3
+import WU3Q1 from '../component/workbook/unit3/Exercise/Q1';
+import WU3Q2 from '../component/workbook/unit3/Exercise/Q2';
+import WU3Q3 from '../component/workbook/unit3/Exercise/Q3';
+import WU3Q4 from '../component/workbook/unit3/Exercise/Q4';
+import WU3Q5 from '../component/workbook/unit3/Exercise/Q5';
+import WU3Q6 from '../component/workbook/unit3/Exercise/Q6';
+import WU3Q7 from '../component/workbook/unit3/Exercise/Q7';
+import WU3Q8 from '../component/workbook/unit3/Exercise/Q8';
+import WU3Q9 from '../component/workbook/unit3/Exercise/Q9';
+import WU3Q10 from '../component/workbook/unit3/Exercise/Q10';
+import WU3Q11 from '../component/workbook/unit3/Exercise/Q11';
+import WU3Q12 from '../component/workbook/unit3/Exercise/Q12';
+import WU3Q13 from '../component/workbook/unit3/Exercise/Q13';
+import WU3Q14 from '../component/workbook/unit3/Exercise/Q14';
+import WU3Q15 from '../component/workbook/unit3/Exercise/Q15';
+import WU3Q16 from '../component/workbook/unit3/Exercise/Q16';
+import WU3Q17 from '../component/workbook/unit3/Exercise/Q17';
+import WU3Q18 from '../component/workbook/unit3/Exercise/Q18';
+import WU3Q19 from '../component/workbook/unit3/Exercise/Q19';
+// workbook unit3
+import WU4Q1 from '../component/workbook/unit4/Exercise/Q1';
+import WU4Q2 from '../component/workbook/unit4/Exercise/Q2';
+import WU4Q3 from '../component/workbook/unit4/Exercise/Q3';
+import WU4Q4 from '../component/workbook/unit4/Exercise/Q4';
+import WU4Q5 from '../component/workbook/unit4/Exercise/Q5';
+import WU4Q6 from '../component/workbook/unit4/Exercise/Q6';
+import WU4Q7 from '../component/workbook/unit4/Exercise/Q7';
+import WU4Q8 from '../component/workbook/unit4/Exercise/Q8';
+import WU4Q9 from '../component/workbook/unit4/Exercise/Q9';
+import WU4Q10 from '../component/workbook/unit4/Exercise/Q10';
+import WU4Q11 from '../component/workbook/unit4/Exercise/Q11';
+import WU4Q12 from '../component/workbook/unit4/Exercise/Q12';
+import WU4Q13 from '../component/workbook/unit4/Exercise/Q13';
+import WU4Q14 from '../component/workbook/unit4/Exercise/Q14';
+import WU4Q15 from '../component/workbook/unit4/Exercise/Q15';
+import WU4Q16 from '../component/workbook/unit4/Exercise/Q16';
+
+import WRQ1 from '../component/workbook/unit4/Exercise/Q1';
 
 
 export const pageData = [
@@ -681,7 +820,7 @@ export const pageData = [
                 component: vocabulairePage5,
                 image: vocabulaireimg5,
               },
-              
+
             ],
           },
         ],
@@ -693,6 +832,7 @@ export const pageData = [
     id: "workbook",
     title: "LIVRE DE GRAMMAIRE",
     units: [
+      // unit1
       {
         id: "unit1",
         title: "Unité 1",
@@ -702,24 +842,236 @@ export const pageData = [
             title: "Section A",
             pages: [
               {
-                id: 10,
+                id: 1,
                 component: WPage1,
                 image: Wimg1,
               },
               {
-                id: 11,
+                id: 2,
                 component: WPage2,
                 image: Wimg2,
               },
               {
-                id: 12,
+                id: 3,
                 component: WPage3,
                 image: Wimg3,
               },
               {
-                id: 13,
+                id: 4,
                 component: WPage4,
                 image: Wimg4,
+              },
+              {
+                id: 5,
+                component: WPage5,
+                image: Wimg5,
+              },
+              {
+                id: 6,
+                component: WPage6,
+                image: Wimg6,
+              },
+              {
+                id: 7,
+                component: WPage7,
+                image: Wimg7,
+              },
+              {
+                id: 8,
+                component: WPage8,
+                image: Wimg8,
+              },
+              {
+                id: 9,
+                component: WPage9,
+                image: Wimg9,
+              },
+              {
+                id: 10,
+                component: WPage10,
+                image: Wimg10,
+              },
+            ],
+          },
+        ],
+      },
+      // unit2
+      {
+        id: "unit2",
+        title: "Unité 2",
+        sections: [
+          {
+            id: "secA",
+            title: "Section A",
+            pages: [
+              {
+                id: 11,
+                component: WU2Page1,
+                image: Wimg11,
+              },
+              {
+                id: 12,
+                component: WU2Page2,
+                image: Wimg12,
+              },
+              {
+                id: 13,
+                component: WU2Page3,
+                image: Wimg13,
+              },
+              {
+                id: 14,
+                component: WU2Page4,
+                image: Wimg14,
+              },
+              {
+                id: 15,
+                component: WU2Page5,
+                image: Wimg15,
+              },
+              {
+                id: 16,
+                component: WU2Page6,
+                image: Wimg16,
+              },
+              {
+                id: 17,
+                component: WU2Page7,
+                image: Wimg17,
+              },
+              {
+                id: 18,
+                component: WU2Page8,
+                image: Wimg18,
+              },
+            ],
+          },
+        ],
+      },
+      // unit3
+      {
+        id: "unit3",
+        title: "Unité 3",
+        sections: [
+          {
+            id: "secA",
+            title: "Section A",
+            pages: [
+              {
+                id: 19,
+                component: WU3Page1,
+                image: Wimg19,
+              },
+              {
+                id: 20,
+                component: WU3Page2,
+                image: Wimg20,
+              },
+              {
+                id: 21,
+                component: WU3Page3,
+                image: Wimg21,
+              },
+              {
+                id: 22,
+                component: WU3Page4,
+                image: Wimg22,
+              },
+              {
+                id: 23,
+                component: WU3Page5,
+                image: Wimg23,
+              },
+              {
+                id: 24,
+                component: WU3Page6,
+                image: Wimg24,
+              },
+              {
+                id: 25,
+                component: WU3Page7,
+                image: Wimg25,
+              },
+              {
+                id: 26,
+                component: WU3Page8,
+                image: Wimg26,
+              },
+            ],
+          },
+        ],
+      },
+      // unit4
+      {
+        id: "unit4",
+        title: "Unité 4",
+        sections: [
+          {
+            id: "secA",
+            title: "Section A",
+            pages: [
+              {
+                id: 27,
+                component: WU4Page1,
+                image: Wimg27,
+              },
+              {
+                id: 28,
+                component: WU4Page2,
+                image: Wimg28,
+              },
+              {
+                id: 29,
+                component: WU4Page3,
+                image: Wimg29,
+              },
+              {
+                id: 30,
+                component: WU4Page4,
+                image: Wimg30,
+              },
+              {
+                id: 31,
+                component: WU4Page5,
+                image: Wimg31,
+              },
+              {
+                id: 32,
+                component: WU4Page6,
+                image: Wimg32,
+              },
+              {
+                id: 33,
+                component: WU4Page7,
+                image: Wimg33,
+              },
+              {
+                id: 34,
+                component: WU4Page8,
+                image: Wimg34,
+              },
+            ],
+          },
+        ],
+      },
+      // revision
+      {
+        id: "revision",
+        title: "Revision",
+        sections: [
+          {
+            id: "secA",
+            title: "Section A",
+            pages: [
+              {
+                id: 35,
+                component: WRPage1,
+                image: Wimg35,
+              },
+              {
+                id: 36,
+                component: WRPage2,
+                image: Wimg36,
               },
             ],
           },
@@ -1391,9 +1743,10 @@ export const unit1SecAQuestions = [
 ];
 
 export const Wunit1SecAQuestions = [
+  // unit1
   {
     id: 1,
-    component: WQ1,
+    component: WU1Q1,
     audio: null,
     text: "C’est français ? Écoute et réponds par oui ou non.",
     captions: [
@@ -1402,7 +1755,7 @@ export const Wunit1SecAQuestions = [
   },
   {
     id: 2,
-    component: WQ2,
+    component: WU1Q2,
     audio: null,
     text: "Écris les mots.",
     captions: [
@@ -1411,7 +1764,7 @@ export const Wunit1SecAQuestions = [
   },
   {
     id: 3,
-    component: WQ3,
+    component: WU1Q3,
     audio: null,
     text: "Qu’est-ce que tu dis ? Entoure la bonne réponse.",
     captions: [
@@ -1420,9 +1773,580 @@ export const Wunit1SecAQuestions = [
   },
   {
     id: 4,
-    component: WQ4,
+    component: WU1Q4,
     audio: null,
     text: "Écoute et écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 5,
+    component: WU1Q5,
+    audio: null,
+    text: "Écoute et entoure.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 6,
+    component: WU1Q6,
+    audio: null,
+    text: "Écoute et relie.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 7,
+    component: WU1Q7,
+    audio: null,
+    text: "Écoute et complète.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 8,
+    component: WU1Q8,
+    audio: null,
+    text: "Écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 9,
+    component: WU1Q9,
+    audio: null,
+    text: "Déchiffre le prénom.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 10,
+    component: WU1Q10,
+    audio: null,
+    text: "Écoute et relie.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 11,
+    component: WU1Q11,
+    audio: null,
+    text: "Mets dans le bon ordre.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 12,
+    component: WU1Q12,
+    audio: null,
+    text: "Comment ça va ? Complète les mots.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 13,
+    component: WU1Q13,
+    audio: null,
+    text: "Regarde, entoure et réponds.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 14,
+    component: WU1Q14,
+    audio: null,
+    text: "Écoute et entoure la bonne couleur.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 15,
+    component: WU1Q15,
+    audio: null,
+    text: "Écoute et colorie.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  // unit2
+  {
+    id: 16,
+    component: WU2Q1,
+    audio: null,
+    text: "Colorie les lettres du mot.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 17,
+    component: WU2Q2,
+    audio: null,
+    text: "Colorie les objets et parle avec un(e) ami(e).",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 18,
+    component: WU2Q3,
+    audio: null,
+    text: "Écoute, range et écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 19,
+    component: WU2Q4,
+    audio: null,
+    text: "Colorie le dessin et complète le texte.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 20,
+    component: WU2Q5,
+    audio: null,
+    text: "Écris la lettre manquante.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 21,
+    component: WU2Q6,
+    audio: null,
+    text: "Observe et relie.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 22,
+    component: WU2Q7,
+    audio: null,
+    text: "Trouve et entoure les jours de la semaine.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 23,
+    component: WU2Q8,
+    audio: null,
+    text: "Complète.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 24,
+    component: WU2Q9,
+    audio: null,
+    text: "Écoute et relie.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 25,
+    component: WU2Q10,
+    audio: null,
+    text: "Qu’est-ce que Paul aime ? Écoute et coche la bonne réponse.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 26,
+    component: WU2Q11,
+    audio: null,
+    text: "Mets les lettres dans le bon ordre et complète les phrases.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 27,
+    component: WU2Q12,
+    audio: null,
+    text: "Dessine ton activité préférée et dis.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 28,
+    component: WU2Q13,
+    audio: null,
+    text: "Complète.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 29,
+    component: WU2Q14,
+    audio: null,
+    text: "Écoute et entoure la bonne réponse.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 30,
+    component: WU2Q15,
+    audio: null,
+    text: "Trouve les mots et écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 31,
+    component: WU2Q16,
+    audio: null,
+    text: "Qu’est-ce que Anna déteste ? Écoute et coche la bonne réponse.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  // unit3
+  {
+    id: 32,
+    component: WU3Q1,
+    audio: null,
+    text: "Trouve et écris les mots.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 33,
+    component: WU3Q2,
+    audio: null,
+    text: "Relie les images oux mots.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 34,
+    component: WU3Q3,
+    audio: null,
+    text: "Écoute et relie.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 35,
+    component: WU3Q4,
+    audio: null,
+    text: "Mets les phrases dans le bon ordre.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 36,
+    component: WU3Q5,
+    audio: null,
+    text: "Complète.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 37,
+    component: WU3Q6,
+    audio: null,
+    text: "Observe et relie.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 38,
+    component: WU3Q7,
+    audio: null,
+    text: "Mets les lettres dans le bon ordre et complète les phrases.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 39,
+    component: WU3Q8,
+    audio: null,
+    text: "Écoute et entoure la bonne réponse.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 40,
+    component: WU3Q9,
+    audio: null,
+    text: "Complète ta lettre.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 41,
+    component: WU3Q10,
+    audio: null,
+    text: "Complète.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 42,
+    component: WU3Q11,
+    audio: null,
+    text: "Colorie les lettres du mot.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 43,
+    component: WU3Q12,
+    audio: null,
+    text: "Complète la photo.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 44,
+    component: WU3Q13,
+    audio: null,
+    text: "Devine et complète les phrases.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 45,
+    component: WU3Q14,
+    audio: null,
+    text: "Complète les phrases.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 46,
+    component: WU3Q15,
+    audio: null,
+    text: "Complète.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 47,
+    component: WU3Q16,
+    audio: null,
+    text: "Écoute et coche la bonne réponse. Parle avec un(e) ami(e).",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 48,
+    component: WU3Q17,
+    audio: null,
+    text: "Écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 49,
+    component: WU3Q18,
+    audio: null,
+    text: "Devine et écris.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 50,
+    component: WU3Q19,
+    audio: null,
+    text: "Complète ta lettre.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  // unit 4
+  {
+    id: 51,
+    component: WU4Q1,
+    audio: null,
+    text: "Écoute et complète.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 52,
+    component: WU4Q2,
+    audio: null,
+    text: "Trouve le chemin et dis l’âge de chaque enfant.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 53,
+    component: WU4Q3,
+    audio: null,
+    text: "Mets les phrases dans le bon ordre.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 54,
+    component: WU4Q4,
+    audio: null,
+    text: "Complète.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 55,
+    component: WU4Q5,
+    audio: null,
+    text: "Observe et trouve les sept différences.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 56,
+    component: WU4Q6,
+    audio: null,
+    text: "Mets les lettres dans le bon ordre et écris les mots.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 57,
+    component: WU4Q7,
+    audio: null,
+    text: "Écoute et entoure ce qu’il y a.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 58,
+    component: WU4Q8,
+    audio: null,
+    text: "Écoute et coche ce qu’il n’y a pas.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 59,
+    component: WU4Q9,
+    audio: null,
+    text: "Complète.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 60,
+    component: WU4Q10,
+    audio: null,
+    text: "Colorie les lettres du mot.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 61,
+    component: WU4Q11,
+    audio: null,
+    text: "Écoute et dis « salut » quand tu entends les boissons.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 62,
+    component: WU4Q12,
+    audio: null,
+    text: "Écoute et relie.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 63,
+    component: WU4Q13,
+    audio: null,
+    text: "Écoute et écris le bon numéro.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 64,
+    component: WU4Q14,
+    audio: null,
+    text: "Écoute et relie.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 65,
+    component: WU4Q15,
+    audio: null,
+    text: "Devine et relie.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  {
+    id: 66,
+    component: WU4Q16,
+    audio: null,
+    text: "Réponds aux questions.",
+    captions: [
+      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    ]
+  },
+  // revision
+  {
+    id: 67,
+    component: WRQ1,
+    audio: null,
+    text: "Met dans le bon ordre.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     ]
