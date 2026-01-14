@@ -9,7 +9,7 @@ import { Wunit1SecAQuestions } from '../../pageData';
 
 const arrow = "/assets/arrow.svg";
 
-const WPage4 = ({ bgImage, openPopup }) => {
+const Page4 = ({ bgImage, openPopup }) => {
 
     const [showAudio, setShowAudio] = useState(false);
 
@@ -77,4 +77,4 @@ const WPage4 = ({ bgImage, openPopup }) => {
     )
 }
 
-export default WPage4;
+export default Page4;

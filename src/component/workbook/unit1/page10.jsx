@@ -7,6 +7,7 @@ const Page10 = ({ bgImage }) => {
             <img src={bgImage} loading="lazy" />
         </div>
 
+            
 
     )
 }

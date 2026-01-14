@@ -2,7 +2,7 @@ import React from 'react';
 import { Wunit1SecAQuestions } from '../../pageData';
 import './page5.css';
 const arrow = "/assets/arrow.svg";
-const WPage1 = ({ bgImage, openPopup }) => {
+const Page5 = ({ bgImage, openPopup }) => {
 
   const handleOpenQuestion = (questionIndex) => {
     const q = Wunit1SecAQuestions[questionIndex];
@@ -51,4 +51,4 @@ const WPage1 = ({ bgImage, openPopup }) => {
   )
 }
 
-export default WPage1;
+export default Page5;

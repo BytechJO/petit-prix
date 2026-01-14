@@ -1,0 +1,120 @@
+/* تنسيق الحاوية الرئيسية */
+.container {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.color-palette {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 3 أعمدة */
+  gap: 12px;
+  padding: 12px;
+  max-width: 400px;
+  margin-inline: auto;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.color-swatch {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #eee;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  border-color: #ccc;
+}
+
+/* عند الضغط */
+.color-swatch:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 480px) {
+  .color-palette {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 100%;
+  }
+
+  .color-swatch {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+
+
+
+
+/* تنسيق مربعات الألوان */
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+
+/* تنسيق حاوية صور SVG */
+.svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* تنسيق صور SVG القابلة للتلوين */
+.coloring-svg {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.coloring-svg path {
+  cursor: pointer;
+}
+
+
+.sentences-container {
+  justify-self: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 18px;
+}
+
+.sentences-container p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    font-weight: bold;
+}
+
+.sentences-container input {
+    min-width: 120px;
+    border: none;
+    border-bottom: 2px solid #555;
+    outline: none;
+    padding: 4px 6px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+.sentences-container input:focus {
+    border-bottom-color: #2563eb;
+}

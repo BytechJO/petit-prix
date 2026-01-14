@@ -1,8 +1,185 @@
+import React, { useState } from 'react';
+
 const Q3 = () => {
-    return(
-        <div>
-         <h1>Q3</h1>
+    const img1 = '/assets/workbook/unit2/page11/1.svg';
+    const img2 = '/assets/workbook/unit2/page11/2.svg';
+    const img3 = '/assets/workbook/unit2/page11/3.svg';
+    const img4 = '/assets/workbook/unit2/page11/4.svg';
+    const img5 = '/assets/workbook/unit2/page11/5.svg';
+    const img6 = '/assets/workbook/unit2/page11/6.svg';
+    const img7 = '/assets/workbook/unit2/page11/7.svg';
+    const img8 = '/assets/workbook/unit2/page11/8.svg';
+    const img9 = '/assets/workbook/unit2/page11/9.svg';
+
+    // Items data with correct answers
+    const items = [
+        { id: 'a', img: img4, name: 'trousse', correctBag: 'une' },
+        { id: 'b', img: img5, name: 'règle', correctBag: 'une' },
+        { id: 'c', img: img6, name: 'stylo', correctBag: 'un' },
+        { id: 'd', img: img7, name: 'crayons', correctBag: 'des' },
+        { id: 'e', img: img8, name: 'gomme', correctBag: 'une' },
+        { id: 'f', img: img9, name: 'cahiers', correctBag: 'des' }
+    ];
+
+    const bags = [
+        { id: 'un', img: img1, label: 'un', color: 'bg-blue-100' },
+        { id: 'une', img: img2, label: 'une', color: 'bg-green-100' },
+        { id: 'des', img: img3, label: 'des', color: 'bg-red-100' }
+    ];
+
+    const [draggedItem, setDraggedItem] = useState(null);
+    const [bagContents, setBagContents] = useState({ un: [], une: [], des: [] });
+    const [availableItems, setAvailableItems] = useState(items);
+    const [answers, setAnswers] = useState({ un: '', une: '', des: '' });
+    const [showResults, setShowResults] = useState(false);
+
+    const handleDragStart = (item) => {
+        setDraggedItem(item);
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault();
+    };
+
+    const handleDrop = (bagId) => {
+        if (draggedItem) {
+            // Add item to bag
+            setBagContents(prev => ({
+                ...prev,
+                [bagId]: [...prev[bagId], draggedItem]
+            }));
+
+            // Remove from available items
+            setAvailableItems(prev => prev.filter(item => item.id !== draggedItem.id));
+            setDraggedItem(null);
+        }
+    };
+
+    const handleRemoveFromBag = (bagId, itemId) => {
+        const item = bagContents[bagId].find(i => i.id === itemId);
+
+        // Remove from bag
+        setBagContents(prev => ({
+            ...prev,
+            [bagId]: prev[bagId].filter(i => i.id !== itemId)
+        }));
+
+        // Add back to available items
+        setAvailableItems(prev => [...prev, item]);
+    };
+
+    const handleAnswerChange = (bagId, value) => {
+        setAnswers(prev => ({ ...prev, [bagId]: value }));
+    };
+
+    const checkAnswers = () => {
+        setShowResults(true);
+    };
+
+    const handleTryAgain = () => {
+        setBagContents({ un: [], une: [], des: [] });
+        setAvailableItems(items);
+        setAnswers({ un: '', une: '', des: '' });
+        setShowResults(false);
+    };
+
+    const isAnswerCorrect = (bagId) => {
+        return answers[bagId].toLowerCase().trim() === bagId;
+    };
+
+    const isBagCorrect = (bagId) => {
+        const bagItems = bagContents[bagId];
+        return bagItems.every(item => item.correctBag === bagId);
+    };
+
+    return (
+        <div className="max-w-6xl mx-auto p-6 bg-white rounded-lg">
+
+            {/* Bags Section */}
+            <div className="grid grid-cols-3 gap-6 mb-8">
+                {bags.map(bag => (
+                    <div key={bag.id} className="flex flex-col items-center">
+                        {/* Bag Drop Zone */}
+                        <div
+                            onDragOver={handleDragOver}
+                            onDrop={() => handleDrop(bag.id)}
+                            className={`w-full ${bag.color} border-4 border-dashed border-gray-300 rounded-xl p-4 min-h-[280px] transition-all hover:border-gray-400 ${showResults && isBagCorrect(bag.id) ? 'border-green-500' : ''
+                                } ${showResults && !isBagCorrect(bag.id) && bagContents[bag.id].length > 0 ? 'border-red-500' : ''}`}
+                        >
+                            {/* Bag Image */}
+                            <img src={bag.img} alt={bag.label} className="max-w-32 max-h-32 mx-auto mb-2" />
+
+                            {/* Label */}
+                            <div className="bg-white px-6 py-2 rounded-lg text-center text-xl font-bold mb-3 mx-auto w-fit">
+                                {bag.label}
+                            </div>
+
+                            {/* Dropped Items */}
+                            <div className="flex flex-wrap gap-2 justify-center min-h-[60px]">
+                                {bagContents[bag.id].map(item => (
+                                    <div
+                                        key={item.id}
+                                        onClick={() => !showResults && handleRemoveFromBag(bag.id, item.id)}
+                                        className="relative cursor-pointer hover:scale-110 transition-transform"
+                                    >
+                                        <img src={item.img} alt={item.id} className="max-w-16 max-h-16" />
+                                        <span className="absolute -top-1 -right-1 bg-gray-700 text-white text-xs px-1.5 py-0.5 rounded-full">
+                                            {item.id}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Answer Input */}
+                        <div className="mt-4 w-full">
+                            <input
+                                type="text"
+                                value={answers[bag.id]}
+                                onChange={(e) => handleAnswerChange(bag.id, e.target.value)}
+                                disabled={showResults}
+                                placeholder="........................................"
+                                className={`w-full border-b-2 border-dotted border-gray-400 py-2 text-center text-lg focus:outline-none focus:border-gray-600 ${showResults && isAnswerCorrect(bag.id) ? 'bg-green-50 border-green-500' : ''
+                                    } ${showResults && !isAnswerCorrect(bag.id) ? 'bg-red-50 border-red-500' : ''}`}
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Available Items */}
+            <div className="border-t-2 border-gray-200 pt-6">
+                <h3 className="text-lg font-semibold mb-4 text-gray-700">Les fournitures scolaires:</h3>
+                <div className="grid grid-cols-6 gap-4">
+                    {availableItems.map(item => (
+                        <div
+                            key={item.id}
+                            draggable
+                            onDragStart={() => handleDragStart(item)}
+                            className="flex flex-col items-center p-3 bg-gray-50 rounded-lg cursor-move hover:bg-gray-100 hover:shadow-md transition-all"
+                        >
+                            <img src={item.img} alt={item.id} className="max-w-20 max-h-20 mb-2" />
+                            <span className="bg-white border-2 border-gray-300 px-3 py-1 rounded-md text-sm font-semibold">
+                                {item.id}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="popup-buttons shrink-0">
+                <button className="try-again-button" onClick={handleTryAgain}>
+                    Recommencer ↻
+                </button>
+                {/* <button className="show-answer-btn" onClick={handleShowAnswer}>
+                    Afficher la réponse
+                </button> */}
+                <button className="check-button2" onClick={checkAnswers}>
+                    Vérifier la réponse ✓
+                </button>
+            </div>
         </div>
     );
-}
+};
+
 export default Q3;

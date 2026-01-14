@@ -92,7 +92,8 @@ export default function Book() {
 
   const openPopup = (data) => {
     // اطبع أي بيانات إضافية تحب
-    console.log("Popup data:", data.startIndex+1);
+    console.log("DATA ID = "+data.startIndex+1+"\nComponent number = "+data.questions[data.startIndex].component.name);
+
     setPopupData({ ...data, isOpen: true });
   };
 
