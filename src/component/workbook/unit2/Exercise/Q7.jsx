@@ -5,12 +5,32 @@ import ValidationAlert from '../../../Popup/ValidationAlert';
 const Q7 = () => {
     // 1. البيانات الأساسية
     const gridLetters = useMemo(() => [
-        'g', 'h', 'j', 'r', 'l', 'u', 'n', 'd', 'i', 'h', 'g', 'i', 'd', 'l', 's', 's', 's', 'n', 'g', 'j',
-        'm', 'a', 'r', 'd', 'i', 'h', 'j', 'f', 'j', 'f', 'd', 'j', 'f', 'd', 'd', 'k', 'j', 'd', 'l', 'k',
-        'k', 'j', 'f', 'f', 'm', 'e', 'r', 'c', 'r', 'e', 'd', 'i', 'j', 'k', 'f', 'd', 'j', 'e', 'u', 'd',
-        'i', 'l', 'd', 'h', 'a', 'v', 'z', 'f', 'v', 'e', 'n', 'd', 'r', 'e', 'd', 'i', 'k', 'l', 'p', 'o',
-        'q', 'z', 'b', 's', 'a', 'm', 'e', 'd', 'i', 'b', 'f', 'h', 'j', 'd', 'i', 'm', 'a', 'n', 'c', 'h', 'e'
+        // lundi
+        'l', 'u', 'n', 'd', 'i',
+        'k', 'l', 'm',
+        // mardi
+        'm', 'a', 'r', 'd', 'i',
+        'k', 'l', 'm',
+        // mercredi
+        'm', 'e', 'r', 'c', 'r', 'e', 'd', 'i',
+        'o', 'q', 'z',
+        // jeudi
+        'j', 'e', 'u', 'd', 'i',
+        'b', 'f', 'j',
+
+        // vendredi
+        'v', 'e', 'n', 'd', 'r', 'e', 'd', 'i',
+        'o', 'q', 'z',
+
+        // samedi
+        's', 'a', 'm', 'e', 'd', 'i',
+
+        'g', 'h', 'k', 'l', 'p',
+        // dimanche
+        'd', 'i', 'm', 'a', 'n', 'c', 'h', 'e',
+
     ], []);
+
 
     const wordsToFind = useMemo(() => [
         "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"
@@ -118,7 +138,7 @@ const Q7 = () => {
                 <button className="show-answer-btn" onClick={handleShowAnswer}>Afficher la réponse</button>
                 <button className="check-button2" onClick={checkAnswers}>Vérifier ✓</button>
             </div>
-            
+
         </div>
     );
 };

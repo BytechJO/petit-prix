@@ -19,6 +19,7 @@
     "@jsplumb/browser-ui": "^6.2.10",
     "@tailwindcss/vite": "^4.1.16",
     "@tareqalsadaqa/subtitleinbubble": "^0.1.11",
+    "dom-to-image": "^2.6.0",
     "dom-to-image-more": "^3.7.2",
     "framer-motion": "^12.23.26",
     "html2canvas": "^1.4.1",

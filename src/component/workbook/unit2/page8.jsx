@@ -52,7 +52,7 @@ const WPage3 = ({ bgImage, openPopup }) => {
         />
       </button>
 
-      <button
+      {/* <button
         className='btnopenpopup'
         id="wpage8q3"
         onClick={() => handleOpenQuestion(31)}
@@ -62,7 +62,7 @@ const WPage3 = ({ bgImage, openPopup }) => {
           alt="Open question"
           loading="lazy"
         />
-      </button>
+      </button> */}
 
 
     </div>

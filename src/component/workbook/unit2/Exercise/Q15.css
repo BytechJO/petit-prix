@@ -1,0 +1,69 @@
+.container {
+  font-family: sans-serif;
+  width: 800px;
+  margin: 0px auto;
+  padding: 20px;
+}
+
+
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.activities {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 55%;
+}
+
+.activity {
+  display: flex;
+  align-items: center;
+}
+
+.activity-image {
+  width: 100px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.sentence-box {
+  font-size: 16px;
+  flex-grow: 1;
+}
+
+.word-search {
+  display: grid;
+  grid-template-columns: repeat(7, 40px);
+  grid-template-rows: repeat(14, 38px);
+  width: 284px; /* 7 * 40px + 2 * 2px border */
+  height: 364px; /* 9 * 40px + 2 * 2px border */
+}
+
+.grid-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.sentence-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.sentence-input {
+  border: none;
+  border-bottom: 2px dashed #000; /* خط متقطع سفلي */
+  width: 120px; 
+  outline: none;
+}
+

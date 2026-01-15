@@ -1,0 +1,43 @@
+.q9-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.q9-letter {
+    margin-top:5% ;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 750px;
+    width: 100%;
+}
+
+.q9-text {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 12px;
+    color: #000;
+}
+
+.q9-input {
+    border: none;
+    border-bottom: 2px dashed #9ca3af;
+    background: transparent;
+    min-width: 120px;
+    padding: 2px 4px;
+    margin: 0 4px;
+    font-size: 15px;
+    text-align: start;
+    outline: none;
+}
+
+.q9-input-small {
+    min-width: 60px;
+}
+
+.q9-input:focus {
+    border-bottom-color: #2563eb;
+}
