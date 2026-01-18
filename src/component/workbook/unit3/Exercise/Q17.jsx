@@ -1,23 +1,17 @@
 import React, { useState } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const catImage = '/assets/unit3/secA/page33/01.png';
-const fishImage = '/assets/unit3/secA/page33/01.png';
-const parrotImage = '/assets/unit3/secA/page33/01.png';
-const turtleImage = '/assets/unit3/secA/page33/01.png';
-
-
-
-
-
-
+const catImage = '/assets/workbook/unit3/page25/1.png';
+const fishImage = '/assets/workbook/unit3/page25/2.png';
+const parrotImage = '/assets/workbook/unit3/page25/3.png';
+const turtleImage = '/assets/workbook/unit3/page25/4.png';
 
 const Q17 = () => {
     const items = [
-        { name: 'perroquet', colorClass: 'bg-red-500', image: parrotImage },
-        { name: 'tortue', colorClass: 'bg-sky-400', image: turtleImage },
         { name: 'chat', colorClass: 'bg-pink-600', image: catImage },
         { name: 'poisson', colorClass: 'bg-green-500', image: fishImage },
+        { name: 'perroquet', colorClass: 'bg-red-500', image: parrotImage },
+        { name: 'tortue', colorClass: 'bg-sky-400', image: turtleImage },
     ];
 
     // الإجابات الصحيحة (مثال)
@@ -75,16 +69,15 @@ const Q17 = () => {
     };
 
     const containerStyle = {
-        backgroundImage: 'linear-gradient(#eaf2f8 1px, transparent 1px)',
         backgroundSize: '100% 30px',
     };
 
     return (
         <div
-            className="font-comic w-[900px] mx-auto my-5 p-5 relative bg-white"
+            className="font-comic w-[900px] mx-auto my-5 p-5 relative"
             style={containerStyle}
         >
-            <div className="grid grid-cols-4 gap-5 relative z-10 mt-16">
+            <div className="grid grid-cols-4 gap-5 relative z-10 mt-10">
                 {items.map((item) => (
                     <div key={item.name} className="flex flex-col items-center relative">
                         <div className={`text-white font-bold py-2 px-5 rounded-lg text-lg absolute -top-10 ${item.colorClass}`}>
@@ -93,7 +86,7 @@ const Q17 = () => {
                         <img
                             src={item.image}
                             alt={item.name}
-                            className="w-full h-64 object-cover rounded-lg shadow-lg"
+                            className="w-full h-64 object-cover"
                         />
                         <div className="bg-white p-1 border border-gray-300 rounded-lg mt-3 w-11/12 shadow-md">
                             <input

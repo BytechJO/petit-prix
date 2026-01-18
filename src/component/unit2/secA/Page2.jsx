@@ -82,7 +82,6 @@ const Page2 = ({ bgImage, openPopup }) => {
         onClose={() => setShowAudio(false)}
         src={sound1}
         captions={caption}
-
       />
     </div >
   )

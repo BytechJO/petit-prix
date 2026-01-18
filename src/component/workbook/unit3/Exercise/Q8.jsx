@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Volume2, Check, X, RotateCcw } from 'lucide-react';
-import ValidationAlert from '../../../Popup/ValidationAlert'; // تأكد أن المسار صحيح
+import ValidationAlert from '../../../Popup/ValidationAlert';
 
 const exercises = [
     {
         id: 'exercise1',
-        character1Image: '/assets/unit2/review/page26/ch1.svg',
-        character2Image: '/assets/unit2/review/page26/ch2.svg',
+        character1Image: '/assets/workbook/unit3/page22/1.svg',
+        character2Image: '/assets/workbook/unit3/page22/2.svg',
         options: [
             { id: 'a', label: 'a', text: 'Il     Elle a deux frères.' },
             { id: 'b', label: 'b', text: 'Il     Elle a une soeur et un frère.' },
@@ -15,22 +15,9 @@ const exercises = [
         ],
         correctAnswerId: 'a',
     },
-    //   {
-    //     id: 'exercise2',
-    //     character1Image: '/assets/unit2/review/page26/char3.svg',
-    //     character2Image: '/assets/unit2/review/page26/char4.svg',
-    //     options: [
-    //       { id: 'a', label: 'a', text: 'Il aime lire des livres.' },
-    //       { id: 'b', label: 'b', text: 'Il aime jouer au football.' },
-    //       { id: 'c', label: 'c', text: 'Il déteste danser.' },
-    //       { id: 'd', label: 'd', text: "Il n'aime pas nager." },
-    //     ],
-    //     correctAnswerId: 'b',
-    //   },
 ];
 
 export default function Q8() {
-    const [currentExercise, setCurrentExercise] = useState(0);
     const [selectedAnswers, setSelectedAnswers] = useState([]);
     const [completedExercises, setCompletedExercises] = useState([]);
     const [showAnswer, setShowAnswer] = useState(false);
@@ -79,7 +66,7 @@ export default function Q8() {
         setCompletedExercises(feedback);
 
         if (emptyCount > 0) {
-            ValidationAlert.warning('');
+            ValidationAlert.warning('Veuillez remplir tous les champs!');
         } else if (correctCount === exercises.length) {
             ValidationAlert.success(`${correctCount}/${exercises.length}`);
         } else {
@@ -88,85 +75,61 @@ export default function Q8() {
     };
 
     return (
-        <div className="min-h-screen ">
-            <div className="max-w-6xl mx-auto lg:mr-80">
+        <div className="min-h-screen flex flex-col items-center p-4">
+            <div className="max-w-4xl w-full bg-white rounded-2xl p-6 space-y-8">
 
-                {/* Main Content */}
-                <div className="rounded-2xl p-6 md:p-8 mb-8">
-                    {/* Characters Section */}
-                    <div className="flex justify-center gap-8 mb-8">
-                        {exercises[currentExercise] && (
-                            <>
-                                <div className="flex flex-col items-center">
-                                    <div className="rounded-xl p-4 w-50 h-40 flex items-center justify-center">
-                                        <img
-                                            src={exercises[currentExercise].character1Image}
-                                            alt="Character 1"
-                                            className="w-full h-full object-contain"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex flex-col items-center">
-                                    <div className="rounded-xl p-4 w-50 h-40 flex items-center justify-center">
-                                        <img
-                                            src={exercises[currentExercise].character2Image}
-                                            alt="Character 2"
-                                            className="w-full h-full object-contain"
-                                        />
-                                    </div>
-                                </div>
-                            </>
-                        )}
-                    </div>
+                {exercises.map((exercise, exIndex) => (
+                    <div key={exercise.id} className="space-y-15">
 
-                    {/* Options */}
-                    <div className="flex flex-col items-center space-y-5 mb-8">
-                        {exercises.map((exercise, exIndex) => (
-                            <div key={exercise.id} className="w-full flex flex-col items-center space-y-3">
-                                {exercise.options.map(option => (
+                        {/* صور الشخصيات */}
+                        <div className="flex justify-center gap-40">
+                            <div className="w-60 h-40 rounded-xl flex items-center justify-center">
+                                <img src={exercise.character1Image} alt="Character 1" className="w-full h-full object-contain" />
+                            </div>
+                            <div className="w-60 h-40 rounded-xl flex items-center justify-center">
+                                <img src={exercise.character2Image} alt="Character 2" className="w-full h-full object-contain" />
+                            </div>
+                        </div>
+
+                        {/* خيارات التمرين */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {exercise.options.map(option => {
+                                const isSelected = selectedAnswers[exIndex] === option.id;
+                                const isCorrect = completedExercises[exIndex];
+                                return (
                                     <button
                                         key={option.id}
                                         onClick={() => handleOptionClick(exIndex, option.id)}
-                                        className={`w-80 p-4 rounded-lg transition-all text-left flex items-start gap-3 cursor-pointer
-                      ${selectedAnswers[exIndex] === option.id
-                                                ? completedExercises[exIndex]
-                                                    ? 'border-green-500 bg-green-50'
-                                                    : 'border-red-500 bg-red-50'
-                                                : 'border-gray-300 bg-white hover:border-blue-400 hover:bg-blue-50'
-                                            }`}
+                                        className={`flex items-center gap-3 p-4 rounded-lg text-left transition cursor-pointer
+                                            ${isSelected
+                                                ? isCorrect
+                                                    ? 'border-2 border-green-500 bg-green-50'
+                                                    : 'border-2 border-red-500 bg-red-50'
+                                                : ' bg-white hover:bg-blue-50 hover:border-blue-400'}
+                                        `}
                                     >
-                                        <span className="inline-flex items-center justify-center w-8 h-8 border-2 border-blue-400 font-bold text-gray-600 flex-shrink-0 mt-1">
+                                        <span className="inline-flex items-center justify-center w-8 h-8 border-2 border-blue-400 font-bold text-gray-600 flex-shrink-0">
                                             {option.label}
                                         </span>
-                                        <span className="text-gray-800 font-medium flex-grow">{option.text}</span>
+                                        <span className="text-gray-800">{option.text}</span>
                                     </button>
-                                ))}
-                            </div>
-                        ))}
+                                );
+                            })}
+                        </div>
                     </div>
+                ))}
 
-                    {/* Buttons */}
-                    <div className="popup-buttons">
-                        <button
-                            className="try-again-button"
-                            onClick={handleReset}
-                        >
-                            Recommencer ↻
-                        </button>
-                        <button
-                            className="show-answer-btn"
-                            onClick={handleShowAnswerAll}
-                        >
-                            Afficher la réponse
-                        </button>
-                        <button
-                            className="check-button2"
-                            onClick={handleCheckAll}
-                        >
-                            Vérifier la réponse ✓
-                        </button>
-                    </div>
-
+                {/* الأزرار */}
+                <div className="popup-buttons">
+                    <button className="try-again-button" onClick={handleReset}>
+                        Recommencer ↻
+                    </button>
+                    <button className="show-answer-btn" onClick={handleShowAnswerAll}>
+                        Afficher la réponse
+                    </button>
+                    <button className="check-button2" onClick={handleCheckAll}>
+                        Vérifier la réponse ✓
+                    </button>
                 </div>
             </div>
         </div>

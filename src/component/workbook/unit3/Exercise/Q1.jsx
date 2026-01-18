@@ -1,31 +1,12 @@
 import { useState } from 'react';
-import '../../unit1/Exercise/Q15.css';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const img1 = '/assets/unit2/review/page26/ch1.svg';
-const img2 = '/assets/unit2/review/page26/ch2.svg';
-const img3 = '/assets/unit2/review/page26/ch3.svg';
-const img4 = '/assets/unit2/review/page26/ch3.svg';
+const img1 = '/assets/workbook/unit3/page19/1.png';
+const img2 = '/assets/workbook/unit3/page19/2.png';
+const img3 = '/assets/workbook/unit3/page19/3.png';
 
 const Q1 = () => {
-    // const grid = [
-    //     ['d', 'a', 'n', 's', 'e', 'r', 'l'],
-    //     ['y', 't', 'y', 'd', 'k', 'h', 'j'],
-    //     ['n', 'c', 'u', 'p', 'd', 'j', 'k'],
-    //     ['b', 'h', 'r', 'l', 'e', 'p', 'l'],
-    //     ['v', 'a', 'f', 'i', 'h', 'f', 'd'],
-    //     ['c', 'n', 'w', 'r', 'e', 'y', 'u'],
-    //     ['t', 't', 'q', 'e', 'o', 'l', 'k'],
-    //     ['r', 'e', 'x', 'v', 'n', 'k', 'l'],
-    //     ['o', 'r', 'n', 'a', 'g', 'e', 'r'],
-    //     ['c', 'n', 'w', 'r', 'e', 'y', 'u'],
-    //     ['n', 'c', 'u', 'p', 'd', 'j', 'k'],
-    //     ['d', 'a', 'n', 's', 'e', 'r', 'l'],
-    // ];
-
-    const correctAnswers = ['jouer aux jeux vidéo', 'lire des livres', 'chanter', 'nager'];
-
-    // حالة الكتابة
+    const correctAnswers = ['jouer aux jeux vidéo', 'lire des livres', 'chanter'];
     const [answers, setAnswers] = useState(new Array(correctAnswers.length).fill(''));
     const [showAnswer, setShowAnswer] = useState(false);
 
@@ -65,53 +46,43 @@ const Q1 = () => {
         { img: img1, prefix: 'Elle aime' },
         { img: img2, prefix: 'Il aime' },
         { img: img3, prefix: 'Elle aime' },
-        { img: img4, prefix: 'Il aime' },
     ];
 
     return (
-        <>
-            <div className="container">
-                <div className="main-content">
-                    <div className="activities">
-                        {activities.map((activity, i) => (
-                            <div key={i} className="activity">
-                                <img src={activity.img} alt={`Activity ${i + 1}`} className="activity-image" />
-
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="word-search">
-                        <div className="activities">
-                            {activities.map((activity, i) => (
-                                <div key={i} className="activity">
-
-                                    <div className="sentence-box">
-                                        {activity.prefix}{' '}
-                                        <input
-                                            type="text"
-                                            className="sentence-input"
-                                            value={answers[i]}
-                                            onChange={(e) => handleChange(e.target.value, i)}
-                                            placeholder="Tapez ici..."
-                                        />
-                                        {showAnswer && (
-                                            <div className="correct-answer">
-                                                Réponse: {correctAnswers[i]}
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
+        <div className="max-w-4xl mx-auto p-6 space-y-6">
+            {/* كل صورة مع الـ input */}
+            <div className="space-y-5">
+                {activities.map((activity, i) => (
+                    <div
+                        key={i}
+                        className="flex items-center gap-6 bg-white p-5 rounded-2xl hover:shadow-xl transition-shadow duration-300"
+                    >
+                        <img
+                            src={activity.img}
+                            alt={`Activity ${i + 1}`}
+                            className="max-w-32 max-h-32 object-contain rounded-lg border-2 border-gray-200"
+                        />
+                        <div className="flex-1 flex flex-col">
+                            <span className="font-semibold text-gray-800 mb-2 text-lg">{activity.prefix}</span>
+                            <input
+                                type="text"
+                                value={answers[i]}
+                                onChange={(e) => handleChange(e.target.value, i)}
+                                placeholder="Tapez ici..."
+                                className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 text-gray-700 text-base"
+                            />
+                            {showAnswer && (
+                                <span className="text-green-600 mt-2 font-medium text-sm">
+                                    Réponse: {correctAnswers[i]}
+                                </span>
+                            )}
                         </div>
-
                     </div>
-
-                    {/* الأزرار */}
-
-                </div>
+                ))}
             </div>
-            <div className="popup-buttons mt-4 flex gap-4 justify-center">
+
+            {/* الأزرار */}
+            <div className="popup-buttons mt-6 flex gap-4 justify-center flex-wrap">
                 <button className="try-again-button" onClick={handleReset}>
                     Recommencer ↻
                 </button>
@@ -122,7 +93,7 @@ const Q1 = () => {
                     Vérifier la réponse ✓
                 </button>
             </div>
-        </>
+        </div>
     );
 };
 

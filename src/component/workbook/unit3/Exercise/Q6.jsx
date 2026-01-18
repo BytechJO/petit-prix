@@ -1,16 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-// --- بيانات التمرين (تبقى كما هي) ---
+const img4 = '/assets/workbook/unit3/page21/1.svg';
+const img5 = '/assets/workbook/unit3/page21/2.svg';
+const img6 = '/assets/workbook/unit3/page21/3.svg';
+
 const WORDS = [
-    { id: 'word-1', text: 'des frères', correctMatch: 'img-1' },
-    { id: 'word-2', text: 'une soeur et un frère', correctMatch: 'img-2' },
-    { id: 'word-3', text: 'des soeurs', correctMatch: 'img-3' },
+    { id: 'word-1', src: img4, correctMatch: 'img-1' },
+    { id: 'word-2', src: img5, correctMatch: 'img-2' },
+    { id: 'word-3', src: img6, correctMatch: 'img-3' },
 ]
 
-const img1 = '/assets/workbook/unit1/page7/1.svg';
-const img2 = '/assets/workbook/unit1/page7/2.svg';
-const img3 = '/assets/workbook/unit1/page7/3.svg';
+const img1 = '/assets/workbook/unit3/page21/1.png';
+const img2 = '/assets/workbook/unit3/page21/2.png';
+const img3 = '/assets/workbook/unit3/page21/3.png';
 
 const IMAGES = [
     { id: 'img-1', src: img1, alt: 'Super' },
@@ -189,9 +192,9 @@ const Q6 = () => {
                             key={word.id}
                             data-pointid={word.id}
                             onClick={() => handlePointClick(word.id, 'word')}
-                            className="p-4 rounded-lg shadow-sm cursor-pointer text-center border border-solid border-[#178e6e]"
+                            className="p-4 rounded-lg cursor-pointer text-center"
                         >
-                            <span className="font-semibold text-gray-800 text-xl">{word.text}</span>
+                            <img src={word.src} className="font-semibold text-gray-800 text-xl max-w-32 max-h-32" />
                         </div>
                     ))}
                 </div>

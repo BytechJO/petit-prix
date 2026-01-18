@@ -4,14 +4,14 @@ import ValidationAlert from '../../../Popup/ValidationAlert';
 const exercises = [
     {
         id: 'exercise1',
-        image: '/assets/unit2/review/page26/ch1.svg',
+        image: '/assets/workbook/unit3/page21/01.svg',
         letters: ['S', 'U', 'E', 'N', 'S', 'R', 'O', 'E'],
         correctAnswer: 'SOEUR',
         hint: "J’ai deux...",
     },
     {
         id: 'exercise2',
-        image: '/assets/unit2/review/page26/ch2.svg',
+        image: '/assets/workbook/unit3/page21/02.svg',
         letters: ['V', 'È', 'R', 'R', 'E', 'F','S'],
         correctAnswer: 'FRÈRES',
         hint: "J’ai un...",

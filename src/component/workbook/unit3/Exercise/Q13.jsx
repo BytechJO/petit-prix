@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const img1 = '/assets/workbook/unit2/page11/1.svg';
+const img1 = '/assets/workbook/unit3/page24/1.svg';
 
 const Q13 = () => {
 
     const correctAnswers = {
         a: 'grand-père',
         b: 'grand-mère',
-        c: 'père',
-        d: 'mère',
+        c: 'mère',
+        d: 'père',
         e: 'frère aîné'
     };
 
@@ -42,8 +42,8 @@ const Q13 = () => {
         setAnswers({
             a: 'grand-père',
             b: 'grand-mère',
-            c: 'père',
-            d: 'mère',
+            c: 'mère',
+            d: 'père',
             e: 'frère aîné'
         });
     };
@@ -67,9 +67,9 @@ const Q13 = () => {
         });
 
         if (correctCount === keys.length) {
-            ValidationAlert.success(`Score: ${correctCount}/${keys.length}`);
+            ValidationAlert.success(`${correctCount}/${keys.length}`);
         } else {
-            ValidationAlert.error(`Score: ${correctCount}/${keys.length}`);
+            ValidationAlert.error(`${correctCount}/${keys.length}`);
         }
     };
 
@@ -83,7 +83,7 @@ const Q13 = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                     {/* Left Side - Image */}
                     <div className="flex items-center justify-center">
-                        <div className=" p-8 w-full max-w-sm">
+                        <div className="w-full max-w-sm">
                             <img
                                 src={img1}
                                 alt="Illustration"
@@ -93,7 +93,7 @@ const Q13 = () => {
                     </div>
 
                     {/* Right Side - Inputs */}
-                    <div className="bg-white rounded-2xl shadow-lg p-8">
+                    <div className="bg-white rounded-2xl shadow-lg p-8 lg:mt-10">
                         <div className="space-y-20">
                             {['a', 'b', 'c', 'd', 'e'].map((key, index) => {
                                 const names = ['Andrew', 'Bella', 'Sylvie', 'George', 'Rémi'];

@@ -2,35 +2,34 @@ import React, { useState, useRef } from "react";
 import ValidationAlert from "../../../Popup/ValidationAlert";
 
 // 🔹 الصور
-const img1 = '/assets/unit3/secA/page33/01.png';
-const img2 = '/assets/unit3/secA/page33/02.png';
-const img3 = '/assets/unit3/secA/page33/03.png';
-const img4 = '/assets/unit3/secA/page33/04.png';
+const img1 = '/assets/workbook/unit3/page25/1.svg';
+const img2 = '/assets/workbook/unit3/page25/2.svg';
+const img3 = '/assets/workbook/unit3/page25/3.svg';
 
-const img5 = '/assets/unit3/secA/page33/05.png';
-const img6 = '/assets/unit3/secA/page33/06.png';
-const img7 = '/assets/unit3/secA/page33/07.png';
-const img8 = '/assets/unit3/secA/page33/08.png';
+const img4 = '/assets/workbook/unit3/page25/01.svg';
+const img5 = '/assets/workbook/unit3/page25/02.svg';
+const img6 = '/assets/workbook/unit3/page25/03.svg';
+
+const img7 = '/assets/workbook/unit3/page25/001.svg';
+const img8 = '/assets/workbook/unit3/page25/002.svg';
+const img9 = '/assets/workbook/unit3/page25/003.svg';
 
 const leftParts = [
-  { id: 1, text: "Diane" },
-  { id: 2, text: "Paul" },
-  { id: 3, text: "Charles" },
-  { id: 4, text: "Lucie" },
+  { id: 1, src: img4 },
+  { id: 2, src: img1 },
+  { id: 3, src: img3 },
 ];
 
 const images = [
-  { id: "img1", src: img1 },
+  { id: "img1", src: img5 },
   { id: "img2", src: img2 },
-  { id: "img3", src: img3 },
-  { id: "img4", src: img4 },
+  { id: "img3", src: img8 },
 ];
 
 const rightParts = [
-  { id: "r1", src: img5 },
   { id: "r2", src: img6 },
   { id: "r3", src: img7 },
-  { id: "r4", src: img8 },
+  { id: "r4", src: img9 },
 ];
 
 const correctMatches = [
@@ -174,12 +173,11 @@ const Q16 = () => {
           {leftParts.map((l, i) => (
             <div
               key={i}
-              className={`flex items-center gap-2 p-2 border rounded cursor-pointer ${locked ? "opacity-50" : ""}`}
+              className={`flex items-center gap-2 p-2 rounded cursor-pointer ${locked ? "opacity-50" : ""}`}
               data-left-id={l.id}
               onClick={handleStart}
             >
-              <span className="font-bold">{i + 1}.</span>
-              <span>{l.text}</span>
+              <img src={l.src} className="max-w-32 max-h-32" />
               <div className="dot w-3 h-3 bg-red-500 rounded-full " />
               {wrongLeft.includes(l.id) && checked && <span className="text-red-500 ml-2 font-bold">✕</span>}
             </div>
@@ -191,12 +189,12 @@ const Q16 = () => {
           {images.map((img) => (
             <div
               key={img.id}
-              className={`relative cursor-pointer ${locked ? "opacity-50" : ""}`}
+              className={`p-10 relative cursor-pointer ${locked ? "opacity-50" : ""}`}
               data-image={img.id}
               onClick={(e) => (firstPoint ? handleEnd(e) : handleStart(e))}
             >
               <div className="dot w-3 h-3 bg-red-500 rounded-full absolute top-1 left-1" />
-              <img src={img.src} alt="" className="max-w-24 max-h-24 object-cover border" />
+              <img src={img.src} alt="" className="max-w-32 max-h-32 object-cover" />
             </div>
           ))}
         </div>
@@ -206,12 +204,12 @@ const Q16 = () => {
           {rightParts.map((r) => (
             <div
               key={r.id}
-              className={`relative cursor-pointer ${locked ? "opacity-50" : ""}`}
+              className={`p-8 relative cursor-pointer ${locked ? "opacity-50" : ""}`}
               data-image={r.id}
               onClick={(e) => (firstPoint ? handleEnd(e) : handleStart(e))}
             >
               <div className="dot w-3 h-3 bg-red-500 rounded-full absolute top-1 left-1" />
-              <img src={r.src} alt="" className="max-w-24 max-h-24 object-cover border" />
+              <img src={r.src} alt="" className="max-w-32 max-h-32 object-cover " />
             </div>
           ))}
         </div>

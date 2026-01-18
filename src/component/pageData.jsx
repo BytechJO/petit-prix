@@ -116,11 +116,11 @@ import U2RQ6 from '../component/unit2/review/Exercise/Q6';
 import U2RQ7 from '../component/unit2/review/Exercise/Q7';
 
 // audio unit 2
-const sound10 = "/assets/unit2/secA/page16/1.wav";
-const sound11 = "/assets/unit2/secA/page17/2.wav";
+// const sound10 = "/assets/unit2/secA/page16/1.wav";
+// const sound11 = "/assets/unit2/secA/page17/2.wav";
 const sound12 = "/assets/unit2/secA/page18/1.wav";
 const sound122 = "/assets/unit2/secA/page18/2.wav";
-const sound123 = "/assets/unit2/secA/page18/3.wav";
+
 const sound13 = "/assets/unit2/secA/page19/1.wav";
 const sound133 = "/assets/unit2/secA/page19/2.wav";
 const sound14 = "/assets/unit2/secA/page20/1.wav";
@@ -1304,7 +1304,7 @@ export const unit1SecAQuestions = [
   {
     id: 18,
     component: U2Q3,
-    audio: null,
+    audio: sound12,
     text: "Écoute, montre et écris.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1313,7 +1313,7 @@ export const unit1SecAQuestions = [
   {
     id: 19,
     component: U2Q4,
-    audio: null,
+    audio: sound122,
     text: "Écoute et choisis.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1323,7 +1323,7 @@ export const unit1SecAQuestions = [
   {
     id: 20,
     component: U2Q5,
-    audio: null,
+    audio: sound13,
     text: "Écoute et répète",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1333,7 +1333,7 @@ export const unit1SecAQuestions = [
   {
     id: 21,
     component: U2Q6,
-    audio: null,
+    audio: sound133,
     text: "Écoute et montre le bon jour.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },

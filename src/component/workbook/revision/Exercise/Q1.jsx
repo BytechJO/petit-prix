@@ -151,7 +151,7 @@ export default function Q1() {
             <div className="max-w-7xl mx-auto">
 
                 {/* Available Letters */}
-                <div className="bg-white rounded-3xl p-6 md:p-8 mb-6 shadow-xl">
+                <div className="bg-white rounded-3xl p-6 md:p-8 mb-6">
                     {availableLetters.length === 0 ? (
                         <p className="text-gray-400 text-center py-8 text-lg italic">
                             Toutes les lettres sont placées ! 🎉

@@ -3,11 +3,12 @@ import { Download } from 'lucide-react';
 import domtoimage from 'dom-to-image';
 
 // الرجاء تحديث هذه المسارات لتطابق ملفات الصور الصحيحة في مشروعك
-const parrotImage = '/assets/unit3/secA/page33/01.png';
-const fishImage = '/assets/unit3/secA/page33/01.png';
-const turtleImage = '/assets/unit3/secA/page33/01.png';
-const catImage = '/assets/unit3/secA/page33/01.png';
-const hamsterImage = '/assets/unit3/secA/page33/01.png';
+const parrotImage = '/assets/workbook/unit3/page26/1.svg';
+const fishImage = '/assets/workbook/unit3/page26/2.svg';
+const turtleImage = '/assets/workbook/unit3/page26/3.svg';
+const catImage = '/assets/workbook/unit3/page26/4.svg';
+const hamsterImage = '/assets/workbook/unit3/page26/5.svg';
+
 const Q18 = () => {
 
     const handleTryAgain = () => {
@@ -81,11 +82,11 @@ const Q18 = () => {
             {/* حاوية الشبكة والصور */}
             <div className="relative w-[720px] h-[480px]" ref={letterRef}>
                 {/* الصور (موضوعة باستخدام absolute positioning) */}
-                <img src={parrotImage} alt="Parrot" className="absolute max-w-24 max-h-24 z-10 bottom-105 right-105" />
-                <img src={fishImage} alt="Fish" className="absolute max-w-24 max-h-24 z-10 top-5 right-128" />
-                <img src={turtleImage} alt="Turtle" className="absolute max-w-24 max-h-24 z-10 top-45 right-135" />
+                <img src={parrotImage} alt="Parrot" className="absolute max-w-24 max-h-24 z-10 bottom-100 right-112" />
+                <img src={fishImage} alt="Fish" className="absolute max-w-24 max-h-24 z-10 top-8 right-122" />
+                <img src={turtleImage} alt="Turtle" className="absolute max-w-24 max-h-24 z-10 top-48 right-133" />
                 <img src={catImage} alt="Cat" className="absolute max-w-24 max-h-24 z-10 top-75 right-160" />
-                <img src={hamsterImage} alt="Hamster" className="absolute max-w-24 max-h-24 z-10 top-110 right-180" />
+                <img src={hamsterImage} alt="Hamster" className="absolute max-w-28 max-h-28 z-10 top-108 right-175" />
 
                 {/* شبكة الكلمات المتقاطعة - تم استخدام grid-cols-[13] لإنشاء 13 عمودًا */}
                 <div className="absolute top-0 left-0 grid grid-cols-12 grid-rows-12 w-auto h-auto gap-1 lg:mb-[350px] ">
