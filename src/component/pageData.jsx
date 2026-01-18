@@ -409,7 +409,7 @@ import WU4Q14 from '../component/workbook/unit4/Exercise/Q14';
 import WU4Q15 from '../component/workbook/unit4/Exercise/Q15';
 import WU4Q16 from '../component/workbook/unit4/Exercise/Q16';
 
-import WRQ1 from '../component/workbook/unit4/Exercise/Q1';
+import WRQ1 from '../component/workbook/revision/Exercise/Q1';
 
 
 export const pageData = [

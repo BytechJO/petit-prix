@@ -5,18 +5,18 @@ const arrow = "/assets/arrow.svg";
 const Page1 = ({ bgImage, openPopup }) => {
 
   const handleOpenQuestion = (questionIndex) => {
-    const q = Wunit1SecAQuestions[questionIndex];
-
-    openPopup({
-      questionText: q.text,
-      questions: Wunit1SecAQuestions,
-      currentUnit: 1,
-      currentSection: "A",
-      startIndex: questionIndex,
-      audioSrc: q.audio,
-      captions: q.captions,
-    });
-  };
+     const q = Wunit1SecAQuestions[questionIndex];
+   
+     openPopup({
+       questionText: q.text,
+       questions: Wunit1SecAQuestions,
+       currentUnit: 1,
+       currentSection: "A",
+       startIndex: questionIndex,
+       audioSrc: q.audio,
+       captions: q.captions,
+     });
+   };
 
   return (
     <div

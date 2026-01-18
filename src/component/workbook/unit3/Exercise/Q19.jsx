@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { Download } from 'lucide-react';
-import './Q9.css';
 import domtoimage from 'dom-to-image';
+import './Q9.css';
+
 
 const Q19 = () => {
     const [formData, setFormData] = useState({

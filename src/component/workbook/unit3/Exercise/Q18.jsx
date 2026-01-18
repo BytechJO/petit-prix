@@ -1,4 +1,6 @@
 import React, { useRef } from 'react';
+import { Download } from 'lucide-react';
+import domtoimage from 'dom-to-image';
 
 // الرجاء تحديث هذه المسارات لتطابق ملفات الصور الصحيحة في مشروعك
 const parrotImage = '/assets/unit3/secA/page33/01.png';
@@ -7,10 +9,21 @@ const turtleImage = '/assets/unit3/secA/page33/01.png';
 const catImage = '/assets/unit3/secA/page33/01.png';
 const hamsterImage = '/assets/unit3/secA/page33/01.png';
 const Q18 = () => {
-    // دوال وهمية للأزرار، يمكنك إضافة المنطق الخاص بك هنا
-    const handleTryAgain = () => console.log("Try Again Clicked");
-    const handleShowAnswer = () => console.log("Show Answer Clicked");
-    const checkAnswers = () => console.log("Check Answers Clicked");
+
+    const handleTryAgain = () => {
+    inputsRef.current.forEach(input => {
+        if (input) {
+            input.value = '';
+        }
+    });
+
+    // إعادة التركيز لأول input
+    if (inputsRef.current[0]) {
+        inputsRef.current[0].focus();
+    }
+};
+
+    const letterRef = useRef(null);
 
     const inputsRef = useRef([]);
 
@@ -48,17 +61,30 @@ const Q18 = () => {
         />
     );
 
+    const handleDownload = () => {
+        if (!letterRef.current) return;
+
+        domtoimage.toPng(letterRef.current)
+            .then((dataUrl) => {
+                const link = document.createElement('a');
+                link.href = dataUrl;
+                link.download = 'Devine.png';
+                link.click();
+            })
+            .catch(err => console.error(err));
+    };
+
     return (
         // لاستخدام خط مخصص، تأكد من إضافته في tailwind.config.js
         <div className="p-8 font-sans flex flex-col items-center bg-white">
 
             {/* حاوية الشبكة والصور */}
-            <div className="relative w-[720px] h-[480px]">
+            <div className="relative w-[720px] h-[480px]" ref={letterRef}>
                 {/* الصور (موضوعة باستخدام absolute positioning) */}
-                <img src={parrotImage} alt="Parrot" className="absolute max-w-24 max-h-24 z-10 bottom-105 right-105"  />
+                <img src={parrotImage} alt="Parrot" className="absolute max-w-24 max-h-24 z-10 bottom-105 right-105" />
                 <img src={fishImage} alt="Fish" className="absolute max-w-24 max-h-24 z-10 top-5 right-128" />
-                <img src={turtleImage} alt="Turtle" className="absolute max-w-24 max-h-24 z-10 top-45 right-135"  />
-                <img src={catImage} alt="Cat" className="absolute max-w-24 max-h-24 z-10 top-75 right-160"  />
+                <img src={turtleImage} alt="Turtle" className="absolute max-w-24 max-h-24 z-10 top-45 right-135" />
+                <img src={catImage} alt="Cat" className="absolute max-w-24 max-h-24 z-10 top-75 right-160" />
                 <img src={hamsterImage} alt="Hamster" className="absolute max-w-24 max-h-24 z-10 top-110 right-180" />
 
                 {/* شبكة الكلمات المتقاطعة - تم استخدام grid-cols-[13] لإنشاء 13 عمودًا */}
@@ -130,13 +156,14 @@ const Q18 = () => {
             {/* الأزرار مع كلاسات Tailwind */}
             <div className="popup-buttons shrink-0">
                 <button className="try-again-button" onClick={handleTryAgain}>
-                    Recommencer ↻
+                    Recommencer
                 </button>
-                <button className="show-answer-btn" onClick={handleShowAnswer}>
-                    Afficher la réponse
-                </button>
-                <button className="check-button2" onClick={checkAnswers}>
-                    Vérifier la réponse ✓
+                <button
+                    onClick={handleDownload}
+                    className="bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-colors cursor-pointer p-1 flex items-center justify-center"
+                >
+                    <Download size={20} />
+
                 </button>
             </div>
         </div>
