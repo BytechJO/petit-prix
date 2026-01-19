@@ -5,16 +5,16 @@ import React, { useState } from 'react';
 import './page2.css';
 
 const arrow = "/assets/arrow.svg";
-const audio = "/assets/audio.svg";
+// const audio = "/assets/audio.svg";
 
 const Page2 = ({ bgImage, openPopup }) => {
 
 
   const [audioData, setAudioData] = useState(null);
 
-  const openAudio = (src, captions) => {
-    setAudioData({ src, captions });
-  };
+  // const openAudio = (src, captions) => {
+  //   setAudioData({ src, captions });
+  // };
 
   const handleOpenQuestion = (questionIndex) => {
     const q = unit1SecAQuestions[questionIndex];

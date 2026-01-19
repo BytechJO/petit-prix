@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './page4.css';
 
-const sound1 = "/assets/unit1/secA/page7/u1l2q1.wav";
-const sound2 = "/assets/unit1/secA/page7/u1l2q2.wav";
+const sound1 = "/assets/unit3/secA/page31/1.wav";
+const sound2 = "/assets/unit3/secA/page31/2.wav";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';

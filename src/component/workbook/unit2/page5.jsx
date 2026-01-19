@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Wunit1SecAQuestions } from '../../pageData';
+import { unit1SecAQuestions } from '../../pageData';
+import AudioPopup from '../../Popup/AudioPopup';
 import './page5.css';
+
 const arrow = "/assets/arrow.svg";
+const audio = "/assets/audio.svg";
+
+const sound1 = "/assets/workbook/unit2/page15/1.wav";
+const sound2 = "/assets/workbook/unit2/page15/2.wav";
+
+
 const WPage1 = ({ bgImage, openPopup }) => {
+
+  const [audioData, setAudioData] = useState(null);
+
+  const openAudio = (src, captions) => {
+    setAudioData({ src, captions });
+  };
 
   const handleOpenQuestion = (questionIndex) => {
     const q = Wunit1SecAQuestions[questionIndex];
@@ -36,6 +51,20 @@ const WPage1 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
+
+      <button
+        className='btnopenpopup'
+        id="wU1page15audioq1"
+        onClick={() => openAudio(sound, unit1SecAQuestions[22].captions)}
+      >
+        <img
+          src={audio}
+          className="icon"
+          alt="Open question"
+          loading="lazy"
+        />
+      </button>
+
       <button
         className='btnopenpopup'
         id="wu2page5q2"
@@ -47,6 +76,28 @@ const WPage1 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
+
+      <button
+        className='btnopenpopup'
+        id="wU1page15audioq2"
+        onClick={() => openAudio(sound, unit1SecAQuestions[22].captions)}
+      >
+        <img
+          src={audio}
+          className="icon"
+          alt="Open question"
+          loading="lazy"
+        />
+      </button>
+
+      {audioData && (
+        <AudioPopup
+          open={true}
+          onClose={() => setAudioData(null)}
+          src={audioData.src}
+          captions={audioData.captions}
+        />
+      )}
     </div>
   )
 }

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './page6.css';
 
-const sound1 = "/assets/unit1/secA/page8/L3Q1.mp3";
+const sound1 = "/assets/unit3/secA/page33/1.wav";
+const sound2 = "/assets/unit3/secA/page33/2.wav";
+const sound3 = "/assets/unit3/secA/page33/3.wav";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
@@ -82,7 +84,20 @@ const Page6 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="U3page21audioq2"
-                onClick={() => openAudio(sound1, unit1SecAQuestions[40].captions)}
+                onClick={() => openAudio(sound2, unit1SecAQuestions[40].captions)}
+            >
+                <img
+                    src={audio}
+                    className="icon"
+                    alt="Open question"
+                    loading="lazy"
+                />
+            </button>
+
+            <button
+                className='btnopenpopup'
+                id="U3page21audioq3"
+                onClick={() => openAudio(sound3, unit1SecAQuestions[40].captions)}
             >
                 <img
                     src={audio}

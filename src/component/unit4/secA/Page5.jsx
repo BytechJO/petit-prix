@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './page5.css';
-import {
-    faArrowPointer, faHeadphones
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const sound1 = "/assets/unit1/secA/page8/L3Q1.mp3";
+
+const sound1 = "/assets/unit4/secA/page44/1.wav";
+const sound2 = "/assets/unit4/secA/page44/2.wav";
+const sound3 = "/assets/unit4/secA/page44/3.wav";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
@@ -86,7 +85,7 @@ const Page5 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="U4page20audioq2"
-                onClick={() => openAudio(sound1, unit1SecAQuestions[22].captions)}
+                onClick={() => openAudio(sound2, unit1SecAQuestions[22].captions)}
             >
                 <img
                     src={audio}
@@ -96,6 +95,18 @@ const Page5 = ({ bgImage, openPopup }) => {
                 />
             </button>
 
+            <button
+                className='btnopenpopup'
+                id="U4page20audioq4"
+                onClick={() => openAudio(sound3, unit1SecAQuestions[22].captions)}
+            >
+                <img
+                    src={audio}
+                    className="icon"
+                    alt="Open question"
+                    loading="lazy"
+                />
+            </button>
 
             {audioData && (
                 <AudioPopup

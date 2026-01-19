@@ -1,14 +1,15 @@
 
 import { unit1SecAQuestions } from '../../pageData';
 import React, { useState } from 'react';
-
+import AudioPopup from '../../Popup/AudioPopup';
 import './page1.css';
 
 const arrow = "/assets/arrow.svg";
 const audio = "/assets/audio.svg";
 
-const Page1 = ({ bgImage, openPopup }) => {
+const sound = "/assets/unit3/review/page36/1.wav";
 
+const Page1 = ({ bgImage, openPopup }) => {
 
   const [audioData, setAudioData] = useState(null);
 
@@ -40,7 +41,7 @@ const Page1 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="R3page1audio"
-        onClick={() => openAudio(sound2, unit1SecAQuestions[26].captions)}
+        onClick={() => openAudio(sound, unit1SecAQuestions[26].captions)}
       >
         <img
           src={audio}

@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import './page3.css';
-import {
-  faArrowPointer, faHeadphones
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const sound1 = "/assets/unit1/secA/page6/u1l1q1.wav";
-const sound2 = "/assets/unit1/secA/page6/u1l1q2.wav";
-const sound3 = "/assets/unit1/secA/page6/u1l1q4.wav";
+const sound1 = "/assets/unit3/secA/page30/1.wav";
+const sound2 = "/assets/unit3/secA/page30/2.wav";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';

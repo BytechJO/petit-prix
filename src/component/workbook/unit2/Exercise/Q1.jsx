@@ -76,7 +76,7 @@ const WordRow = ({ image, correctWord, letters, resetTrigger, showAnswerTrigger,
 
     return (
         <div className="word-row">
-            <img src={image} alt={correctWord} className="item-image" />
+            <img src={image} alt={correctWord} className="item1-image1" />
             <div className="letters-wrapper">
                 {letters.map((letter, index) => (
                     <div

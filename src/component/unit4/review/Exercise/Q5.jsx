@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../../Popup/ValidationAlert";
 
-const WordSearch = () => {
+const Q5 = () => {
   const images = [
     { id: 1, src: '/assets/unit1/secA/page9/1.svg', word: 'banane' },
     { id: 2, src: '/assets/unit1/secA/page9/1.svg', word: 'gâteau' },
@@ -259,4 +259,4 @@ const WordSearch = () => {
   );
 };
 
-export default WordSearch;
+export default Q5;

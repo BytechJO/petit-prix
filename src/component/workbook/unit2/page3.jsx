@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import './page3.css';
-import {
-  faArrowPointer, faHeadphones
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Wunit1SecAQuestions } from '../../pageData';
 

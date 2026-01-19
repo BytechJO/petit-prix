@@ -50,11 +50,11 @@
 .word-row:nth-child(2) { background-color: #fce4ec; } /* وردي فاتح */
 .word-row:nth-child(3) { background-color: #fff9c4; } /* أصفر فاتح */
 
-.item-image {
+.item1-image1 {
   width: 150px;
   height: auto;
   margin-right: 20px;
-  z-index: 2; /* للتأكد من أن الصورة فوق أي عناصر خلفية */
+  z-index: 2; 
 }
 
 .letters-wrapper {

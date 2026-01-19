@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import './page4.css';
-import {
-    faArrowPointer, faHeadphones
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { Wunit1SecAQuestions } from '../../pageData';
+import { unit1SecAQuestions } from '../../pageData';
+import AudioPopup from '../../Popup/AudioPopup';
+import './page4.css';
 
 const arrow = "/assets/arrow.svg";
+const audio = "/assets/audio.svg";
+
+const sound1 = "/assets/workbook/unit4/page30/1.wav";
+const sound2 = "/assets/workbook/unit4/page30/2.wav";
 
 const WPage4 = ({ bgImage, openPopup }) => {
 
-    const [showAudio, setShowAudio] = useState(false);
+    const [audioData, setAudioData] = useState(null);
+
+    const openAudio = (src, captions) => {
+        setAudioData({ src, captions });
+    };
 
     const handleOpenQuestion = (questionIndex) => {
         const q = Wunit1SecAQuestions[questionIndex];
@@ -45,6 +50,18 @@ const WPage4 = ({ bgImage, openPopup }) => {
                     loading="lazy"
                 />
             </button>
+            <button
+                className='btnopenpopup'
+                id="wU4page30audioq1"
+                onClick={() => openAudio(sound2, unit1SecAQuestions[22].captions)}
+            >
+                <img
+                    src={audio}
+                    className="icon"
+                    alt="Open question"
+                    loading="lazy"
+                />
+            </button>
 
             <button
                 className='btnopenpopup'
@@ -53,6 +70,19 @@ const WPage4 = ({ bgImage, openPopup }) => {
             >
                 <img
                     src={arrow}
+                    alt="Open question"
+                    loading="lazy"
+                />
+            </button>
+
+            <button
+                className='btnopenpopup'
+                id="wU4page30audioq2"
+                onClick={() => openAudio(sound1, unit1SecAQuestions[22].captions)}
+            >
+                <img
+                    src={audio}
+                    className="icon"
                     alt="Open question"
                     loading="lazy"
                 />
@@ -70,7 +100,14 @@ const WPage4 = ({ bgImage, openPopup }) => {
                 />
             </button>
 
-
+            {audioData && (
+                <AudioPopup
+                    open={true}
+                    onClose={() => setAudioData(null)}
+                    src={audioData.src}
+                    captions={audioData.captions}
+                />
+            )}
         </div>
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../../Popup/ValidationAlert";
 
-const ChooseAge = () => {
+const Q3 = () => {
   const questions = [
     {
       id: 1,
@@ -114,11 +114,6 @@ const ChooseAge = () => {
 
   return (
     <div className="flex flex-col items-center p-8 gap-8">
-      {/* العنوان */}
-      <h2 className="text-2xl font-bold text-center text-blue-700">
-        Écoute et choisis.
-      </h2>
-
       {/* الأسئلة */}
       <div className="grid grid-cols-4 gap-6">
         {questions.map((question) => (
@@ -175,4 +170,4 @@ const ChooseAge = () => {
   );
 };
 
-export default ChooseAge;
+export default Q3;

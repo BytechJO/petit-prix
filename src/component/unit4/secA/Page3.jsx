@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import './page3.css';
-import {
-  faArrowPointer, faHeadphones
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const sound1 = "/assets/unit1/secA/page6/u1l1q1.wav";
-const sound2 = "/assets/unit1/secA/page6/u1l1q2.wav";
-const sound3 = "/assets/unit1/secA/page6/u1l1q4.wav";
+const sound1 = "/assets/unit4/secA/page42/1.wav";
+const sound2 = "/assets/unit4/secA/page42/2.wav";
+const sound3 = "/assets/unit4/secA/page42/3.wav";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
@@ -120,6 +116,19 @@ const Page3 = ({ bgImage, openPopup }) => {
         className='btnopenpopup'
         id="U4page3audioq2"
         onClick={() => openAudio(sound2, captions2)}
+      >
+        <img
+          src={audio}
+          className="icon"
+          alt="Open question"
+          loading="lazy"
+        />
+      </button>
+
+      <button
+        className='btnopenpopup'
+        id="U4page3audioq3"
+        onClick={() => openAudio(sound3, captions2)}
       >
         <img
           src={audio}

@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: clamp(10px, 2vw, 20px); /* مسافة ديناميكية بين الصور */
+    gap: clamp(10px, 2vw, 20px); 
     flex-wrap: wrap;
     width: 100%;
 }

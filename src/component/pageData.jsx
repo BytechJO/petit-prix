@@ -120,15 +120,14 @@ import U2RQ7 from '../component/unit2/review/Exercise/Q7';
 // const sound11 = "/assets/unit2/secA/page17/2.wav";
 const sound12 = "/assets/unit2/secA/page18/1.wav";
 const sound122 = "/assets/unit2/secA/page18/2.wav";
-
 const sound13 = "/assets/unit2/secA/page19/1.wav";
 const sound133 = "/assets/unit2/secA/page19/2.wav";
 const sound14 = "/assets/unit2/secA/page20/1.wav";
 const sound144 = "/assets/unit2/secA/page20/2.wav";
 const sound15 = "/assets/unit2/secA/page21/1.wav";
 const sound155 = "/assets/unit2/secA/page21/2.wav";
-const sound16 = "/assets/unit2/secA/page24/1.wav";
-const sound17 = "/assets/unit2/secA/page26/1.wav";
+const sound16 = "/assets/unit2/review/page24/1.wav";
+const sound17 = "/assets/unit2/review/page26/1.wav";
 
 
 // review unit 2 page
@@ -191,6 +190,24 @@ import RU3Q5 from '../component/unit3/review/Exercise/Q5';
 import RU3Q6 from '../component/unit3/review/Exercise/Q6';
 import RU3Q7 from '../component/unit3/review/Exercise/Q7';
 
+// audio unit 3
+const sound18 = "/assets/unit3/secA/page28/1.wav";
+const sound19 = "/assets/unit3/secA/page29/1.wav";
+const sound20 = "/assets/unit3/secA/page30/1.wav";
+const sound21 = "/assets/unit3/secA/page30/2.wav";
+const sound22 = "/assets/unit3/secA/page31/1.wav";
+const sound23 = "/assets/unit3/secA/page31/2.wav";
+const sound24 = "/assets/unit3/secA/page32/1.wav";
+const sound25 = "/assets/unit3/secA/page32/2.wav";
+const sound26 = "/assets/unit3/secA/page32/3.wav";
+const sound27 = "/assets/unit3/secA/page33/1.wav";
+const sound28 = "/assets/unit3/secA/page33/2.wav";
+const sound29 = "/assets/unit3/secA/page33/3.wav";
+
+const sound30 = "/assets/unit3/review/page36/1.wav";
+const sound31 = "/assets/unit3/review/page39/1.wav";
+const sound32 = "/assets/unit3/review/page39/2.wav";
+
 // unit4 student img
 const U4img1 = "/assets/unit4/1.png";
 const U4img2 = "/assets/unit4/2.png";
@@ -240,7 +257,19 @@ import RU4Q2 from '../component/unit4/review/Exercise/Q2';
 import RU4Q3 from '../component/unit4/review/Exercise/Q3';
 import RU4Q4 from '../component/unit4/review/Exercise/Q4';
 import RU4Q5 from '../component/unit4/review/Exercise/Q5';
+//unit 4 sounds
+const sound33 = "/assets/unit4/secA/page42/1.wav";
+const sound34 = "/assets/unit4/secA/page42/2.wav";
+const sound35 = "/assets/unit4/secA/page42/3.wav";
+const sound36 = "/assets/unit4/secA/page43/1.wav";
+const sound37 = "/assets/unit4/secA/page43/2.wav";
+const sound38 = "/assets/unit4/secA/page44/1.wav";
+const sound39 = "/assets/unit4/secA/page44/2.wav";
+const sound40 = "/assets/unit4/secA/page44/3.wav";
+const sound41 = "/assets/unit4/secA/page45/1.wav";
+const sound42 = "/assets/unit4/secA/page45/2.wav";
 
+const sound43 = "/assets/unit4/review/page48/1.wav";
 
 // vocavulaire student img
 const vocabulaireimg1 = "/assets/vocabulaire/1.png";
@@ -1214,65 +1243,42 @@ export const unit1SecAQuestions = [
     component: U1RQ2,
     audio: null,
     text: "Regarde la peintureet réponds.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ],
-    // pausePoints: [11, 17],
   },
   {
     id: 10,
     component: U1RQ3,
     audio: null,
     text: "Montre les couleurs :",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 11,
     component: U1RQ4,
     audio: null,
     text: "Et maintenant crée ton prénom",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 12,
     component: U1RQ5,
     audio: null,
     text: "Trouve et entoure les mots français.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ],
-    // pausePoints: [12, 14, 17, 20],
   },
   {
     id: 13,
     component: U1RQ6,
     audio: null,
     text: "Trouve la bonne image.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 14,
     component: U1RQ7,
     audio: null,
     text: "Relie les mots aux images.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 15,
     component: U1RQ8,
     audio: null,
     text: "Souligne la bonne couleur.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
 
   //unit 2 sb
@@ -1342,7 +1348,7 @@ export const unit1SecAQuestions = [
   {
     id: 22,
     component: U2Q7,
-    audio: null,
+    audio: sound14,
     text: "Écoute, montre et écris.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1351,7 +1357,7 @@ export const unit1SecAQuestions = [
   {
     id: 23,
     component: U2Q8,
-    audio: null,
+    audio: sound144,
     text: "Écoute et trouve les erreurs.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1360,7 +1366,7 @@ export const unit1SecAQuestions = [
   {
     id: 24,
     component: U2Q9,
-    audio: null,
+    audio: sound15,
     text: "Écoute et choisis la bonne réponse.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1369,7 +1375,7 @@ export const unit1SecAQuestions = [
   {
     id: 25,
     component: U2Q10,
-    audio: null,
+    audio: sound155,
     text: "Écoute et coche la bonne réponse.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1404,7 +1410,7 @@ export const unit1SecAQuestions = [
   {
     id: 29,
     component: U2RQ4,
-    audio: null,
+    audio: sound17,
     text: "Écoute et associe.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1443,7 +1449,7 @@ export const unit1SecAQuestions = [
   {
     id: 33,
     component: U3Q1,
-    audio: null,
+    audio: sound18,
     text: "Observe et trouve.",
     captions: [
       { start: 0, end: 4.0, text: "Unité un, leçon quatre.De quelle couleur c'est ?" },
@@ -1458,7 +1464,7 @@ export const unit1SecAQuestions = [
   {
     id: 34,
     component: U3Q2,
-    audio: null,
+    audio: sound19,
     text: "Écoute et montre.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1468,7 +1474,7 @@ export const unit1SecAQuestions = [
   {
     id: 35,
     component: U3Q3,
-    audio: null,
+    audio: sound21,
     text: "Écoute et relie.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1477,7 +1483,7 @@ export const unit1SecAQuestions = [
   {
     id: 36,
     component: U3Q4,
-    audio: null,
+    audio: sound23,
     text: "Écoute et relie.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1487,7 +1493,7 @@ export const unit1SecAQuestions = [
   {
     id: 37,
     component: U3Q5,
-    audio: null,
+    audio: sound25,
     text: "Écoute, place dans le bon ordre et corrige.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1497,7 +1503,7 @@ export const unit1SecAQuestions = [
   {
     id: 38,
     component: U3Q6,
-    audio: null,
+    audio: sound26,
     text: "Écoute et entoure la bonne réponse. Puis parle avec un(e) ami(e).",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1506,7 +1512,7 @@ export const unit1SecAQuestions = [
   {
     id: 39,
     component: U3Q7,
-    audio: null,
+    audio: sound27,
     text: "Écoute, relie et place dans le bon ordre.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1515,7 +1521,7 @@ export const unit1SecAQuestions = [
   {
     id: 40,
     component: U3Q8,
-    audio: null,
+    audio: sound28,
     text: "Écoute et relie.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1540,7 +1546,7 @@ export const unit1SecAQuestions = [
   {
     id: 42,
     component: RU3Q2,
-    audio: null,
+    audio: sound30,
     text: "Montre et écris :",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1579,7 +1585,7 @@ export const unit1SecAQuestions = [
   {
     id: 46,
     component: RU3Q6,
-    audio: null,
+    audio: sound31,
     text: "Écoute et entoure la bonne réponse.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1588,7 +1594,7 @@ export const unit1SecAQuestions = [
   {
     id: 47,
     component: RU3Q7,
-    audio: null,
+    audio: sound32,
     text: "Écoute et associe.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1613,7 +1619,7 @@ export const unit1SecAQuestions = [
   {
     id: 49,
     component: U4Q2,
-    audio: null,
+    audio: sound33,
     text: "Écoute et dis quel âge a Pierre.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1623,7 +1629,7 @@ export const unit1SecAQuestions = [
   {
     id: 50,
     component: U4Q3,
-    audio: null,
+    audio: sound34,
     text: "Écoute et choisis.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1632,7 +1638,7 @@ export const unit1SecAQuestions = [
   {
     id: 51,
     component: U4Q4,
-    audio: null,
+    audio: sound37,
     text: "Écoute et choisis.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1642,7 +1648,7 @@ export const unit1SecAQuestions = [
   {
     id: 52,
     component: U4Q5,
-    audio: null,
+    audio: sound38,
     text: "Écoute, observe et nomme.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1652,7 +1658,7 @@ export const unit1SecAQuestions = [
   {
     id: 53,
     component: U4Q6,
-    audio: null,
+    audio: sound39,
     text: "Écoute et entoure ce que Léo veut.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1661,7 +1667,7 @@ export const unit1SecAQuestions = [
   {
     id: 54,
     component: U4Q7,
-    audio: null,
+    audio: sound41,
     text: "Écoute et mets dans l’ordre.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1670,7 +1676,7 @@ export const unit1SecAQuestions = [
   {
     id: 55,
     component: U4Q8,
-    audio: null,
+    audio: sound42,
     text: "Écoute et relie.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1689,7 +1695,7 @@ export const unit1SecAQuestions = [
   {
     id: 57,
     component: RU4Q1,
-    audio: null,
+    audio: sound43,
     text: "Observe et trouve.",
     captions: [
       { start: 0, end: 4.0, text: "Unité un, leçon quatre.De quelle couleur c'est ?" },

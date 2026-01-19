@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import './page4.css';
-import {
-    faArrowPointer, faHeadphones
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { Wunit1SecAQuestions } from '../../pageData';
+import { unit1SecAQuestions } from '../../pageData';
+import AudioPopup from '../../Popup/AudioPopup';
+import './page4.css';
 
 const arrow = "/assets/arrow.svg";
+const audio = "/assets/audio.svg";
+
+const sound = "/assets/workbook/unit3/page22/1.wav";
 
 const Page4 = ({ bgImage, openPopup }) => {
 
-    const [showAudio, setShowAudio] = useState(false);
+    const [audioData, setAudioData] = useState(null);
+
+    const openAudio = (src, captions) => {
+        setAudioData({ src, captions });
+    };
 
     const handleOpenQuestion = (questionIndex) => {
         const q = Wunit1SecAQuestions[questionIndex];
@@ -70,6 +74,27 @@ const Page4 = ({ bgImage, openPopup }) => {
                 />
             </button>
 
+            <button
+                className='btnopenpopup'
+                id="wU1page22audioq1"
+                onClick={() => openAudio(sound, unit1SecAQuestions[22].captions)}
+            >
+                <img
+                    src={audio}
+                    className="icon"
+                    alt="Open question"
+                    loading="lazy"
+                />
+            </button>
+
+            {audioData && (
+                <AudioPopup
+                    open={true}
+                    onClose={() => setAudioData(null)}
+                    src={audioData.src}
+                    captions={audioData.captions}
+                />
+            )}
 
         </div>
 
