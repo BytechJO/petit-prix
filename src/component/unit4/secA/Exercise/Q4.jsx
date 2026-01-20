@@ -5,25 +5,25 @@ const Q4 = () => {
   const questions = [
     {
       id: 1,
-      image: '/assets/unit3/secA/page31/1.svg',
+      image: '/assets/unit4/secA/page43/01.svg',
       options: ["Il y a du", "Il n’y a pas de"],
       correctAnswer: "Il y a du"
     },
     {
       id: 2,
-      image: '/assets/unit3/secA/page31/1.svg',
+      image: '/assets/unit4/secA/page43/02.svg',
       options: ["Il y a une", "Il n’y a pas de"],
       correctAnswer: "Il y a une"
     },
     {
       id: 3,
-      image: '/assets/unit3/secA/page31/1.svg',
+      image: '/assets/unit4/secA/page43/03.svg',
       options: ["Il y a des", "Il n’y a pas de"],
       correctAnswer: "Il y a des"
     },
     {
       id: 4,
-      image: '/assets/unit3/secA/page31/1.svg',
+      image: '/assets/unit4/secA/page43/04.svg',
       options: ["Il y a du", "Il n’y a pas de"],
       correctAnswer: "Il y a du"
     }

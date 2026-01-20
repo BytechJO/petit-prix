@@ -3,10 +3,10 @@ import ValidationAlert from "../../../Popup/ValidationAlert";
 
 const Q7 = () => {
   const images = [
-    { id: 1, src: '/assets/unit3/secA/page31/1.svg', correctOrder: 3 },
-    { id: 2, src: '/assets/unit3/secA/page31/2.svg', correctOrder: 1 },
-    { id: 3, src: '/assets/unit3/secA/page31/3.svg', correctOrder: 4 },
-    { id: 4, src: '/assets/unit3/secA/page31/4.svg', correctOrder: 2 },
+    { id: 1, src: '/assets/unit4/secA/page45/1.svg', correctOrder: 3 },
+    { id: 2, src: '/assets/unit4/secA/page45/2.svg', correctOrder: 1 },
+    { id: 3, src: '/assets/unit4/secA/page45/3.svg', correctOrder: 4 },
+    { id: 4, src: '/assets/unit4/secA/page45/4.svg', correctOrder: 2 },
   ];
 
   const [selectedOrders, setSelectedOrders] = useState({});
@@ -103,7 +103,7 @@ const Q7 = () => {
         {images.map((image) => (
           <div key={image.id} className="relative">
             {/* الصورة */}
-            <div className="w-56 h-56 flex items-center justify-center bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+            <div className="w-56 h-56 flex items-center justify-center rounded-lg overflow-hidden">
               <img
                 src={image.src}
                 alt={`Image ${image.id}`}

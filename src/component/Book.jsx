@@ -92,7 +92,7 @@ export default function Book() {
 
   const openPopup = (data) => {
     // اطبع أي بيانات إضافية تحب
-    console.log("DATA ID = "+data.startIndex+1+"\nComponent number = "+data.questions[data.startIndex].component.name);
+    console.log("DATA ID = "+ (data.startIndex + 1) +"\nComponent number = "+data.questions[data.startIndex].component.name);
 
     setPopupData({ ...data, isOpen: true });
   };

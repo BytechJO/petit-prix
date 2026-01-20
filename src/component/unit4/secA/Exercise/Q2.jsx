@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ValidationAlert from "../../../Popup/ValidationAlert";
 
 const Q2 = () => {
-  const imageSrc = '/assets/unit3/secA/page31/1.svg';
+  const imageSrc = '/assets/unit4/secA/page42/1.svg';
 
   const leftOptions = [
     { id: 1, text: "Un", value: 1 },

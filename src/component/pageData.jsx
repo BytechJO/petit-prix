@@ -203,7 +203,6 @@ const sound26 = "/assets/unit3/secA/page32/3.wav";
 const sound27 = "/assets/unit3/secA/page33/1.wav";
 const sound28 = "/assets/unit3/secA/page33/2.wav";
 const sound29 = "/assets/unit3/secA/page33/3.wav";
-
 const sound30 = "/assets/unit3/review/page36/1.wav";
 const sound31 = "/assets/unit3/review/page39/1.wav";
 const sound32 = "/assets/unit3/review/page39/2.wav";
@@ -257,6 +256,7 @@ import RU4Q2 from '../component/unit4/review/Exercise/Q2';
 import RU4Q3 from '../component/unit4/review/Exercise/Q3';
 import RU4Q4 from '../component/unit4/review/Exercise/Q4';
 import RU4Q5 from '../component/unit4/review/Exercise/Q5';
+
 //unit 4 sounds
 const sound33 = "/assets/unit4/secA/page42/1.wav";
 const sound34 = "/assets/unit4/secA/page42/2.wav";
@@ -268,7 +268,6 @@ const sound39 = "/assets/unit4/secA/page44/2.wav";
 const sound40 = "/assets/unit4/secA/page44/3.wav";
 const sound41 = "/assets/unit4/secA/page45/1.wav";
 const sound42 = "/assets/unit4/secA/page45/2.wav";
-
 const sound43 = "/assets/unit4/review/page48/1.wav";
 
 // vocavulaire student img
@@ -439,6 +438,45 @@ import WU4Q15 from '../component/workbook/unit4/Exercise/Q15';
 import WU4Q16 from '../component/workbook/unit4/Exercise/Q16';
 
 import WRQ1 from '../component/workbook/revision/Exercise/Q1';
+
+
+
+//بحاجة الى تعديل
+import U4Q10 from '../component/unit4/secA/Exercise/Q10';
+
+//unit 1 WB
+const sound44 = "/assets/workbook/unit1/Lesson1/1.wav";
+const sound45 = "/assets/workbook/unit1/Lesson1/2.wav";
+const sound46 = "/assets/workbook/unit1/page5/1.wav";
+const sound47 = "/assets/workbook/unit1/page5/2.wav";
+const sound48 = "/assets/workbook/unit1/page6/1.wav";
+const sound49 = "/assets/workbook/unit1/page7/1.wav";
+const sound50 = "/assets/workbook/unit1/page7/2.wav";
+const sound51 = "/assets/workbook/unit1/page9/1.wav";
+const sound52 = "/assets/workbook/unit1/page9/2.wav";
+
+//unit 2 WB
+const sound53 = "/assets/workbook/unit2/page12/1.wav";
+const sound54 = "/assets/workbook/unit2/page14/1.wav";
+const sound55 = "/assets/workbook/unit2/page15/1.wav";
+const sound56 = "/assets/workbook/unit2/page15/2.wav";
+const sound57 = "/assets/workbook/unit2/page17/1.wav";
+const sound58 = "/assets/workbook/unit2/page18/1.wav";
+
+//unit 3 WB
+const sound59 = "/assets/workbook/unit3/page20/1.wav";
+const sound60 = "/assets/workbook/unit3/page22/1.wav";
+const sound61 = "/assets/workbook/unit3/page25/1.wav";
+
+//unit 4 WB
+const sound62 = "/assets/workbook/unit4/page27/1.wav";
+const sound63 = "/assets/workbook/unit4/page30/1.wav";
+const sound64 = "/assets/workbook/unit4/page30/2.wav";
+const sound65 = "/assets/workbook/unit4/page31/1.wav";
+const sound66 = "/assets/workbook/unit4/page32/1.wav";
+const sound67 = "/assets/workbook/unit4/page33/1.wav";
+const sound68 = "/assets/workbook/unit4/page33/2.wav";
+
 
 
 export const pageData = [
@@ -1691,6 +1729,16 @@ export const unit1SecAQuestions = [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     // ]
   },
+  //بحاجة الى تعديل
+  {
+    id: 57,
+    component: U4Q10,
+    audio: null,
+    text: "Lance le dé, joue et parle.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
   //unit 4 sb REVIEW
   {
     id: 57,
@@ -1753,137 +1801,137 @@ export const Wunit1SecAQuestions = [
   {
     id: 1,
     component: WU1Q1,
-    audio: null,
+    audio: sound44,
     text: "C’est français ? Écoute et réponds par oui ou non.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 2,
     component: WU1Q2,
     audio: null,
     text: "Écris les mots.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 3,
     component: WU1Q3,
     audio: null,
     text: "Qu’est-ce que tu dis ? Entoure la bonne réponse.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 4,
     component: WU1Q4,
-    audio: null,
+    audio: sound45,
     text: "Écoute et écris.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 5,
     component: WU1Q5,
-    audio: null,
+    audio: sound46,
     text: "Écoute et entoure.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 6,
     component: WU1Q6,
-    audio: null,
+    audio: sound47,
     text: "Écoute et relie.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 7,
     component: WU1Q7,
-    audio: null,
+    audio: sound48,
     text: "Écoute et complète.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 8,
     component: WU1Q8,
     audio: null,
     text: "Écris.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 9,
     component: WU1Q9,
     audio: null,
     text: "Déchiffre le prénom.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 10,
     component: WU1Q10,
-    audio: null,
+    audio: sound50,
     text: "Écoute et relie.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 11,
     component: WU1Q11,
     audio: null,
     text: "Mets dans le bon ordre.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 12,
     component: WU1Q12,
     audio: null,
     text: "Comment ça va ? Complète les mots.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 13,
     component: WU1Q13,
     audio: null,
     text: "Regarde, entoure et réponds.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 14,
     component: WU1Q14,
-    audio: null,
+    audio: sound51,
     text: "Écoute et entoure la bonne couleur.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   {
     id: 15,
     component: WU1Q15,
-    audio: null,
+    audio: sound52,
     text: "Écoute et colorie.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
   },
   // unit2
   {
@@ -1907,7 +1955,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 18,
     component: WU2Q3,
-    audio: null,
+    audio: sound53,
     text: "Écoute, range et écris.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1961,7 +2009,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 24,
     component: WU2Q9,
-    audio: null,
+    audio: sound55,
     text: "Écoute et relie.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -1970,7 +2018,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 25,
     component: WU2Q10,
-    audio: null,
+    audio: sound56,
     text: "Qu’est-ce que Paul aime ? Écoute et coche la bonne réponse.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2006,7 +2054,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 29,
     component: WU2Q14,
-    audio: null,
+    audio: sound57,
     text: "Écoute et entoure la bonne réponse.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2024,7 +2072,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 31,
     component: WU2Q16,
-    audio: null,
+    audio: sound58,
     text: "Qu’est-ce que Anna déteste ? Écoute et coche la bonne réponse.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2052,7 +2100,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 34,
     component: WU3Q3,
-    audio: null,
+    audio: sound59,
     text: "Écoute et relie.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2097,7 +2145,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 39,
     component: WU3Q8,
-    audio: null,
+    audio: sound60,
     text: "Écoute et entoure la bonne réponse.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2169,7 +2217,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 47,
     component: WU3Q16,
-    audio: null,
+    audio: sound61,
     text: "Écoute et coche la bonne réponse. Parle avec un(e) ami(e).",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2206,7 +2254,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 51,
     component: WU4Q1,
-    audio: null,
+    audio: sound62,
     text: "Écoute et complète.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2260,7 +2308,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 57,
     component: WU4Q7,
-    audio: null,
+    audio: sound63,
     text: "Écoute et entoure ce qu’il y a.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2269,7 +2317,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 58,
     component: WU4Q8,
-    audio: null,
+    audio: sound64,
     text: "Écoute et coche ce qu’il n’y a pas.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2296,7 +2344,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 61,
     component: WU4Q11,
-    audio: null,
+    audio: sound65,
     text: "Écoute et dis « salut » quand tu entends les boissons.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2305,7 +2353,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 62,
     component: WU4Q12,
-    audio: null,
+    audio: sound66,
     text: "Écoute et relie.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2314,7 +2362,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 63,
     component: WU4Q13,
-    audio: null,
+    audio: sound67,
     text: "Écoute et écris le bon numéro.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
@@ -2323,7 +2371,7 @@ export const Wunit1SecAQuestions = [
   {
     id: 64,
     component: WU4Q14,
-    audio: null,
+    audio: sound68,
     text: "Écoute et relie.",
     captions: [
       { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },

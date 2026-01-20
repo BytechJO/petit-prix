@@ -15,8 +15,8 @@ const Q9 = () => {
     const diceAudioRef = useRef(new Audio(audio));
     const arrivalAudioRef = useRef(new Audio(arrivalSound));
 
-    const storyImages = Array.from({ length: 12 }, (_, i) =>
-        `/assets/unit1/review/page10/${i + 1}.svg`
+    const storyImages = Array.from({ length: 13 }, (_, i) =>
+        `/assets/unit4/review/page46/${i + 1}.svg`
     );
 
     const storySounds = Array.from({ length: 12 }, (_, i) =>

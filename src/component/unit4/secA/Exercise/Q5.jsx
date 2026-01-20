@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import ValidationAlert from "../../../Popup/ValidationAlert";
 
 const Q5 = () => {
-  const image1 = '/assets/unit3/secA/page31/1.svg';
-  const image2 = '/assets/unit3/secA/page31/2.svg';
+  const image1 = '/assets/unit4/secA/page44/1.svg';
+  const image2 = '/assets/unit4/secA/page44/2.svg';
 
   const image1Answers = ["poulet", "jus", "pain", "pomme"];
   const image2Answers = ["banane", "jus", "salade", "gâteau", "bonbon"];
@@ -128,7 +128,7 @@ const Q5 = () => {
       <div className="grid grid-cols-2 gap-12 w-full max-w-5xl">
         {/* الصورة الأولى */}
         <div className="flex flex-col items-center gap-4">
-          <div className="w-full h-80 flex items-center justify-center bg-gray-100 rounded-lg shadow-md overflow-hidden">
+          <div className="w-full h-80 flex items-center justify-center rounded-lg overflow-hidden">
             <img
               src={image1}
               alt="Image 1"
@@ -158,7 +158,7 @@ const Q5 = () => {
 
         {/* الصورة الثانية */}
         <div className="flex flex-col items-center gap-4">
-          <div className="w-full h-80 flex items-center justify-center bg-gray-100 rounded-lg shadow-md overflow-hidden">
+          <div className="w-full h-80 flex items-center justify-center rounded-lg overflow-hidden">
             <img
               src={image2}
               alt="Image 2"

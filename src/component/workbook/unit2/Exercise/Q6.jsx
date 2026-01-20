@@ -1,24 +1,42 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const flage1 = '/assets/unit2/review/page26/flag1.svg';
-const flage2 = '/assets/unit2/review/page26/flag2.svg';
-const flage3 = '/assets/unit2/review/page26/flag3.svg';
+const LU = '/assets/workbook/unit2/page13/LU.svg';
+const DI = '/assets/workbook/unit2/page13/DI.svg';
+const DI2 = '/assets/workbook/unit2/page13/DI2.svg';
+const SA = '/assets/workbook/unit2/page13/SA.svg';
+const JE = '/assets/workbook/unit2/page13/JE.svg';
+const MAR = '/assets/workbook/unit2/page13/MAR.svg';
+const MER = '/assets/workbook/unit2/page13/MER.svg';
+const NDI = '/assets/workbook/unit2/page13/NDI.svg';
+const VEN = '/assets/workbook/unit2/page13/VEN.svg';
+const CREDI = '/assets/workbook/unit2/page13/CREDI.svg';
+const DREDI2 = '/assets/workbook/unit2/page13/DREDI.svg';
+const MEDI = '/assets/workbook/unit2/page13/MEDI.svg';
+const MANCHE = '/assets/workbook/unit2/page13/MANCHE.svg';
+const UDI = '/assets/workbook/unit2/page13/UDI.svg';
+
 
 const WORDS = [
-    { id: 'word-1', src: flage1 , correctMatch: 'img-2' },
-    { id: 'word-2', src: flage2 , correctMatch: 'img-3' },
-    { id: 'word-3', src: flage3 , correctMatch: 'img-1' },
+    { id: 'word-1', src: LU , correctMatch: 'img-5' },
+    { id: 'word-2', src: MAR , correctMatch: 'img-7' },
+    { id: 'word-3', src: MER , correctMatch: 'img-1' },
+    { id: 'word-4', src: JE , correctMatch: 'img-3' },
+    { id: 'word-5', src: VEN , correctMatch: 'img-2' },
+    { id: 'word-6', src: SA , correctMatch: 'img-4' },
+    { id: 'word-7', src: DI2 , correctMatch: 'img-6' },
 ]
 
-const img1 = '/assets/unit2/review/page26/ch1.svg';
-const img2 = '/assets/unit2/review/page26/ch2.svg';
-const img3 = '/assets/unit2/review/page26/ch3.svg';
+
 
 const IMAGES = [
-    { id: 'img-1', src: img1, alt: 'Super' },
-    { id: 'img-2', src: img2, alt: 'Comme ci comme ça' },
-    { id: 'img-3', src: img3, alt: 'Bien' },
+    { id: 'img-1', src: CREDI, alt: 'Super' },
+    { id: 'img-2', src: DREDI2, alt: 'Comme ci comme ça' },
+    { id: 'img-3', src: UDI, alt: 'Bien' },
+    { id: 'img-4', src: MEDI, alt: 'Super' },
+    { id: 'img-5', src: NDI, alt: 'Comme ci comme ça' },
+    { id: 'img-6', src: MANCHE, alt: 'Bien' },
+    { id: 'img-7', src: DI, alt: 'Super' },
 ]
 
 const Q6 = () => {
@@ -151,7 +169,7 @@ const Q6 = () => {
                     })()}
                 </svg>
 
-                <div className="space-y-12 relative py-4">
+                <div className="relative py-4">
                     {WORDS.map((word, index) => {
                         const image = IMAGES[index];
                         return (

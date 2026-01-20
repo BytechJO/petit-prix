@@ -10,14 +10,13 @@ const Q6 = () => {
   // الصورة الصحيحة دائمًا الصورة الثالثة (index = 2)
   const correctIndex = 2;
 
-  const img1 = '/assets/unit2/secA/page21/1.png';
-  const img2 = '/assets/unit2/secA/page21/2.png';
-  const img3 = '/assets/unit2/secA/page21/3.png';
-  const img4 = '/assets/unit2/secA/page21/4.png';
-  const img5 = '/assets/unit2/secA/page21/5.png';
-  const img6 = '/assets/unit2/secA/page21/6.png';
-  const img7 = '/assets/unit2/secA/page21/1.png';
-  const img8 = '/assets/unit2/secA/page21/2.png';
+  const img1 = '/assets/unit4/secA/page44/01.svg';
+  const img2 = '/assets/unit4/secA/page44/02.svg';
+  const img3 = '/assets/unit4/secA/page44/03.svg';
+  const img4 = '/assets/unit4/secA/page44/04.svg';
+  const img5 = '/assets/unit4/secA/page44/05.svg';
+  const img6 = '/assets/unit4/secA/page44/06.svg';
+  const img7 = '/assets/unit4/secA/page44/07.svg';
 
   const images = [
     img1,
@@ -26,8 +25,7 @@ const Q6 = () => {
     img4,
     img5,
     img6,
-    img7,
-    img8
+    img7
   ];
 
   const handleImageClick = (index) => {

@@ -5,25 +5,25 @@ const Q3 = () => {
   const questions = [
     {
       id: 1,
-      image: '/assets/unit3/secA/page31/1.svg',
+      image: '/assets/unit4/secA/page42/a.svg',
       options: ["cinq", "six", "sept"],
       correctAnswer: "sept"
     },
     {
       id: 2,
-      image: '/assets/unit3/secA/page31/1.svg',
+      image: '/assets/unit4/secA/page42/b.svg',
       options: ["six", "sept", "huit"],
       correctAnswer: "six"
     },
     {
       id: 3,
-      image: '/assets/unit3/secA/page31/1.svg',
+      image: '/assets/unit4/secA/page42/c.svg',
       options: ["cinq", "six", "sept"],
       correctAnswer: "cinq"
     },
     {
       id: 4,
-      image: '/assets/unit3/secA/page31/1.svg',
+      image: '/assets/unit4/secA/page42/d.svg',
       options: ["six", "sept", "huit"],
       correctAnswer: "huit"
     }
@@ -117,13 +117,13 @@ const Q3 = () => {
       {/* الأسئلة */}
       <div className="grid grid-cols-4 gap-6">
         {questions.map((question) => (
-          <div key={question.id} className="flex flex-col items-center gap-4">
+          <div key={question.id} className="flex flex-col items-center gap-3">
             {/* الصورة */}
-            <div className="w-48 h-48 flex items-center justify-center bg-gray-100 rounded-lg shadow-md overflow-hidden">
+            <div className="w-50 h-50 flex items-center justify-center rounded-lg overflow-hidden">
               <img
                 src={question.image}
                 alt={`Question ${question.id}`}
-                className="max-w-full max-h-full object-contain"
+                className="max-w-full max-h-full object-contain lg:mr-10"
               />
             </div>
 

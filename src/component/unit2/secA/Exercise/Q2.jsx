@@ -5,9 +5,8 @@ const backgroundImage = "/assets/unit2/secA/page17/cover.png";
 import ValidationAlert from "../../../Popup/ValidationAlert";
 import InteractivePage from "../../../unit1/interactive";
 
-const fence = "/assets/unit1/secA/page45/ch1.svg";
-const book = "/assets/unit1/secA/page45/ch3.svg";
-const pen = "/assets/unit1/secA/page45/ch4.svg";
+const fence = "/assets/unit2/secA/page17/2.svg";
+const book = "/assets/unit2/secA/page17/1.svg";
 
 const Q2 = () => {
   const [foundItems, setFoundItems] = useState([false, false, false, false]);
@@ -18,28 +17,19 @@ const Q2 = () => {
   const Items = [
     {
       index: 0,
-      top: "59.5%",
-      left: "36%",
-      width: "60%",
+      top: "43%",
+      left: "42%",
+      width: "41%",
       height: "40%",
       image: fence,
       "aria-label": "Restaurant area 1",
     },
     {
-      index: 1,
-      top: "46%",
-      left: "69%",
-      width: "37%",
-      height: "44%",
-      image: pen,
-      "aria-label": "Restaurant area 2",
-    },
-    {
       index: 2,
-      top: "31%",
-      left: "15.5%",
-      width: "20%",
-      height: "23%",
+      top: "26%",
+      left: "11%",
+      width: "25%",
+      height: "50%",
       image: book,
       "aria-label": "Restaurant area 3",
     },

@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
 
-import Img1 from './assets/01.svg?react';
-import Img2 from './assets/02.svg?react';
-import Img3 from './assets/03.svg?react';
-import Img4 from './assets/03.svg?react';
+import Img1 from './assets/1.svg?react';
+import Img2 from './assets/2.svg?react';
+import Img3 from './assets/3.svg?react';
+import Img4 from './assets/4.svg?react';
 
 import domtoimage from 'dom-to-image-more';
 
@@ -60,7 +60,7 @@ const Q2 = () => {
 
 
             {/* حاوية صور SVG */}
-            <div className="svg-container">
+            <div className="svg-container w-220 lg:mt-14">
                 <Img1 className="coloring-svg" onClick={handlePathClick} />
                 <Img2 className="coloring-svg" onClick={handlePathClick} />
                 <Img3 className="coloring-svg" onClick={handlePathClick} />
