@@ -443,6 +443,7 @@ import WRQ1 from '../component/workbook/revision/Exercise/Q1';
 
 //بحاجة الى تعديل
 import U4Q10 from '../component/unit4/secA/Exercise/Q10';
+import U4Q11 from '../component/unit4/secA/Exercise/Q11';
 
 //unit 1 WB
 const sound44 = "/assets/workbook/unit1/Lesson1/1.wav";
@@ -1656,6 +1657,15 @@ export const unit1SecAQuestions = [
   },
   {
     id: 49,
+    component: U4Q10,
+    audio: null,
+    text: "Lance le dé, joue et parle.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 50,
     component: U4Q2,
     audio: sound33,
     text: "Écoute et dis quel âge a Pierre.",
@@ -1665,7 +1675,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [11, 17],
   },
   {
-    id: 50,
+    id: 51,
     component: U4Q3,
     audio: sound34,
     text: "Écoute et choisis.",
@@ -1674,7 +1684,16 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 51,
+    id: 52,
+    component: U4Q11,
+    audio: sound36,
+    text: "Écoute et montre.",
+    // captions: [
+    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+    // ]
+  },
+  {
+    id: 53,
     component: U4Q4,
     audio: sound37,
     text: "Écoute et choisis.",
@@ -1684,7 +1703,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [11, 17],
   },
   {
-    id: 52,
+    id: 54,
     component: U4Q5,
     audio: sound38,
     text: "Écoute, observe et nomme.",
@@ -1694,7 +1713,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [12, 14, 17, 20],
   },
   {
-    id: 53,
+    id: 55,
     component: U4Q6,
     audio: sound39,
     text: "Écoute et entoure ce que Léo veut.",
@@ -1703,7 +1722,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 54,
+    id: 56,
     component: U4Q7,
     audio: sound41,
     text: "Écoute et mets dans l’ordre.",
@@ -1712,7 +1731,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 55,
+    id: 57,
     component: U4Q8,
     audio: sound42,
     text: "Écoute et relie.",
@@ -1721,27 +1740,18 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 56,
+    id: 58,
     component: U4Q9,
     audio: null,
-    text: "Lance le dé, joue et parle.",
+    text: "Écoute et montre.",
     // captions: [
     //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
     // ]
   },
-  //بحاجة الى تعديل
+
+
   {
-    id: 57,
-    component: U4Q10,
-    audio: null,
-    text: "Lance le dé, joue et parle.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
-  },
-  //unit 4 sb REVIEW
-  {
-    id: 57,
+    id: 59,
     component: RU4Q1,
     audio: sound43,
     text: "Observe et trouve.",
@@ -1756,7 +1766,7 @@ export const unit1SecAQuestions = [
     ],
   },
   {
-    id: 58,
+    id: 60,
     component: RU4Q2,
     audio: null,
     text: "Écoute et dis quel âge a Pierre.",
@@ -1766,7 +1776,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [11, 17],
   },
   {
-    id: 59,
+    id: 61,
     component: RU4Q3,
     audio: null,
     text: "Écoute et choisis.",
@@ -1775,7 +1785,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 60,
+    id: 62,
     component: RU4Q4,
     audio: null,
     text: "Écoute et choisis.",
@@ -1785,7 +1795,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [11, 17],
   },
   {
-    id: 61,
+    id: 63,
     component: RU4Q5,
     audio: null,
     text: "Écoute, observe et nomme.",

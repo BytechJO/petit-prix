@@ -168,13 +168,13 @@ const Q8 = () => {
 
   return (
     <div className="flex flex-col items-center p-8">
-      <div className="flex justify-between items-center w-full relative" ref={containerRef}>
+      <div className="flex justify-center items-center w-full relative gap-65" ref={containerRef}>
         {/* LEFT */}
         <div className=" flex flex-col gap-20">
           {leftParts.map((l, i) => (
             <div
               key={i}
-              className={`flex items-center gap-2 p-2 border rounded cursor-pointer ${locked ? "opacity-50" : ""}`}
+              className={`flex items-center gap-2 p-2 cursor-pointer ${locked ? "opacity-50" : ""}`}
               data-left-id={l.id}
               onClick={handleStart}
             >
@@ -196,7 +196,7 @@ const Q8 = () => {
               onClick={(e) => (firstPoint ? handleEnd(e) : handleStart(e))}
             >
               <div className="dot w-3 h-3 bg-red-500 rounded-full absolute top-1 left-1" />
-              <img src={img.src} alt="" className="max-w-24 max-h-24 object-cover border" />
+              <img src={img.src} alt="" className="max-w-50 max-h-24 object-cover" />
             </div>
           ))}
         </div>
@@ -211,7 +211,7 @@ const Q8 = () => {
               onClick={(e) => (firstPoint ? handleEnd(e) : handleStart(e))}
             >
               <div className="dot w-3 h-3 bg-red-500 rounded-full absolute top-1 left-1" />
-              <img src={r.src} alt="" className="max-w-24 max-h-24 object-cover border" />
+              <img src={r.src} alt="" className="max-w-35 max-h-24 object-cover" />
             </div>
           ))}
         </div>

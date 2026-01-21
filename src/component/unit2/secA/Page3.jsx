@@ -36,39 +36,39 @@ const Page3 = ({ bgImage, openPopup }) => {
     });
   };
 
-
+ 
   const captions1 = [
-    { start: 0, end: 0.9, text: "Unité 1." },
-    { start: 1.1, end: 2.1, text: "leçon 1." },
-    { start: 2.45, end: 4.5, text: "Salut tout le monde !" },
-    { start: 4.5, end: 5.5, text: "Exercice 1." },
-    { start: 6.2, end: 6.6, text: "Écoute," },
-    { start: 7.0, end: 8.0, text: "montre et écris." },
-    { start: 9.2, end: 9.4, text: "A." },
-    { start: 10.2, end: 11.1, text: "Salut Léo !" },
-    { start: 11.9, end: 12.0, text: "Oh," },
-    { start: 12.4, end: 13.3, text: "salut Lily !" },
-    { start: 14.4, end: 14.9, text: "B." },
-    { start: 15.1, end: 16.5, text: "Bonjour les enfants !" },
-    { start: 17.0, end: 19.0, text: "Bonjour Madame Dubois !" },
+    { start: 0, end: 0.9, text: "Unité deux." },
+    { start: 1.1, end: 2.1, text: "Leçon un." },
+    { start: 2.45, end: 4.5, text: "Qu'est-ce que c'est ?" },
+    { start: 4.5, end: 8.5, text: " Exercice un. Écoute, montre et écris." },
+    { start: 8.5, end: 12.0, text: "A.C'est un stylo." },
+    { start: 12.0, end: 15.0, text: "B. C'est un livre." },
+    { start: 15.0, end: 17.5, text: "C.C'est une gomme." },
+    { start: 17.5, end: 20.5, text: "D. C'est une trousse." },
+    { start: 21.5, end: 25.0, text: "E.Ce sont des crayons de couleur." },
 
   ];
-
+      
   const captions2 = [
-    { start: 0, end: 2.0, text: "Unité 1, Leçon 1" },
-    { start: 2.0, end: 4.0, text: "Salut tout le monde !" },
-    { start: 4.0, end: 5.0, text: "Exercice 2" },
-    { start: 5.0, end: 9.0, text: "Écoute et lis !" },
-    { start: 9.0, end: 11.0, text: "A. Salut Léo !" },
-    { start: 11.0, end: 13.0, text: "Oh, salut Lily !" },
-    { start: 13.0, end: 16.0, text: "B. Bonjour les enfants ! " },
-    { start: 16.0, end: 18.0, text: "Bonjour Madame Dubois !" },
-    { start: 18.0, end: 20.0, text: "Bonjour Madame Dubois !" },
+    { start: 0, end: 1.7, text: "Unité deux." },
+    { start: 1.7, end: 3.0, text: "Leçon un." },
+    { start: 3.0, end: 5.5, text: "Qu'est-ce que c'est ?" },
+    { start: 5.5, end: 7.0, text: "Exercice deux." },
+    { start: 7.0, end: 9.5, text: "Écoute et choisis." },
+    { start: 9.5, end: 11.7, text: "J'ai un portable jaune, une trousse rouge," },
+    { start: 11.7, end: 14.0, text: "un stylo bleu, une règle verte." },
   ];
+         
   const captions3 = [
-    { start: 0, end: 4.0, text: "Unité 1, Leçon 1. Salut tout le monde !" },
-    { start: 4.0, end: 10.0, text: "Exercice 4. Écoute la chanson, mime et chante." },
-    { start: 10.0, end: 25.0, text: "Je te dis bonjour, tu me dis bonjour, on se dit bonjour et bonne journée." },
+    { start: 0, end: 1.7, text: "Unité deux." },
+    { start: 1.7, end: 3.0, text: "Leçon un. Qu'est-ce que c'est ?" },
+    { start: 3.0, end: 5.5, text: "Exercice quatre." },
+    { start: 5.5, end: 7.0, text: "Écoute la chanson, mime et chante." },
+    { start: 7.0, end: 9.5, text: "L'école. Je suis grand, je vais à l'école sans ma maman," },
+    { start: 9.5, end: 11.7, text: "mais qu'est-ce qu'on rigole ! Je prends mon cartable, je prends ma gomme," },
+    { start: 11.7, end: 14.0, text: "je prends ma trousse et mes crayons de couleur. Maman" },
+    { start: 14.0, end: 17.0, text: ", je n'ai rien oublié ? Ton livre !" }
   ];
   return (
     <div

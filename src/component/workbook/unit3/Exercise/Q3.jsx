@@ -161,7 +161,7 @@ const Q3 = () => {
                                     <div
                                         data-pointid={word.id}
                                         onClick={() => handlePointClick(word.id, 'word')}
-                                        className="p-3 rounded-lg shadow-sm flex items-center gap-4">
+                                        className="p-3 rounded-lg  flex items-center gap-4">
                                         <img src={word.src} className="font-semibold text-gray-800 max-w-38 max-h-32" />
 
                                     </div>
@@ -172,7 +172,7 @@ const Q3 = () => {
                                     <div
                                         data-pointid={image.id}
                                         onClick={() => handlePointClick(image.id, 'image')}
-                                        className="bg-white p-2 rounded-xl shadow-md">
+                                        className="p-2 rounded-xl max-w-28">
                                         <img
                                             src={image.src}
                                             alt={image.alt}

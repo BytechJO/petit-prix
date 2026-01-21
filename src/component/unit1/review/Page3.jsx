@@ -41,10 +41,7 @@ const Page3 = ({ bgImage, openPopup }) => {
     { start: 5.5, end: 8.0, text: "Écoute et répète." },
     { start: 8.5, end: 15.0, text: "C'est le monument et le symbole de la France. Le nom de ce monument est la tour Eiffel.," },
     { start: 15.0, end: 19.0, text: "La tour Eiffel a été construite par Gustave Eiffel." },
-     
   ];
-
-
   return (
     <div
       className="page_1-background"

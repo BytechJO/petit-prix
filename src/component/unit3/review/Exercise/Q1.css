@@ -1,99 +1,80 @@
-/* الحاوية الرئيسية */
-.popup-image-container3 {
+.unit3-q1-container {
+  width: 95%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  margin-left: clamp(10px, 5vw, 35px);
   position: relative;
-  width: 100%;
   display: flex;
   justify-content: center;
-  justify-items: center;
-  justify-self: center;
-  box-sizing: border-box;
-  height: 45vh;
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
 }
 
-.character-images1 {
-  margin-top: 50px;
+.unit3-q1-text-container {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 15px;
+  border-radius: 10px;
   width: 30%;
-  height: auto;
-  transform: scale(1.5);
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  bottom: 5%;
+  left: 5%;
 }
 
+.unit3-q1-text-container p {
+  margin-bottom: 1em;
+}
 
-
-/* الفقاعة الرئيسية */
-.bubbles-cloud {
+.unit3-q1-text-container1 {
   position: absolute;
-  max-width: 320px;
-  background: #62adcd;
-  border-radius: 18px;
-  padding: 25px 18px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  line-height: 1;
-  color: #000000;
-  font-size: large;
-  font-weight: 500;
-  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 15px;
+  border-radius: 10px;
+  width: 35%;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  top: 70%;
+  right: 5%;
 }
 
-.bubbles-cloud::after {
-  content: "";
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  background: #62adcd;
-  border-radius: 50%;
-  bottom: -22px;
-  left: 30px;
+.unit3-q1-text-container1 p {
+  margin-bottom: 1em;
 }
 
-/* الفقاعة الصغيرة تحت */
-.bubbles-cloud::before {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  background: #62adcd;
-  border-radius: 50%;
-  bottom: -32px;
-  left: 20px;
-}
-
-/* محتوى الفقاعة */
-.bubble-content {
+.unit3-q1-inputs-wrapper {
   position: relative;
-  z-index: 2;
+  width: 55%;
+  height: 100%;
 }
 
-/* زر الإغلاق */
-.bubbles-cloud .close {
+.unit3-q1-stretch-input {
+  color: #000000;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bolder;
   position: absolute;
-  top: 6px;
-  right: 8px;
-  background: #e2e8f0;
+  background: linear-gradient(120deg, #4facfe 25%, #00f2fe 37%, #4facfe 63%);
+  background-size: 400% 400%;
+  animation: shine 2s ease-in-out infinite;
   border: none;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  font-size: 18px;
-  line-height: 20px;
-  cursor: pointer;
-  color: #333;
-  font-weight: bold;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 16px;
+  width: 5%;
+  outline: none;
+  transition: width 0.2s ease;
 }
 
-.bubbles-cloud .close:hover {
-  background: #cbd5e1;
-}
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
 
-/* قلب الفقاعة */
-.bubbles-cloud.flipped {
-  transform: scaleX(-1);
-}
-
-.bubbles-cloud.flipped * {
-  transform: scaleX(-1);
-}
-
-/* نخلي النص طبيعي */
-.bubble-content {
-  transform: scaleX(1);
+  100% {
+    background-position: 100% 50%;
+  }
 }

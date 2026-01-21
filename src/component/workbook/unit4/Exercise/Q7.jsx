@@ -9,12 +9,12 @@ const Q7 = () => {
     // الصور الصحيحة (index = 1, 4, 8)
     const correctIndex = [1, 4, 8];
     
-    const img1 = '/assets/workbook/unit1/page9/1.svg';
-    const img2 = '/assets/workbook/unit1/page9/2.svg';
-    const img3 = '/assets/workbook/unit1/page9/3.svg';
-    const img4 = '/assets/workbook/unit1/page9/4.svg';
-    const img5 = '/assets/workbook/unit1/page9/5.svg';
-    const img6 = '/assets/workbook/unit1/page9/6.svg';
+    const img1 = '/assets/workbook/unit4/page30/1.svg';
+    const img2 = '/assets/workbook/unit4/page30/2.svg';
+    const img3 = '/assets/workbook/unit4/page30/3.svg';
+    const img4 = '/assets/workbook/unit4/page30/4.svg';
+    const img5 = '/assets/workbook/unit4/page30/5.svg';
+    const img6 = '/assets/workbook/unit4/page30/6.svg';
 
     
     

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const img1 = '/assets/workbook/unit1/page9/1.svg';
-const img2 = '/assets/workbook/unit1/page9/2.svg';
-const img3 = '/assets/workbook/unit1/page9/3.svg';
-const img4 = '/assets/workbook/unit1/page9/4.svg';
+const img1 = '/assets/workbook/unit4/page30/01.svg';
+const img2 = '/assets/workbook/unit4/page30/02.svg';
+const img3 = '/assets/workbook/unit4/page30/03.svg';
+const img4 = '/assets/workbook/unit4/page30/04.svg';
 
 const Q8 = () => {
   const images = [

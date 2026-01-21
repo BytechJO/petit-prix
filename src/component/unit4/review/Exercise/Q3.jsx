@@ -3,10 +3,10 @@ import ValidationAlert from "../../../Popup/ValidationAlert";
 
 const Q3 = () => {
     const characters = [
-        { id: 1, image: '/assets/unit1/secA/page9/1.svg', name: 'Eloise' },
-        { id: 2, image: '/assets/unit1/secA/page9/1.svg', name: 'Pierre' },
-        { id: 3, image: '/assets/unit1/secA/page9/1.svg', name: 'Marie' },
-        { id: 4, image: '/assets/unit1/secA/page9/1.svg', name: 'Lucas' }
+        { id: 1, image: '/assets/unit4/review/page50/1.svg', name: 'Eloise' },
+        { id: 2, image: '/assets/unit4/review/page50/2.svg', name: 'Pierre' },
+        { id: 3, image: '/assets/unit4/review/page50/3.svg', name: 'Marie' },
+        { id: 4, image: '/assets/unit4/review/page50/4.svg', name: 'Lucas' }
     ];
 
     const rows = [
@@ -154,12 +154,12 @@ const Q3 = () => {
                         <tr>
                             <th className="border-2 border-gray-400 p-3 "></th>
                             {characters.map(char => (
-                                <th key={char.id} className="border-2 border-gray-400 p-3 bg-[#9bcc91]">
+                                <th key={char.id} className="border-2 border-gray-400 bg-[#9bcc91]">
                                     <div className="flex flex-col items-center gap-2">
                                         <img
                                             src={char.image}
                                             alt={char.name}
-                                            className="max-w-24 max-h-24 object-contain rounded-lg"
+                                            className="max-w-28 max-h-24 object-contain rounded-lg"
                                         />
                                     </div>
                                 </th>

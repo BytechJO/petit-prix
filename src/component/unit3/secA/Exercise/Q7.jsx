@@ -134,7 +134,7 @@ const Q7 = () => {
         <div className="w-full max-w-3xl mx-auto p-4">
             <div
                 ref={svgContainerRef}
-                className="relative bg-white pl-6 pr-6 rounded-2xl shadow-lg"
+                className="relative pl-6 pr-6"
                 style={{
                     backgroundImage: `repeating-linear-gradient(to bottom, transparent, transparent 39px, #E0E7FF 40px, #E0E7FF 41px)`,
                     backgroundSize: '100% 42px',
@@ -155,7 +155,7 @@ const Q7 = () => {
                     })()}
                 </svg>
 
-                <div className="space-y-12 relative py-4">
+                <div className="relative">
                     {WORDS.map((word, index) => {
                         const image = IMAGES[index];
                         return (
@@ -164,7 +164,7 @@ const Q7 = () => {
                                     <div
                                         data-pointid={word.id}
                                         onClick={() => handlePointClick(word.id, 'word')}
-                                        className="bg-[#FEF0E8] p-3 rounded-lg shadow-sm flex items-center gap-4">
+                                        className=" p-3 flex items-center gap-4">
                                         <span className="font-semibold text-gray-800 text-xl">{word.text}</span>
 
                                     </div>

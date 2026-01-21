@@ -3,12 +3,12 @@ import ValidationAlert from "../../../Popup/ValidationAlert";
 
 const Q5 = () => {
   const images = [
-    { id: 1, src: '/assets/unit1/secA/page9/1.svg', word: 'banane' },
-    { id: 2, src: '/assets/unit1/secA/page9/1.svg', word: 'gâteau' },
-    { id: 3, src: '/assets/unit1/secA/page9/1.svg', word: 'bonbons' },
-    { id: 4, src: '/assets/unit1/secA/page9/1.svg', word: 'pomme' },
-    { id: 5, src: '/assets/unit1/secA/page9/1.svg', word: 'poulet' },
-    { id: 6, src: '/assets/unit1/secA/page9/1.svg', word: "jus d'orange" }
+    { id: 1, src: '/assets/unit4/review/page51/1.svg', word: 'banane' },
+    { id: 2, src: '/assets/unit4/review/page51/2.svg', word: 'gâteau' },
+    { id: 3, src: '/assets/unit4/review/page51/3.svg', word: 'bonbons' },
+    { id: 4, src: '/assets/unit4/review/page51/4.svg', word: 'pomme' },
+    { id: 5, src: '/assets/unit4/review/page51/5.svg', word: 'poulet' },
+    { id: 6, src: '/assets/unit4/review/page51/6.svg', word: "jus d'orange" }
   ];
 
   const grid = [
@@ -181,10 +181,10 @@ const Q5 = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-8 gap-8">
+    <div className="flex flex-col items-center p-8 gap-5">
 
       {/* الصور والإجابات */}
-      <div className="grid grid-cols-6 gap-4 w-full max-w-5xl">
+      <div className="grid grid-cols-6 gap-4 w-full max-w-4xl">
         {images.map((image, index) => (
           <div
             key={image.id}
@@ -194,7 +194,7 @@ const Q5 = () => {
             onClick={() => !isChecked && setActiveImageIndex(index)}
           >
             {/* الصورة */}
-            <div className="w-24 h-24 flex items-center justify-center bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="w-24 h-24 flex items-center justify-center rounded-lg overflow-hidden">
               <img
                 src={image.src}
                 alt={`Image ${index + 1}`}

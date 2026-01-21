@@ -74,7 +74,7 @@ export default function Q10() {
   };
 
 return (
-  <div className="lg:ml-100 lg:mt-25 w-full max-w-4xl mx-auto p-6">
+  <div className="lg:ml-100 w-full max-w-4xl mx-auto p-6">
     {/* Table */}
     <div className="border-2 border-red-400 rounded-lg overflow-hidden bg-white">
       <table className="w-full">

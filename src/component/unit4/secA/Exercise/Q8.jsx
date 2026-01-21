@@ -161,7 +161,7 @@ const Q8 = () => {
                                     <div
                                         data-pointid={word.id}
                                         onClick={() => handlePointClick(word.id, 'word')}
-                                        className="bg-[#FEF0E8] p-3 rounded-lg shadow-sm flex items-center gap-4">
+                                        className="p-3 flex items-center gap-4">
                                         <span className="font-semibold text-gray-800 text-xl">{word.text}</span>
 
                                     </div>

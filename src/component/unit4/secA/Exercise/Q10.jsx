@@ -21,47 +21,67 @@ const Q10 = () => {
   const Items = [
     {
       index: 0,
-      top: "59%",
-      left: "17%",
-      width: "30%",
-      height: "35%",
       image: img1,
+      top: "62%",
+      left: "22.5%",
+      width: "18%",
+      height: "30%",
+      imageTop: "-5%",
+      imageLeft: "1%",
+      imageWidth: "100%",
+      imageHeight: "100%",
       "aria-label": "Restaurant area 1",
     },
     {
-      index: 2,
-      top: "65%",
-      left: "56.7%",
-      width: "30%",
-      height: "35%",
+      index: 1,
       image: img2,
+      top: "65%",
+      left: "62%",
+      width: "20%",
+      height: "33.5%",
+      imageTop: "0%",
+      imageLeft: "-2%",
+      imageWidth: "100%",
+      imageHeight: "100%",
       "aria-label": "Restaurant area 3",
     },
     {
       index: 2,
-      top: "48%",
-      left: "71.5%",
-      width: "30%",
-      height: "35%",
       image: img3,
+      top: "56%",
+      left: "79.5%",
+      width: "14.5%",
+      height: "20%",
+      imageTop: "84%",
+      imageLeft: "16.5%",
+      imageWidth: "84%",
+      imageHeight: "16.5%",
       "aria-label": "Restaurant area 3",
     },
     {
-      index: 2,
-      top: "32%",
-      left: "18.5%",
-      width: "28%",
-      height: "35%",
+      index: 3,
       image: img4,
+      top: "38%",
+      left: "29%",
+      width: "6%",
+      height: "22%",
+      imageTop: "84%",
+      imageLeft: "16.5%",
+      imageWidth: "84%",
+      imageHeight: "16.5%",
       "aria-label": "Restaurant area 3",
     },
     {
-      index: 2,
-      top: "28.5%",
-      left: "28%",
-      width: "25%",
-      height: "45%",
+      index: 4,
       image: img5,
+      top: "32%",
+      left: "35%",
+      width: "11%",
+      height: "30%",
+      imageTop: "84%",
+      imageLeft: "16.5%",
+      imageWidth: "84%",
+      imageHeight: "16.5%",
       "aria-label": "Restaurant area 3",
     },
   ];
@@ -81,13 +101,13 @@ const Q10 = () => {
     const totalCount = Items.length;
 
     const color =
-  correctCount === totalCount
-    ? "green"
-    : correctCount === 0
-    ? "orange"
-    : correctCount >= 1 && correctCount < 4
-    ? "red"
-    : undefined;
+      correctCount === totalCount
+        ? "green"
+        : correctCount === 0
+          ? "orange"
+          : correctCount >= 1 && correctCount < 4
+            ? "red"
+            : undefined;
 
 
     const scoreMessage = `
@@ -100,7 +120,7 @@ const Q10 = () => {
 
     if (correctCount === totalCount) {
       setCheckResult("success");
-      ValidationAlert.success( scoreMessage);
+      ValidationAlert.success(scoreMessage);
     } else if (correctCount === 0) {
       setCheckResult("fail");
       ValidationAlert.warning("Oups !", "Trouvez tous les objets");

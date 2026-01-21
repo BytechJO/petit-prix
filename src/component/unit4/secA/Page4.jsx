@@ -42,8 +42,20 @@ const Page4 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
+        id="U4page4q1"
+        onClick={() => handleOpenQuestion(51)}
+      >
+        <img
+          src={arrow}
+          alt="Open question"
+          loading="lazy"
+        />
+      </button>
+
+      <button
+        className='btnopenpopup'
         id="U4page4q2"
-        onClick={() => handleOpenQuestion(50)}
+        onClick={() => handleOpenQuestion(52)}
       >
         <img
           src={arrow}

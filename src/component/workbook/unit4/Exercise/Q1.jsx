@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Check, X, RotateCcw, Star } from 'lucide-react';
 
+const img1 = '/assets/workbook/unit4/page27/1.svg';
+const img2 = '/assets/workbook/unit4/page27/2.svg';
+const img3 = '/assets/workbook/unit4/page27/3.svg';
+const img4 = '/assets/workbook/unit4/page27/4.svg';
+
 export default function Q1() {
     const [answers, setAnswers] = useState({
         marie: '',
@@ -20,10 +25,10 @@ export default function Q1() {
     };
 
     const children = [
-        { id: 'marie', name: 'Marie', emoji: '👧🏻', color: 'bg-pink-400' },
-        { id: 'lucas', name: 'Lucas', emoji: '👦🏾', color: 'bg-teal-400' },
-        { id: 'lili', name: 'Lili', emoji: '👧🏼', color: 'bg-pink-400' },
-        { id: 'louis', name: 'Louis', emoji: '👦🏼', color: 'bg-teal-400' }
+        { id: 'marie', name: 'Marie', src: img1, color: 'bg-pink-400' },
+        { id: 'lucas', name: 'Lucas', src: img2, color: 'bg-teal-400' },
+        { id: 'lili', name: 'Lili', src: img3, color: 'bg-pink-400' },
+        { id: 'louis', name: 'Louis', src: img4, color: 'bg-teal-400' }
     ];
 
     const handleInputChange = (id, value) => {
@@ -56,7 +61,7 @@ export default function Q1() {
     const allAnswered = Object.values(answers).every(v => v !== '');
 
     return (
-        <div className="min-h-screen p-8 font-[Fredoka] relative overflow-hidden">
+        <div className=" font-[Fredoka] relative overflow-hidden">
 
             {/* confetti */}
             {showConfetti && (
@@ -75,25 +80,24 @@ export default function Q1() {
                 </div>
             )}
 
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-4xl mx-auto">
 
                 {/* cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                     {children.map((child) => (
                         <div
                             key={child.id}
                             className={`
-                bg-white rounded-3xl p-6 shadow-xl transition
+                transition
                 hover:-translate-y-2
                 ${isChecked && isAnswerCorrect(child.id) && 'border-4 border-green-400'}
                 ${isChecked && !isAnswerCorrect(child.id) && answers[child.id] && 'border-4 border-red-400'}
               `}
                         >
-                            <div className="text-center mb-4">
-                                <div className="text-6xl mb-2">{child.emoji}</div>
-                                <div className={`${child.color} text-white px-6 py-2 rounded-xl font-bold inline-block`}>
-                                    {child.name}
-                                </div>
+                            <div>
+                                <img
+                                    src={child.src}
+                                />
                             </div>
 
                             <div className="flex items-center justify-center gap-2">
@@ -103,7 +107,7 @@ export default function Q1() {
                                     disabled={isChecked && isAnswerCorrect(child.id)}
                                     maxLength={2}
                                     className="
-                    w-20 h-14 text-2xl font-bold text-center
+                    w-24 h-14 text-2xl font-bold text-center
                     border-2 rounded-xl outline-none
                     focus:ring-2 focus:ring-indigo-400
                     disabled:bg-green-50
@@ -121,12 +125,13 @@ export default function Q1() {
                     ))}
                 </div>
 
-                {/* الأزرار */}
-                <div className="popup-buttons">
-                    <button className="try-again-button" onClick={reset}>Recommencer ↻</button>
-                    {/* <button className="show-answer-btn" onClick={handleShowAnswer}>Afficher la réponse</button> */}
-                    <button className="check-button2" onClick={checkAnswers}>Vérifier ✓</button>
-                </div>
+
+            </div>
+            {/* الأزرار */}
+            <div className="popup-buttons">
+                <button className="try-again-button" onClick={reset}>Recommencer ↻</button>
+                {/* <button className="show-answer-btn" onClick={handleShowAnswer}>Afficher la réponse</button> */}
+                <button className="check-button2" onClick={checkAnswers}>Vérifier ✓</button>
             </div>
         </div>
     );
