@@ -3,7 +3,7 @@ import './ValidationAlert.css';
 
 const good = "/assets/alert/goodjob.gif";
 const wrong = "/assets/alert/wrong.gif";
-const Notice = "/assets/alert/Notice.gif";
+const Notice = "/assets/alert/Notice1.gif";
 
 const correctSound = "/assets/alert/correct.mp3";
 const wrongSound = "/assets/alert/incorrect.mp3";

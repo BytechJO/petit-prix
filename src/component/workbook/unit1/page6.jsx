@@ -54,6 +54,19 @@ const WPage2 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
+        id="wU1page6audioq1"
+        onClick={() => openAudio(sound, Wunit1SecAQuestions[6].captions)}
+      >
+        <img
+          src={audio}
+          className="icon"
+          alt="Open question"
+          loading="lazy"
+        />
+      </button>
+
+      <button
+        className='btnopenpopup'
         id="wpage6q2"
         onClick={() => handleOpenQuestion(7)}
       >
@@ -76,18 +89,7 @@ const WPage2 = ({ bgImage, openPopup }) => {
         />
       </button>
 
-      <button
-        className='btnopenpopup'
-        id="wU1page6audioq1"
-        onClick={() => openAudio(sound, unit1SecAQuestions[22].captions)}
-      >
-        <img
-          src={audio}
-          className="icon"
-          alt="Open question"
-          loading="lazy"
-        />
-      </button>
+
 
       {audioData && (
         <AudioPopup

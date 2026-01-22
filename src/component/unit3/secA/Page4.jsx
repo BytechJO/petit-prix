@@ -33,6 +33,18 @@ const Page4 = ({ bgImage, openPopup }) => {
     });
   };
 
+  const captions = [
+    { start: 0.00, end: 1.15, text: "Unité 3," },
+    { start: 1.15, end: 2.49, text: "leçon 2." },
+    { start: 2.49, end: 4.90, text: "As-tu des frères ou des sœurs ?" },
+    { start: 4.90, end: 6.75, text: "Exercice 1." },
+    { start: 6.75, end: 8.78, text: "Écoute et lis." },
+    { start: 8.78, end: 13.09, text: "A. Une sœur, un frère." },
+    { start: 13.09, end: 15.56, text: "B. Des frères." },
+    { start: 15.56, end: 16.82, text: "C. Des sœurs." },
+  ];
+
+
   return (
     <div
       className="page_1-background"
@@ -44,7 +56,7 @@ const Page4 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="U3page4audioq1"
-        onClick={() => openAudio(sound1, unit1SecAQuestions[36].captions)}
+        onClick={() => openAudio(sound1, captions)}
       >
         <img
           src={audio}
@@ -56,7 +68,7 @@ const Page4 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="U3page4audioq2"
-        onClick={() => openAudio(sound2, unit1SecAQuestions[36].captions)}
+        onClick={() => openAudio(sound2, unit1SecAQuestions[35].captions)}
       >
         <img
           src={audio}

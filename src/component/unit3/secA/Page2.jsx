@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './page2.css';
 
-const sound1 = "/assets/unit3/secA/page29/1.wav";
+const sound = "/assets/unit3/secA/page29/1.wav";
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
 
@@ -10,24 +10,11 @@ const audio = "/assets/audio.svg";
 
 const Page2 = ({ bgImage, openPopup }) => {
 
-  const [showAudio, setShowAudio] = useState(false);
+  const [audioData, setAudioData] = useState(null);
 
-  const caption = [
-    { start: 0, end: 1.3, text: "Unité 1." },
-    { start: 1.3, end: 1.8, text: "Bonjour." },
-    { start: 3.0, end: 4.5, text: "Exercice 2." },
-    { start: 5.0, end: 6.5, text: "Écoute et montre." },
-    { start: 7.3, end: 7.8, text: "A." },
-    { start: 8.3, end: 9.1, text: "Salut Robert." },
-    { start: 9.8, end: 10.7, text: "Salut Théo." },
-    { start: 10.7, end: 10.8, text: "B." },
-    { start: 13.3, end: 14.1, text: "Qu'est-ce que c'est ?" },
-    { start: 14.7, end: 15.8, text: "C'est un crayon pour toi." },
-    { start: 16.0, end: 16.4, text: "C." },
-    { start: 18.4, end: 20.1, text: "Qu'est-ce que c'est ?" },
-    { start: 20.3, end: 20.9, text: "C'est une fleur." },
-
-  ];
+  const openAudio = (src, captions) => {
+    setAudioData({ src, captions });
+  };
 
 
   const handleOpenQuestion = (index) => {
@@ -52,7 +39,7 @@ const Page2 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="U2page2q1"
+        id="U3page29q1"
         onClick={() => handleOpenQuestion(33)}
       >
         <img
@@ -64,22 +51,25 @@ const Page2 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="U2page2audio"
-        onClick={() => setShowAudio(true)}
+        id="U3page29audioq1"
+        onClick={() => openAudio(sound, unit1SecAQuestions[33].captions)}
       >
         <img
           src={audio}
+          className="icon"
           alt="Open question"
           loading="lazy"
         />
       </button>
 
-      <AudioPopup
-        open={showAudio}
-        onClose={() => setShowAudio(false)}
-        src={sound1}
-        captions={caption}
-      />
+      {audioData && (
+        <AudioPopup
+          open={true}
+          onClose={() => setAudioData(null)}
+          src={audioData.src}
+          captions={audioData.captions}
+        />
+      )}
     </div >
   )
 }

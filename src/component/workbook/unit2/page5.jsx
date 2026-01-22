@@ -55,7 +55,7 @@ const WPage1 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="wU1page15audioq1"
-        onClick={() => openAudio(sound, unit1SecAQuestions[22].captions)}
+        onClick={() => openAudio(sound, Wunit1SecAQuestions[23].captions)}
       >
         <img
           src={audio}
@@ -80,7 +80,7 @@ const WPage1 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="wU1page15audioq2"
-        onClick={() => openAudio(sound, unit1SecAQuestions[22].captions)}
+        onClick={() => openAudio(sound, Wunit1SecAQuestions[24].captions)}
       >
         <img
           src={audio}

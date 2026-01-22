@@ -49,10 +49,11 @@ const Page9 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
+      
       <button
         className='btnopenpopup'
         id="wU1page9audioq1"
-        onClick={() => openAudio(sound1, unit1SecAQuestions[22].captions)}
+        onClick={() => openAudio(sound1, Wunit1SecAQuestions[13].captions)}
       >
         <img
           src={audio}
@@ -77,7 +78,7 @@ const Page9 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="wU1page9audioq2"
-        onClick={() => openAudio(sound2, unit1SecAQuestions[22].captions)}
+        onClick={() => openAudio(sound2, Wunit1SecAQuestions[14].captions)}
       >
         <img
           src={audio}

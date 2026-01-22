@@ -17,7 +17,7 @@
 .my-image {
   border-radius: 50% !important;
   margin-top: clamp(5px, 1vw, 10px) !important;
-  background-color: #fff !important;
+  /* background-color: #fff !important; */
   padding: clamp(5px, 1vw, 10px) !important;
 }
 

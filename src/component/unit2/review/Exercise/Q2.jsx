@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const flipsound = "/assets/unit2/secA/page20/flip.mp3";
+const flipsound = "/assets/alert/drop.mp3";
 
 const Q2 = () => {
     const animalimg = Array.from({ length: 11 }, (_, i) =>

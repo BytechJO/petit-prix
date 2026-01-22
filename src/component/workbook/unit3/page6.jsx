@@ -61,6 +61,7 @@ const Page6 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
+      
     </div>
   )
 }

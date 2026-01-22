@@ -38,6 +38,19 @@ const Page5 = ({ bgImage, openPopup }) => {
         });
     };
 
+    const captions = [
+        { start: 0.03, end: 1.25, text: "Unité 3." },
+        { start: 1.25, end: 2.61, text: "Leçon 3." },
+        { start: 2.61, end: 4.71, text: "Tu habites seul ?" },
+        { start: 4.71, end: 6.49, text: "Exercice 1." },
+        { start: 6.49, end: 8.73, text: "Écoute et répète." },
+        { start: 8.73, end: 9.91, text: "Père," },
+        { start: 9.91, end: 11.13, text: "mère," },
+        { start: 11.13, end: 12.48, text: "grand-père," },
+        { start: 12.48, end: 13.89, text: "grand-mère," },
+        { start: 13.89, end: 14.33, text: "moi," },
+    ];
+
     return (
         <div
             className="page_1-background"
@@ -49,7 +62,7 @@ const Page5 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="U3page20audioq1"
-                onClick={() => openAudio(sound1, unit1SecAQuestions[38].captions)}
+                onClick={() => openAudio(sound1, captions)}
             >
                 <img
                     src={audio}
@@ -76,7 +89,7 @@ const Page5 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="U3page20audioq2"
-                onClick={() => openAudio(sound2, unit1SecAQuestions[39].captions)}
+                onClick={() => openAudio(sound2, unit1SecAQuestions[36].captions)}
             >
                 <img
                     src={audio}
@@ -102,7 +115,7 @@ const Page5 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="U3page20audioq3"
-                onClick={() => openAudio(sound3, unit1SecAQuestions[40].captions)}
+                onClick={() => openAudio(sound3, unit1SecAQuestions[37].captions)}
             >
                 <img
                     src={audio}

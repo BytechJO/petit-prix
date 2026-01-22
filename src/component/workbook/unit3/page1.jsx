@@ -36,6 +36,7 @@ const Page1 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
+      
       <button
         className='btnopenpopup'
         id="wu3page1q2"

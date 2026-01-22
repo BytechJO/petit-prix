@@ -5,7 +5,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const sound1 = "/assets/unit1/secA/page45/u1q2.wav";
 
 import { unit1SecAQuestions } from '../../pageData';
 import AudioPopup from '../../Popup/AudioPopup';
@@ -66,23 +65,6 @@ const Page2 = ({ bgImage, openPopup }) => {
         />
       </button>
 
-      <button
-        className='btnopenpopup'
-        id="U2page2audio"
-        onClick={() => setShowAudio(true)}
-      >
-        <img
-          src={audio}
-          alt="Open question"
-          loading="lazy"
-        />
-      </button>
-      <AudioPopup
-        open={showAudio}
-        onClose={() => setShowAudio(false)}
-        src={sound1}
-        captions={caption}
-      />
     </div >
   )
 }

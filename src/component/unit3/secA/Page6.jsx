@@ -34,6 +34,26 @@ const Page6 = ({ bgImage, openPopup }) => {
         });
     };
 
+    const captions = [
+        { start: 0.00, end: 2.50, text: "Unité 3, leçon 4." },
+        { start: 2.50, end: 4.32, text: "Tu as des animaux ?" },
+
+        { start: 4.32, end: 6.56, text: "Exercice 4." },
+        { start: 6.56, end: 9.92, text: "Écoute la chanson, mime et chante." },
+
+        { start: 9.92, end: 12.13, text: "La famille tortue." },
+        { start: 12.13, end: 13.98, text: "Jamais on n'a vu," },
+        { start: 13.98, end: 16.48, text: "jamais on ne verra." },
+
+        { start: 16.48, end: 19.44, text: "La famille tortue courir après" },
+        { start: 19.44, end: 20.58, text: "les rats." },
+
+        { start: 20.58, end: 23.77, text: "Le papa tortue et la maman" },
+        { start: 23.77, end: 25.89, text: "tortue et les enfants" },
+        { start: 25.89, end: 27.52, text: "tortue iront toujours." },
+    ];
+
+
     return (
         <div
             className="page_1-background"
@@ -57,7 +77,7 @@ const Page6 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="U3page21audioq1"
-                onClick={() => openAudio(sound1, unit1SecAQuestions[39].captions)}
+                onClick={() => openAudio(sound1, unit1SecAQuestions[38].captions)}
             >
                 <img
                     src={audio}
@@ -84,7 +104,7 @@ const Page6 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="U3page21audioq2"
-                onClick={() => openAudio(sound2, unit1SecAQuestions[40].captions)}
+                onClick={() => openAudio(sound2, unit1SecAQuestions[39].captions)}
             >
                 <img
                     src={audio}
@@ -97,7 +117,7 @@ const Page6 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="U3page21audioq3"
-                onClick={() => openAudio(sound3, unit1SecAQuestions[40].captions)}
+                onClick={() => openAudio(sound3, captions)}
             >
                 <img
                     src={audio}

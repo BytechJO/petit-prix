@@ -10,6 +10,22 @@ const audio = "/assets/audio.svg";
 const sound1 = "/assets/workbook/unit1/page7/1.wav";
 const sound2 = "/assets/workbook/unit1/page7/2.wav";
 
+const captions = [
+  { start: 0.06, end: 1.09, text: "" },
+  { start: 1.09, end: 2.49, text: "" },
+  { start: 2.49, end: 4.48, text: "" },
+  { start: 4.48, end: 6.98, text: "" },
+
+  { start: 6.98, end: 7.58, text: "" },
+  { start: 7.58, end: 8.94, text: "" },
+  { start: 8.94, end: 11.38, text: "" },
+
+  { start: 11.38, end: 12.68, text: "" },
+  { start: 12.68, end: 13.73, text: "" },
+  { start: 13.73, end: 14.94, text: "" },
+
+  { start: 14.94, end: 16.00, text: "" },
+];
 
 const Page7 = ({ bgImage, openPopup }) => {
 
@@ -43,7 +59,7 @@ const Page7 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="wU1page7audioq1"
-        onClick={() => openAudio(sound1, unit1SecAQuestions[22].captions)}
+        onClick={() => openAudio(sound1, captions)}
       >
         <img
           src={audio}
@@ -67,8 +83,8 @@ const Page7 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="wU1page7audioq1"
-        onClick={() => openAudio(sound2, unit1SecAQuestions[22].captions)}
+        id="wU1page7audioq2"
+        onClick={() => openAudio(sound2, Wunit1SecAQuestions[9].captions)}
       >
         <img
           src={audio}

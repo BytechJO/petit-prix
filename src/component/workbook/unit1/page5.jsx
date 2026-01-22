@@ -50,6 +50,7 @@ const WPage1 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
+      
       <button
         className='btnopenpopup'
         id="wpage5q2"
@@ -65,7 +66,7 @@ const WPage1 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="wU1page5audioq1"
-        onClick={() => openAudio(sound1, unit1SecAQuestions[22].captions)}
+        onClick={() => openAudio(sound1, Wunit1SecAQuestions[4].captions)}
       >
         <img
           src={audio}
@@ -78,7 +79,7 @@ const WPage1 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="wU1page5audioq2"
-        onClick={() => openAudio(sound2, unit1SecAQuestions[22].captions)}
+        onClick={() => openAudio(sound2, Wunit1SecAQuestions[5].captions)}
       >
         <img
           src={audio}

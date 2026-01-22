@@ -444,6 +444,9 @@ import WRQ1 from '../component/workbook/revision/Exercise/Q1';
 //بحاجة الى تعديل
 import U4Q10 from '../component/unit4/secA/Exercise/Q10';
 import U4Q11 from '../component/unit4/secA/Exercise/Q11';
+import { caption } from 'framer-motion/client';
+import { X } from 'lucide-react';
+import { text } from '@fortawesome/fontawesome-svg-core';
 
 //unit 1 WB
 const sound44 = "/assets/workbook/unit1/Lesson1/1.wav";
@@ -1260,16 +1263,6 @@ export const unit1SecAQuestions = [
       { start: 18.0, end: 20.0, text: ".J'ai un robot bleu." },
     ],
   },
-  // {
-  //   id: 8,
-  //   component: Q13,
-  //   audio: sound8,
-  //   text: "Observe et dis comment il va.",
-  //   captions: [
-  //     { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-  //   ]
-  // },
-
   // unit 1 review
   {
     id: 8,
@@ -1319,7 +1312,6 @@ export const unit1SecAQuestions = [
     audio: null,
     text: "Souligne la bonne couleur.",
   },
-
   //unit 2 sb
   {
     id: 16,
@@ -1351,74 +1343,128 @@ export const unit1SecAQuestions = [
     component: U2Q3,
     audio: sound12,
     text: "Écoute, montre et écris.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0, end: 0.9, text: "Unité deux." },
+      { start: 1.1, end: 2.1, text: "Leçon un." },
+      { start: 2.45, end: 4.5, text: "Qu'est-ce que c'est ?" },
+      { start: 4.5, end: 8.5, text: " Exercice un. Écoute, montre et écris." },
+      { start: 8.5, end: 12.0, text: "A.C'est un stylo." },
+      { start: 12.0, end: 15.0, text: "B. C'est un livre." },
+      { start: 15.0, end: 17.5, text: "C.C'est une gomme." },
+      { start: 17.5, end: 20.5, text: "D. C'est une trousse." },
+      { start: 21.5, end: 25.0, text: "E.Ce sont des crayons de couleur." },
+    ]
   },
   {
     id: 19,
     component: U2Q4,
     audio: sound122,
     text: "Écoute et choisis.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
-    // pausePoints: [11, 17],
+    captions: [
+      { start: 0, end: 1.7, text: "Unité deux." },
+      { start: 1.7, end: 3.0, text: "Leçon un." },
+      { start: 3.0, end: 5.5, text: "Qu'est-ce que c'est ?" },
+      { start: 5.5, end: 7.0, text: "Exercice deux." },
+      { start: 7.0, end: 9.5, text: "Écoute et choisis." },
+      { start: 9.5, end: 11.7, text: "J'ai un portable jaune, une trousse rouge," },
+      { start: 11.7, end: 14.0, text: "un stylo bleu, une règle verte." },
+    ]
   },
   {
     id: 20,
     component: U2Q5,
     audio: sound13,
     text: "Écoute et répète",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ],
-    // pausePoints: [12, 14, 17, 20],
+    captions: [
+      { start: 0, end: 1.7, text: "Unité 2," },
+      { start: 1.7, end: 3.0, text: "leçon 2," },
+      { start: 3.0, end: 5.5, text: "c'est quel jour aujourd'hui ?" },
+      { start: 5.5, end: 7.0, text: "Exercice 1." },
+      { start: 7.0, end: 9.5, text: "Écoute et répète." },
+      { start: 9.5, end: 17.5, text: "Lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche." },
+    ]
   },
   {
     id: 21,
     component: U2Q6,
     audio: sound133,
     text: "Écoute et montre le bon jour.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0, end: 1.7, text: "Unité 2," },
+      { start: 1.7, end: 3.0, text: "leçon 2," },
+      { start: 3.0, end: 5.5, text: "c'est quel jour aujourd'hui ?" },
+      { start: 5.5, end: 7.0, text: "Exercice 2." },
+      { start: 7.0, end: 9.5, text: "écoute et montre le bonjour." },
+      { start: 9.5, end: 12.0, text: "C'est quel jour aujourd'hui ?" },
+      { start: 12.0, end: 13.5, text: "Mercredi," },
+      { start: 13.5, end: 16.5, text: "et demain c'est vendredi." },
+      { start: 16.5, end: 19.5, text: "Mais non, demain c'est jeudi !" },
+    ]
   },
   {
     id: 22,
     component: U2Q7,
     audio: sound14,
     text: "Écoute, montre et écris.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0, end: 1.7, text: "Unité 2," },
+      { start: 1.7, end: 3.0, text: "leçon 3." },
+      { start: 3.0, end: 5.5, text: "Tu aimes le sport ?" },
+      { start: 5.5, end: 7.0, text: "Exercice 1." },
+      { start: 7.0, end: 11.0, text: "Écoute, montre et écris." },
+      { start: 11.0, end: 15.0, text: "A. Tu aimes le foot ? Oui, j'aime le foot." },
+      { start: 15.0, end: 20.0, text: "B.Tu aimes le vélo ? Oui, j'aime le vélo." },
+      { start: 20.0, end: 27.5, text: "C. Tu aimes le judo ? Non, j'aime la peinture." },
+      { start: 27.5, end: 34.5, text: "D. Tu aimes le volet? Oui, j'aime le volet. Et moi, je n'aime pas le volet, j'aime le judo." },
+      { start: 34.5, end: 39.0, text: "E. Tu aimes le foot ? Non, j'aime la course à pied." },
+    ]
   },
   {
     id: 23,
     component: U2Q8,
     audio: sound144,
     text: "Écoute et trouve les erreurs.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0, end: 1.7, text: "Unité 2," },
+      { start: 1.7, end: 3.0, text: "leçon 3." },
+      { start: 3.0, end: 5.5, text: "Tu aimes le sport ?" },
+      { start: 5.5, end: 7.0, text: "Exercice 2." },
+      { start: 7.0, end: 9.5, text: "Écoute et trouve les erreurs." },
+      { start: 9.5, end: 12.0, text: "J'aime le vélo et la course à pied." },
+      { start: 12.0, end: 13.5, text: "J'aime aussi le foot et la peinture." },
+    ]
   },
   {
     id: 24,
     component: U2Q9,
     audio: sound15,
     text: "Écoute et choisis la bonne réponse.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0, end: 1.7, text: "Unité 2," },
+      { start: 1.7, end: 3.0, text: "leçon 4," },
+      { start: 3.0, end: 5.5, text: "qu'est-ce qu'on adore faire ?" },
+      { start: 5.5, end: 7.0, text: "Exercice 1." },
+      { start: 7.0, end: 9.5, text: "Écoute et choisis la bonne réponse." },
+      { start: 9.5, end: 12.0, text: "Il aime jouer aux jeux vidéo." },
+      { start: 12.0, end: 13.5, text: "Il n'aime pas danser. Elle aime chanter." },
+      { start: 13.5, end: 17.5, text: "Elle déteste nager. Elle aime dessiner." },
+      { start: 17.5, end: 21.5, text: "Elle déteste jouer au basketball." },
+    ]
   },
   {
     id: 25,
     component: U2Q10,
     audio: sound155,
     text: "Écoute et coche la bonne réponse.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0, end: 1.7, text: "Unité 2," },
+      { start: 1.7, end: 3.0, text: "leçon 4," },
+      { start: 3.0, end: 5.5, text: "qu'est-ce qu'on adore faire?" },
+      { start: 5.5, end: 7.0, text: "Exercice 2," },
+      { start: 7.0, end: 9.5, text: "écoute et coche la bonne réponse." },
+      { start: 9.5, end: 14.0, text: "Lundi, il adore chanter etelleadore danser." },
+      { start: 14.0, end: 18.0, text: "Mardi, elle adore dessiner, et il adore jouer au foot." },
+    ]
   },
   // unit 2 review
   {
@@ -1430,12 +1476,17 @@ export const unit1SecAQuestions = [
   {
     id: 27,
     component: U2RQ2,
-    audio: null,
+    audio: sound16,
     text: "Montre et nomme :",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ],
-    // pausePoints: [11, 17],
+    captions: [
+      { start: 0, end: 1.7, text: "Unité 2," },
+      { start: 1.7, end: 3.0, text: "c'est l'alphabet français." },
+      { start: 3.0, end: 5.5, text: "Exercice 3." },
+      { start: 5.5, end: 7.0, text: "Écoute et chante." },
+      { start: 7.0, end: 9.5, text: "La chanson de l'alphabet." },
+      { start: 9.5, end: 24.3, text: "A, B, C, D, E, F, G, H, I, J, K, L, M, N, O,P, Q, R, S, T, U, V, W, X, Y et Z." },
+      { start: 24.3, end: 31.0, text: "Maintenant je les connais ! Toutes les lettres de l'alphabet." },
+    ]
   },
   {
     id: 28,
@@ -1451,9 +1502,15 @@ export const unit1SecAQuestions = [
     component: U2RQ4,
     audio: sound17,
     text: "Écoute et associe.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0, end: 1.7, text: "Unité 2," },
+      { start: 1.7, end: 2.0, text: "Révision" },
+      { start: 2.5, end: 4.0, text: "Exercice 1." },
+      { start: 4.5, end: 6.5, text: "Écoute et associe." },
+      { start: 7.0, end: 8.5, text: "A. Vendredi." },
+      { start: 9.0, end: 10.5, text: "B. Friday." },
+      { start: 11.0, end: 13.0, text: "C. Vierne." },
+    ]
   },
   {
     id: 30,
@@ -1491,80 +1548,173 @@ export const unit1SecAQuestions = [
     audio: sound18,
     text: "Observe et trouve.",
     captions: [
-      { start: 0, end: 4.0, text: "Unité un, leçon quatre.De quelle couleur c'est ?" },
-      { start: 4.0, end: 6.0, text: "Exercice deux" },
-      { start: 6.0, end: 10.0, text: "Écoute, montre et corrige les erreurs" },
-      { start: 10.0, end: 13.0, text: "J'ai un vélo vert." },
-      { start: 13.0, end: 15.0, text: "J'ai un tracteur jaune." },
-      { start: 15.0, end: 18.0, text: "J'ai une voiture rouge" },
-      { start: 18.0, end: 20.0, text: ".J'ai un robot bleu." },
-    ],
+      { start: 0.13, end: 1.49, text: "Unité 3." },
+      { start: 1.49, end: 3.04, text: "C'est ma famille." },
+      { start: 3.04, end: 4.70, text: "Exercice 1." },
+      { start: 4.70, end: 6.85, text: "Écoute et réponds." },
+      { start: 6.85, end: 8.83, text: "Ma famille n'est pas grande." },
+      { start: 8.83, end: 10.35, text: "Je m'appelle Léo." },
+      { start: 10.35, end: 12.73, text: "Je n'ai pas de frère et de sœur." },
+      { start: 12.73, end: 16.22, text: "Le nom de ma grand-mère de ma mère est Anna." },
+      { start: 16.22, end: 19.77, text: "Le nom de mon grand-père de ma mère est Louis." },
+      { start: 19.77, end: 23.39, text: "Le nom de mon grand-père de mon père est Théo." },
+      { start: 23.39, end: 26.88, text: "Le nom de ma grand-mère de mon père est Lily." },
+      { start: 26.88, end: 28.33, text: "Mon père s'appelle Roger." },
+      { start: 28.33, end: 28.65, text: "Le nom du père de mon père est Théo." },
+      { start: 28.65, end: 30.21, text: "Ma mère s'appelle Marie." },
+    ]
   },
   {
     id: 34,
     component: U3Q2,
     audio: sound19,
     text: "Écoute et montre.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ],
-    // pausePoints: [11, 17],
+    captions: [
+      { start: 0.09, end: 1.28, text: "Unité 3." },
+      { start: 1.28, end: 3.07, text: "Ma famille." },
+
+      { start: 3.07, end: 5.09, text: "Exercice 2." },
+      { start: 5.09, end: 7.45, text: "Écoute et montre." },
+
+      { start: 7.45, end: 8.48, text: "A." },
+      { start: 8.48, end: 10.81, text: "Maman, qu'est-ce que tu lis ?" },
+      { start: 10.81, end: 13.28, text: "Je lis un roman." },
+
+      { start: 13.28, end: 13.43, text: "B." },
+      { start: 13.43, end: 15.59, text: "C'est à toi de jouer, papa." },
+      { start: 15.59, end: 16.65, text: "D'accord." },
+    ]
   },
   {
     id: 35,
     component: U3Q3,
     audio: sound21,
     text: "Écoute et relie.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.03, end: 1.21, text: "Unité 3," },
+      { start: 1.21, end: 2.46, text: "leçon 1," },
+      { start: 2.46, end: 4.45, text: "où habites-tu ?" },
+      { start: 4.45, end: 6.17, text: "Exercice 2." },
+      { start: 6.17, end: 8.71, text: "Écoute et relis." },
+      { start: 8.71, end: 9.39, text: "A." },
+      { start: 9.39, end: 11.97, text: "Lily habite à la mer." },
+      { start: 11.97, end: 12.57, text: "B." },
+      { start: 12.57, end: 15.49, text: "Marc habite à la montagne." },
+      { start: 15.49, end: 16.13, text: "C." },
+      { start: 16.13, end: 17.95, text: "Daniel habite en ville." },
+      { start: 17.95, end: 19.13, text: "D." },
+      { start: 19.13, end: 21.71, text: "Annabelle habite à la campagne." },
+    ]
   },
   {
     id: 36,
     component: U3Q4,
     audio: sound23,
     text: "Écoute et relie.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
-    // pausePoints: [11, 17],
+    captions:
+      [
+        { start: 0.00, end: 2.50, text: "Unité 3, leçon 2." },
+        { start: 2.50, end: 5.00, text: "As-tu des frères ou des sœurs ?" },
+        { start: 5.00, end: 6.37, text: "Exercice 2." },
+        { start: 6.37, end: 8.68, text: "Écoute et relis." },
+        { start: 8.68, end: 9.48, text: "A." },
+        { start: 9.48, end: 11.01, text: "Je m'appelle Marc." },
+        { start: 11.01, end: 14.26, text: "J'ai un frère et une sœur." },
+        { start: 14.26, end: 15.17, text: "B." },
+        { start: 15.17, end: 16.20, text: "Je m'appelle Anna." },
+        { start: 16.20, end: 17.98, text: "Je n'ai pas de sœurs," },
+        { start: 17.98, end: 20.36, text: "j'ai deux frères." },
+        { start: 20.36, end: 21.79, text: "C." },
+        { start: 21.79, end: 23.20, text: "Je m'appelle Bella." },
+        { start: 23.20, end: 24.20, text: "J'ai un frère." },
+      ]
   },
   {
     id: 37,
     component: U3Q5,
     audio: sound25,
     text: "Écoute, place dans le bon ordre et corrige.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ],
-    // pausePoints: [12, 14, 17, 20],
+    captions: [
+      { start: 0.00, end: 1.2, text: "Unité 3." },
+      { start: 1.2, end: 2.4, text: "Leçon 3." },
+      { start: 2.4, end: 10.43, text: "Tu habites seule ?" },
+      { start: 10.43, end: 11.17, text: "Exercice 2." },
+      { start: 11.17, end: 13.49, text: "A. Salut tout le monde !" },
+      { start: 13.49, end: 14.15, text: "B." },
+      { start: 14.15, end: 15.43, text: "Je m'appelle Lucas." },
+      { start: 15.43, end: 17.17, text: "C." },
+      { start: 17.17, end: 19.41, text: "Je n'ai pas de frère." },
+      { start: 19.41, end: 20.27, text: "D." },
+      { start: 20.27, end: 22.53, text: "Mais j'ai une sœur." },
+      { start: 22.53, end: 23.43, text: "E." },
+      { start: 23.43, end: 25.09, text: "J'habite avec ma mère," },
+      { start: 25.09, end: 26.77, text: "mon père et ma sœur." },
+    ]
   },
   {
     id: 38,
     component: U3Q6,
     audio: sound26,
     text: "Écoute et entoure la bonne réponse. Puis parle avec un(e) ami(e).",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.03, end: 1.25, text: "Unité 3." },
+      { start: 1.25, end: 2.63, text: "Leçon 3." },
+      { start: 2.63, end: 4.47, text: "Tu habites seule ?" },
+      { start: 4.47, end: 6.05, text: "Exercice 3." },
+      { start: 6.05, end: 8.77, text: "Écoute et entoure la bonne réponse." },
+      { start: 8.77, end: 12.13, text: "Puis parle avec un ou une amie." },
+      { start: 12.13, end: 13.55, text: "Je m'appelle Julie." },
+      { start: 13.55, end: 15.29, text: "J'habite avec mon grand-père," },
+      { start: 15.29, end: 16.47, text: "ma grand-mère," },
+      { start: 16.47, end: 17.03, text: "ma mère," },
+    ]
   },
   {
     id: 39,
     component: U3Q7,
     audio: sound27,
     text: "Écoute, relie et place dans le bon ordre.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.06, end: 1.18, text: "Unité 3," },
+      { start: 1.18, end: 5.95, text: "leçon 4. Tu as des animaux ?" },
+      { start: 5.95, end: 6.74, text: "Exercice 1." },
+      { start: 6.74, end: 9.70, text: "Écoute, relis et place dans le bon ordre." },
+      { start: 9.70, end: 10.24, text: "A." },
+      { start: 10.24, end: 12.25, text: "Un poisson." },
+      { start: 12.25, end: 12.40, text: "B." },
+      { start: 12.40, end: 13.84, text: "Un hamster." },
+      { start: 13.84, end: 15.76, text: "C." },
+      { start: 15.76, end: 17.76, text: "Un chat." },
+      { start: 17.76, end: 18.33, text: "D." },
+      { start: 18.33, end: 20.36, text: "Un perroquet." },
+      { start: 20.36, end: 20.58, text: "E." },
+      { start: 20.58, end: 21.80, text: "Une tortue." },
+    ]
   },
   {
     id: 40,
     component: U3Q8,
     audio: sound28,
     text: "Écoute et relie.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.06, end: 1.20, text: "Unité 3," },
+      { start: 1.20, end: 2.50, text: "leçon 4." },
+      { start: 2.50, end: 4.08, text: "Tu as des animaux ?" },
+      { start: 4.08, end: 5.60, text: "Exercice 2." },
+      { start: 5.60, end: 7.64, text: "Écoute et relis." },
+      { start: 7.64, end: 8.42, text: "A." },
+      { start: 8.42, end: 10.40, text: "Diane a une tortue." },
+      { start: 10.40, end: 13.25, text: "Elle s'appelle Sally." },
+      { start: 13.25, end: 14.08, text: "B." },
+      { start: 14.08, end: 15.74, text: "Paul a un perroquet." },
+      { start: 15.74, end: 16.92, text: "Il s'appelle Coco." },
+      { start: 16.92, end: 19.42, text: "C." },
+      { start: 19.42, end: 21.02, text: "Charles a un chat." },
+      { start: 21.02, end: 24.06, text: "Il s'appelle Oreo." },
+      { start: 24.06, end: 24.62, text: "D." },
+      { start: 24.62, end: 26.04, text: "Lucille a un poisson." },
+      { start: 26.04, end: 27.76, text: "Il s'appelle Nemo." },
+    ]
   },
   //unit 3 sb REVIEW
   {
@@ -1572,44 +1722,36 @@ export const unit1SecAQuestions = [
     component: RU3Q1,
     audio: null,
     text: "Lis l’histoire.",
-    captions: [
-      { start: 0, end: 4.0, text: "Unité un, leçon quatre.De quelle couleur c'est ?" },
-      { start: 4.0, end: 6.0, text: "Exercice deux" },
-      { start: 6.0, end: 10.0, text: "Écoute, montre et corrige les erreurs" },
-      { start: 10.0, end: 13.0, text: "J'ai un vélo vert." },
-      { start: 13.0, end: 15.0, text: "J'ai un tracteur jaune." },
-      { start: 15.0, end: 18.0, text: "J'ai une voiture rouge" },
-      { start: 18.0, end: 20.0, text: ".J'ai un robot bleu." },
-    ],
   },
   {
     id: 42,
     component: RU3Q2,
     audio: sound30,
     text: "Montre et écris :",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ],
-    // pausePoints: [11, 17],
+    captions: [
+      { start: 0.06, end: 1.09, text: "Unité 3." },
+      { start: 1.09, end: 2.65, text: "Révision." },
+      { start: 2.65, end: 4.41, text: "Exercice 1." },
+      { start: 4.41, end: 6.85, text: "Écoute et associe." },
+      { start: 6.85, end: 8.14, text: "Je m'appelle Lucas." },
+      { start: 8.14, end: 10.72, text: "J'habite à la mer." },
+      { start: 10.72, end: 12.00, text: "Je m'appelle Belle." },
+      { start: 12.00, end: 14.65, text: "J'habite en ville." },
+      { start: 14.65, end: 15.68, text: "Je m'appelle Thomas." },
+      { start: 15.68, end: 17.20, text: "J'habite à la montagne." },
+    ]
   },
   {
     id: 43,
     component: RU3Q3,
     audio: null,
     text: "Et maintenant crée ton arbre généalogique.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 44,
     component: RU3Q4,
     audio: null,
     text: "Écoute et associe.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
-    // pausePoints: [11, 17],
   },
   {
     id: 45,
@@ -1626,18 +1768,37 @@ export const unit1SecAQuestions = [
     component: RU3Q6,
     audio: sound31,
     text: "Écoute et entoure la bonne réponse.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.06, end: 1.09, text: "Unité 3." },
+      { start: 1.09, end: 2.62, text: "Révision." },
+      { start: 2.62, end: 4.41, text: "Exercice 3." },
+      { start: 4.41, end: 7.68, text: "Écoute et entoure la bonne réponse." },
+      { start: 7.68, end: 7.92, text: "Salut," },
+      { start: 7.92, end: 9.85, text: "je m'appelle Héloïse." },
+      { start: 9.85, end: 11.64, text: "J'habite avec ma grand-mère," },
+      { start: 11.64, end: 12.88, text: "mon grand-père," },
+      { start: 12.88, end: 13.66, text: "ma mère," },
+      { start: 13.66, end: 15.14, text: "mon père et mon frère." },
+    ]
   },
   {
     id: 47,
     component: RU3Q7,
     audio: sound32,
     text: "Écoute et associe.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.06, end: 1.09, text: "Unité 3." },
+      { start: 1.09, end: 2.49, text: "Révision." },
+      { start: 2.49, end: 4.48, text: "Exercice 4." },
+      { start: 4.48, end: 6.98, text: "Écoute et associe." },
+      { start: 6.98, end: 7.58, text: "A." },
+      { start: 7.58, end: 8.94, text: "J'ai un perroquet." },
+      { start: 8.94, end: 11.38, text: "Il s'appelle Coco." },
+      { start: 11.38, end: 12.68, text: "B." },
+      { start: 12.68, end: 13.73, text: "J'ai une tortue." },
+      { start: 13.73, end: 14.94, text: "Elle s'appelle Bobo." },
+      { start: 14.94, end: 16.00, text: "C. J'ai un chat." },
+    ]
   },
   //unit 4 sb
   {

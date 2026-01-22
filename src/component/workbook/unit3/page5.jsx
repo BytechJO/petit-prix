@@ -36,6 +36,7 @@ const Page5 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
+
       <button
         className='btnopenpopup'
         id="wu3page5q2"
@@ -47,6 +48,7 @@ const Page5 = ({ bgImage, openPopup }) => {
           loading="lazy"
         />
       </button>
+      
     </div>
   )
 }
