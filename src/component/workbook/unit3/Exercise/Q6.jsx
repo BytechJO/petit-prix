@@ -6,9 +6,9 @@ const img5 = '/assets/workbook/unit3/page21/2.svg';
 const img6 = '/assets/workbook/unit3/page21/3.svg';
 
 const WORDS = [
-    { id: 'word-1', src: img4, correctMatch: 'img-1' },
-    { id: 'word-2', src: img5, correctMatch: 'img-2' },
-    { id: 'word-3', src: img6, correctMatch: 'img-3' },
+    { id: 'word-1', src: img4, correctMatch: 'img-3' },
+    { id: 'word-2', src: img5, correctMatch: 'img-1' },
+    { id: 'word-3', src: img6, correctMatch: 'img-2' },
 ]
 
 const img1 = '/assets/workbook/unit3/page21/1.png';

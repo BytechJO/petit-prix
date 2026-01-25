@@ -6,7 +6,7 @@ const img2 = '/assets/workbook/unit3/page19/2.png';
 const img3 = '/assets/workbook/unit3/page19/3.png';
 
 const Q1 = () => {
-    const correctAnswers = ['jouer aux jeux vidéo', 'lire des livres', 'chanter'];
+    const correctAnswers = ['Montagne', 'Mer', 'Campagne'];
     const [answers, setAnswers] = useState(new Array(correctAnswers.length).fill(''));
     const [showAnswer, setShowAnswer] = useState(false);
 

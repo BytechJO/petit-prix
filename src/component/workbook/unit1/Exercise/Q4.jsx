@@ -4,13 +4,13 @@ const conv = "/assets/workbook/unit1/Lesson1/L1Q4.svg";
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
 // الكلمات التي ستظهر في بنك الكلمات (بشكل عشوائي)
-const wordBank = ['Bonjour', 'Je te présente', 'Bonjour'].sort(() => Math.random() - 0.5);
+const wordBank = ['Bonjour', 'salut', 'Marie'].sort(() => Math.random() - 0.5);
 
 // بيانات الحوار مع تحديد النص الذي يأتي بعد الفراغ
 const dialogueParts = [
-    { id: 1, type: 'input', speaker: 'Robert', afterText: ', Marie.', correct: 'Bonjour' },
+    { id: 1, type: 'input', speaker: 'Robert', afterText: ', Marie.', correct: 'salut' },
     { id: 2, type: 'text', speaker: 'Marie', text: 'Salut, Robert.' },
-    { id: 3, type: 'input', speaker: 'Robert', afterText: ', c’est Lili.', correct: 'Je te présente' },
+    { id: 3, type: 'input', speaker: 'Robert', afterText: ', c’est Lili.', correct: 'Marie' },
     { id: 4, type: 'text', speaker: 'Marie', text: 'Bonjour, Lili.' },
     { id: 5, type: 'input', speaker: 'Lili', afterText: ', Marie.', correct: 'Bonjour' },
 ];
@@ -36,7 +36,7 @@ const Q4 = () => {
     };
 
     const handleShowAnswer = () => {
-        setUserInputs({ 1: 'Bonjour', 3: 'Je te présente', 5: 'Bonjour' });
+        setUserInputs({ 1: 'salut', 3: 'Marie', 5: 'Bonjour' });
     };
 
     const checkAnswers = () => {

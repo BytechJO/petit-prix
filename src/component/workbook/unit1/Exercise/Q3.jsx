@@ -9,7 +9,7 @@ const Burger = "/assets/workbook/unit1/Lesson1/L1Q3-3.svg";
 // --- بيانات الأسئلة (لا تغيير هنا) ---
 const questions = [
     { id: 1, image: bread, options: [{ id: '1a', text: 'Salut !' }, { id: '1b', text: 'Bonjour, Madame !' }, { id: '1c', text: 'Bleu' }], correctAnswerId: '1b' },
-    { id: 2, image: flag, options: [{ id: '2a', text: 'Salut !' }, { id: '2b', text: 'Vert' }, { id: '2c', text: 'Bonjour, Monsieur !' }], correctAnswerId: '2c' },
+    { id: 2, image: flag, options: [{ id: '2a', text: 'Salut !' }, { id: '2b', text: 'Vert' }, { id: '2c', text: 'Bonjour, Monsieur !' }], correctAnswerId: '2a' },
     { id: 3, image: Burger, options: [{ id: '3a', text: 'Salut !' }, { id: '3b', text: 'Rouge' }, { id: '3c', text: 'Bonjour, Monsieur Paul !' }], correctAnswerId: '3c' },
 ];
 

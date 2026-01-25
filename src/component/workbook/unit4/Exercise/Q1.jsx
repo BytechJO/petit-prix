@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Check, X, RotateCcw, Star } from 'lucide-react';
+import ValidationAlert from '../../../Popup/ValidationAlert';
 
 const img1 = '/assets/workbook/unit4/page27/1.svg';
 const img2 = '/assets/workbook/unit4/page27/2.svg';
@@ -18,10 +19,10 @@ export default function Q1() {
     const [showConfetti, setShowConfetti] = useState(false);
 
     const correctAnswers = {
-        marie: '10',
-        lucas: '9',
-        lili: '8',
-        louis: '7'
+        marie: 'Six',
+        lucas: 'sept',
+        lili: 'dix',
+        louis: 'huit'
     };
 
     const children = [
@@ -32,23 +33,49 @@ export default function Q1() {
     ];
 
     const handleInputChange = (id, value) => {
-        if (value === '' || /^\d{1,2}$/.test(value)) {
-            setAnswers(prev => ({ ...prev, [id]: value }));
-            setIsChecked(false);
-        }
+        // السماح بأي نص، فقط امسح isChecked
+        setAnswers(prev => ({ ...prev, [id]: value }));
+        setIsChecked(false);
     };
+
 
     const checkAnswers = () => {
-        setIsChecked(true);
-        const allCorrect = Object.keys(correctAnswers)
-            .every(k => answers[k] === correctAnswers[k]);
+        const values = Object.values(answers);
 
-        if (allCorrect) {
+        // 1️⃣ تحقق من الفراغ
+        const emptyCount = values.filter(v => v === '').length;
+        if (emptyCount > 0) {
+            ValidationAlert.warning('Veuillez remplir toutes les réponses');
+            return;
+        }
+
+        // 2️⃣ احسب عدد الصح
+        let correctCount = 0;
+
+        Object.keys(correctAnswers).forEach(key => {
+            if (answers[key] === correctAnswers[key]) {
+                correctCount++;
+            }
+        });
+
+        const score = `${correctCount}/${Object.keys(correctAnswers).length}`;
+
+        setIsChecked(true);
+
+        // 3️⃣ اعرض النتيجة
+        if (correctCount === Object.keys(correctAnswers).length) {
             setShowConfetti(true);
             setTimeout(() => setShowConfetti(false), 3000);
+            ValidationAlert.success(score);
+        } else {
+            ValidationAlert.error(score);
         }
     };
 
+    const handleShowAnswer = () => {
+        setAnswers(correctAnswers);
+        setIsChecked(true);
+    };
     const reset = () => {
         setAnswers({ marie: '', lucas: '', lili: '', louis: '' });
         setIsChecked(false);
@@ -90,8 +117,6 @@ export default function Q1() {
                             className={`
                 transition
                 hover:-translate-y-2
-                ${isChecked && isAnswerCorrect(child.id) && 'border-4 border-green-400'}
-                ${isChecked && !isAnswerCorrect(child.id) && answers[child.id] && 'border-4 border-red-400'}
               `}
                         >
                             <div>
@@ -105,7 +130,6 @@ export default function Q1() {
                                     value={answers[child.id]}
                                     onChange={(e) => handleInputChange(child.id, e.target.value)}
                                     disabled={isChecked && isAnswerCorrect(child.id)}
-                                    maxLength={2}
                                     className="
                     w-24 h-14 text-2xl font-bold text-center
                     border-2 rounded-xl outline-none
@@ -130,7 +154,7 @@ export default function Q1() {
             {/* الأزرار */}
             <div className="popup-buttons">
                 <button className="try-again-button" onClick={reset}>Recommencer ↻</button>
-                {/* <button className="show-answer-btn" onClick={handleShowAnswer}>Afficher la réponse</button> */}
+                <button className="show-answer-btn" onClick={handleShowAnswer}>Afficher la réponse</button>
                 <button className="check-button2" onClick={checkAnswers}>Vérifier ✓</button>
             </div>
         </div>

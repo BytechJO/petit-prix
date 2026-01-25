@@ -11,14 +11,13 @@ const Q3 = () => {
     const img8 = '/assets/workbook/unit2/page11/8.svg';
     const img9 = '/assets/workbook/unit2/page11/9.svg';
 
-    // Items data with correct answers
     const items = [
         { id: 'a', img: img4, name: 'trousse', correctBag: 'une' },
         { id: 'b', img: img5, name: 'règle', correctBag: 'une' },
         { id: 'c', img: img6, name: 'stylo', correctBag: 'un' },
-        { id: 'd', img: img7, name: 'crayons', correctBag: 'des' },
+        { id: 'd', img: img7, name: 'crayons de couleur', correctBag: 'des' }, // تعديل الاسم ليكون كاملاً
         { id: 'e', img: img8, name: 'gomme', correctBag: 'une' },
-        { id: 'f', img: img9, name: 'cahiers', correctBag: 'des' }
+        { id: 'f', img: img9, name: 'livres', correctBag: 'des' } // تعديل الاسم ليكون كاملاً
     ];
 
     const bags = [
@@ -27,29 +26,25 @@ const Q3 = () => {
         { id: 'des', img: img3, label: 'des', color: 'bg-red-100' }
     ];
 
+    // 1. تحديد الإجابات النصية الصحيحة لكل حقيبة
+    const correctTextAnswers = {
+        un: "stylo",
+        une: "gomme règle trousse",
+        des: "crayons de couleur livres"
+    };
+
     const [draggedItem, setDraggedItem] = useState(null);
     const [bagContents, setBagContents] = useState({ un: [], une: [], des: [] });
     const [availableItems, setAvailableItems] = useState(items);
     const [answers, setAnswers] = useState({ un: '', une: '', des: '' });
     const [showResults, setShowResults] = useState(false);
 
-    const handleDragStart = (item) => {
-        setDraggedItem(item);
-    };
-
-    const handleDragOver = (e) => {
-        e.preventDefault();
-    };
+    const handleDragStart = (item) => setDraggedItem(item);
+    const handleDragOver = (e) => e.preventDefault();
 
     const handleDrop = (bagId) => {
         if (draggedItem) {
-            // Add item to bag
-            setBagContents(prev => ({
-                ...prev,
-                [bagId]: [...prev[bagId], draggedItem]
-            }));
-
-            // Remove from available items
+            setBagContents(prev => ({ ...prev, [bagId]: [...prev[bagId], draggedItem] }));
             setAvailableItems(prev => prev.filter(item => item.id !== draggedItem.id));
             setDraggedItem(null);
         }
@@ -57,14 +52,7 @@ const Q3 = () => {
 
     const handleRemoveFromBag = (bagId, itemId) => {
         const item = bagContents[bagId].find(i => i.id === itemId);
-
-        // Remove from bag
-        setBagContents(prev => ({
-            ...prev,
-            [bagId]: prev[bagId].filter(i => i.id !== itemId)
-        }));
-
-        // Add back to available items
+        setBagContents(prev => ({ ...prev, [bagId]: prev[bagId].filter(i => i.id !== itemId) }));
         setAvailableItems(prev => [...prev, item]);
     };
 
@@ -72,9 +60,7 @@ const Q3 = () => {
         setAnswers(prev => ({ ...prev, [bagId]: value }));
     };
 
-    const checkAnswers = () => {
-        setShowResults(true);
-    };
+    const checkAnswers = () => setShowResults(true);
 
     const handleTryAgain = () => {
         setBagContents({ un: [], une: [], des: [] });
@@ -83,38 +69,38 @@ const Q3 = () => {
         setShowResults(false);
     };
 
+    // 4. إضافة دالة إظهار الإجابة الصحيحة
+    const handleShowAnswer = () => {
+        setAnswers(correctTextAnswers);
+    };
+
+    // 3. تعديل دالة التحقق من الإجابة النصية لتكون أكثر دقة
     const isAnswerCorrect = (bagId) => {
-        return answers[bagId].toLowerCase().trim() === bagId;
+        const userInput = answers[bagId].toLowerCase().trim().split(' ').filter(Boolean).sort().join(' ');
+        const correctAnswer = correctTextAnswers[bagId].toLowerCase().trim().split(' ').filter(Boolean).sort().join(' ');
+        return userInput === correctAnswer;
     };
 
     const isBagCorrect = (bagId) => {
         const bagItems = bagContents[bagId];
-        return bagItems.every(item => item.correctBag === bagId);
+        if (bagItems.length === 0 && items.filter(i => i.correctBag === bagId).length > 0) return false;
+        return bagItems.every(item => item.correctBag === bagId) && bagItems.length === items.filter(i => i.correctBag === bagId).length;
     };
 
     return (
         <div className="max-w-6xl mx-auto p-6 bg-white rounded-lg">
-
-            {/* Bags Section */}
             <div className="grid grid-cols-3 gap-6 mb-8">
                 {bags.map(bag => (
                     <div key={bag.id} className="flex flex-col items-center">
-                        {/* Bag Drop Zone */}
                         <div
                             onDragOver={handleDragOver}
                             onDrop={() => handleDrop(bag.id)}
-                            className={`w-full ${bag.color} border-4 border-dashed border-gray-300 rounded-xl p-4 min-h-[280px] transition-all hover:border-gray-400 ${showResults && isBagCorrect(bag.id) ? 'border-green-500' : ''
-                                } ${showResults && !isBagCorrect(bag.id) && bagContents[bag.id].length > 0 ? 'border-red-500' : ''}`}
+                            className={`w-full ${bag.color} border-4 border-dashed border-gray-300 rounded-xl p-4 min-h-[280px] transition-all hover:border-gray-400 ${showResults && isBagCorrect(bag.id) ? 'border-green-500' : ''} ${showResults && !isBagCorrect(bag.id) ? 'border-red-500' : ''}`}
                         >
-                            {/* Bag Image */}
                             <img src={bag.img} alt={bag.label} className="max-w-32 max-h-32 mx-auto mb-2" />
-
-                            {/* Label */}
                             <div className="bg-white px-6 py-2 rounded-lg text-center text-xl font-bold mb-3 mx-auto w-fit">
                                 {bag.label}
                             </div>
-
-                            {/* Dropped Items */}
                             <div className="flex flex-wrap gap-2 justify-center min-h-[60px]">
                                 {bagContents[bag.id].map(item => (
                                     <div
@@ -130,8 +116,6 @@ const Q3 = () => {
                                 ))}
                             </div>
                         </div>
-
-                        {/* Answer Input */}
                         <div className="mt-4 w-full">
                             <input
                                 type="text"
@@ -139,15 +123,13 @@ const Q3 = () => {
                                 onChange={(e) => handleAnswerChange(bag.id, e.target.value)}
                                 disabled={showResults}
                                 placeholder="........................................"
-                                className={`w-full border-b-2 border-dotted border-gray-400 py-2 text-center text-lg focus:outline-none focus:border-gray-600 ${showResults && isAnswerCorrect(bag.id) ? 'bg-green-50 border-green-500' : ''
-                                    } ${showResults && !isAnswerCorrect(bag.id) ? 'bg-red-50 border-red-500' : ''}`}
+                                className={`w-full border-b-2 border-dotted border-gray-400 py-2 text-center text-lg focus:outline-none focus:border-gray-600 ${showResults && isAnswerCorrect(bag.id) ? 'bg-green-50 border-green-500' : ''} ${showResults && !isAnswerCorrect(bag.id) && answers[bag.id] ? 'bg-red-50 border-red-500' : ''}`}
                             />
                         </div>
                     </div>
                 ))}
             </div>
 
-            {/* Available Items */}
             <div className="border-t-2 border-gray-200 pt-6">
                 <h3 className="text-lg font-semibold mb-4 text-gray-700">Les fournitures scolaires:</h3>
                 <div className="grid grid-cols-6 gap-4">
@@ -171,9 +153,9 @@ const Q3 = () => {
                 <button className="try-again-button" onClick={handleTryAgain}>
                     Recommencer ↻
                 </button>
-                {/* <button className="show-answer-btn" onClick={handleShowAnswer}>
+                <button className="show-answer-btn" onClick={handleShowAnswer}>
                     Afficher la réponse
-                </button> */}
+                </button>
                 <button className="check-button2" onClick={checkAnswers}>
                     Vérifier la réponse ✓
                 </button>

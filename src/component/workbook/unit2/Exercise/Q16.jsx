@@ -1,98 +1,164 @@
-import { useRef, useState } from "react";
+import React, { useState } from "react";
 import ValidationAlert from "../../../Popup/ValidationAlert";
 
 const Q16 = () => {
-  const audioRef = useRef(null);
-
-  const [selected, setSelected] = useState(null);
-  const [answered, setAnswered] = useState(false);
-
-  // الصورة الصحيحة دائمًا الصورة الثانية (index = 1)
-  const correctIndex = 1;
-
+  // 1 = ✔ , 2 = ❌
   const images = [
-    "/assets/unit2/secA/page18/bag1.svg",
-    "/assets/unit2/secA/page18/bag2.svg",
-    "/assets/unit2/secA/page18/bag1.svg",
+    { id: 1, src: "/assets/unit4/secA/page45/1.svg", correctOrder: 2 },
+    { id: 2, src: "/assets/unit4/secA/page45/2.svg", correctOrder: 1 },
+    { id: 3, src: "/assets/unit4/secA/page45/3.svg", correctOrder: 1 },
   ];
 
-  const handleImageClick = (index) => {
-    setSelected(index);
+  const [selectedOrders, setSelectedOrders] = useState({});
+  const [isChecked, setIsChecked] = useState(false);
+
+  // =========================
+  // تغيير الاختيار
+  // =========================
+  const handleOrderChange = (imageId, order) => {
+    setSelectedOrders(prev => ({
+      ...prev,
+      [imageId]: Number(order)
+    }));
   };
 
-  const handleCheck = () => {
-    if (selected === null) {
-      ValidationAlert.warning("veuillez sélectionner une image", "");
+  // =========================
+  // التحقق من الإجابات
+  // =========================
+  const checkAnswers = () => {
+    // تأكد أن الكل اختار
+    const allSelected = images.every(img => selectedOrders[img.id] !== undefined);
+
+    if (!allSelected) {
+      ValidationAlert.warning("Veuillez choisir une réponse pour toutes les images!");
       return;
     }
 
-    setAnswered(true);
+    let correctCount = 0;
 
-    if (selected === correctIndex) {
-      ValidationAlert.success("Correct!", "Bien joué");
-      audioRef.current?.play();
+    images.forEach(img => {
+      if (selectedOrders[img.id] === img.correctOrder) {
+        correctCount++;
+      }
+    });
+
+    setIsChecked(true);
+
+    const score = `${correctCount}/${images.length}`;
+
+    if (correctCount === images.length) {
+      ValidationAlert.success(score);
     } else {
-      ValidationAlert.error("Wrong answer", "Try again");
+      ValidationAlert.error(score);
     }
   };
 
-  const handleStartAgain = () => {
-    setSelected(null);
-    setAnswered(false);
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.pause();
-    }
-  };
-
+  // =========================
+  // عرض الحل
+  // =========================
   const handleShowAnswer = () => {
-    setSelected(correctIndex);
+    const answers = {};
+
+    images.forEach(img => {
+      answers[img.id] = img.correctOrder;
+    });
+
+    setSelectedOrders(answers);
+    setIsChecked(true);
   };
 
-  return (
-    <div className="w-full flex flex-col items-center gap-6">
-      {/* الصور */}
-      <div className="flex gap-12 mt-6 lg:ml-25">
-        {images.map((img, index) => (
-          <div
-            key={index}
-            onClick={() => handleImageClick(index)}
-            className={`
-    cursor-pointer
-    rounded-xl
-    border-4
-    transition-all
-    duration-300
-    ${selected === index
-                ? answered
-                  ? selected === correctIndex
-                    ? "border-green-500 scale-105"
-                    : "border-red-500 scale-105"
-                  : "border-blue-400 scale-105" // أثناء الاختيار قبل التأكيد
-                : "border-transparent"
-              }
-  `}
-          >
-            <img
-              src={img}
-              alt={`option-${index}`}
-              className="max-w-60 max-h-90 object-contain"
-            />
-          </div>
+  // =========================
+  // إعادة المحاولة
+  // =========================
+  const handleTryAgain = () => {
+    setSelectedOrders({});
+    setIsChecked(false);
+  };
 
+  // =========================
+  // ألوان بعد التصحيح
+  // =========================
+  const getSelectStyle = (imageId) => {
+    if (!isChecked) {
+      return {
+        border: "3px solid #3b82f6",
+        backgroundColor: "white",
+        color: "#1f2937"
+      };
+    }
+
+    const image = images.find(img => img.id === imageId);
+    const isCorrect = selectedOrders[imageId] === image.correctOrder;
+
+    return isCorrect
+      ? {
+          border: "3px solid #22c55e",
+          backgroundColor: "#22c55e",
+          color: "white"
+        }
+      : {
+          border: "3px solid #ef4444",
+          backgroundColor: "#ef4444",
+          color: "white"
+        };
+  };
+
+  // =========================
+  // UI
+  // =========================
+  return (
+    <div className="flex flex-col items-center p-8 gap-8">
+
+      {/* الصور */}
+      <div className="grid grid-cols-3 gap-6">
+        {images.map(image => (
+          <div key={image.id} className="relative">
+
+            {/* الصورة */}
+            <div className="w-56 h-56 flex items-center justify-center rounded-lg overflow-hidden">
+              <img
+                src={image.src}
+                alt={`Image ${image.id}`}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+
+            {/* الاختيار */}
+            <select
+              value={selectedOrders[image.id] ?? ""}
+              onChange={(e) => handleOrderChange(image.id, e.target.value)}
+              disabled={isChecked}
+              className="absolute top-3 left-3 px-4 py-2 rounded-lg font-bold text-xl cursor-pointer"
+              style={{
+                ...getSelectStyle(image.id),
+                outline: "none",
+                appearance: "none",
+                textAlign: "center",
+                width: "60px",
+                boxShadow: "0 4px 6px rgba(0,0,0,0.2)"
+              }}
+            >
+              <option value="" disabled>?</option>
+              <option value="1">✔</option>
+              <option value="2">❌</option>
+            </select>
+
+          </div>
         ))}
       </div>
 
       {/* الأزرار */}
-      <div className="popup-buttons mt-4 flex gap-4">
-        <button className="try-again-button" onClick={handleStartAgain}>
-          Recommencer ↻
+      <div className="popup-buttons flex gap-4">
+        <button className="try-again-button" onClick={handleTryAgain}>
+          Recommencer
         </button>
+
         <button className="show-answer-btn" onClick={handleShowAnswer}>
           Afficher la réponse
         </button>
-        <button className="check-button2" onClick={handleCheck}>
-          Vérifier la réponse ✓
+
+        <button className="check-button2" onClick={checkAnswers}>
+          Vérifier la réponse
         </button>
       </div>
     </div>

@@ -49,6 +49,21 @@ const Page7 = ({ bgImage, openPopup }) => {
     });
   };
 
+  const captions = [
+      { start: 0.13, end: 1.31, text: "Unité 1." },
+      { start: 1.31, end: 2.53, text: "Bonjour." },
+      { start: 2.53, end: 3.93, text: "Leçon 3." },
+      { start: 3.93, end: 5.71, text: "Comment ça va ?" },
+      { start: 5.71, end: 7.68, text: "Exercice 1." },
+      { start: 7.68, end: 10.03, text: "Écoute et répète." },
+      { start: 10.03, end: 10.63, text: "A." },
+      { start: 10.63, end: 11.90, text: "Comment ça va ?" },
+      { start: 11.90, end: 14.71, text: "Ça va mal." },
+      { start: 14.71, end: 15.45, text: "B." },
+      { start: 15.45, end: 16.81, text: "Comment ça va ?" },
+      { start: 16.81, end: 18.20, text: "Ça va bien." },
+    ];
+
   return (
     <div
       className="page_1-background"

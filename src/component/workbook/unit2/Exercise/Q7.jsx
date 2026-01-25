@@ -4,32 +4,25 @@ import ValidationAlert from '../../../Popup/ValidationAlert';
 
 const Q7 = () => {
     // 1. البيانات الأساسية
+    const COLS = 8;
+
     const gridLetters = useMemo(() => [
-        // lundi
-        'l', 'u', 'n', 'd', 'i',
-        'k', 'l', 'm',
-        // mardi
-        'm', 'a', 'r', 'd', 'i',
-        'k', 'l', 'm',
-        // mercredi
+        
+        'l', 'u', 'n', 'd', 'i', 'k', 'l', 'm',
+
+        'm', 'a', 'r', 'd', 'i', 'k', 'l', 'm',
+
         'm', 'e', 'r', 'c', 'r', 'e', 'd', 'i',
-        'o', 'q', 'z',
-        // jeudi
-        'j', 'e', 'u', 'd', 'i',
-        'b', 'f', 'j',
-
-        // vendredi
+        
+        'j', 'e', 'u', 'd', 'i', 'b', 'f', 'j',
+        
         'v', 'e', 'n', 'd', 'r', 'e', 'd', 'i',
-        'o', 'q', 'z',
-
-        // samedi
-        's', 'a', 'm', 'e', 'd', 'i',
-
-        'g', 'h', 'k', 'l', 'p',
-        // dimanche
+        
+        's', 'a', 'm', 'e', 'd', 'i', 'g', 'h',
+        
         'd', 'i', 'm', 'a', 'n', 'c', 'h', 'e',
-
     ], []);
+
 
 
     const wordsToFind = useMemo(() => [
@@ -116,7 +109,7 @@ const Q7 = () => {
             <div
                 className="letter-grid"
                 onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseUp} // لإلغاء التحديد إذا خرج الفأر من الشبكة
+                onMouseLeave={handleMouseUp}
             >
                 {gridLetters.map((letter, index) => (
                     <div

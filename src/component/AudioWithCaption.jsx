@@ -10,7 +10,7 @@ const AudioWithCaption = ({
   onCaptionChange, 
   showClose = false, 
   onClose,
-  pausePoints = [] // ⭐ إضافة جديدة: مصفوفة نقاط التوقف
+  pausePoints = [] 
 }) => {
   const audioRef = useRef(null);
   const settingsRef = useRef(null);
@@ -83,7 +83,7 @@ const AudioWithCaption = ({
 
     if (activeElement) {
       activeElement.scrollIntoView({
-        block: "start",
+        block: "nearest",
         behavior: "smooth",
       });
     }

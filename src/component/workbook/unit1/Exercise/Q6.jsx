@@ -13,9 +13,9 @@ const img2 = '/assets/workbook/unit1/page5/2.svg';
 const img3 = '/assets/workbook/unit1/page5/3.svg';
 
 const IMAGES = [
-    { id: 'img-1', src: img1, alt: 'Super' },
     { id: 'img-2', src: img2, alt: 'Comme ci comme ça' },
     { id: 'img-3', src: img3, alt: 'Bien' },
+    { id: 'img-1', src: img1, alt: 'Super' },
 ]
 
 // --- المكون الرئيسي ---

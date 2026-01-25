@@ -1974,135 +1974,206 @@ export const Wunit1SecAQuestions = [
     component: WU1Q1,
     audio: sound44,
     text: "C’est français ? Écoute et réponds par oui ou non.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.0, end: 2.8, text: "Unité 1, bonjour." },
+      { start: 2.8, end: 6.0, text: "Leçon 1, salut tout le monde." },
+      { start: 6.0, end: 7.3, text: "Exercice 1." },
+      { start: 7.3, end: 8.8, text: "C'est français ?" },
+      { start: 8.8, end: 13.0, text: "Écoute et réponds oui ou non." },
+      { start: 13.0, end: 13.6, text: "A." },
+      { start: 13.6, end: 14.8, text: "C'est français." },
+      { start: 14.8, end: 15.4, text: "B." },
+      { start: 15.4, end: 19.0, text: "Ce n'est pas français." },
+      { start: 19.0, end: 19.6, text: "C." },
+      { start: 19.6, end: 20.8, text: "C'est français." },
+      { start: 20.8, end: 21.4, text: "D." },
+      { start: 21.4, end: 25.0, text: "C'est français." },
+      { start: 25.0, end: 25.6, text: "E." },
+      { start: 25.6, end: 28.0, text: "Ce n'est pas français." },
+    ],
   },
   {
     id: 2,
     component: WU1Q2,
     audio: null,
     text: "Écris les mots.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 3,
     component: WU1Q3,
     audio: null,
     text: "Qu’est-ce que tu dis ? Entoure la bonne réponse.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 4,
     component: WU1Q4,
     audio: sound45,
     text: "Écoute et écris.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.0, end: 3.0, text: "Unité 1, bonjour." },
+      { start: 3.0, end: 6.0, text: "Leçon 1, salut tout le monde." },
+      { start: 6.0, end: 10.0, text: "Exercice 4, écoute et écris." },
+      { start: 10.0, end: 12.0, text: "Salut Marie." },
+      { start: 12.0, end: 14.0, text: "Salut Robert." },
+      { start: 14.0, end: 18.0, text: "Marie, c'est Lily." },
+      { start: 18.0, end: 20.0, text: "Bonjour Lily." },
+      { start: 20.0, end: 22.5, text: "Bonjour Marie." },
+    ],
   },
   {
     id: 5,
     component: WU1Q5,
     audio: sound46,
     text: "Écoute et entoure.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.06, end: 1.31, text: "Unité 1." },
+      { start: 1.31, end: 2.46, text: "Bonjour." },
+      { start: 2.46, end: 3.62, text: "Leçon 2." },
+      { start: 3.62, end: 5.82, text: "Comment tu t'appelles ?" },
+      { start: 5.82, end: 7.55, text: "Exercice 1." },
+      { start: 7.55, end: 9.90, text: "Écoute et entoure." },
+      { start: 9.90, end: 10.75, text: "A." },
+      { start: 10.75, end: 11.68, text: "Au revoir, Luc." },
+      { start: 12.99, end: 14.04, text: "Au revoir, maman." },
+      { start: 14.04, end: 16.51, text: "B." },
+      { start: 16.51, end: 17.84, text: "Bonjour." },
+      { start: 17.84, end: 18.74, text: "Bonjour, monsieur." },
+      { start: 19.38, end: 21.02, text: "Comment tu t'appelles ?" },
+      { start: 21.02, end: 22.60, text: "Je m'appelle Jacques." },
+    ],
   },
   {
     id: 6,
     component: WU1Q6,
     audio: sound47,
     text: "Écoute et relie.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.06, end: 1.31, text: "Unité 1." },
+      { start: 1.31, end: 2.46, text: "Bonjour." },
+      { start: 2.46, end: 3.62, text: "Leçon 2." },
+      { start: 3.62, end: 5.54, text: "Comment tu t'appelles ?" },
+      { start: 5.54, end: 7.45, text: "Exercice 2." },
+      { start: 7.45, end: 9.70, text: "Écoute et relis." },
+      { start: 9.70, end: 10.53, text: "A." },
+      { start: 10.53, end: 13.16, text: "Comment tu t'appelles ?" },
+      { start: 13.16, end: 13.98, text: "B." },
+      { start: 13.98, end: 15.90, text: "Salut !" },
+      { start: 15.90, end: 15.96, text: "C." },
+      { start: 15.96, end: 18.20, text: "Je m'appelle Eric." },
+    ],
   },
   {
     id: 7,
     component: WU1Q7,
     audio: sound48,
     text: "Écoute et complète.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.06, end: 1.32, text: "Unité 1." },
+      { start: 1.32, end: 2.46, text: "Bonjour." },
+      { start: 2.46, end: 3.61, text: "Leçon 2." },
+      { start: 3.61, end: 5.46, text: "Comment tu t'appelles ?" },
+      { start: 5.46, end: 7.42, text: "Exercice 3." },
+      { start: 7.42, end: 10.24, text: "Écoute et complète." },
+      { start: 10.24, end: 12.16, text: "Salut !" },
+      { start: 12.16, end: 13.98, text: "Salut !" },
+      { start: 13.98, end: 15.88, text: "Comment tu t'appelles ?" },
+      { start: 15.88, end: 17.05, text: "Je m'appelle Marc." },
+      { start: 17.05, end: 18.82, text: "Et toi ?" },
+      { start: 18.82, end: 20.80, text: "Moi, je m'appelle Pierre." },
+    ],
   },
   {
     id: 8,
     component: WU1Q8,
     audio: null,
     text: "Écris.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 9,
     component: WU1Q9,
     audio: null,
     text: "Déchiffre le prénom.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 10,
     component: WU1Q10,
     audio: sound50,
     text: "Écoute et relie.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.13, end: 1.31, text: "Unité 1." },
+      { start: 1.31, end: 2.53, text: "Bonjour." },
+      { start: 2.53, end: 3.93, text: "Leçon 3." },
+      { start: 3.93, end: 5.61, text: "Comment ça va ?" },
+      { start: 5.61, end: 7.29, text: "Exercice 2." },
+      { start: 7.29, end: 9.59, text: "Écoute et relis." },
+      { start: 9.59, end: 10.51, text: "A." },
+      { start: 10.51, end: 10.89, text: "Super." },
+      { start: 10.89, end: 13.35, text: "B." },
+      { start: 13.35, end: 14.03, text: "Mal." },
+      { start: 14.03, end: 16.61, text: "C." },
+      { start: 16.61, end: 18.46, text: "Bien." },
+      { start: 18.46, end: 18.71, text: "D." },
+      { start: 18.71, end: 20.41, text: "Comme ci, comme ça." },
+    ],
+
   },
   {
     id: 11,
     component: WU1Q11,
     audio: null,
     text: "Mets dans le bon ordre.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 12,
     component: WU1Q12,
     audio: null,
     text: "Comment ça va ? Complète les mots.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 13,
     component: WU1Q13,
     audio: null,
     text: "Regarde, entoure et réponds.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
   },
   {
     id: 14,
     component: WU1Q14,
     audio: sound51,
     text: "Écoute et entoure la bonne couleur.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.06, end: 1.31, text: "Unité 1." },
+      { start: 1.31, end: 2.72, text: "Bonjour !" },
+      { start: 2.72, end: 3.68, text: "Leçon 4." },
+      { start: 3.68, end: 5.68, text: "De quelle couleur c'est ?" },
+      { start: 5.68, end: 7.36, text: "Exercice 1." },
+      { start: 7.36, end: 10.94, text: "Écoute et entoure la bonne couleur." },
+      { start: 10.94, end: 11.60, text: "A." },
+      { start: 11.60, end: 14.01, text: "L'avion est vert." },
+      { start: 14.01, end: 14.78, text: "B." },
+      { start: 14.78, end: 16.38, text: "Le ballon est rouge." },
+      { start: 16.38, end: 17.84, text: "C." },
+      { start: 17.84, end: 20.18, text: "La boîte est noire." },
+    ],
   },
   {
     id: 15,
     component: WU1Q15,
     audio: sound52,
     text: "Écoute et colorie.",
-    // captions: [
-    //   { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    // ]
+    captions: [
+      { start: 0.06, end: 1.31, text: "Unité 1." },
+      { start: 1.31, end: 2.42, text: "Bonjour." },
+      { start: 2.42, end: 3.68, text: "Leçon 4." },
+      { start: 3.68, end: 5.90, text: "De quelle couleur c'est ?" },
+      { start: 5.90, end: 7.61, text: "Exercice 2." },
+      { start: 7.61, end: 10.28, text: "Écoute et coloris." },
+      { start: 10.28, end: 10.91, text: "A." },
+      { start: 10.91, end: 13.98, text: "Le ballon est jaune." },
+      { start: 13.98, end: 14.82, text: "B." },
+      { start: 14.82, end: 16.88, text: "La voiture est noire." },
+      { start: 16.88, end: 18.34, text: "C." },
+      { start: 18.34, end: 20.38, text: "La feuille est verte." },
+    ],
   },
   // unit2
   {
@@ -2110,18 +2181,12 @@ export const Wunit1SecAQuestions = [
     component: WU2Q1,
     audio: null,
     text: "Colorie les lettres du mot.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 17,
     component: WU2Q2,
     audio: null,
     text: "Colorie les objets et parle avec un(e) ami(e).",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 18,
@@ -2129,53 +2194,56 @@ export const Wunit1SecAQuestions = [
     audio: sound53,
     text: "Écoute, range et écris.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0.13, end: 1.44, text: "Unité 2." },
+      { start: 1.44, end: 3.07, text: "L'école." },
+      { start: 3.07, end: 4.41, text: "Leçon 1." },
+      { start: 4.41, end: 6.01, text: "Qu'est-ce que c'est ?" },
+      { start: 6.01, end: 8.03, text: "Exercice 3." },
+      { start: 8.03, end: 8.96, text: "Écoute," },
+      { start: 8.96, end: 11.63, text: "range et écris." },
+      { start: 11.63, end: 12.32, text: "A." },
+      { start: 12.32, end: 13.97, text: "Une trousse." },
+      { start: 13.97, end: 14.69, text: "B." },
+      { start: 14.69, end: 15.71, text: "Une règle." },
+      { start: 15.71, end: 17.57, text: "C." },
+      { start: 17.57, end: 19.29, text: "Une gomme." },
+      { start: 19.29, end: 20.09, text: "D." },
+      { start: 20.09, end: 22.35, text: "Des livres." },
+      { start: 22.35, end: 23.13, text: "E." },
+      { start: 23.13, end: 25.31, text: "Un stylo." },
+      { start: 25.31, end: 26.15, text: "F." },
+      { start: 26.15, end: 27.63, text: "Des crayons de couleurs." },
+    ],
   },
   {
     id: 19,
     component: WU2Q4,
     audio: null,
     text: "Colorie le dessin et complète le texte.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 20,
     component: WU2Q5,
     audio: null,
     text: "Écris la lettre manquante.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 21,
     component: WU2Q6,
     audio: null,
     text: "Observe et relie.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 22,
     component: WU2Q7,
     audio: null,
     text: "Trouve et entoure les jours de la semaine.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 23,
     component: WU2Q8,
     audio: null,
     text: "Complète.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 24,
@@ -2183,8 +2251,19 @@ export const Wunit1SecAQuestions = [
     audio: sound55,
     text: "Écoute et relie.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0.09, end: 1.18, text: "Unité 2." },
+      { start: 1.18, end: 2.37, text: "L'école." },
+      { start: 2.37, end: 3.84, text: "Leçon 3." },
+      { start: 3.84, end: 5.97, text: "Tu aimes le sport ?" },
+      { start: 5.97, end: 7.77, text: "Exercice 1." },
+      { start: 7.77, end: 10.55, text: "Écoute et relis." },
+      { start: 10.55, end: 11.37, text: "A." },
+      { start: 11.37, end: 13.91, text: "J'aime la peinture." },
+      { start: 13.91, end: 14.79, text: "B." },
+      { start: 14.79, end: 17.25, text: "J'aime le volet." },
+      { start: 17.25, end: 17.39, text: "C." },
+      { start: 17.39, end: 19.11, text: "J'aime le vélo." },
+    ],
   },
   {
     id: 25,
@@ -2192,35 +2271,35 @@ export const Wunit1SecAQuestions = [
     audio: sound56,
     text: "Qu’est-ce que Paul aime ? Écoute et coche la bonne réponse.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0.09, end: 1.18, text: "Unité 2." },
+      { start: 1.18, end: 2.37, text: "L'école." },
+      { start: 2.37, end: 3.84, text: "Leçon 3." },
+      { start: 3.84, end: 5.73, text: "Tu aimes le sport ?" },
+      { start: 5.73, end: 7.74, text: "Exercice 2." },
+      { start: 7.74, end: 9.55, text: "Qu'est-ce que Paul aime ?" },
+      { start: 9.55, end: 12.81, text: "Écoute et coche la bonne réponse." },
+      { start: 12.81, end: 15.07, text: "J'aime le foot et des jeux vidéo." },
+      { start: 15.07, end: 17.21, text: "Je déteste la lecture" },
+      { start: 17.21, end: 17.97, text: "et le baseball." },
+    ],
   },
   {
     id: 26,
     component: WU2Q11,
     audio: null,
     text: "Mets les lettres dans le bon ordre et complète les phrases.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 27,
     component: WU2Q12,
     audio: null,
     text: "Dessine ton activité préférée et dis.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 28,
     component: WU2Q13,
     audio: null,
     text: "Complète.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 29,
@@ -2228,17 +2307,27 @@ export const Wunit1SecAQuestions = [
     audio: sound57,
     text: "Écoute et entoure la bonne réponse.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0.09, end: 1.21, text: "Unité 2." },
+      { start: 1.21, end: 2.59, text: "L'école." },
+      { start: 2.59, end: 3.97, text: "Leçon 4." },
+      { start: 3.97, end: 6.51, text: "Qu'est-ce qu'on adore faire ?" },
+      { start: 6.51, end: 8.09, text: "Exercice 2." },
+      { start: 8.09, end: 11.97, text: "Écoute et entoure la bonne réponse." },
+      { start: 11.97, end: 12.57, text: "A." },
+      { start: 12.57, end: 15.59, text: "Elle aime jouer aux jeux vidéo." },
+      { start: 15.59, end: 16.35, text: "B." },
+      { start: 16.35, end: 17.97, text: "Il déteste dessiner." },
+      { start: 17.97, end: 20.03, text: "C." },
+      { start: 20.03, end: 21.17, text: "Il aime nager." },
+      { start: 21.17, end: 22.59, text: "D." },
+      { start: 22.59, end: 24.41, text: "Elle n'aime pas danser." },
+    ],
   },
   {
     id: 30,
     component: WU2Q15,
     audio: null,
     text: "Trouve les mots et écris.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 31,
@@ -2246,8 +2335,17 @@ export const Wunit1SecAQuestions = [
     audio: sound58,
     text: "Qu’est-ce que Anna déteste ? Écoute et coche la bonne réponse.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0.09, end: 1.21, text: "Unité 2." },
+      { start: 1.21, end: 2.59, text: "L'école." },
+      { start: 2.59, end: 3.97, text: "Leçon 4." },
+      { start: 3.97, end: 5.98, text: "Qu'est-ce qu'on adore faire." },
+      { start: 5.98, end: 8.07, text: "Exercice 4." },
+      { start: 8.07, end: 10.13, text: "Qu'est-ce que Anna déteste ?" },
+      { start: 10.13, end: 13.44, text: "Écoute et coche la bonne réponse." },
+      { start: 13.44, end: 16.21, text: "Anna aime dessiner et chanter," },
+      { start: 16.21, end: 17.33, text: "mais elle déteste" },
+      { start: 17.33, end: 18.19, text: "jouer au baseball." },
+    ],
   },
   // unit3
   {
@@ -2255,18 +2353,12 @@ export const Wunit1SecAQuestions = [
     component: WU3Q1,
     audio: null,
     text: "Trouve et écris les mots.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 33,
     component: WU3Q2,
     audio: null,
     text: "Relie les images oux mots.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 34,
@@ -2274,44 +2366,42 @@ export const Wunit1SecAQuestions = [
     audio: sound59,
     text: "Écoute et relie.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0.09, end: 1.37, text: "Unité 3." },
+      { start: 1.37, end: 2.81, text: "Ma famille." },
+      { start: 2.81, end: 4.19, text: "Leçon 1." },
+      { start: 4.19, end: 5.97, text: "Où habites-tu ?" },
+      { start: 5.97, end: 7.97, text: "Exercice 3." },
+      { start: 7.97, end: 10.51, text: "Écoute et relis." },
+      { start: 10.51, end: 11.33, text: "A." },
+      { start: 11.33, end: 14.69, text: "Daniel habite à la mer." },
+      { start: 14.69, end: 15.53, text: "B." },
+      { start: 15.53, end: 22.69, text: "Lily et sa famille habitent à la montagne." },
+      { start: 22.69, end: 24.03, text: "C. Robert et sa mère habitent à la campagne." },
+    ],
   },
   {
     id: 35,
     component: WU3Q4,
     audio: null,
     text: "Mets les phrases dans le bon ordre.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 36,
     component: WU3Q5,
     audio: null,
     text: "Complète.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 37,
     component: WU3Q6,
     audio: null,
     text: "Observe et relie.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 38,
     component: WU3Q7,
     audio: null,
     text: "Mets les lettres dans le bon ordre et complète les phrases.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 39,
@@ -2319,71 +2409,61 @@ export const Wunit1SecAQuestions = [
     audio: sound60,
     text: "Écoute et entoure la bonne réponse.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0.03, end: 1.17, text: "Unité 3." },
+      { start: 1.17, end: 2.62, text: "Ma famille." },
+      { start: 2.62, end: 4.09, text: "Leçon 2." },
+      { start: 4.09, end: 6.53, text: "As-tu des frères ou des sœurs ?" },
+      { start: 6.53, end: 8.29, text: "Exercice 3." },
+      { start: 8.29, end: 11.59, text: "Écoute et entoure la bonne réponse." },
+      { start: 11.59, end: 12.25, text: "A." },
+      { start: 12.25, end: 14.37, text: "Elle a deux frères." },
+      { start: 14.37, end: 15.45, text: "B." },
+      { start: 15.45, end: 17.71, text: "Il a une sœur et un frère." },
+      { start: 17.71, end: 22.73, text: "C. Il a trois sœurs." },
+      { start: 22.73, end: 24.49, text: "D. Elle a une sœur." },
+    ],
   },
   {
     id: 40,
     component: WU3Q9,
     audio: null,
     text: "Complète ta lettre.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 41,
     component: WU3Q10,
     audio: null,
     text: "Complète.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 42,
     component: WU3Q11,
     audio: null,
     text: "Colorie les lettres du mot.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 43,
     component: WU3Q12,
     audio: null,
     text: "Complète la photo.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 44,
     component: WU3Q13,
     audio: null,
     text: "Devine et complète les phrases.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 45,
     component: WU3Q14,
     audio: null,
     text: "Complète les phrases.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 46,
     component: WU3Q15,
     audio: null,
     text: "Complète.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 47,
@@ -2391,35 +2471,42 @@ export const Wunit1SecAQuestions = [
     audio: sound61,
     text: "Écoute et coche la bonne réponse. Parle avec un(e) ami(e).",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0.06, end: 1.15, text: "Unité 3." },
+      { start: 1.15, end: 2.53, text: "Ma famille." },
+      { start: 2.53, end: 3.92, text: "Leçon 4." },
+      { start: 3.92, end: 5.79, text: "Tu as des animaux." },
+      { start: 5.79, end: 7.81, text: "Exercice 1." },
+      { start: 7.81, end: 10.65, text: "Écoute et coche la bonne réponse." },
+      { start: 10.65, end: 13.36, text: "Parle avec un ou une amie." },
+      { start: 13.36, end: 14.16, text: "A." },
+      { start: 14.16, end: 15.82, text: "Je m'appelle Paul." },
+      { start: 15.82, end: 17.28, text: "Je n'ai pas de chat." },
+      { start: 17.28, end: 19.33, text: "J'ai un hamster." },
+      { start: 19.33, end: 20.26, text: "B." },
+      { start: 20.26, end: 22.14, text: "Je m'appelle Héloïse." },
+      { start: 22.14, end: 24.70, text: "J'ai un perroquet, mais je n'ai pas de poisson." },
+      { start: 24.70, end: 26.66, text: "C." },
+      { start: 26.66, end: 28.41, text: "Je m'appelle Kim." },
+      { start: 28.41, end: 31.06, text: "J'ai un chat et je n'ai pas de tortue." },
+    ],
   },
   {
     id: 48,
     component: WU3Q17,
     audio: null,
     text: "Écris.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 49,
     component: WU3Q18,
     audio: null,
     text: "Devine et écris.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 50,
     component: WU3Q19,
     audio: null,
     text: "Complète ta lettre.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   // unit 4
   {
@@ -2428,53 +2515,47 @@ export const Wunit1SecAQuestions = [
     audio: sound62,
     text: "Écoute et complète.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0.09, end: 1.47, text: "Unité 4." },
+      { start: 1.47, end: 3.61, text: "L'anniversaire de Lily." },
+      { start: 3.61, end: 4.80, text: "Leçon 1." },
+      { start: 4.80, end: 6.43, text: "Quel âge as-tu ?" },
+      { start: 6.43, end: 8.16, text: "Exercice 1." },
+      { start: 8.16, end: 11.05, text: "Écoute et complète." },
+      { start: 11.05, end: 13.69, text: "Marie a 6 ans." },
+      { start: 13.69, end: 16.54, text: "Lucas a 7 ans." },
+      { start: 16.54, end: 19.43, text: "Lily a 10 ans." },
+      { start: 19.43, end: 20.83, text: "Louis a 8 ans." },
+    ],
   },
   {
     id: 52,
     component: WU4Q2,
     audio: null,
     text: "Trouve le chemin et dis l’âge de chaque enfant.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 53,
     component: WU4Q3,
     audio: null,
     text: "Mets les phrases dans le bon ordre.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 54,
     component: WU4Q4,
     audio: null,
     text: "Complète.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 55,
     component: WU4Q5,
     audio: null,
     text: "Observe et trouve les sept différences.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 56,
     component: WU4Q6,
     audio: null,
     text: "Mets les lettres dans le bon ordre et écris les mots.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 57,
@@ -2482,7 +2563,24 @@ export const Wunit1SecAQuestions = [
     audio: sound63,
     text: "Écoute et entoure ce qu’il y a.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+      { start: 0.06, end: 1.28, text: "Unité 4." },
+      { start: 1.28, end: 3.34, text: "L'anniversaire de Lily." },
+      { start: 3.34, end: 4.64, text: "Leçon 2." },
+      { start: 4.64, end: 7.24, text: "Qu'est-ce qu'il y a dans ton jardin ?" },
+      { start: 7.24, end: 9.28, text: "Exercice 3." },
+      { start: 9.28, end: 12.70, text: "Écoute et entoure qu'est-ce qu'il y a." },
+      { start: 12.70, end: 13.34, text: "A." },
+      { start: 13.34, end: 14.64, text: "Il y a des cadeaux." },
+      { start: 14.64, end: 16.80, text: "B." },
+      { start: 16.80, end: 18.18, text: "Il n'y a pas de table." },
+      { start: 18.18, end: 20.44, text: "C." },
+      { start: 20.44, end: 21.86, text: "Il n'y a pas de pomme." },
+      { start: 21.86, end: 24.41, text: "D." },
+      { start: 24.41, end: 25.76, text: "Il y a des bananes." },
+      { start: 25.76, end: 28.25, text: "E." },
+      { start: 28.25, end: 31.29, text: "Il y a un trampoline." },
+      { start: 31.29, end: 32.16, text: "F." },
+      { start: 32.16, end: 33.58, text: "Il n'y a pas de gâteau." },
     ]
   },
   {
@@ -2491,26 +2589,33 @@ export const Wunit1SecAQuestions = [
     audio: sound64,
     text: "Écoute et coche ce qu’il n’y a pas.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0.06, end: 1.28, text: "Unité 4." },
+      { start: 1.28, end: 3.30, text: "L'anniversaire de Lily." },
+      { start: 3.30, end: 4.64, text: "Leçon 2." },
+      { start: 4.64, end: 7.10, text: "Qu'est-ce qu'il y a dans ton jardin ?" },
+      { start: 7.10, end: 9.18, text: "Exercice 4." },
+      { start: 9.18, end: 12.34, text: "Écoute et coche qu'est-ce qu'il n'y a pas." },
+      { start: 12.34, end: 13.06, text: "A." },
+      { start: 13.06, end: 16.09, text: "Il n'y a pas de carte." },
+      { start: 16.09, end: 16.64, text: "B." },
+      { start: 16.64, end: 19.60, text: "Il y a du gâteau." },
+      { start: 19.60, end: 20.22, text: "C." },
+      { start: 20.22, end: 23.16, text: "Il y a une règle." },
+      { start: 23.16, end: 23.46, text: "D." },
+      { start: 23.46, end: 25.28, text: "Il n'y a pas de stylo." },
+    ],
   },
   {
     id: 59,
     component: WU4Q9,
     audio: null,
     text: "Complète.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 60,
     component: WU4Q10,
     audio: null,
     text: "Colorie les lettres du mot.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 61,
@@ -2518,8 +2623,22 @@ export const Wunit1SecAQuestions = [
     audio: sound65,
     text: "Écoute et dis « salut » quand tu entends les boissons.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
+      { start: 0.13, end: 1.31, text: "Unité 4." },
+      { start: 1.31, end: 3.41, text: "L'anniversaire de Lily." },
+      { start: 3.41, end: 4.83, text: "Leçon 3." },
+      { start: 4.83, end: 5.99, text: "Qu'est-ce que tu veux manger" },
+      { start: 5.99, end: 7.55, text: "et boire ?" },
+      { start: 7.55, end: 9.25, text: "Exercice 2." },
+      { start: 9.25, end: 11.61, text: "Écoute et dis « salut » quand tu entends les boissons." },
+      { start: 14.65, end: 17.01, text: "Il y a de l'eau." },
+      { start: 17.01, end: 19.97, text: "Il y a du jus d'orange." },
+      { start: 19.97, end: 22.77, text: "Il y a du chocolat." },
+      { start: 22.77, end: 25.63, text: "Il y a du fromage." },
+      { start: 25.63, end: 28.31, text: "Il y a du café." },
+      { start: 28.31, end: 30.85, text: "Il y a du poulet." },
+      { start: 30.85, end: 33.71, text: "Il y a de la limonade." },
+      { start: 33.71, end: 34.85, text: "Il y a du poisson." },
+    ],
   },
   {
     id: 62,
@@ -2527,7 +2646,18 @@ export const Wunit1SecAQuestions = [
     audio: sound66,
     text: "Écoute et relie.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+      { start: 0.13, end: 1.31, text: "Unité 4." },
+      { start: 1.31, end: 3.41, text: "L'anniversaire de Lily." },
+      { start: 3.41, end: 4.83, text: "Leçon 3." },
+      { start: 4.83, end: 5.99, text: "Qu'est-ce que tu veux manger et boire ?" },
+      { start: 5.99, end: 7.71, text: "Exercice 3." },
+      { start: 7.71, end: 9.79, text: "Écoute et relis." },
+      { start: 11.77, end: 13.35, text: "Je m'appelle Élise. J'aime le poisson." },
+      { start: 15.52, end: 16.17, text: "Moi, c'est André. J'aime le poulet." },
+      { start: 19.43, end: 20.37, text: "C'est Sophie. J'aime la salade." },
+      { start: 22.85, end: 25.63, text: "Henri aime le gâteau." },
+      { start: 25.63, end: 26.85, text: "Je m'appelle Nicole. J'aime les pommes." },
+      { start: 29.41, end: 30.93, text: "Moi, c'est Pierre. J'aime les bonbons." },
     ]
   },
   {
@@ -2536,7 +2666,16 @@ export const Wunit1SecAQuestions = [
     audio: sound67,
     text: "Écoute et écris le bon numéro.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+      { start: 0.06, end: 1.28, text: "Unité 4." },
+      { start: 1.28, end: 3.20, text: "L'anniversaire de Lily." },
+      { start: 3.20, end: 4.38, text: "Leçon 4." },
+      { start: 4.38, end: 6.52, text: "Qu'est-ce qu'on fait aujourd'hui ?" },
+      { start: 6.52, end: 7.97, text: "Exercice 1." },
+      { start: 7.97, end: 11.08, text: "Écoute et écris le bon numéro." },
+      { start: 11.08, end: 14.01, text: "A. On fait des jeux." },
+      { start: 14.01, end: 17.28, text: "B. On fait du gâteau." },
+      { start: 17.28, end: 20.28, text: "C. On fait des cadeaux." },
+      { start: 20.28, end: 22.20, text: "D. On fait du pique-nique." },
     ]
   },
   {
@@ -2545,7 +2684,15 @@ export const Wunit1SecAQuestions = [
     audio: sound68,
     text: "Écoute et relie.",
     captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
+      { start: 0.06, end: 1.28, text: "Unité 4." },
+      { start: 1.28, end: 3.18, text: "L'anniversaire de Lily." },
+      { start: 3.18, end: 4.38, text: "Leçon 4." },
+      { start: 4.38, end: 6.62, text: "Qu'est-ce qu'on fait aujourd'hui ?" },
+      { start: 6.62, end: 8.51, text: "Exercice 2." },
+      { start: 8.51, end: 10.97, text: "Écoute et relis." },
+      { start: 10.97, end: 13.85, text: "Antoine fait du vélo." },
+      { start: 13.85, end: 16.82, text: "Héloïse fait du foot." },
+      { start: 16.82, end: 18.26, text: "Anna fait des jeux." },
     ]
   },
   {
@@ -2553,18 +2700,12 @@ export const Wunit1SecAQuestions = [
     component: WU4Q15,
     audio: null,
     text: "Devine et relie.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   {
     id: 66,
     component: WU4Q16,
     audio: null,
     text: "Réponds aux questions.",
-    captions: [
-      { start: 0, end: 4.23, text: "Page 8. Right Activities. Exercise A, number 1." },
-    ]
   },
   // revision
   {

@@ -4,9 +4,9 @@ import ValidationAlert from '../../../Popup/ValidationAlert';
 // --- بيانات التمرين (تبقى كما هي) ---
 const WORDS = [
     { id: 'word-1', text: 'Super', correctMatch: 'img-1' },
-    { id: 'word-2', text: 'Comme ci comme ça.', correctMatch: 'img-2' },
+    { id: 'word-2', text: 'Comme ci comme ça.', correctMatch: 'img-4' },
     { id: 'word-3', text: 'Bien', correctMatch: 'img-3' },
-    { id: 'word-4', text: 'Mal', correctMatch: 'img-4' },
+    { id: 'word-4', text: 'Mal', correctMatch: 'img-2' },
 ]
 
 const img1 = '/assets/workbook/unit1/page7/1.svg';

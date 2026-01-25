@@ -67,3 +67,50 @@
   outline: none;
 }
 
+/* ... تنسيقاتك الحالية ... */
+
+.word-search {
+    display: grid;
+    grid-template-columns: repeat(7, 40px); /* 7 أعمدة */
+    grid-template-rows: repeat(12, 40px); /* 12 صف */
+    gap: 2px;
+    padding: 10px;
+    border-radius: 8px;
+    user-select: none; /* لمنع تحديد النص أثناء السحب */
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.grid-cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.grid-cell.selected {
+    background-color: #aeeeee; /* لون التحديد المؤقت */
+    border-color: #008b8b;
+}
+
+.grid-cell.found {
+    background-color: #98fb98; /* لون الكلمة الصحيحة */
+    color: #000;
+}
+
+.sentence-input {
+    border: none;
+    border-bottom: 2px dotted #999;
+    background-color: transparent;
+    margin-left: 8px;
+    font-size: 1em;
+    outline: none;
+}

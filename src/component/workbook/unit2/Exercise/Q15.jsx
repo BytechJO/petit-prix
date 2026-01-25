@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './Q15.css';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
@@ -19,45 +19,191 @@ const Q15 = () => {
         ['r', 'e', 'x', 'v', 'n', 'k', 'l'],
         ['o', 'r', 'n', 'a', 'g', 'e', 'r'],
         ['c', 'n', 'w', 'r', 'e', 'y', 'u'],
-        ['n', 'c', 'u', 'p', 'd', 'j', 'k'],
-        ['d', 'a', 'n', 's', 'e', 'r', 'l'],
     ];
 
-    const correctAnswers = ['jouer aux jeux vidéo', 'lire des livres', 'chanter', 'nager'];
+    const correctWords = ['danser', 'lire', 'nager', 'chanter'];
+    
+    const [isMouseDown, setIsMouseDown] = useState(false);
+    const [selectedCells, setSelectedCells] = useState([]);
+    const [foundWords, setFoundWords] = useState([]);
+    const [foundCells, setFoundCells] = useState([]); // لتخزين الخلايا التي تم العثور عليها
+    const [answers, setAnswers] = useState(new Array(4).fill(''));
+    
+    const wordSearchRef = useRef(null);
 
-    // حالة الكتابة
-    const [answers, setAnswers] = useState(new Array(correctAnswers.length).fill(''));
-    const [showAnswer, setShowAnswer] = useState(false);
+    // دالة للتحقق من أن الخلايا المحددة في خط مستقيم
+    const isStraightLine = useCallback((cells) => {
+        if (cells.length <= 1) return true;
+        
+        const first = cells[0];
+        const last = cells[cells.length - 1];
+        
+        // أفقي
+        if (first.row === last.row && Math.abs(first.col - last.col) === cells.length - 1) {
+            return true;
+        }
+        // عمودي
+        if (first.col === last.col && Math.abs(first.row - last.row) === cells.length - 1) {
+            return true;
+        }
+        // قطري
+        if (Math.abs(first.row - last.row) === cells.length - 1 && 
+            Math.abs(first.col - last.col) === cells.length - 1) {
+            return true;
+        }
+        
+        return false;
+    }, []);
 
-    const handleChange = (value, index) => {
-        const newAnswers = [...answers];
-        newAnswers[index] = value;
-        setAnswers(newAnswers);
-    };
+    // دالة لفرز الخلايا بالترتيب الصحيح
+    const sortCells = useCallback((cells) => {
+        if (cells.length <= 1) return cells;
+        
+        // تحديد اتجاه الخلايا
+        const first = cells[0];
+        const last = cells[cells.length - 1];
+        
+        return [...cells].sort((a, b) => {
+            if (first.row === last.row) { // أفقي
+                return a.col - b.col;
+            } else if (first.col === last.col) { // عمودي
+                return a.row - b.row;
+            } else { // قطري
+                if (first.row < last.row) {
+                    return a.row - b.row;
+                } else {
+                    return b.row - a.row;
+                }
+            }
+        });
+    }, []);
 
-    const handleReset = () => {
-        setAnswers(new Array(correctAnswers.length).fill(''));
-        setShowAnswer(false);
-    };
-
-    const handleShowAnswerAll = () => {
-        setShowAnswer(true);
-    };
-
-    const handleCheckAll = () => {
-        if (answers.includes('')) {
-            ValidationAlert.warning('Veuillez remplir tous les champs!');
+    // التحقق من الكلمة المحددة
+    const checkSelectedWord = useCallback(() => {
+        if (selectedCells.length < 2) {
+            setSelectedCells([]);
             return;
         }
 
-        const correctCount = answers.reduce((acc, ans, i) => {
-            return acc + (ans.trim().toLowerCase() === correctAnswers[i].toLowerCase() ? 1 : 0);
-        }, 0);
+        if (!isStraightLine(selectedCells)) {
+            setSelectedCells([]);
+            return;
+        }
 
-        if (correctCount === correctAnswers.length) {
-            ValidationAlert.success(`${correctCount}/${correctAnswers.length} ✔️`);
+        const sortedCells = sortCells(selectedCells);
+        const selectedWord = sortedCells.map(cell => grid[cell.row][cell.col]).join('');
+        const reversedSelectedWord = [...selectedWord].reverse().join('');
+
+        let matchedWord = null;
+        let matchedCells = [];
+
+        if (correctWords.includes(selectedWord) && !foundWords.includes(selectedWord)) {
+            matchedWord = selectedWord;
+            matchedCells = sortedCells;
+        } else if (correctWords.includes(reversedSelectedWord) && !foundWords.includes(reversedSelectedWord)) {
+            matchedWord = reversedSelectedWord;
+            matchedCells = [...sortedCells].reverse();
+        }
+
+        if (matchedWord) {
+            setFoundWords(prev => [...prev, matchedWord]);
+            setFoundCells(prev => [...prev, ...matchedCells]);
+            
+            const newAnswers = [...answers];
+            const emptyIndex = newAnswers.findIndex(ans => ans === '');
+            if (emptyIndex !== -1) {
+                newAnswers[emptyIndex] = matchedWord;
+                setAnswers(newAnswers);
+            }
+        }
+        
+        setSelectedCells([]);
+    }, [selectedCells, foundWords, answers, correctWords, grid, isStraightLine, sortCells]);
+
+    // معالجات أحداث الفأرة
+    const handleMouseDown = useCallback((row, col) => {
+        setIsMouseDown(true);
+        setSelectedCells([{ row, col }]);
+    }, []);
+
+    const handleMouseEnter = useCallback((row, col) => {
+        if (!isMouseDown) return;
+        
+        const lastCell = selectedCells[selectedCells.length - 1];
+        if (!lastCell) return;
+        
+        // التأكد من أن الخلية الجديدة مجاورة للخلية الأخيرة
+        const rowDiff = Math.abs(row - lastCell.row);
+        const colDiff = Math.abs(col - lastCell.col);
+        
+        if (rowDiff <= 1 && colDiff <= 1 && (rowDiff + colDiff) > 0) {
+            // منع التكرار
+            if (!selectedCells.some(cell => cell.row === row && cell.col === col)) {
+                setSelectedCells(prev => [...prev, { row, col }]);
+            }
+        }
+    }, [isMouseDown, selectedCells]);
+
+    const handleMouseUp = useCallback(() => {
+        if (isMouseDown) {
+            setIsMouseDown(false);
+            checkSelectedWord();
+        }
+    }, [isMouseDown, checkSelectedWord]);
+
+    // إضافة حدث mouseleave
+    useEffect(() => {
+        const handleMouseLeave = () => {
+            if (isMouseDown) {
+                setIsMouseDown(false);
+                checkSelectedWord();
+            }
+        };
+
+        const ref = wordSearchRef.current;
+        if (ref) {
+            ref.addEventListener('mouseleave', handleMouseLeave);
+            return () => ref.removeEventListener('mouseleave', handleMouseLeave);
+        }
+    }, [isMouseDown, checkSelectedWord]);
+
+    // إضافة أحداث الفأرة العامة
+    useEffect(() => {
+        const handleGlobalMouseUp = () => {
+            if (isMouseDown) {
+                setIsMouseDown(false);
+                checkSelectedWord();
+            }
+        };
+
+        document.addEventListener('mouseup', handleGlobalMouseUp);
+        return () => document.removeEventListener('mouseup', handleGlobalMouseUp);
+    }, [isMouseDown, checkSelectedWord]);
+
+    // التحقق مما إذا كانت الخلية تم العثور عليها
+    const isCellFound = useCallback((row, col) => {
+        return foundCells.some(cell => cell.row === row && cell.col === col);
+    }, [foundCells]);
+
+    // التحقق مما إذا كانت الخلية مختارة
+    const isCellSelected = useCallback((row, col) => {
+        return selectedCells.some(cell => cell.row === row && cell.col === col);
+    }, [selectedCells]);
+
+    const handleReset = () => {
+        setAnswers(new Array(4).fill(''));
+        setFoundWords([]);
+        setFoundCells([]);
+        setSelectedCells([]);
+        setIsMouseDown(false);
+    };
+
+    const handleCheckAll = () => {
+        const allFound = correctWords.every(word => foundWords.includes(word));
+        if (allFound) {
+            ValidationAlert.success(`${foundWords.length}/${correctWords.length} ✔️`);
         } else {
-            ValidationAlert.error(`${correctCount}/${correctAnswers.length} ❌`);
+            ValidationAlert.error(`${foundWords.length}/${correctWords.length} `);
         }
     };
 
@@ -75,47 +221,58 @@ const Q15 = () => {
                     <div className="activities">
                         {activities.map((activity, i) => (
                             <div key={i} className="activity">
-                                <img src={activity.img} alt={`Activity ${i + 1}`} className="activity-image" />
+                                <img 
+                                    src={activity.img} 
+                                    alt={`Activity ${i + 1}`} 
+                                    className="activity-image" 
+                                />
                                 <div className="sentence-box">
                                     {activity.prefix}
                                     <input
                                         type="text"
                                         className="sentence-input"
                                         value={answers[i]}
-                                        onChange={(e) => handleChange(e.target.value, i)}
-                                        placeholder="Tapez ici..."
+                                        readOnly
+                                        placeholder="selected..."
                                     />
-                                    {showAnswer && (
-                                        <div className="correct-answer">
-                                            Réponse: {correctAnswers[i]}
-                                        </div>
-                                    )}
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    <div className="word-search">
-                        {grid.flat().map((char, index) => (
-                            <div key={index} className="grid-cell">
-                                {char}
-                            </div>
-                        ))}
+                    <div
+                        className="word-search"
+                        ref={wordSearchRef}
+                        onMouseUp={handleMouseUp}
+                    >
+                        {grid.map((row, rowIndex) =>
+                            row.map((char, colIndex) => {
+                                const selected = isCellSelected(rowIndex, colIndex);
+                                const found = isCellFound(rowIndex, colIndex);
+                                
+                                return (
+                                    <div
+                                        key={`${rowIndex}-${colIndex}`}
+                                        className={`grid-cell 
+                                            ${selected ? 'selected' : ''} 
+                                            ${found ? 'found' : ''}`}
+                                        onMouseDown={() => handleMouseDown(rowIndex, colIndex)}
+                                        onMouseEnter={() => handleMouseEnter(rowIndex, colIndex)}
+                                    >
+                                        {char}
+                                    </div>
+                                );
+                            })
+                        )}
                     </div>
-
-                    {/* الأزرار */}
-
                 </div>
             </div>
             <div className="popup-buttons mt-4 flex gap-4 justify-center">
                 <button className="try-again-button" onClick={handleReset}>
                     Recommencer ↻
                 </button>
-                <button className="show-answer-btn" onClick={handleShowAnswerAll}>
-                    Afficher la réponse
-                </button>
                 <button className="check-button2" onClick={handleCheckAll}>
-                    Vérifier la réponse ✓
+                    Vérifier ✓
                 </button>
             </div>
         </>

@@ -9,20 +9,20 @@ const Q5 = () => {
         lundi: ['u'],
         jeudi: ['i'],
         samedi: ['a'],
-        vendredi: ['e', 'd'],
-        dimanche: ['i'],
-        mardi: ['a'],
-        mercredi: ['e', 'r', 'c']
+        vendredi: ['d'],
+        dimanche: ['m'],
+        mardi: ['e'],
+        mercredi: ['r']
     };
 
     const [answers, setAnswers] = useState({
         lundi: [''],
         jeudi: [''],
         samedi: [''],
-        vendredi: ['', ''],
+        vendredi: [''],
         dimanche: [''],
         mardi: [''],
-        mercredi: ['', '', '']
+        mercredi: ['']
     });
 
     const handleInputChange = (word, index, value) => {
@@ -63,8 +63,8 @@ const Q5 = () => {
 
     const handleTryAgain = () => {
         setAnswers({
-            lundi: [''], jeudi: [''], samedi: [''], vendredi: ['', ''],
-            dimanche: [''], mardi: [''], mercredi: ['', '', '']
+            lundi: [''], jeudi: [''], samedi: [''], vendredi: [''],
+            dimanche: [''], mardi: [''], mercredi: ['']
         });
     };
 

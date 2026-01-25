@@ -8,6 +8,8 @@ export default function LeftSidebar({ isOpen, close, units, goToPage, book }) {
         setOpenUnit(openUnit === unitId ? null : unitId);
     };
 
+
+
     return (
         <>
             <div
@@ -27,26 +29,26 @@ export default function LeftSidebar({ isOpen, close, units, goToPage, book }) {
                 </div>
                 {book && (
                     <div
-  className={`bookInfo-div flex items-center gap-3 px-3 mb-4
+                        className={`bookInfo-div flex items-center gap-3 px-3 mb-4
   ${book.title === "Right 1 Grammar Poster" ? "grammar-info" : ""}`}
->
-  {book.cover && (
-    <img
-      src={book.cover}
-      className="rounded shadow"
-      style={{ height: "80px", width: "auto" }}
-    />
-  )}
+                    >
+                        {book.cover && (
+                            <img
+                                src={book.cover}
+                                className="rounded shadow"
+                                style={{ height: "80px", width: "auto" }}
+                            />
+                        )}
 
-  <div className="text-left">
-    <h3 className="text-base font-semibold text-[#430f68]">
-      {book.title}
-    </h3>
-    <p className="text-sm text-gray-500">
-      {book.pages} pages
-    </p>
-  </div>
-</div>
+                        <div className="text-left">
+                            <h3 className="text-base font-semibold text-[#430f68]">
+                                {book.title}
+                            </h3>
+                            <p className="text-sm text-gray-500">
+                                {book.pages} pages
+                            </p>
+                        </div>
+                    </div>
 
 
                 )}
@@ -72,33 +74,38 @@ export default function LeftSidebar({ isOpen, close, units, goToPage, book }) {
                                 </div>
 
                                 <div
-    className={`
+                                    className={`
         overflow-hidden
         transition-all duration-1200 ease-out
         ${openUnit === u.id ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}
     `}
->
-    <ul className="ml-4 mb-2 space-y-1 pt-2">
-        {Array.from({ length: u.pages }).map((_, i) => {
-            const pageNumber = u.start + i;
+                                >
+                                    <ul className="ml-4 mb-2 space-y-1 pt-2">
+                                        {Array.from({ length: u.pages }).map((_, i) => {
+                                            const pageNumber = u.start + i;
 
-            return (
-                <li
-                    key={pageNumber}
-                    className="py-1 px-2 text-gray-600 cursor-pointer
-                               transition-all duration-300
-                               hover:text-blue-600"
-                    onClick={() => {
-                        goToPage(pageNumber);
-                        close();
-                    }}
-                >
-                    Page {pageNumber}
-                </li>
-            );
-        })}
-    </ul>
-</div>
+                                            // الدالة لتعديل الرقم حسب زوجي/فردي
+                                            const handleGoToPage = () => {
+                                                const finalPage = pageNumber % 2 === 0 ? pageNumber - 1 : pageNumber;
+                                                goToPage(finalPage);
+                                                close();
+                                            };
+
+                                            return (
+                                                <li
+                                                    key={pageNumber}
+                                                    className="py-1 px-2 text-gray-600 cursor-pointer
+                 transition-all duration-300
+                 hover:text-blue-600"
+                                                    onClick={handleGoToPage}
+                                                >
+                                                    Page {pageNumber}
+                                                </li>
+                                            );
+                                        })}
+
+                                    </ul>
+                                </div>
 
                             </li>
                         ))}

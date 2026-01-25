@@ -1,0 +1,108 @@
+/* التنسيق العام للحاوية */
+.exercise-container {
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* تنسيق العنوان الرئيسي */
+.exercise-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  color: #007a8c;
+  margin-bottom: 30px;
+}
+
+/* تنسيق رقم التمرين */
+.exercise-number {
+  background-color: #00a9c0;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.word-rows-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* المسافة بين كل سطر */
+}
+
+/* تنسيق كل سطر في التمرين */
+.word-row {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden; /* لإخفاء الأشكال الزائدة عن الحواف */
+}
+
+/* تخصيص الخلفية لكل سطر لمحاكاة الصورة الأصلية */
+.word-row:nth-child(1) { background-color: #d8f3e2; } /* أخضر فاتح */
+.word-row:nth-child(2) { background-color: #fce4ec; } /* وردي فاتح */
+.word-row:nth-child(3) { background-color: #fff9c4; } /* أصفر فاتح */
+
+.item1-image1 {
+  width: 150px;
+  height: auto;
+  margin-right: 20px;
+  z-index: 2; 
+}
+
+.letters-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* للسماح بانتقال الحروف لسطر جديد إذا لم يكن هناك مساحة */
+  gap: 10px;
+  z-index: 2;
+}
+
+/* تنسيق مربع الحرف */
+.letter-box {
+  width: 50px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #424242;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none; /* لمنع تحديد النص عند النقر السريع */
+}
+
+.letter-box:hover {
+  transform: translateY(-3px);
+}
+
+/* حالة الحرف الصحيح */
+.letter-box.correct {
+  background-color: #a5d6a7; /* أخضر فاتح */
+  border-color: #4caf50; /* أخضر */
+  color: white;
+  transform: scale(1.05);
+}
+
+/* حالة الحرف الخاطئ */
+.letter-box.incorrect {
+  background-color: #ef9a9a; /* أحمر فاتح */
+  border-color: #f44336; /* أحمر */
+  animation: shake 0.5s; /* إضافة اهتزاز للحرف الخاطئ */
+}
+
+/* تعريف حركة الاهتزاز */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}

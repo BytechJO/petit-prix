@@ -16,10 +16,10 @@ const Q17 = () => {
 
     // الإجابات الصحيحة (مثال)
     const correctAnswers = {
-        perroquet: 'grand-père',
-        tortue: 'grand-mère',
-        chat: 'père',
-        poisson: 'mère'
+        perroquet: 'perroquet',
+        tortue: 'tortue',
+        chat: 'Chat',
+        poisson: 'poisson'
     };
 
     const [answers, setAnswers] = useState({
