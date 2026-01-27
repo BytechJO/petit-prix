@@ -16,8 +16,8 @@ const Q8 = () => {
 
   // هنا نفترض الإجابة الصحيحة (مثال: img2 و img4 غير موجودة)
   const correctAnswers = {
-    img1: false,
-    img2: true,
+    img1: true,
+    img2: false,
     img3: false,
     img4: true,
   };

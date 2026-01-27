@@ -27,11 +27,11 @@ const Q6 = () => {
 
     // كلمات صحيحة لكل section
     const correctAnswers = {
-        a: "o s i n B o s s",
-        b: "b T e l a",
-        c: "â u t a G e",
-        d: "a a e u d C x",
-        e: "a e n B a n"
+        a: "B o i s s o n s",
+        b: "T a b l e",
+        c: "G â t e a u",
+        d: "C a d e a u x",
+        e: "B a n a n e"
     };
 
     // Handle change

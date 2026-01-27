@@ -4,14 +4,14 @@ import ValidationAlert from '../../../Popup/ValidationAlert';
 const exercises = [
     {
         id: 'exercise1',
-        image: '/assets/unit2/review/page26/ch1.svg',
+        image: '/assets/workbook/unit2/page16/1.svg',
         letters: ['O', 'L', 'O', 'T', 'F', 'E'],
         correctAnswer: 'FOOTLE',
         hint: "J'aime le...",
     },
     {
         id: 'exercise2',
-        image: '/assets/unit2/review/page26/ch2.svg',
+        image: '/assets/workbook/unit2/page16/2.svg',
         letters: ['L', 'V', 'L', 'Y', 'O', 'E'],
         correctAnswer: 'VOLLEY',
         hint: "J'aime le...",
@@ -113,7 +113,7 @@ export default function Q11() {
     };
 
     return (
-        <div className="h-screen overflow-auto p-4">
+        <div className="overflow-auto p-4">
             <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
 
                 {exercises.map((exercise, exIndex) => (

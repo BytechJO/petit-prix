@@ -3,14 +3,14 @@ import ValidationAlert from '../../../Popup/ValidationAlert';
 import './Q9.css';
 
 const WORDS = [
-    { id: 'word-1', text: 'J’aime le vélo.', correctMatch: 'img-2' },
-    { id: 'word-2', text: 'J’aime la peinture.', correctMatch: 'img-3' },
-    { id: 'word-3', text: 'J’aime le volley.', correctMatch: 'img-1' },
+    { id: 'word-1', text: 'J’aime le vélo.', correctMatch: 'img-3' },
+    { id: 'word-2', text: 'J’aime la peinture.', correctMatch: 'img-1' },
+    { id: 'word-3', text: 'J’aime le volley.', correctMatch: 'img-2' },
 ]
 
-const img1 = '/assets/unit2/review/page26/ch1.svg';
-const img2 = '/assets/unit2/review/page26/ch2.svg';
-const img3 = '/assets/unit2/review/page26/ch3.svg';
+const img1 = '/assets/workbook/unit2/page15/1.svg';
+const img2 = '/assets/workbook/unit2/page15/2.svg';
+const img3 = '/assets/workbook/unit2/page15/3.svg';
 
 const IMAGES = [
     { id: 'img-1', src: img1, alt: 'Super' },

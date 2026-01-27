@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Check, X, RotateCcw, Star } from 'lucide-react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
-
+import './Q1.css';
 const img1 = '/assets/workbook/unit4/page27/1.svg';
 const img2 = '/assets/workbook/unit4/page27/2.svg';
 const img3 = '/assets/workbook/unit4/page27/3.svg';
@@ -90,23 +90,6 @@ export default function Q1() {
     return (
         <div className=" font-[Fredoka] relative overflow-hidden">
 
-            {/* confetti */}
-            {showConfetti && (
-                <div className="fixed inset-0 pointer-events-none z-50">
-                    {[...Array(40)].map((_, i) => (
-                        <div
-                            key={i}
-                            className="absolute w-2.5 h-2.5 animate-fall"
-                            style={{
-                                left: `${Math.random() * 100}%`,
-                                backgroundColor: ['#FFD700', '#FF6B9D', '#4ECDC4', '#95E1D3', '#F38181'][i % 5],
-                                animationDuration: `${2 + Math.random() * 3}s`
-                            }}
-                        />
-                    ))}
-                </div>
-            )}
-
             <div className="max-w-4xl mx-auto">
 
                 {/* cards */}
@@ -122,6 +105,7 @@ export default function Q1() {
                             <div>
                                 <img
                                     src={child.src}
+                                    className="U4Q1Image"
                                 />
                             </div>
 
@@ -131,7 +115,7 @@ export default function Q1() {
                                     onChange={(e) => handleInputChange(child.id, e.target.value)}
                                     disabled={isChecked && isAnswerCorrect(child.id)}
                                     className="
-                    w-24 h-14 text-2xl font-bold text-center
+                    w-28 h-14 text-2xl font-bold text-center
                     border-2 rounded-xl outline-none
                     focus:ring-2 focus:ring-indigo-400
                     disabled:bg-green-50

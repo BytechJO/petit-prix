@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 
 const Q10 = () => {
-  // الحالة لتخزين إجابات المستخدم
   const [answers, setAnswers] = useState({
     today: '',
     tomorrow: ''
   });
 
-  // تحديث الإجابات عند كتابة المستخدم
   const handleInputChange = (field, value) => {
     setAnswers(prev => ({
       ...prev,
@@ -15,44 +13,52 @@ const Q10 = () => {
     }));
   };
 
-  // زر Recommencer لمسح كل الإجابات
   const handleTryAgain = () => {
     setAnswers({ today: '', tomorrow: '' });
   };
 
+  // ستايل مشترك للـ input
+  const inputStyle =
+    "w-44 text-center text-lg font-semibold border-2 border-dashed border-gray-300 rounded-lg px-2 py-1 focus:outline-none focus:border-blue-500 focus:bg-white transition-all duration-200";
+
   return (
-    <div className="p-6 max-w-2xl mx-auto space-y-6">
+    <div className="lg:mt-10 flex items-center justify-center p-6">
 
-      <p className="text-lg font-bold">
-        J’ai{' '}
-        <input
-          type="text"
-          value={answers.today}
-          onChange={(e) => handleInputChange('today', e.target.value)}
-          className="border-b-2 border-dashed border-gray-400 focus:border-blue-500 mx-1 px-1 text-center text-lg w-40"
-          placeholder="Votre réponse"
-        />
-      </p>
+      {/* Card */}
+      <div className="bg-[#c8dfbe] w-full max-w-xl rounded-2xl p-10 space-y-8">
 
-      <p className="text-lg font-bold">
-        Et mon ami(e) a{' '}
-        <input
-          type="text"
-          value={answers.tomorrow}
-          onChange={(e) => handleInputChange('tomorrow', e.target.value)}
-          className="border-b-2 border-dashed border-gray-400 focus:border-blue-500 mx-1 px-1 text-center text-lg w-40"
-          placeholder="Votre réponse"
-        />
-      </p>
+        {/* Title */}
+        <h2 className="text-2xl font-bold text-center text-gray-700">
+          Complétez 
+        </h2>
 
-      <div className="popup-buttons flex space-x-4 mt-6">
-        <button
-          className="try-again-button"
-          onClick={handleTryAgain}
-        >
-          Recommencer ↻
-        </button>
+        {/* Sentence 1 */}
+        <p className="text-xl font-medium text-gray-700 flex flex-wrap items-center gap-2">
+          J’ai
+          <input
+            type="text"
+            value={answers.today}
+            onChange={(e) => handleInputChange('today', e.target.value)}
+            className={inputStyle}
+            placeholder="Votre réponse"
+          />
+        </p>
+
+        {/* Sentence 2 */}
+        <p className="text-xl font-medium text-gray-700 flex flex-wrap items-center gap-2">
+          Et mon ami(e)
+          <input
+            type="text"
+            value={answers.tomorrow}
+            onChange={(e) => handleInputChange('tomorrow', e.target.value)}
+            className={inputStyle}
+            placeholder="Votre réponse"
+          />
+        </p>
       </div>
+      <div className="popup-buttons">
+          <button className="try-again-button" onClick={handleTryAgain}>Recommencer ↻</button>
+        </div>
     </div>
   );
 };

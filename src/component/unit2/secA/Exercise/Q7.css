@@ -17,6 +17,11 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 5.5rem;
 }
+.Q5-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5.5rem;
+}
 
 @media(min-width: 640px) {
   .Q7-grid {

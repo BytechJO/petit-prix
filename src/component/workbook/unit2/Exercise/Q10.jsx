@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import ValidationAlert from "../../../Popup/ValidationAlert";
 
-const Q7 = () => {
+const Q10 = () => {
   const images = [
-    { id: 1, src: '/assets/unit4/secA/page45/1.svg', correctOrder: 1 },
-    { id: 2, src: '/assets/unit4/secA/page45/2.svg', correctOrder: 2 },
-    { id: 3, src: '/assets/unit4/secA/page45/3.svg', correctOrder: 3 },
-    { id: 4, src: '/assets/unit4/secA/page45/4.svg', correctOrder: 4 },
+    { id: 1, src: '/assets/workbook/unit2/page15/1.png', correctOrder: 1 },
+    { id: 2, src: '/assets/workbook/unit2/page15/2.png', correctOrder: 1 },
+    { id: 3, src: '/assets/workbook/unit2/page15/3.png', correctOrder: 2 },
+    { id: 4, src: '/assets/workbook/unit2/page15/4.png', correctOrder: 2 },
   ];
 
   const [selectedOrders, setSelectedOrders] = useState({});
@@ -20,39 +20,24 @@ const Q7 = () => {
   };
 
   const checkAnswers = () => {
-    // التحقق من اختيار ترتيب لكل الصور
+    // 1. التحقق من اختيار إجابة لكل الصور
     const allSelected = images.every(img => selectedOrders[img.id]);
     if (!allSelected) {
-      ValidationAlert.warning("Veuillez choisir un ordre pour toutes les images!");
+      ValidationAlert.warning("Veuillez répondre à toutes les questions !");
       return;
     }
 
-    // التحقق من عدم تكرار الأرقام
-    const orders = Object.values(selectedOrders);
-    const uniqueOrders = new Set(orders);
-    if (orders.length !== uniqueOrders.size) {
-      ValidationAlert.warning("Chaque numéro ne peut être utilisé qu'une seule fois!");
-      return;
-    }
-
-    // حساب النتيجة
-    let correctCount = 0;
-    images.forEach(img => {
-      if (selectedOrders[img.id] === img.correctOrder) {
-        correctCount++;
-      }
-    });
-
+    // 2. التحقق من صحة الإجابات
+    const wrongImages = images.filter(img => selectedOrders[img.id] !== img.correctOrder);
     setIsChecked(true);
-
-    const score = `${correctCount}/${images.length}`;
-
-    if (correctCount === images.length) {
-      ValidationAlert.success(score);
+    const score = `${images.length - wrongImages.length}/${images.length}`;
+    if (wrongImages.length === 0) {
+      ValidationAlert.success(`${score}`);
     } else {
-      ValidationAlert.error(score);
+      ValidationAlert.error(`${score}`);
     }
   };
+
 
   const handleShowAnswer = () => {
     const correctAnswers = {};
@@ -128,9 +113,7 @@ const Q7 = () => {
             >
               <option value="" disabled>?</option>
               <option value="1">✔</option>
-              <option value="2">✔</option>
-              <option value="3">❌</option>
-              <option value="4">❌</option>
+              <option value="2">❌</option>
             </select>
           </div>
         ))}
@@ -152,4 +135,4 @@ const Q7 = () => {
   );
 };
 
-export default Q7;
+export default Q10;

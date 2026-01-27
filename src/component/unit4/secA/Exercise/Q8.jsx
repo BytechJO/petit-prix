@@ -9,10 +9,10 @@ const WORDS = [
     { id: 'word-3', text: 'Julie', correctMatch: 'img-4' }
 ]
 
-const img1 = '/assets/unit3/review/page38/1.svg';
-const img2 = '/assets/unit3/review/page38/2.svg';
-const img3 = '/assets/unit3/review/page38/3.svg';
-const img4 = '/assets/unit3/review/page38/3.svg';
+const img1 = '/assets/unit4/secA/page45/01.svg';
+const img2 = '/assets/unit4/secA/page45/02.svg';
+const img3 = '/assets/unit4/secA/page45/03.svg';
+const img4 = '/assets/unit4/secA/page45/04.svg';
 
 const IMAGES = [
     { id: 'img-1', src: img1, alt: 'Travis' },
@@ -131,7 +131,7 @@ const Q8 = () => {
         <div className="w-full max-w-3xl mx-auto p-4">
             <div
                 ref={svgContainerRef}
-                className="relative bg-white pl-6 pr-6 rounded-2xl shadow-lg"
+                className="relative bg-white pl-6 pr-6 rounded-2xl"
                 style={{
                     backgroundImage: `repeating-linear-gradient(to bottom, transparent, transparent 39px, #E0E7FF 40px, #E0E7FF 41px)`,
                     backgroundSize: '100% 42px',
@@ -176,7 +176,7 @@ const Q8 = () => {
                                         <img
                                             src={image.src}
                                             alt={image.alt}
-                                            className="max-w-38 max-h-24 max-w-24 max-h-24 object-contain"
+                                            className="max-w-70 max-h-24 max-w-24 max-h-24 object-contain"
                                         />
                                     </div>
                                 </div>

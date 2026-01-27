@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './Q15.css';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const img1 = '/assets/unit2/review/page26/ch1.svg';
-const img2 = '/assets/unit2/review/page26/ch2.svg';
-const img3 = '/assets/unit2/review/page26/ch3.svg';
-const img4 = '/assets/unit2/review/page26/ch3.svg';
+const img1 = '/assets/workbook/unit2/page18/1.png';
+const img2 = '/assets/workbook/unit2/page18/3.png';
+const img3 = '/assets/workbook/unit2/page18/4.png';
+const img4 = '/assets/workbook/unit2/page18/2.png';
 
 const Q15 = () => {
     const grid = [
@@ -22,22 +22,22 @@ const Q15 = () => {
     ];
 
     const correctWords = ['danser', 'lire', 'nager', 'chanter'];
-    
+
     const [isMouseDown, setIsMouseDown] = useState(false);
     const [selectedCells, setSelectedCells] = useState([]);
     const [foundWords, setFoundWords] = useState([]);
     const [foundCells, setFoundCells] = useState([]); // لتخزين الخلايا التي تم العثور عليها
     const [answers, setAnswers] = useState(new Array(4).fill(''));
-    
+
     const wordSearchRef = useRef(null);
 
     // دالة للتحقق من أن الخلايا المحددة في خط مستقيم
     const isStraightLine = useCallback((cells) => {
         if (cells.length <= 1) return true;
-        
+
         const first = cells[0];
         const last = cells[cells.length - 1];
-        
+
         // أفقي
         if (first.row === last.row && Math.abs(first.col - last.col) === cells.length - 1) {
             return true;
@@ -47,22 +47,22 @@ const Q15 = () => {
             return true;
         }
         // قطري
-        if (Math.abs(first.row - last.row) === cells.length - 1 && 
+        if (Math.abs(first.row - last.row) === cells.length - 1 &&
             Math.abs(first.col - last.col) === cells.length - 1) {
             return true;
         }
-        
+
         return false;
     }, []);
 
     // دالة لفرز الخلايا بالترتيب الصحيح
     const sortCells = useCallback((cells) => {
         if (cells.length <= 1) return cells;
-        
+
         // تحديد اتجاه الخلايا
         const first = cells[0];
         const last = cells[cells.length - 1];
-        
+
         return [...cells].sort((a, b) => {
             if (first.row === last.row) { // أفقي
                 return a.col - b.col;
@@ -108,7 +108,7 @@ const Q15 = () => {
         if (matchedWord) {
             setFoundWords(prev => [...prev, matchedWord]);
             setFoundCells(prev => [...prev, ...matchedCells]);
-            
+
             const newAnswers = [...answers];
             const emptyIndex = newAnswers.findIndex(ans => ans === '');
             if (emptyIndex !== -1) {
@@ -116,7 +116,7 @@ const Q15 = () => {
                 setAnswers(newAnswers);
             }
         }
-        
+
         setSelectedCells([]);
     }, [selectedCells, foundWords, answers, correctWords, grid, isStraightLine, sortCells]);
 
@@ -128,14 +128,14 @@ const Q15 = () => {
 
     const handleMouseEnter = useCallback((row, col) => {
         if (!isMouseDown) return;
-        
+
         const lastCell = selectedCells[selectedCells.length - 1];
         if (!lastCell) return;
-        
+
         // التأكد من أن الخلية الجديدة مجاورة للخلية الأخيرة
         const rowDiff = Math.abs(row - lastCell.row);
         const colDiff = Math.abs(col - lastCell.col);
-        
+
         if (rowDiff <= 1 && colDiff <= 1 && (rowDiff + colDiff) > 0) {
             // منع التكرار
             if (!selectedCells.some(cell => cell.row === row && cell.col === col)) {
@@ -207,6 +207,60 @@ const Q15 = () => {
         }
     };
 
+    const handleShowAnswerAll = () => {
+        // 1️⃣ ضع جميع الكلمات الصحيحة في answers
+        setAnswers(correctWords);
+
+        // 2️⃣ ضع جميع الكلمات في foundWords
+        setFoundWords(correctWords);
+
+        // 3️⃣ ضع جميع الخلايا المرتبطة بالكلمات في foundCells
+        const newFoundCells = [];
+
+        correctWords.forEach(word => {
+            // البحث عن مكان الكلمة في الشبكة
+            for (let row = 0; row < grid.length; row++) {
+                for (let col = 0; col < grid[row].length; col++) {
+
+                    const checkDirection = (dr, dc) => {
+                        let match = '';
+                        const cells = [];
+                        for (let i = 0; i < word.length; i++) {
+                            const r = row + dr * i;
+                            const c = col + dc * i;
+                            if (r < 0 || r >= grid.length || c < 0 || c >= grid[0].length) return null;
+                            match += grid[r][c];
+                            cells.push({ row: r, col: c });
+                        }
+                        return match === word ? cells : null;
+                    };
+
+                    const directions = [
+                        [0, 1],  // أفقي يمين
+                        [1, 0],  // عمودي لأسفل
+                        [1, 1],  // قطري لأسفل يمين
+                        [1, -1], // قطري لأسفل يسار
+                        [0, -1], // أفقي يسار
+                        [-1, 0], // عمودي لأعلى
+                        [-1, -1],// قطري لأعلى يسار
+                        [-1, 1], // قطري لأعلى يمين
+                    ];
+
+                    for (let [dr, dc] of directions) {
+                        const cells = checkDirection(dr, dc);
+                        if (cells) {
+                            newFoundCells.push(...cells);
+                            break;
+                        }
+                    }
+                }
+            }
+        });
+
+        setFoundCells(newFoundCells);
+    };
+
+
     const activities = [
         { img: img1, prefix: 'Elle aime' },
         { img: img2, prefix: 'Il aime' },
@@ -221,10 +275,10 @@ const Q15 = () => {
                     <div className="activities">
                         {activities.map((activity, i) => (
                             <div key={i} className="activity">
-                                <img 
-                                    src={activity.img} 
-                                    alt={`Activity ${i + 1}`} 
-                                    className="activity-image" 
+                                <img
+                                    src={activity.img}
+                                    alt={`Activity ${i + 1}`}
+                                    className="activity-image"
                                 />
                                 <div className="sentence-box">
                                     {activity.prefix}
@@ -249,7 +303,7 @@ const Q15 = () => {
                             row.map((char, colIndex) => {
                                 const selected = isCellSelected(rowIndex, colIndex);
                                 const found = isCellFound(rowIndex, colIndex);
-                                
+
                                 return (
                                     <div
                                         key={`${rowIndex}-${colIndex}`}
@@ -267,9 +321,15 @@ const Q15 = () => {
                     </div>
                 </div>
             </div>
-            <div className="popup-buttons mt-4 flex gap-4 justify-center">
+            <div className="popup-buttons">
                 <button className="try-again-button" onClick={handleReset}>
                     Recommencer ↻
+                </button>
+                <button
+                    className="show-answer-btn"
+                    onClick={handleShowAnswerAll}
+                >
+                    Afficher la réponse
                 </button>
                 <button className="check-button2" onClick={handleCheckAll}>
                     Vérifier ✓

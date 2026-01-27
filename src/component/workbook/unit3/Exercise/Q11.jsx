@@ -2,84 +2,118 @@ import React, { useState } from 'react';
 import './Q11.css';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
-const img1 = '/assets/workbook/unit2/page11/1.svg';
-const img2 = '/assets/workbook/unit2/page11/2.svg';
-const img3 = '/assets/workbook/unit2/page11/3.svg';
+const img1 = '/assets/workbook/unit3/page23/1.svg';
+const img2 = '/assets/workbook/unit3/page23/2.svg';
+const img3 = '/assets/workbook/unit3/page23/3.svg';
 
 //first element
-const b1 = '/assets/workbook/unit2/page11/1-b.svg';
-const e1 = '/assets/workbook/unit2/page11/1-e.svg';
-const i1 = '/assets/workbook/unit2/page11/1-i.svg';
-const j1 = '/assets/workbook/unit2/page11/1-j.svg';
-const k1 = '/assets/workbook/unit2/page11/1-k.svg';
-const l1 = '/assets/workbook/unit2/page11/1-l.svg';
-const r1 = '/assets/workbook/unit2/page11/1-r.svg';
-const v1 = '/assets/workbook/unit2/page11/1-v.svg';
+const _ = '/assets/workbook/unit3/page23/1--.svg';
+const a1 = '/assets/workbook/unit3/page23/1-a.svg';
+const d1 = '/assets/workbook/unit3/page23/1-d.svg';
+const e1 = '/assets/workbook/unit3/page23/1-e.svg';
+const ee1 = '/assets/workbook/unit3/page23/1-ee.svg';
+const eee1 = '/assets/workbook/unit3/page23/1-ee.svg';
+const eeee1 = '/assets/workbook/unit3/page23/1-ee.svg';
+const g1 = '/assets/workbook/unit3/page23/1-g.svg';
+const gg1 = '/assets/workbook/unit3/page23/1-g.svg';
+const m1 = '/assets/workbook/unit3/page23/1-m.svg';
+const n1 = '/assets/workbook/unit3/page23/1-n.svg';
+const nn1 = '/assets/workbook/unit3/page23/1-n.svg';
+const r1 = '/assets/workbook/unit3/page23/1-r.svg';
+const rr1 = '/assets/workbook/unit3/page23/1-r.svg';
 //2th elemnt
-const e2 = '/assets/workbook/unit2/page11/2-e.svg';
-const ee2 = '/assets/workbook/unit2/page11/2-ee.svg';
-const g2 = '/assets/workbook/unit2/page11/2-g.svg';
-const k2 = '/assets/workbook/unit2/page11/2-k.svg';
-const l2 = '/assets/workbook/unit2/page11/2-l.svg';
-const o2 = '/assets/workbook/unit2/page11/2-o.svg';
-const r2 = '/assets/workbook/unit2/page11/2-r.svg';
-const z2 = '/assets/workbook/unit2/page11/2-z.svg';
+const a2 = '/assets/workbook/unit3/page23/2-a.svg';
+const e2 = '/assets/workbook/unit3/page23/2-e.svg';
+const ee2 = '/assets/workbook/unit3/page23/2-e.svg';
+const ee22 = '/assets/workbook/unit3/page23/2-ee.svg';
+const ee23 = '/assets/workbook/unit3/page23/2-ee.svg';
+const ee24 = '/assets/workbook/unit3/page23/2-ee.svg';
+const f2 = '/assets/workbook/unit3/page23/2-f.svg';
+const f22 = '/assets/workbook/unit3/page23/2-f.svg';
+const n2 = '/assets/workbook/unit3/page23/2-n.svg';
+const n22 = '/assets/workbook/unit3/page23/2-n.svg';
+const r2  = '/assets/workbook/unit3/page23/2-r.svg';
+const r22 = '/assets/workbook/unit3/page23/2-r.svg';
+const r23 = '/assets/workbook/unit3/page23/2-r.svg';
+const r24 = '/assets/workbook/unit3/page23/2-r.svg';
 //3th element
-const a3 = '/assets/workbook/unit2/page11/3-a.svg';
-const e3 = '/assets/workbook/unit2/page11/3-e.svg';
-const g3 = '/assets/workbook/unit2/page11/3-g.svg';
-const l3 = '/assets/workbook/unit2/page11/3-l.svg';
-const m3 = '/assets/workbook/unit2/page11/3-m.svg';
-const mm3 = '/assets/workbook/unit2/page11/3-mm.svg';
-const n3 = '/assets/workbook/unit2/page11/3-n.svg';
-const o3 = '/assets/workbook/unit2/page11/3-o.svg';
-const r3 = '/assets/workbook/unit2/page11/3-r.svg';
+const d3 = '/assets/workbook/unit3/page23/3-d.svg';
+const e3 = '/assets/workbook/unit3/page23/3-e.svg';
+const ee3 = '/assets/workbook/unit3/page23/3-ee.svg';
+const ee32 = '/assets/workbook/unit3/page23/3-ee.svg';
+const ee33 = '/assets/workbook/unit3/page23/3-ee.svg';
+const g3 = '/assets/workbook/unit3/page23/3-g.svg';
+const m3 = '/assets/workbook/unit3/page23/3-m.svg';
+const n3 = '/assets/workbook/unit3/page23/3-n.svg';
+const n32 = '/assets/workbook/unit3/page23/3-n.svg';
+const p3 = '/assets/workbook/unit3/page23/3-p.svg';
+const p32 = '/assets/workbook/unit3/page23/3-p.svg';
+const r3 = '/assets/workbook/unit3/page23/3-r.svg';
+const r32 = '/assets/workbook/unit3/page23/3-r.svg';
+const r33 = '/assets/workbook/unit3/page23/3-r.svg';
 
 const exerciseData = [
     {
         id: 'livre',
         image: img1,
-        correctWord: 'livre',
+        correctWord: 'rand-mère',
         letters: [
-            { src: b1, char: 'b' },
+            { src: _, char: '-' },
+            { src: a1, char: 'a' },
+            { src: d1, char: 'd' },
             { src: e1, char: 'e' },
-            { src: i1, char: 'i' },
-            { src: j1, char: 'j' },
-            { src: k1, char: 'k' },
-            { src: l1, char: 'l' },
+            { src: ee1, char: 'è' },
+            { src: eee1, char: 'è' },
+            { src: eeee1, char: 'è' },
+            { src: g1, char: 'g' },
+            { src: gg1, char: 'g' },
+            { src: m1, char: 'm' },
+            { src: n1, char: 'n' },
+            { src: nn1, char: 'n' },
             { src: r1, char: 'r' },
-            { src: v1, char: 'v' }
+            { src: rr1, char: 'r' }
         ],
     },
     {
         id: 'regle',
         image: img2,
-        correctWord: 'règle',
+        correctWord: 'frére',
         letters: [
-            { src: e2, char: 'è' },
-            { src: ee2, char: 'e' },
-            { src: g2, char: 'g' },
-            { src: k2, char: 'k' },
-            { src: l2, char: 'l' },
-            { src: o2, char: 'o' },
+            { src: a2, char: 'a' },
+            { src: e2, char: 'e' },
+            { src: ee2, char: 'é' },
+            { src: ee22, char: 'é' },
+            { src: ee23, char: 'é' },
+            { src: ee24, char: 'é' },
+            { src: f2, char: 'f' },
+            { src: f22, char: 'f' },
+            { src: n2, char: 'n' },
+            { src: n22, char: 'n' },
             { src: r2, char: 'r' },
-            { src: z2, char: 'z' }
+            { src: r22, char: 'r' },
+            { src: r23, char: 'r' },
+            { src: r24, char: 'r' },
         ],
     },
     {
         id: 'gomme',
         image: img3,
-        correctWord: 'gomme',
+        correctWord: 'pére',
         letters: [
-            { src: a3, char: 'a' },
+            { src: d3, char: 'd' },
             { src: e3, char: 'e' },
+            { src: ee3, char: 'é' },
+            { src: ee32, char: 'é' },
+            { src: ee33, char: 'é' },
             { src: g3, char: 'g' },
-            { src: l3, char: 'l' },
             { src: m3, char: 'm' },
-            { src: mm3, char: 'm' },
             { src: n3, char: 'n' },
-            { src: o3, char: 'o' },
-            { src: r3, char: 'r' }
+            { src: n32, char: 'n' },
+            { src: p3, char: 'p' },
+            { src: p32, char: 'p' },
+            { src: r3, char: 'r' },
+            { src: r32, char: 'r' },
+            { src: r33, char: 'r' },
         ],
     },
 ];
@@ -174,9 +208,9 @@ const Q11 = () => {
         const score = Math.round((correctCount / total) * 3);
 
         if (correctCount === total) {
-            ValidationAlert.success(score);
+            ValidationAlert.success(`${score}/3`);
         } else {
-            ValidationAlert.error(score);
+            ValidationAlert.error(`${score}/3`);
         }
     };
 

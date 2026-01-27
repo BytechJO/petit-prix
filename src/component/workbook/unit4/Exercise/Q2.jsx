@@ -3,14 +3,14 @@ import ValidationAlert from '../../../Popup/ValidationAlert';
 
 // --- بيانات التمرين (تبقى كما هي) ---
 const WORDS = [
-    { id: 'word-1', text: 'Elle a six ans.', correctMatch: 'img-1', bg: '#cae8de' },
-    { id: 'word-2', text: 'Il a sept ans.', correctMatch: 'img-2', bg: '#fedec4' },
+    { id: 'word-1', text: 'Elle a six ans.', correctMatch: 'img-2', bg: '#cae8de' },
+    { id: 'word-2', text: 'Il a sept ans.', correctMatch: 'img-1', bg: '#fedec4' },
     { id: 'word-3', text: 'Il a cinq ans.', correctMatch: 'img-3', bg: '#f8c1d9' },
 ]
 
-const img1 = '/assets/unit3/secA/page30/1.png';
-const img2 = '/assets/unit3/secA/page30/2.png';
-const img3 = '/assets/unit3/secA/page30/3.png';
+const img1 = '/assets/workbook/unit4/page27/01.svg';
+const img2 = '/assets/workbook/unit4/page27/02.svg';
+const img3 = '/assets/workbook/unit4/page27/03.svg';
 
 const IMAGES = [
     { id: 'img-1', src: img1, alt: 'Lili' },
@@ -39,8 +39,8 @@ const Q2 = () => {
 
             newPoints[el.dataset.pointid] = {
                 x: isWord
-                    ? rect.right - containerRect.left  // نهاية الجملة (يمين الـ div)
-                    : rect.left - containerRect.left,  // بداية الصورة (يسار الـ div)
+                    ? rect.left - containerRect.left  // نهاية الجملة (يمين الـ div)
+                    : rect.right - containerRect.left,  // بداية الصورة (يسار الـ div)
                 y: rect.top + rect.height / 2 - containerRect.top, // منتصف العنصر عمودياً
             };
         });
@@ -48,20 +48,20 @@ const Q2 = () => {
     };
 
     const handlePointClick = (id, type) => {
-        if (!activeLine && type === 'image') return;
-
-        if (!activeLine) {
+        if (!activeLine && type === 'image') {
+            // نبدأ الخط من الصورة
             setActiveLine({ startId: id, endPoint: null });
-        } else {
-            if (type === 'image' && activeLine.startId !== id) {
-                const newConnection = { startId: activeLine.startId, endId: id };
-                if (!connections.some(c => c.startId === newConnection.startId || c.endId === newConnection.endId)) {
-                    setConnections([...connections, newConnection]);
-                }
-                setActiveLine(null);
+        } else if (activeLine && type === 'word') {
+            // نكمل الخط بالضغط على الكلمة
+            const newConnection = { startId: activeLine.startId, endId: id };
+            // تحقق من عدم وجود نفس الاتصال مسبقاً
+            if (!connections.some(c => c.startId === newConnection.startId || c.endId === newConnection.endId)) {
+                setConnections([...connections, newConnection]);
             }
+            setActiveLine(null);
         }
     };
+
 
 
     useEffect(() => {
@@ -80,15 +80,20 @@ const Q2 = () => {
             ValidationAlert.warning("Attention!", "Veuillez relier tous les mots aux images.");
             return;
         }
+
         const newFeedback = {};
         let correctCount = 0;
+
         connections.forEach((conn, index) => {
-            const word = WORDS.find(w => w.id === conn.startId);
-            const isCorrect = word.correctMatch === conn.endId;
+            // هنا conn.endId هو الكلمة، conn.startId هو الصورة
+            const word = WORDS.find(w => w.id === conn.endId);
+            const isCorrect = word.correctMatch === conn.startId; // تحقق الصورة الصحيحة
             newFeedback[index] = isCorrect ? 'correct' : 'incorrect';
             if (isCorrect) correctCount++;
         });
+
         setFeedback(newFeedback);
+
         const total = WORDS.length;
         if (correctCount === total) {
             ValidationAlert.success(` ${correctCount} / ${total}`);
@@ -96,6 +101,7 @@ const Q2 = () => {
             ValidationAlert.error(` ${correctCount} / ${total}`);
         }
     };
+
 
     const handleTryAgain = () => {
         setConnections([]);
@@ -105,8 +111,8 @@ const Q2 = () => {
 
     const handleShowAnswer = () => {
         const correctConnections = WORDS.map(word => ({
-            startId: word.id,
-            endId: word.correctMatch
+            startId: word.correctMatch, // الصورة هي البداية
+            endId: word.id             // الكلمة هي النهاية
         }));
 
         setConnections(correctConnections);
@@ -119,6 +125,7 @@ const Q2 = () => {
         setFeedback(newFeedback);
     };
 
+
     const getLinePoints = (connection) => {
         const points = updatePointsCoordinates();
         return { startPoint: points[connection.startId], endPoint: points[connection.endId] };
@@ -128,7 +135,7 @@ const Q2 = () => {
         <div className="w-full max-w-3xl mx-auto p-4">
             <div
                 ref={svgContainerRef}
-                className="relative bg-white pl-6 pr-6 rounded-2xl shadow-lg"
+                className="relative bg-white pl-6 pr-6 rounded-2xl"
                 style={{
                     backgroundImage: `repeating-linear-gradient(to bottom, transparent, transparent 39px, #E0E7FF 40px, #E0E7FF 41px)`,
                     backgroundSize: '100% 42px',
@@ -154,6 +161,18 @@ const Q2 = () => {
                         const image = IMAGES[index];
                         return (
                             <div key={word.id} className="flex justify-between items-center">
+                                <div className="flex items-center gap-4">
+                                    <div
+                                        data-pointid={image.id}
+                                        onClick={() => handlePointClick(image.id, 'image')}
+                                        className="p-2 cursor-pointer hover:scale-105 transition">
+                                        <img
+                                            src={image.src}
+                                            alt={image.alt}
+                                            className="max-w-36 max-h-36 max-w-24 max-h-24 object-contain"
+                                        />
+                                    </div>
+                                </div>
                                 <div className="flex items-center gap-4 cursor-pointer">
                                     <div
                                         data-pointid={word.id}
@@ -163,19 +182,6 @@ const Q2 = () => {
                                     >
                                         <span className="font-semibold text-gray-800 text-xl">{word.text}</span>
 
-                                    </div>
-                                </div>
-
-                                <div className="flex items-center gap-4">
-                                    <div
-                                        data-pointid={image.id}
-                                        onClick={() => handlePointClick(image.id, 'image')}
-                                        className="p-2">
-                                        <img
-                                            src={image.src}
-                                            alt={image.alt}
-                                            className="max-w-36 max-h-36 max-w-24 max-h-24 object-contain"
-                                        />
                                     </div>
                                 </div>
                             </div>

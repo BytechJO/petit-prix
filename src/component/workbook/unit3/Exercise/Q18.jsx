@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { Download } from 'lucide-react';
 import domtoimage from 'dom-to-image';
 
-// الرجاء تحديث هذه المسارات لتطابق ملفات الصور الصحيحة في مشروعك
 const parrotImage = '/assets/workbook/unit3/page26/1.svg';
 const fishImage = '/assets/workbook/unit3/page26/2.svg';
 const turtleImage = '/assets/workbook/unit3/page26/3.svg';

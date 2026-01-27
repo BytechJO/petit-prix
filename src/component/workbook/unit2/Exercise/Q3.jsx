@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
+import ValidationAlert from '../../../Popup/ValidationAlert';
 
 const Q3 = () => {
-    const img1 = '/assets/workbook/unit2/page11/1.svg';
-    const img2 = '/assets/workbook/unit2/page11/2.svg';
-    const img3 = '/assets/workbook/unit2/page11/3.svg';
-    const img4 = '/assets/workbook/unit2/page11/4.svg';
-    const img5 = '/assets/workbook/unit2/page11/5.svg';
-    const img6 = '/assets/workbook/unit2/page11/6.svg';
-    const img7 = '/assets/workbook/unit2/page11/7.svg';
-    const img8 = '/assets/workbook/unit2/page11/8.svg';
-    const img9 = '/assets/workbook/unit2/page11/9.svg';
+    const img1 = '/assets/workbook/unit2/page12/1.svg';
+    const img2 = '/assets/workbook/unit2/page12/2.svg';
+    const img3 = '/assets/workbook/unit2/page12/3.svg';
+    const img4 = '/assets/workbook/unit2/page12/04.svg';
+    const img5 = '/assets/workbook/unit2/page12/05.svg';
+    const img6 = '/assets/workbook/unit2/page12/06.svg';
+    const img7 = '/assets/workbook/unit2/page12/07.svg';
+    const img8 = '/assets/workbook/unit2/page12/08.svg';
+    const img9 = '/assets/workbook/unit2/page12/09.svg';
 
     const items = [
         { id: 'a', img: img4, name: 'trousse', correctBag: 'une' },
         { id: 'b', img: img5, name: 'règle', correctBag: 'une' },
         { id: 'c', img: img6, name: 'stylo', correctBag: 'un' },
-        { id: 'd', img: img7, name: 'crayons de couleur', correctBag: 'des' }, // تعديل الاسم ليكون كاملاً
-        { id: 'e', img: img8, name: 'gomme', correctBag: 'une' },
+        { id: 'd', img: img7, name: 'crayons de couleur', correctBag: 'une' }, // تعديل الاسم ليكون كاملاً
+        { id: 'e', img: img8, name: 'gomme', correctBag: 'des' },
         { id: 'f', img: img9, name: 'livres', correctBag: 'des' } // تعديل الاسم ليكون كاملاً
     ];
 
@@ -60,7 +61,27 @@ const Q3 = () => {
         setAnswers(prev => ({ ...prev, [bagId]: value }));
     };
 
-    const checkAnswers = () => setShowResults(true);
+    const checkAnswers = () => {
+        const wrongBags = bags.filter(bag => !isBagCorrect(bag.id)).map(b => b.label);
+        const wrongTextAnswers = bags.filter(bag => !isAnswerCorrect(bag.id)).map(b => b.label);
+
+        if (wrongBags.length === 0 && wrongTextAnswers.length === 0) {
+            setShowResults(true);
+            ValidationAlert.success('Toutes les réponses sont correctes ! 🎉'); // أو تستخدم ValidationAlert بدل alert
+        } else {
+            let message = '';
+            if (wrongBags.length > 0) {
+                message += `Les sacs incorrects: ${wrongBags.join(', ')}.\n`;
+                ValidationAlert.error(message);
+            }
+            if (wrongTextAnswers.length > 0) {
+                message += `Les réponses texte incorrectes: ${wrongTextAnswers.join(', ')}.`;
+                ValidationAlert.success(message);
+            }
+            setShowResults(true);
+        }
+    };
+
 
     const handleTryAgain = () => {
         setBagContents({ un: [], une: [], des: [] });
@@ -122,7 +143,6 @@ const Q3 = () => {
                                 value={answers[bag.id]}
                                 onChange={(e) => handleAnswerChange(bag.id, e.target.value)}
                                 disabled={showResults}
-                                placeholder="........................................"
                                 className={`w-full border-b-2 border-dotted border-gray-400 py-2 text-center text-lg focus:outline-none focus:border-gray-600 ${showResults && isAnswerCorrect(bag.id) ? 'bg-green-50 border-green-500' : ''} ${showResults && !isAnswerCorrect(bag.id) && answers[bag.id] ? 'bg-red-50 border-red-500' : ''}`}
                             />
                         </div>
@@ -130,7 +150,7 @@ const Q3 = () => {
                 ))}
             </div>
 
-            <div className="border-t-2 border-gray-200 pt-6">
+            <div className="">
                 <h3 className="text-lg font-semibold mb-4 text-gray-700">Les fournitures scolaires:</h3>
                 <div className="grid grid-cols-6 gap-4">
                     {availableItems.map(item => (

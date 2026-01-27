@@ -127,10 +127,10 @@ const Q13 = () => {
               }}
             >
               <option value="" disabled>?</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
+              <option value="1">A</option>
+              <option value="2">B</option>
+              <option value="3">C</option>
+              <option value="4">D</option>
             </select>
           </div>
         ))}

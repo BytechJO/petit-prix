@@ -44,10 +44,10 @@ const Q12 = () => {
         { index: 0, letter: 'C', disabled: true },
         { index: 1, letter: 'o', disabled: false },
         { index: 2, letter: 'm', disabled: false },
-        { index: 3, letter: 'm', disabled: false },
-        { index: 4, letter: 'e', disabled: false },
+        { index: 3, letter: 'm', disabled: true },
+        { index: 4, letter: 'e', disabled: true },
         { index: 5, letter: ' ', disabled: true },
-        { index: 6, letter: 'c', disabled: false },
+        { index: 6, letter: 'c', disabled: true },
         { index: 7, letter: 'i', disabled: false }
       ]
     },
@@ -56,14 +56,14 @@ const Q12 = () => {
       display: "c....mme ....a",
       answer: "comme ça",
       inputs: [
-        { index: 0, letter: 'c', disabled: false },
+        { index: 0, letter: 'c', disabled: true },
         { index: 1, letter: 'o', disabled: false },
-        { index: 2, letter: 'm', disabled: false },
-        { index: 3, letter: 'm', disabled: false },
-        { index: 4, letter: 'e', disabled: false },
+        { index: 2, letter: 'm', disabled: true },
+        { index: 3, letter: 'm', disabled: true },
+        { index: 4, letter: 'e', disabled: true },
         { index: 5, letter: ' ', disabled: true },
         { index: 6, letter: 'ç', disabled: false },
-        { index: 7, letter: 'a', disabled: false }
+        { index: 7, letter: 'a', disabled: true }
       ]
     }
   ];

@@ -3,9 +3,9 @@ import ValidationAlert from '../../../Popup/ValidationAlert';
 
 // --- بيانات التمرين (تبقى كما هي) ---
 const WORDS = [
-    { id: 'word-1', text: 'Antoine', correctMatch: 'img-1', bg: '#d2232a' },
-    { id: 'word-2', text: 'Eloise', correctMatch: 'img-2', bg: '#00aeef' },
-    { id: 'word-3', text: 'Anna', correctMatch: 'img-3', bg: '#ec008c' },
+    { id: 'word-1', text: 'Antoine', correctMatch: 'img-3', bg: '#d2232a' },
+    { id: 'word-2', text: 'Eloise', correctMatch: 'img-1', bg: '#00aeef' },
+    { id: 'word-3', text: 'Anna', correctMatch: 'img-2', bg: '#ec008c' },
 ]
 
 const img1 = '/assets/unit3/review/page39/01.svg';
@@ -135,7 +135,7 @@ const Q14 = () => {
         <div className="w-full max-w-3xl mx-auto p-4">
             <div
                 ref={svgContainerRef}
-                className="relative bg-white rounded-2xl shadow-lg p-6"
+                className="relative bg-white rounded-2xl p-6"
                 style={{
                     minHeight: '300px',
                 }}

@@ -10,14 +10,16 @@ const images = [
   "/assets/unit2/secA/page19/4.png",
   "/assets/unit2/secA/page19/5.png",
   "/assets/unit2/secA/page19/6.png",
-  "/assets/unit2/secA/page19/6.png",
+  "/assets/unit2/secA/page19/7.png",
 ];
 const sounds = [
-  "/assets/unit2/secA/page20/12.mp3",
-  "/assets/unit2/secA/page20/13.mp3",
-  "/assets/unit2/secA/page20/14.mp3",
-  "/assets/unit2/secA/page20/15.mp3",
-  "/assets/unit2/secA/page20/16.mp3"
+  "/assets/unit2/secA/page19/01.mp3",
+  "/assets/unit2/secA/page19/02.mp3",
+  "/assets/unit2/secA/page19/03.mp3",
+  "/assets/unit2/secA/page19/04.mp3",
+  "/assets/unit2/secA/page19/05.mp3",
+  "/assets/unit2/secA/page19/06.mp3",
+  "/assets/unit2/secA/page19/07.mp3"
 ];
 const redcard = '/assets/unit2/secA/page20/red.jpg';
 
@@ -57,17 +59,17 @@ export default function Q5() {
     flipsoundAudio.play();
 
 
-    // تشغيل الصوت فور قلب البطاقة
-    if (audio) audio.pause();
-    const newAudio = new Audio(card.sound);
-    setAudio(newAudio);
-    newAudio.play();
+
 
     // بعد 1 ثانية (1000ms) افتح الـ Popup
     setTimeout(() => {
       setCurrentCard(card);
       setIsPopupOpen(true);
-    }, 1000); // هنا المدة بالميلي ثانية
+      if (audio) audio.pause();
+      const newAudio = new Audio(card.sound);
+      setAudio(newAudio);
+      newAudio.play();
+    }, 1000); 
   };
 
   const handleStartAgain = () => {
@@ -111,7 +113,7 @@ export default function Q5() {
 
   return (
     <div className="Q7-container sm:ml-0">
-      <div className="Q7-grid">
+      <div className="Q5-grid">
         {CardData.map((card) => (
           <div key={card.id} className="Q7-card" onClick={() => handleCardClick(card)}>
             <div className={`Q7-card-inner ${flippedCards.has(card.id) ? 'flipped' : ''}`}>

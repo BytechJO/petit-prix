@@ -17,9 +17,7 @@ const Q14 = () => {
     const img6 = '/assets/workbook/unit1/page9/6.svg';
     const img7 = '/assets/workbook/unit1/page9/7.svg';
     const img8 = '/assets/workbook/unit1/page9/8.svg';
-    const img9 = '/assets/workbook/unit1/page9/9.svg';
-
-    
+    const img9 = '/assets/workbook/unit1/page9/9.svg';    
     
     const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 

@@ -18,7 +18,7 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
-const img = '/assets/workbook/unit1/page8/1.svg';
+const img = '/assets/workbook/unit1/page8/1.png';
 
 // البيانات لم تتغير
 const initialSentences = [
@@ -135,7 +135,7 @@ const Q11 = () => {
             <img
                 src={img}
                 alt=""
-                className="object-cover rounded-md"
+                className="object-cover rounded-md max-h-40 m-6 mx-auto"
             />
 
 
@@ -145,7 +145,7 @@ const Q11 = () => {
                 onDragEnd={handleDragEnd}
             >
                 <SortableContext items={sentences} strategy={verticalListSortingStrategy}>
-                    <ul className="space-y-3">
+                    <ul className="space-y-3 cursor-grab ">
                         {sentences.map((sentence) => (
                             <SortableItem
                                 key={sentence.id}

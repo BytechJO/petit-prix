@@ -25,6 +25,16 @@ const Q5 = () => {
         mercredi: ['']
     });
 
+    const colorMap = {
+        red: "text-red-500",
+        blue: "text-blue-900",
+        green: "text-green-900",
+        purple: "text-pink-500",
+        pink: "text-yellow-500",
+        yellow: "text-blue-500",
+        teal: "text-teal-500"
+    };
+
     const handleInputChange = (word, index, value) => {
         // اسمح فقط بالحروف الأبجدية
         const filteredValue = value.replace(/[^a-zA-Z]/g, '');
@@ -74,7 +84,7 @@ const Q5 = () => {
 
     // --- مكون فرعي لتمثيل الكلمة ---
     const Word = ({ children, color }) => (
-        <div className={`bg-white p-4 rounded-xl shadow-md flex items-center justify-center text-2xl font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 text-${color}-500`}>
+        <div className={`bg-white p-4 rounded-xl shadow-md flex items-center justify-center text-2xl font-bold transition-all duration-300 hover:shadow-lg hover:scale-105 ${colorMap[color]}`}>
             {children}
         </div>
     );

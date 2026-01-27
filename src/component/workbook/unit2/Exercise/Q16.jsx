@@ -4,9 +4,9 @@ import ValidationAlert from "../../../Popup/ValidationAlert";
 const Q16 = () => {
   // 1 = ✔ , 2 = ❌
   const images = [
-    { id: 1, src: "/assets/unit4/secA/page45/1.svg", correctOrder: 2 },
-    { id: 2, src: "/assets/unit4/secA/page45/2.svg", correctOrder: 1 },
-    { id: 3, src: "/assets/unit4/secA/page45/3.svg", correctOrder: 1 },
+    { id: 1, src: "/assets/workbook/unit2/page18/01.png", correctOrder: 2 },
+    { id: 2, src: "/assets/workbook/unit2/page18/02.png", correctOrder: 1 },
+    { id: 3, src: "/assets/workbook/unit2/page18/03.png", correctOrder: 1 },
   ];
 
   const [selectedOrders, setSelectedOrders] = useState({});

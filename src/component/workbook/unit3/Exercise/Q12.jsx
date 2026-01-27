@@ -3,7 +3,7 @@ import './Q12.css';
 import ValidationAlert from '../../../Popup/ValidationAlert';
 
 const Q12 = () => {
-  const img1 = '/assets/workbook/unit3/page23/1.svg';
+  const img1 = '/assets/workbook/unit3/page23/Q2.svg';
 
   const [inputs, setInputs] = useState({
     input1: '', // Top pink - Grand-père

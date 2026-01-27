@@ -7,7 +7,7 @@ const Q7 = () => {
     const [answered, setAnswered] = useState(false);
     
     // الصور الصحيحة (index = 1, 4, 8)
-    const correctIndex = [1, 4, 8];
+    const correctIndex = [0, 3, 4];
     
     const img1 = '/assets/workbook/unit4/page30/1.svg';
     const img2 = '/assets/workbook/unit4/page30/2.svg';
