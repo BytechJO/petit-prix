@@ -33,7 +33,7 @@ const Q16 = () => {
     };
 
     return (
-        <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-lg space-y-6" ref={letterRef}>
+        <div className="max-w-3xl mx-auto p-6 bg-white rounded-xl space-y-6" ref={letterRef}>
             <h2 className="text-2xl font-bold mb-4">Réponds aux questions</h2>
 
             {/* السؤال A */}
@@ -76,7 +76,7 @@ const Q16 = () => {
                 </button>
                 <button
                     onClick={handleDownload}
-                    className="bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-colors cursor-pointer p-1 flex items-center justify-center"
+                    className="bg-blue-500 text-white rounded-lg  hover:bg-blue-600 transition-colors cursor-pointer p-1 flex items-center justify-center"
                 >
                     <Download size={20} />
                 </button>

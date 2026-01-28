@@ -6,7 +6,7 @@ const WORDS = [
     { id: 'word-1', text: 'Travis', correctMatch: 'img-1' },
     { id: 'word-2', text: 'Antoine', correctMatch: 'img-2' },
     { id: 'word-3', text: 'Nicole', correctMatch: 'img-3' },
-    { id: 'word-3', text: 'Julie', correctMatch: 'img-4' }
+    { id: 'word-4', text: 'Julie', correctMatch: 'img-4' }
 ]
 
 const img1 = '/assets/unit4/secA/page45/01.svg';
@@ -168,7 +168,6 @@ const Q8 = () => {
                                 </div>
 
                                 <div className="flex items-center gap-4">
-                                    {/* --- التغيير الوحيد هنا: إعادة الكلاسات الأصلية لحجم الصورة --- */}
                                     <div
                                         data-pointid={image.id}
                                         onClick={() => handlePointClick(image.id, 'image')}

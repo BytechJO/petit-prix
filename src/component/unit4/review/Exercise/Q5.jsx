@@ -181,7 +181,7 @@ const Q5 = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-8 gap-5">
+    <div className="flex flex-col items-center p-8 gap-5 lg:ml-50">
 
       {/* الصور والإجابات */}
       <div className="grid grid-cols-6 gap-4 w-full max-w-4xl">

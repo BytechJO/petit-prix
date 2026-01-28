@@ -3,8 +3,8 @@ import ValidationAlert from "../../../Popup/ValidationAlert";
 
 const Q5 = () => {
   const images = [
-    { id: 1, src: '/assets/unit4/secA/page45/1.svg', correctOrder: 1 },
-    { id: 2, src: '/assets/unit4/secA/page45/2.svg', correctOrder: 2 },
+    { id: 1, src: '/assets/workbook/unit1/page5/1.png', correctOrder: 1 },
+    { id: 2, src: '/assets/workbook/unit1/page5/2.png', correctOrder: 2 },
   ];
 
   const [selectedOrders, setSelectedOrders] = useState({});

@@ -3,10 +3,10 @@ import ValidationAlert from "../../../Popup/ValidationAlert";
 
 const Q13 = () => {
   const images = [
-    { id: 1, src: '/assets/unit3/secA/page31/1.svg', correctOrder: 3 },
-    { id: 2, src: '/assets/unit3/secA/page31/2.svg', correctOrder: 1 },
-    { id: 3, src: '/assets/unit3/secA/page31/3.svg', correctOrder: 4 },
-    { id: 4, src: '/assets/unit3/secA/page31/4.svg', correctOrder: 2 },
+    { id: 1, src: '/assets/workbook/unit4/page33/1.svg', correctOrder: 3 },
+    { id: 2, src: '/assets/workbook/unit4/page33/2.svg', correctOrder: 1 },
+    { id: 3, src: '/assets/workbook/unit4/page33/3.svg', correctOrder: 4 },
+    { id: 4, src: '/assets/workbook/unit4/page33/4.svg', correctOrder: 2 },
   ];
 
   const [selectedOrders, setSelectedOrders] = useState({});

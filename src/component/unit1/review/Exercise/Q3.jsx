@@ -121,7 +121,7 @@ export default function Q3() {
                             <button
                                 key={option.id}
                                 onClick={() => handleColorSelect(option.id)}
-                                className={`w-full p-4 rounded-lg border-2 transition-all flex items-center gap-4 ${isSelected(option.id)
+                                className={`w-full p-4 rounded-lg border-2 transition-all flex items-center gap-4 cursor-pointer ${isSelected(option.id)
                                     ? 'border-blue-500 bg-blue-50'
                                     : 'border-gray-300 bg-white hover:border-gray-400'
                                     }`}

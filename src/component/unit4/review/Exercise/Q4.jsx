@@ -115,7 +115,7 @@ const Q4 = () => {
     };
 
     return (
-        <div className="flex flex-col items-center p-8 gap-8">
+        <div className="flex flex-col items-center p-8 gap-8 lg:ml-45">
 
             {/* المحتوى الرئيسي */}
             <div className="flex gap-8 w-full max-w-4xl">

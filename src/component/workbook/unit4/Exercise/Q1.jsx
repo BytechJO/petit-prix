@@ -88,7 +88,7 @@ export default function Q1() {
     const allAnswered = Object.values(answers).every(v => v !== '');
 
     return (
-        <div className=" font-[Fredoka] relative overflow-hidden">
+        <div className=" font-[Fredoka] relative overflow-hidden lg:ml-30">
 
             <div className="max-w-4xl mx-auto">
 

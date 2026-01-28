@@ -62,7 +62,7 @@ const Q4 = () => {
 
     return (
         <div className="flex items-center justify-center overflow-hidden">
-            <div className="w-full max-w-6xl bg-white rounded-2xl flex flex-col h-130">
+            <div className="w-full max-w-5xl bg-white rounded-2xl flex flex-col h-130">
 
                 {/* المحتوى الرئيسي */}
                 <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] flex-grow overflow-hidden">

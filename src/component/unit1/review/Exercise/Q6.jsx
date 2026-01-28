@@ -59,7 +59,7 @@ const Q6 = () => {
     };
 
     return (
-        <div className="w-full max-w-3xl mx-auto p-8 bg-gray-50 rounded-3xl shadow-xl flex flex-col gap-10">
+        <div className="w-full max-w-3xl mx-auto p-8 rounded-3xl flex flex-col gap-10">
 
             <div className="flex flex-col md:flex-row gap-12 justify-center">
                 {dropZonesData.map(zone => (

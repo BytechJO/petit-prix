@@ -5,7 +5,7 @@ const good = "/assets/alert/goodjob.gif";
 const wrong = "/assets/alert/wrong.gif";
 const Notice = "/assets/alert/Notice1.gif";
 
-const correctSound = "/assets/alert/correct.mp3";
+const correctSound = "/assets/alert/correct1.mp3";
 const wrongSound = "/assets/alert/incorrect.mp3";
 const Warning = "/assets/alert/warning.mp3";
 

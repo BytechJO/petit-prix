@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import Dice from 'react-dice-roll';
 import './Q1.css';
+import Dice from '../../../Dice';
 
 const Q1 = () => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -184,11 +184,9 @@ const Q1 = () => {
                 <Dice
                     onRoll={handleDiceRoll}
                     size={100}
-                    disabled={isRolling || isMoving || currentStep >= storyImages.length - 1}
-                    cheatValue={1}
-                    defaultValue={diceValue}
-                    rollingTime={1000}
+                    disabled={isRolling  || currentStep >= storyImages.length - 1}
                 />
+
 
                 {currentStep >= storyImages.length - 1 && (
                     <button className="reset-button" onClick={resetGame}>

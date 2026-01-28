@@ -49,7 +49,7 @@ const Q3 = () => {
     };
 
     return (
-        <div className="font-sans p-4 sm:p-8 ">
+        <div className="font-sans p-4 sm:p-8 lg:ml-10">
             <div className="max-w-7xl mx-auto">
                 
                 {/* حاوية الأسئلة */}

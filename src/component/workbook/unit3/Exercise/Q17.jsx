@@ -74,10 +74,10 @@ const Q17 = () => {
 
     return (
         <div
-            className="font-comic w-[900px] mx-auto my-5 p-5 relative"
+            className="font-comic w-300 mx-auto my-5 p-5 relative"
             style={containerStyle}
         >
-            <div className="grid grid-cols-4 gap-5 relative z-10 mt-10">
+            <div className="grid grid-cols-4 relative z-10 lg:mt-10 lg:ml-45">
                 {items.map((item) => (
                     <div key={item.name} className="flex flex-col items-center relative">
                         <div className={`text-white font-bold py-2 px-5 rounded-lg text-lg absolute -top-10 ${item.colorClass}`}>
@@ -86,7 +86,7 @@ const Q17 = () => {
                         <img
                             src={item.image}
                             alt={item.name}
-                            className="w-full h-64 object-cover"
+                            className="w-full max-h-80 object-contain"
                         />
                         <div className="bg-white p-1 border border-gray-300 rounded-lg mt-3 w-11/12 shadow-md">
                             <input

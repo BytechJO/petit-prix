@@ -8,9 +8,9 @@ const WORDS = [
     { id: 'word-3', text: 'On fait du gâteau.', correctMatch: 'img-3', bg: '#ec008c' },
 ]
 
-const img1 = '/assets/unit3/review/page39/01.svg';
-const img2 = '/assets/unit3/review/page39/02.svg';
-const img3 = '/assets/unit3/review/page39/03.svg';
+const img1 = '/assets/workbook/unit4/page34/1.svg';
+const img2 = '/assets/workbook/unit4/page34/2.svg';
+const img3 = '/assets/workbook/unit4/page34/3.svg';
 
 const IMAGES = [
     { id: 'img-1', src: img1, alt: 'Super' },

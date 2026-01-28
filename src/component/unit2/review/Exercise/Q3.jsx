@@ -41,7 +41,7 @@ export default function Q3() {
         document.body.removeChild(link);
     };
 
-  
+
 
 
     return (
@@ -73,38 +73,35 @@ export default function Q3() {
                         ))}
                     </tbody>
                 </table>
-                
-            </div>
-            <div className="flex justify-center gap-4 mt-6">
-                    <button
-                        onClick={handleReset}
-                        className="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition-colors cursor-pointer"
-                    >
-                        Recommencer
-                    </button>
 
-                    <button
-                        onClick={handleDownload}
-                        className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors cursor-pointer"
+            </div>
+            <div className="popup-buttons flex justify-center gap-4">
+                <button
+                    className="try-again-button px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    onClick={handleReset}
+                >
+                    Recommencer
+                </button>
+
+                <button
+                    className="check-button2 px-4 py-2 bg-green-500 text-white rounded flex items-center justify-center hover:bg-green-600"
+                    onClick={handleDownload}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="lucide lucide-download"
-                        >
-                            <path d="M12 15V3" />
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                            <path d="m7 10 5 5 5-5" />
-                        </svg>
-                    </button>
-                </div>
+                        <path d="M12 15V3" />
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <path d="m7 10 5 5 5-5" />
+                    </svg>
+                </button>
+            </div>
         </div>
     );
 }
