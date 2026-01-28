@@ -272,3 +272,26 @@ button> img{
     transform: translateY(10px) scale(0.95);
   }
 }
+
+/* خلفية متدرجة تلمع */
+.shiny-bg {
+  background: linear-gradient(
+    90deg,
+    #4f46e5 0%,
+    #ffffff 50%,
+    #4f46e5 100%
+  );
+  background-size: 200% 100%;
+  animation: shine 2s linear infinite;
+  border-radius: 8px; /* اختيارياً */
+}
+
+/* keyframes للتحريك */
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

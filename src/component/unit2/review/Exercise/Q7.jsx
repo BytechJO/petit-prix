@@ -1,65 +1,59 @@
-import { useRef } from "react";
-import "./Q7.css";
+import React, { useState, useRef } from "react";
 import ValidationAlert from "../../../Popup/ValidationAlert";
 
 const backgroundImage = "/assets/unit2/review/page27/1.svg";
 
+// الإجابات الصحيحة بالترتيب
 const correctAnswers = ["c", "b", "d", "a"];
 
-const inputsData = [
-    { placeholder: "X", top: "78%", left: "68%" },
-    { placeholder: "X", top: "30%", left: "75%" },
-    { placeholder: "X", top: "78%", left: "13%" },
-    { placeholder: "X", top: "40%", left: "24%" },
+// بيانات مواضع القوائم المنسدلة على الصورة
+const selectPositions = [
+    { top: "78%", left: "68%" }, // يقابل الإجابة 'c'
+    { top: "30%", left: "75%" }, // يقابل الإجابة 'b'
+    { top: "78%", left: "13%" }, // يقابل الإجابة 'd'
+    { top: "40%", left: "24%" }, // يقابل الإجابة 'a'
 ];
 
-// قائمة الجمل قبل الصورة
+// قائمة الجمل التي ستعرض فوق الصورة
 const sentencesList = [
-    "Mike aime le vélo.",
-    "Alice aime la peinture.",
-    "Alex aime le foot.",
-    "Anna aime le volley.",
+    "Mike aime le vélo.",      // A
+    "Alice aime la peinture.", // B
+    "Alex aime le foot.",      // C
+    "Anna aime le volley.",    // D
 ];
+
+// الخيارات التي ستظهر في كل قائمة منسدلة
+const options = ["a", "b", "c", "d"];
 
 const Q7 = () => {
-    const inputRefs = useRef([]);
+    // الحالة لتخزين اختيارات المستخدم لكل قائمة
+    const getInitialState = () => ({ 0: "none", 1: "none", 2: "none", 3: "none" });
+    const [userSelections, setUserSelections] = useState(getInitialState());
 
-    const handleInput = (index) => {
-        const input = inputRefs.current[index];
-        if (!input) return;
-
-        const minWidth = 3; // حروف
-        const maxWidth = 25;
-
-        const length = input.value.length || input.placeholder.length;
-        const widthInCh = Math.min(Math.max(length + 1, minWidth), maxWidth);
-        input.style.width = `${widthInCh}ch`;
+    // دالة لتحديث اختيار المستخدم
+    const handleSelectChange = (index, value) => {
+        setUserSelections(prev => ({ ...prev, [index]: value }));
     };
 
+    // دالة لإعادة البدء
     const handleStartAgain = () => {
-        inputRefs.current.forEach((input) => {
-            if (input) {
-                input.value = "";
-                input.style.width = "3ch"; // إعادة الحجم الابتدائي
-            }
-        });
+        setUserSelections(getInitialState());
     };
 
+    // دالة لإظهار الإجابات الصحيحة
     const handleShowAnswer = () => {
-        inputRefs.current.forEach((input, index) => {
-            if (input) {
-                input.value = correctAnswers[index];
-                input.style.width = `${correctAnswers[index].length + 1}ch`;
-            }
+        const correctSelections = {};
+        correctAnswers.forEach((answer, index) => {
+            correctSelections[index] = answer;
         });
+        setUserSelections(correctSelections);
     };
 
+    // دالة للتحقق من الإجابات
     const handleCheck = () => {
-        const hasEmpty = inputRefs.current.some(
-            (input) => !input || input.value.trim() === ""
-        );
-
-        if (hasEmpty) {
+        // التأكد من أن المستخدم أجاب على جميع الأسئلة
+        const allAnswered = Object.values(userSelections).every(val => val !== "none");
+        if (!allAnswered) {
             ValidationAlert.warning(
                 "Attention !",
                 "Veuillez répondre à toutes les questions."
@@ -67,12 +61,11 @@ const Q7 = () => {
             return;
         }
 
+        // حساب النتيجة
         let score = 0;
-        inputRefs.current.forEach((input, index) => {
-            if (
-                input.value.trim().toLowerCase() ===
-                correctAnswers[index].toLowerCase()
-            ) {
+        Object.keys(userSelections).forEach(key => {
+            const index = parseInt(key, 10);
+            if (userSelections[index] === correctAnswers[index]) {
                 score++;
             }
         });
@@ -80,12 +73,12 @@ const Q7 = () => {
         const total = correctAnswers.length;
         const color = score === total ? "#16a34a" : "#dc2626";
         const scoreMessage = `
-      <div style="font-size:20px; text-align:center; margin-top:10px;">
-        <span style="color:${color}; font-weight:bold;">
-          Score : ${score} / ${total}
-        </span>
-      </div>
-    `;
+            <div style="font-size:20px; text-align:center; margin-top:10px;">
+                <span style="color:${color}; font-weight:bold;">
+                    Score : ${score} / ${total}
+                </span>
+            </div>
+        `;
 
         if (score === total) {
             ValidationAlert.success(scoreMessage);
@@ -97,7 +90,7 @@ const Q7 = () => {
     return (
         <div className="max-w-2xl mx-auto p-6">
             {/* --- عرض الجمل --- */}
-            <div className="p-4 bg-gray-100 rounded-lg">
+            <div className="p-4 bg-gray-100 rounded-lg mb-4">
                 <ul className="grid grid-cols-2 gap-2 list-inside list-[upper-alpha] font-bold">
                     {sentencesList.map((s, idx) => (
                         <li key={idx} className="text-black">{s}</li>
@@ -105,47 +98,34 @@ const Q7 = () => {
                 </ul>
             </div>
 
-
+            {/* --- الصورة مع القوائم المنسدلة --- */}
             <div
                 className="relative w-full bg-contain bg-no-repeat bg-center"
                 style={{
                     backgroundImage: `url(${backgroundImage})`,
-                    paddingTop: "66.66%", // يحافظ على نسبة العرض إلى الارتفاع للصورة
+                    paddingTop: "66.66%", // للحفاظ على نسبة أبعاد الصورة
                 }}
             >
-                <div>
-                    {inputsData.map((item, index) => (
-                        <input
-                            key={index}
-                            ref={(el) => (inputRefs.current[index] = el)}
-                            type="text"
-                            placeholder={item.placeholder}
-                            className="bg-white absolute text-center border-2 border-gray-400 rounded-md p-1 text-lg font-semibold focus:border-blue-500 focus:ring-blue-500"
-                            style={{
-                                top: item.top,
-                                left: item.left,
-                                transform: "translate(-50%, -50%)",
-                                width: "5ch",
-                                color: "#000000",
-                                fontFamily: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
-                                fontWeight: "bolder",
-                                position: "absolute",
-                                background: "linear-gradient(120deg, #fafafaff 25%, #00f2fe 37%, #8d97a0ff 63%)",
-                                backgroundSize: "400% 400%",
-                                animation: "shine 2s ease-in-out infinite",
-                                border: "none",
-                                borderRadius: "6px",
-                                padding: "6px 10px",
-                                fontSize: "16px",
-                                outline: "none",
-                                transition: "width 0.2s ease",
-                            }}
-
-                            onInput={() => handleInput(index)}
-                            maxLength={1}
-                        />
-                    ))}
-                </div>
+                {selectPositions.map((item, index) => (
+                    <select
+                        key={index}
+                        value={userSelections[index]}
+                        onChange={(e) => handleSelectChange(index, e.target.value)}
+                        className="shiny-bg absolute text-center border-2 border-gray-400 rounded-md p-1 text-lg font-semibold focus:border-blue-500 focus:ring-blue-500 bg-gradient-to-r from-blue-400 via-white/50 to-blue-400 bg-200% animate-shine"
+                        style={{
+                            top: item.top,
+                            left: item.left,
+                            transform: "translate(-50%, -50%)",
+                            width: "80px",
+                            cursor: "pointer",
+                        }}
+                    >
+                        <option value="none" disabled>Select</option>
+                        {options.map(opt => (
+                            <option key={opt} value={opt}>{opt.toUpperCase()}</option>
+                        ))}
+                    </select>
+                ))}
             </div>
 
             {/* --- أزرار التحكم --- */}

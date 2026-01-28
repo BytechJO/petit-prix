@@ -14,32 +14,30 @@ const Q8 = () => {
     { id: 'img4', src: img4 },
   ];
 
-  // هنا نفترض الإجابة الصحيحة (مثال: img2 و img4 غير موجودة)
+  // الإجابات الصحيحة: true لـ "صح" و false لـ "خطأ"
   const correctAnswers = {
-    img1: true,
-    img2: false,
-    img3: false,
-    img4: true,
+    img1: 'true',
+    img2: 'false',
+    img3: 'false',
+    img4: 'true',
   };
 
-  const [selected, setSelected] = useState({
-    img1: false,
-    img2: false,
-    img3: false,
-    img4: false,
+  // الحالة الافتراضية، 'none' تعني أنه لم يتم الاختيار بعد
+  const getInitialState = () => ({
+    img1: 'none',
+    img2: 'none',
+    img3: 'none',
+    img4: 'none',
   });
 
-  const handleToggle = (id) => {
-    setSelected(prev => ({ ...prev, [id]: !prev[id] }));
+  const [selected, setSelected] = useState(getInitialState());
+
+  const handleSelectChange = (id, value) => {
+    setSelected(prev => ({ ...prev, [id]: value }));
   };
 
   const handleTryAgain = () => {
-    setSelected({
-      img1: false,
-      img2: false,
-      img3: false,
-      img4: false,
-    });
+    setSelected(getInitialState());
   };
 
   const handleShowAnswer = () => {
@@ -47,57 +45,68 @@ const Q8 = () => {
   };
 
   const checkAnswers = () => {
-    // تحقق من إذا لم يختر أي مربع
-    const anySelected = Object.values(selected).some(val => val);
-    if (!anySelected) {
-      ValidationAlert.warning("Attention!", "Veuillez cocher au moins un carré avant de vérifier.");
+    // تحقق مما إذا كان المستخدم قد أجاب على جميع الأسئلة
+    const allAnswered = Object.values(selected).every(val => val !== 'none');
+    if (!allAnswered) {
+      ValidationAlert.warning("Attention!", "Veuillez répondre à toutes les questions avant de vérifier.");
       return;
     }
 
-    // تحقق كل إجابة
+    // تحقق من عدد الإجابات الصحيحة
     let correctCount = 0;
     Object.keys(correctAnswers).forEach(key => {
-      if (selected[key] === correctAnswers[key]) correctCount++;
+      if (selected[key] === correctAnswers[key]) {
+        correctCount++;
+      }
     });
 
-    if (correctCount === Object.keys(correctAnswers).length) {
-      ValidationAlert.success(`Bravo! Toutes les réponses correctes: ${correctCount}/${Object.keys(correctAnswers).length}`);
+    // هنا نفترض أن هناك إجابتين صحيحتين فقط مطلوبتين للنجاح
+    // يمكنك تغيير هذا المنطق حسب الحاجة
+    const totalCorrectNeeded = 2; 
+    let score = 0;
+    if(selected['img1'] === correctAnswers['img1']) score++;
+    if(selected['img4'] === correctAnswers['img4']) score++;
+
+
+    if (score === totalCorrectNeeded && correctCount === Object.keys(correctAnswers).length) {
+      ValidationAlert.success(`${totalCorrectNeeded}/${totalCorrectNeeded}`);
     } else {
-      ValidationAlert.error(`Vous avez ${correctCount}/${Object.keys(correctAnswers).length} réponses correctes`);
+      ValidationAlert.error(`${score}/${totalCorrectNeeded}`);
     }
   };
 
   return (
     <div className="p-6 space-y-6 max-w-4xl mx-auto lg:ml-95">
-
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {images.map(img => (
           <div key={img.id} className="flex flex-col items-center gap-2">
             <img src={img.src} alt={img.id} className="max-w-60 max-h-80 object-contain" />
-            <button
-              onClick={() => handleToggle(img.id)}
-              className={`w-8 h-8 border-2 rounded-md flex items-center justify-center transition-colors cursor-pointer ${
-                selected[img.id] ? 'bg-green-500 text-white' : 'bg-white text-black'
-              }`}
+            <select
+              value={selected[img.id]}
+              onChange={(e) => handleSelectChange(img.id, e.target.value)}
+              className="border-2 rounded-md p-2 cursor-pointer"
+              style={{ width: '100px', textAlign: 'center' }}
             >
-              {selected[img.id] && '✓'}
-            </button>
+              <option value="none" disabled>select</option>
+              <option value="true">✔️</option>
+              <option value="false">❌</option>
+            </select>
           </div>
         ))}
       </div>
 
       {/* Buttons */}
       <div className="popup-buttons shrink-0">
-                <button className="try-again-button" onClick={handleTryAgain}>
-                    Recommencer
-                </button>
-                <button className="show-answer-btn" onClick={handleShowAnswer}>
-                    Afficher la réponse
-                </button>
-                <button className="check-button2" onClick={checkAnswers}>
-                    Vérifier la réponse
-                </button>
-            </div>
+        <button className="try-again-button" onClick={handleTryAgain}>
+          Recommencer
+        </button>
+        <button className="show-answer-btn" onClick={handleShowAnswer}>
+          Afficher la réponse
+        </button>
+        <button className="check-button2" onClick={checkAnswers}>
+          Vérifier la réponse
+        </button>
+      </div>
     </div>
   );
 };
