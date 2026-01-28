@@ -285,46 +285,50 @@ import vocabulairePage4 from "../component/vocabulaire/secA/Page4";
 import vocabulairePage5 from "../component/vocabulaire/secA/Page5";
 
 // workbook
-const Wimg1 = "/assets/workbook/unit1/cover.png";
-const Wimg2 = "/assets/workbook/unit1/1.png";
-const Wimg3 = "/assets/workbook/unit1/2.png";
-const Wimg4 = "/assets/workbook/unit1/3.png";
-const Wimg5 = "/assets/workbook/unit1/5.png";
-const Wimg6 = "/assets/workbook/unit1/6.png";
-const Wimg7 = "/assets/workbook/unit1/7.png";
-const Wimg8 = "/assets/workbook/unit1/8.png";
-const Wimg9 = "/assets/workbook/unit1/9.png";
-const Wimg10 = "/assets/workbook/unit1/10.png";
+// Array لكل الصور
+const workbookImages = [
+  "/assets/workbook/unit1/cover.png",
+  "/assets/workbook/unit1/1.png",
+  "/assets/workbook/unit1/2.png",
+  "/assets/workbook/unit1/3.png",
+  "/assets/workbook/unit1/5.png",
+  "/assets/workbook/unit1/6.png",
+  "/assets/workbook/unit1/7.png",
+  "/assets/workbook/unit1/8.png",
+  "/assets/workbook/unit1/9.png",
+  "/assets/workbook/unit1/10.png",
 
-const Wimg11 = "/assets/workbook/unit2/11.png";
-const Wimg12 = "/assets/workbook/unit2/12.png";
-const Wimg13 = "/assets/workbook/unit2/13.png";
-const Wimg14 = "/assets/workbook/unit2/14.png";
-const Wimg15 = "/assets/workbook/unit2/15.png";
-const Wimg16 = "/assets/workbook/unit2/16.png";
-const Wimg17 = "/assets/workbook/unit2/17.png";
-const Wimg18 = "/assets/workbook/unit2/18.png";
+  "/assets/workbook/unit2/11.png",
+  "/assets/workbook/unit2/12.png",
+  "/assets/workbook/unit2/13.png",
+  "/assets/workbook/unit2/14.png",
+  "/assets/workbook/unit2/15.png",
+  "/assets/workbook/unit2/16.png",
+  "/assets/workbook/unit2/17.png",
+  "/assets/workbook/unit2/18.png",
 
-const Wimg19 = "/assets/workbook/unit3/19.png";
-const Wimg20 = "/assets/workbook/unit3/20.png";
-const Wimg21 = "/assets/workbook/unit3/21.png";
-const Wimg22 = "/assets/workbook/unit3/22.png";
-const Wimg23 = "/assets/workbook/unit3/23.png";
-const Wimg24 = "/assets/workbook/unit3/24.png";
-const Wimg25 = "/assets/workbook/unit3/25.png";
-const Wimg26 = "/assets/workbook/unit3/26.png";
+  "/assets/workbook/unit3/19.png",
+  "/assets/workbook/unit3/20.png",
+  "/assets/workbook/unit3/21.png",
+  "/assets/workbook/unit3/22.png",
+  "/assets/workbook/unit3/23.png",
+  "/assets/workbook/unit3/24.png",
+  "/assets/workbook/unit3/25.png",
+  "/assets/workbook/unit3/26.png",
 
-const Wimg27 = "/assets/workbook/unit4/27.png";
-const Wimg28 = "/assets/workbook/unit4/28.png";
-const Wimg29 = "/assets/workbook/unit4/29.png";
-const Wimg30 = "/assets/workbook/unit4/30.png";
-const Wimg31 = "/assets/workbook/unit4/31.png";
-const Wimg32 = "/assets/workbook/unit4/32.png";
-const Wimg33 = "/assets/workbook/unit4/33.png";
-const Wimg34 = "/assets/workbook/unit4/34.png";
+  "/assets/workbook/unit4/27.png",
+  "/assets/workbook/unit4/28.png",
+  "/assets/workbook/unit4/29.png",
+  "/assets/workbook/unit4/30.png",
+  "/assets/workbook/unit4/31.png",
+  "/assets/workbook/unit4/32.png",
+  "/assets/workbook/unit4/33.png",
+  "/assets/workbook/unit4/34.png",
 
-const Wimg35 = "/assets/workbook/revision/35.png";
-const Wimg36 = "/assets/workbook/revision/36.png";
+  "/assets/workbook/revision/35.png",
+  "/assets/workbook/revision/36.png"
+];
+
 
 import WPage1 from './workbook/unit1/page1';
 import WPage2 from './workbook/unit1/page2';
@@ -444,9 +448,6 @@ import WRQ1 from '../component/workbook/revision/Exercise/Q1';
 //بحاجة الى تعديل
 import U4Q10 from '../component/unit4/secA/Exercise/Q10';
 import U4Q11 from '../component/unit4/secA/Exercise/Q11';
-import { caption } from 'framer-motion/client';
-import { X } from 'lucide-react';
-import { text } from '@fortawesome/fontawesome-svg-core';
 
 //unit 1 WB
 const sound44 = "/assets/workbook/unit1/Lesson1/1.wav";
@@ -915,52 +916,52 @@ export const pageData = [
               {
                 id: 1,
                 component: WPage1,
-                image: Wimg1,
+                image: workbookImages[0],
               },
               {
                 id: 2,
                 component: WPage2,
-                image: Wimg2,
+                image: workbookImages[1]
               },
               {
                 id: 3,
                 component: WPage3,
-                image: Wimg3,
+                image: workbookImages[2]
               },
               {
                 id: 4,
                 component: WPage4,
-                image: Wimg4,
+                image: workbookImages[3]
               },
               {
                 id: 5,
                 component: WPage5,
-                image: Wimg5,
+                image: workbookImages[4]
               },
               {
                 id: 6,
                 component: WPage6,
-                image: Wimg6,
+                image: workbookImages[5]
               },
               {
                 id: 7,
                 component: WPage7,
-                image: Wimg7,
+                image: workbookImages[6]
               },
               {
                 id: 8,
                 component: WPage8,
-                image: Wimg8,
+                image: workbookImages[7]
               },
               {
                 id: 9,
                 component: WPage9,
-                image: Wimg9,
+                image: workbookImages[8]
               },
               {
                 id: 10,
                 component: WPage10,
-                image: Wimg10,
+                image: workbookImages[9]
               },
             ],
           },
@@ -978,42 +979,42 @@ export const pageData = [
               {
                 id: 11,
                 component: WU2Page1,
-                image: Wimg11,
+                image: workbookImages[10]
               },
               {
                 id: 12,
                 component: WU2Page2,
-                image: Wimg12,
+                image: workbookImages[11]
               },
               {
                 id: 13,
                 component: WU2Page3,
-                image: Wimg13,
+                image: workbookImages[12]
               },
               {
                 id: 14,
                 component: WU2Page4,
-                image: Wimg14,
+                image: workbookImages[13]
               },
               {
                 id: 15,
                 component: WU2Page5,
-                image: Wimg15,
+                image: workbookImages[14]
               },
               {
                 id: 16,
                 component: WU2Page6,
-                image: Wimg16,
+                image: workbookImages[15]
               },
               {
                 id: 17,
                 component: WU2Page7,
-                image: Wimg17,
+                image: workbookImages[16]
               },
               {
                 id: 18,
                 component: WU2Page8,
-                image: Wimg18,
+                image: workbookImages[17]
               },
             ],
           },
@@ -1031,42 +1032,42 @@ export const pageData = [
               {
                 id: 19,
                 component: WU3Page1,
-                image: Wimg19,
+                image: workbookImages[18]
               },
               {
                 id: 20,
                 component: WU3Page2,
-                image: Wimg20,
+                image: workbookImages[19]
               },
               {
                 id: 21,
                 component: WU3Page3,
-                image: Wimg21,
+                image: workbookImages[20]
               },
               {
                 id: 22,
                 component: WU3Page4,
-                image: Wimg22,
+                image: workbookImages[21]
               },
               {
                 id: 23,
                 component: WU3Page5,
-                image: Wimg23,
+                image: workbookImages[22]
               },
               {
                 id: 24,
                 component: WU3Page6,
-                image: Wimg24,
+                image: workbookImages[23]
               },
               {
                 id: 25,
                 component: WU3Page7,
-                image: Wimg25,
+                image: workbookImages[24]
               },
               {
                 id: 26,
                 component: WU3Page8,
-                image: Wimg26,
+                image: workbookImages[25]
               },
             ],
           },
@@ -1084,42 +1085,42 @@ export const pageData = [
               {
                 id: 27,
                 component: WU4Page1,
-                image: Wimg27,
+                image: workbookImages[26]
               },
               {
                 id: 28,
                 component: WU4Page2,
-                image: Wimg28,
+                image: workbookImages[27]
               },
               {
                 id: 29,
                 component: WU4Page3,
-                image: Wimg29,
+                image: workbookImages[28]
               },
               {
                 id: 30,
                 component: WU4Page4,
-                image: Wimg30,
+                image: workbookImages[29]
               },
               {
                 id: 31,
                 component: WU4Page5,
-                image: Wimg31,
+                image: workbookImages[30]
               },
               {
                 id: 32,
                 component: WU4Page6,
-                image: Wimg32,
+                image: workbookImages[31]
               },
               {
                 id: 33,
                 component: WU4Page7,
-                image: Wimg33,
+                image: workbookImages[32]
               },
               {
                 id: 34,
                 component: WU4Page8,
-                image: Wimg34,
+                image: workbookImages[33]
               },
             ],
           },
@@ -1137,12 +1138,12 @@ export const pageData = [
               {
                 id: 35,
                 component: WRPage1,
-                image: Wimg35,
+                image: workbookImages[34]
               },
               {
                 id: 36,
                 component: WRPage2,
-                image: Wimg36,
+                image: workbookImages[35]
               },
             ],
           },
