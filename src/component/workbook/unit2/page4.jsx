@@ -54,7 +54,7 @@ const WPage4 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="wu2page4q1"
-                onClick={() => handleOpenQuestion(   )}
+                onClick={() => handleOpenQuestion(22)}
             >
                 <img
                     src={arrow}
@@ -79,7 +79,7 @@ const WPage4 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="wu2page4q2"
-                onClick={() => handleOpenQuestion(21)}
+                onClick={() => handleOpenQuestion(24)}
             >
                 <img
                     src={arrow}
@@ -91,7 +91,7 @@ const WPage4 = ({ bgImage, openPopup }) => {
             <button
                 className='btnopenpopup'
                 id="wu2page4q3"
-                onClick={() => handleOpenQuestion(22)}
+                onClick={() => handleOpenQuestion(23)}
             >
                 <img
                     src={arrow}

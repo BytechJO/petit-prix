@@ -61,26 +61,31 @@ const Q3 = () => {
         setAnswers(prev => ({ ...prev, [bagId]: value }));
     };
 
-    const checkAnswers = () => {
-        const wrongBags = bags.filter(bag => !isBagCorrect(bag.id)).map(b => b.label);
-        const wrongTextAnswers = bags.filter(bag => !isAnswerCorrect(bag.id)).map(b => b.label);
+    const calculateScore = () => {
+        let score = 0;
 
-        if (wrongBags.length === 0 && wrongTextAnswers.length === 0) {
-            setShowResults(true);
-            ValidationAlert.success('Toutes les réponses sont correctes ! 🎉'); // أو تستخدم ValidationAlert بدل alert
-        } else {
-            let message = '';
-            if (wrongBags.length > 0) {
-                message += `Les sacs incorrects: ${wrongBags.join(', ')}.\n`;
-                ValidationAlert.error(message);
-            }
-            if (wrongTextAnswers.length > 0) {
-                message += `Les réponses texte incorrectes: ${wrongTextAnswers.join(', ')}.`;
-                ValidationAlert.success(message);
-            }
-            setShowResults(true);
-        }
+        bags.forEach(bag => {
+            if (isBagCorrect(bag.id)) score++;
+            if (isAnswerCorrect(bag.id)) score++;
+        });
+
+        return score;
     };
+
+
+    const checkAnswers = () => {
+    const score = calculateScore();
+    const total = bags.length * 2; // 6
+
+    setShowResults(true);
+
+    if (score === total) {
+        ValidationAlert.success(`Excellent! Score: ${score}/${total}`);
+    } else {
+        ValidationAlert.error(`Score: ${score}/${total}`);
+    }
+};
+
 
 
     const handleTryAgain = () => {

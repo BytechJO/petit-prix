@@ -31,18 +31,6 @@ const WPage3 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="wpage8q1"
-        onClick={() => handleOpenQuestion(10)}
-      >
-        <img
-          src={arrow}
-          alt="Open question"
-          loading="lazy"
-        />
-      </button>
-
-      <button
-        className='btnopenpopup'
-        id="wpage8q2"
         onClick={() => handleOpenQuestion(11)}
       >
         <img
@@ -54,8 +42,20 @@ const WPage3 = ({ bgImage, openPopup }) => {
 
       <button
         className='btnopenpopup'
-        id="wpage8q3"
+        id="wpage8q2"
         onClick={() => handleOpenQuestion(12)}
+      >
+        <img
+          src={arrow}
+          alt="Open question"
+          loading="lazy"
+        />
+      </button>
+
+      <button
+        className='btnopenpopup'
+        id="wpage8q3"
+        onClick={() => handleOpenQuestion(13)}
       >
         <img
           src={arrow}

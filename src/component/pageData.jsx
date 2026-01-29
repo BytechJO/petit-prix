@@ -20,7 +20,6 @@ const img7 = "/assets/unit1/secA/7.webp";
 const img8 = "/assets/unit1/secA/8.png";
 const img9 = "/assets/unit1/secA/9.webp";
 
-
 import Q1 from '../component/unit1/secA/Exercise/Q1';
 import Q2 from '../component/unit1/secA/Exercise/Q2';
 import Q3 from '../component/unit1/secA/Exercise/Q3';
@@ -108,6 +107,7 @@ import U2Page6 from "../component/unit2/secA/Page6";
 
 // unit2 review questions
 import U2RQ1 from '../component/unit2/review/Exercise/Q1';
+import U2RQ22 from '../component/unit2/review/Exercise/Q22';
 import U2RQ2 from '../component/unit2/review/Exercise/Q2';
 import U2RQ3 from '../component/unit2/review/Exercise/Q3';
 import U2RQ4 from '../component/unit2/review/Exercise/Q4';
@@ -380,6 +380,7 @@ import WU1Q6 from '../component/workbook/unit1/Exercise/Q6';
 import WU1Q7 from '../component/workbook/unit1/Exercise/Q7';
 import WU1Q8 from '../component/workbook/unit1/Exercise/Q8';
 import WU1Q9 from '../component/workbook/unit1/Exercise/Q9';
+import WU1Q99 from '../component/workbook/unit1/Exercise/Q99';
 import WU1Q10 from '../component/workbook/unit1/Exercise/Q10';
 import WU1Q11 from '../component/workbook/unit1/Exercise/Q11';
 import WU1Q12 from '../component/workbook/unit1/Exercise/Q12';
@@ -394,6 +395,7 @@ import WU2Q4 from '../component/workbook/unit2/Exercise/Q4';
 import WU2Q5 from '../component/workbook/unit2/Exercise/Q5';
 import WU2Q6 from '../component/workbook/unit2/Exercise/Q6';
 import WU2Q7 from '../component/workbook/unit2/Exercise/Q7';
+import WU2Q77 from '../component/workbook/unit2/Exercise/Q77';
 import WU2Q8 from '../component/workbook/unit2/Exercise/Q8';
 import WU2Q9 from '../component/workbook/unit2/Exercise/Q9';
 import WU2Q10 from '../component/workbook/unit2/Exercise/Q10';
@@ -1476,6 +1478,21 @@ export const unit1SecAQuestions = [
   },
   {
     id: 27,
+    component: U2RQ22,
+    audio: sound16,
+    text: "Écoute et réponds.",
+    captions: [
+      { start: 0, end: 1.7, text: "Unité 2," },
+      { start: 1.7, end: 3.0, text: "c'est l'alphabet français." },
+      { start: 3.0, end: 5.5, text: "Exercice 3." },
+      { start: 5.5, end: 7.0, text: "Écoute et chante." },
+      { start: 7.0, end: 9.5, text: "La chanson de l'alphabet." },
+      { start: 9.5, end: 24.3, text: "A, B, C, D, E, F, G, H, I, J, K, L, M, N, O,P, Q, R, S, T, U, V, W, X, Y et Z." },
+      { start: 24.3, end: 31.0, text: "Maintenant je les connais ! Toutes les lettres de l'alphabet." },
+    ]
+  },
+  {
+    id: 28,
     component: U2RQ2,
     audio: sound16,
     text: "Montre et nomme :",
@@ -1490,7 +1507,7 @@ export const unit1SecAQuestions = [
     ]
   },
   {
-    id: 28,
+    id: 29,
     component: U2RQ3,
     audio: null,
     text: "Et maintenant crée ta semaine d’activités",
@@ -1499,7 +1516,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 29,
+    id: 30,
     component: U2RQ4,
     audio: sound17,
     text: "Écoute et associe.",
@@ -1514,7 +1531,7 @@ export const unit1SecAQuestions = [
     ]
   },
   {
-    id: 30,
+    id: 31,
     component: U2RQ5,
     audio: null,
     text: "Associe l’image aux mots.",
@@ -1524,7 +1541,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [12, 14, 17, 20],
   },
   {
-    id: 31,
+    id: 32,
     component: U2RQ6,
     audio: null,
     text: "Entoure la bonne réponse.",
@@ -1533,7 +1550,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 32,
+    id: 33,
     component: U2RQ7,
     audio: null,
     text: "Associe les images aux phrases.",
@@ -1544,7 +1561,7 @@ export const unit1SecAQuestions = [
 
   //unit 3 sb
   {
-    id: 33,
+    id: 34,
     component: U3Q1,
     audio: sound18,
     text: "Observe et trouve.",
@@ -1566,7 +1583,7 @@ export const unit1SecAQuestions = [
     ]
   },
   {
-    id: 34,
+    id: 35,
     component: U3Q2,
     audio: sound19,
     text: "Écoute et montre.",
@@ -1587,7 +1604,7 @@ export const unit1SecAQuestions = [
     ]
   },
   {
-    id: 35,
+    id: 36,
     component: U3Q3,
     audio: sound21,
     text: "Écoute et relie.",
@@ -1608,7 +1625,7 @@ export const unit1SecAQuestions = [
     ]
   },
   {
-    id: 36,
+    id: 37,
     component: U3Q4,
     audio: sound23,
     text: "Écoute et relie.",
@@ -1631,7 +1648,7 @@ export const unit1SecAQuestions = [
       ]
   },
   {
-    id: 37,
+    id: 38,
     component: U3Q5,
     audio: sound25,
     text: "Écoute, place dans le bon ordre et corrige.",
@@ -1653,7 +1670,7 @@ export const unit1SecAQuestions = [
     ]
   },
   {
-    id: 38,
+    id: 39,
     component: U3Q6,
     audio: sound26,
     text: "Écoute et entoure la bonne réponse. Puis parle avec un(e) ami(e).",
@@ -1671,7 +1688,7 @@ export const unit1SecAQuestions = [
     ]
   },
   {
-    id: 39,
+    id: 40,
     component: U3Q7,
     audio: sound27,
     text: "Écoute, relie et place dans le bon ordre.",
@@ -1693,7 +1710,7 @@ export const unit1SecAQuestions = [
     ]
   },
   {
-    id: 40,
+    id: 41,
     component: U3Q8,
     audio: sound28,
     text: "Écoute et relie.",
@@ -1719,13 +1736,13 @@ export const unit1SecAQuestions = [
   },
   //unit 3 sb REVIEW
   {
-    id: 41,
+    id: 42,
     component: RU3Q1,
     audio: null,
     text: "Lis l’histoire.",
   },
   {
-    id: 42,
+    id: 43,
     component: RU3Q2,
     audio: sound30,
     text: "Montre et écris :",
@@ -1743,19 +1760,19 @@ export const unit1SecAQuestions = [
     ]
   },
   {
-    id: 43,
+    id: 44,
     component: RU3Q3,
     audio: null,
     text: "Et maintenant crée ton arbre généalogique.",
   },
   {
-    id: 44,
+    id: 45,
     component: RU3Q4,
     audio: null,
     text: "Écoute et associe.",
   },
   {
-    id: 45,
+    id: 46,
     component: RU3Q5,
     audio: null,
     text: "Associe les phrases aux images.",
@@ -1765,7 +1782,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [12, 14, 17, 20],
   },
   {
-    id: 46,
+    id: 47,
     component: RU3Q6,
     audio: sound31,
     text: "Écoute et entoure la bonne réponse.",
@@ -1783,7 +1800,7 @@ export const unit1SecAQuestions = [
     ]
   },
   {
-    id: 47,
+    id: 48,
     component: RU3Q7,
     audio: sound32,
     text: "Écoute et associe.",
@@ -1803,7 +1820,7 @@ export const unit1SecAQuestions = [
   },
   //unit 4 sb
   {
-    id: 48,
+    id: 49,
     component: U4Q1,
     audio: null,
     text: "Observe et trouve.",
@@ -1818,7 +1835,7 @@ export const unit1SecAQuestions = [
     ],
   },
   {
-    id: 49,
+    id: 50,
     component: U4Q10,
     audio: null,
     text: "Lance le dé, joue et parle.",
@@ -1827,7 +1844,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 50,
+    id: 51,
     component: U4Q2,
     audio: sound33,
     text: "Écoute et dis quel âge a Pierre.",
@@ -1837,7 +1854,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [11, 17],
   },
   {
-    id: 51,
+    id: 52,
     component: U4Q3,
     audio: sound34,
     text: "Écoute et choisis.",
@@ -1846,7 +1863,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 52,
+    id: 53,
     component: U4Q11,
     audio: sound36,
     text: "Écoute et montre.",
@@ -1855,7 +1872,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 53,
+    id: 54,
     component: U4Q4,
     audio: sound37,
     text: "Écoute et choisis.",
@@ -1865,7 +1882,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [11, 17],
   },
   {
-    id: 54,
+    id: 55,
     component: U4Q5,
     audio: sound38,
     text: "Écoute, observe et nomme.",
@@ -1875,7 +1892,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [12, 14, 17, 20],
   },
   {
-    id: 55,
+    id: 56,
     component: U4Q6,
     audio: sound39,
     text: "Écoute et entoure ce que Léo veut.",
@@ -1884,7 +1901,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 56,
+    id: 57,
     component: U4Q7,
     audio: sound41,
     text: "Écoute et mets dans l’ordre.",
@@ -1893,7 +1910,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 57,
+    id: 58,
     component: U4Q8,
     audio: sound42,
     text: "Écoute et relie.",
@@ -1902,7 +1919,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 58,
+    id: 59,
     component: U4Q9,
     audio: null,
     text: "Écoute et montre.",
@@ -1913,7 +1930,7 @@ export const unit1SecAQuestions = [
 
 
   {
-    id: 59,
+    id: 60,
     component: RU4Q1,
     audio: sound43,
     text: "Observe et trouve.",
@@ -1928,7 +1945,7 @@ export const unit1SecAQuestions = [
     ],
   },
   {
-    id: 60,
+    id: 61,
     component: RU4Q2,
     audio: null,
     text: "Écoute et dis quel âge a Pierre.",
@@ -1938,7 +1955,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [11, 17],
   },
   {
-    id: 61,
+    id: 62,
     component: RU4Q3,
     audio: null,
     text: "Écoute et choisis.",
@@ -1947,7 +1964,7 @@ export const unit1SecAQuestions = [
     // ]
   },
   {
-    id: 62,
+    id: 63,
     component: RU4Q4,
     audio: null,
     text: "Écoute et choisis.",
@@ -1957,7 +1974,7 @@ export const unit1SecAQuestions = [
     // pausePoints: [11, 17],
   },
   {
-    id: 63,
+    id: 64,
     component: RU4Q5,
     audio: null,
     text: "Écoute, observe et nomme.",
@@ -2095,8 +2112,30 @@ export const Wunit1SecAQuestions = [
     audio: null,
     text: "Déchiffre le prénom.",
   },
+  // الجديد
   {
     id: 10,
+    component: WU1Q99,
+    audio: sound49,
+    text: "Écoute et répète.",
+    captions: [
+      { start: 0.13, end: 1.31, text: "Unité 1." },
+      { start: 1.31, end: 2.53, text: "Bonjour." },
+      { start: 2.53, end: 3.93, text: "Leçon 3." },
+      { start: 3.93, end: 5.71, text: "Comment ça va ?" },
+      { start: 5.71, end: 7.68, text: "Exercice 1." },
+      { start: 7.68, end: 10.03, text: "Écoute et répète." },
+      { start: 10.03, end: 10.63, text: "A." },
+      { start: 10.63, end: 11.90, text: "Comment ça va ?" },
+      { start: 11.90, end: 14.71, text: "Ça va mal." },
+      { start: 14.71, end: 15.45, text: "B." },
+      { start: 15.45, end: 16.81, text: "Comment ça va ?" },
+      { start: 16.81, end: 18.20, text: "Ça va bien." },
+    ]
+  },
+
+  {
+    id: 11,
     component: WU1Q10,
     audio: sound50,
     text: "Écoute et relie.",
@@ -2119,25 +2158,25 @@ export const Wunit1SecAQuestions = [
 
   },
   {
-    id: 11,
+    id: 12,
     component: WU1Q11,
     audio: null,
     text: "Mets dans le bon ordre.",
   },
   {
-    id: 12,
+    id: 13,
     component: WU1Q12,
     audio: null,
     text: "Comment ça va ? Complète les mots.",
   },
   {
-    id: 13,
+    id: 14,
     component: WU1Q13,
     audio: null,
     text: "Regarde, entoure et réponds.",
   },
   {
-    id: 14,
+    id: 15,
     component: WU1Q14,
     audio: sound51,
     text: "Écoute et entoure la bonne couleur.",
@@ -2157,7 +2196,7 @@ export const Wunit1SecAQuestions = [
     ],
   },
   {
-    id: 15,
+    id: 16,
     component: WU1Q15,
     audio: sound52,
     text: "Écoute et colorie.",
@@ -2178,19 +2217,19 @@ export const Wunit1SecAQuestions = [
   },
   // unit2
   {
-    id: 16,
+    id: 17,
     component: WU2Q1,
     audio: null,
     text: "Colorie les lettres du mot.",
   },
   {
-    id: 17,
+    id: 18,
     component: WU2Q2,
     audio: null,
     text: "Colorie les objets et parle avec un(e) ami(e).",
   },
   {
-    id: 18,
+    id: 19,
     component: WU2Q3,
     audio: sound53,
     text: "Écoute, range et écris.",
@@ -2217,37 +2256,57 @@ export const Wunit1SecAQuestions = [
     ],
   },
   {
-    id: 19,
+    id: 20,
     component: WU2Q4,
     audio: null,
     text: "Colorie le dessin et complète le texte.",
   },
   {
-    id: 20,
+    id: 21,
     component: WU2Q5,
     audio: null,
     text: "Écris la lettre manquante.",
   },
   {
-    id: 21,
+    id: 22,
     component: WU2Q6,
     audio: null,
     text: "Observe et relie.",
   },
+  // الجديد
   {
-    id: 22,
+    id: 23,
+    component: WU2Q77,
+    audio: sound54,
+    text: "Écoute, choisis et dis la phrase.",
+    captions: [
+      { start: 0.03, end: 1.15, text: "Unité 2," },
+      { start: 1.15, end: 2.46, text: "L'école." },
+      { start: 2.46, end: 3.90, text: "Leçon 2," },
+      { start: 3.90, end: 6.47, text: "C'est quel jour aujourd'hui ?" },
+      { start: 6.47, end: 8.93, text: "Exercice 3." },
+      { start: 8.93, end: 9.63, text: "Écoute," },
+      { start: 9.63, end: 13.11, text: "choisis et dis la phrase." },
+      { start: 13.11, end: 14.21, text: "C'est jeudi," },
+      { start: 14.21, end: 15.75, text: "j'ai un cartable rouge," },
+      { start: 15.75, end: 17.65, text: "je suis avec Pierre." },
+    ]
+  },
+
+  {
+    id: 24,
     component: WU2Q7,
     audio: null,
     text: "Trouve et entoure les jours de la semaine.",
   },
   {
-    id: 23,
+    id: 25,
     component: WU2Q8,
     audio: null,
     text: "Complète.",
   },
   {
-    id: 24,
+    id: 26,
     component: WU2Q9,
     audio: sound55,
     text: "Écoute et relie.",
@@ -2267,7 +2326,7 @@ export const Wunit1SecAQuestions = [
     ],
   },
   {
-    id: 25,
+    id: 27,
     component: WU2Q10,
     audio: sound56,
     text: "Qu’est-ce que Paul aime ? Écoute et coche la bonne réponse.",
@@ -2285,25 +2344,25 @@ export const Wunit1SecAQuestions = [
     ],
   },
   {
-    id: 26,
+    id: 28,
     component: WU2Q11,
     audio: null,
     text: "Mets les lettres dans le bon ordre et complète les phrases.",
   },
   {
-    id: 27,
+    id: 29,
     component: WU2Q12,
     audio: null,
     text: "Dessine ton activité préférée et dis.",
   },
   {
-    id: 28,
+    id: 30,
     component: WU2Q13,
     audio: null,
     text: "Complète.",
   },
   {
-    id: 29,
+    id: 31,
     component: WU2Q14,
     audio: sound57,
     text: "Écoute et entoure la bonne réponse.",
@@ -2325,13 +2384,13 @@ export const Wunit1SecAQuestions = [
     ],
   },
   {
-    id: 30,
+    id: 32,
     component: WU2Q15,
     audio: null,
     text: "Trouve les mots et écris.",
   },
   {
-    id: 31,
+    id: 33,
     component: WU2Q16,
     audio: sound58,
     text: "Qu’est-ce que Anna déteste ? Écoute et coche la bonne réponse.",
@@ -2350,19 +2409,19 @@ export const Wunit1SecAQuestions = [
   },
   // unit3
   {
-    id: 32,
+    id: 34,
     component: WU3Q1,
     audio: null,
     text: "Trouve et écris les mots.",
   },
   {
-    id: 33,
+    id: 35,
     component: WU3Q2,
     audio: null,
     text: "Relie les images oux mots.",
   },
   {
-    id: 34,
+    id: 36,
     component: WU3Q3,
     audio: sound59,
     text: "Écoute et relie.",
@@ -2381,31 +2440,31 @@ export const Wunit1SecAQuestions = [
     ],
   },
   {
-    id: 35,
+    id: 37,
     component: WU3Q4,
     audio: null,
     text: "Mets les phrases dans le bon ordre.",
   },
   {
-    id: 36,
+    id: 38,
     component: WU3Q5,
     audio: null,
     text: "Complète.",
   },
   {
-    id: 37,
+    id: 39,
     component: WU3Q6,
     audio: null,
     text: "Observe et relie.",
   },
   {
-    id: 38,
+    id: 40,
     component: WU3Q7,
     audio: null,
     text: "Mets les lettres dans le bon ordre et complète les phrases.",
   },
   {
-    id: 39,
+    id: 41,
     component: WU3Q8,
     audio: sound60,
     text: "Écoute et entoure la bonne réponse.",
@@ -2425,49 +2484,49 @@ export const Wunit1SecAQuestions = [
     ],
   },
   {
-    id: 40,
+    id: 42,
     component: WU3Q9,
     audio: null,
     text: "Complète ta lettre.",
   },
   {
-    id: 41,
+    id: 43,
     component: WU3Q10,
     audio: null,
     text: "Complète.",
   },
   {
-    id: 42,
+    id: 44,
     component: WU3Q11,
     audio: null,
     text: "Colorie les lettres du mot.",
   },
   {
-    id: 43,
+    id: 45,
     component: WU3Q12,
     audio: null,
     text: "Complète la photo.",
   },
   {
-    id: 44,
+    id: 46,
     component: WU3Q13,
     audio: null,
     text: "Devine et complète les phrases.",
   },
   {
-    id: 45,
+    id: 47,
     component: WU3Q14,
     audio: null,
     text: "Complète les phrases.",
   },
   {
-    id: 46,
+    id: 48,
     component: WU3Q15,
     audio: null,
     text: "Complète.",
   },
   {
-    id: 47,
+    id: 49,
     component: WU3Q16,
     audio: sound61,
     text: "Écoute et coche la bonne réponse. Parle avec un(e) ami(e).",
@@ -2492,26 +2551,26 @@ export const Wunit1SecAQuestions = [
     ],
   },
   {
-    id: 48,
+    id: 50,
     component: WU3Q17,
     audio: null,
     text: "Écris.",
   },
   {
-    id: 49,
+    id: 51,
     component: WU3Q18,
     audio: null,
     text: "Devine et écris.",
   },
   {
-    id: 50,
+    id: 52,
     component: WU3Q19,
     audio: null,
     text: "Complète ta lettre.",
   },
   // unit 4
   {
-    id: 51,
+    id: 53,
     component: WU4Q1,
     audio: sound62,
     text: "Écoute et complète.",
@@ -2529,37 +2588,37 @@ export const Wunit1SecAQuestions = [
     ],
   },
   {
-    id: 52,
+    id: 54,
     component: WU4Q2,
     audio: null,
     text: "Trouve le chemin et dis l’âge de chaque enfant.",
   },
   {
-    id: 53,
+    id: 55,
     component: WU4Q3,
     audio: null,
     text: "Mets les phrases dans le bon ordre.",
   },
   {
-    id: 54,
+    id: 56,
     component: WU4Q4,
     audio: null,
     text: "Complète.",
   },
   {
-    id: 55,
+    id: 57,
     component: WU4Q5,
     audio: null,
     text: "Observe et trouve les sept différences.",
   },
   {
-    id: 56,
+    id: 58,
     component: WU4Q6,
     audio: null,
     text: "Mets les lettres dans le bon ordre et écris les mots.",
   },
   {
-    id: 57,
+    id: 59,
     component: WU4Q7,
     audio: sound63,
     text: "Écoute et entoure ce qu’il y a.",
@@ -2585,7 +2644,7 @@ export const Wunit1SecAQuestions = [
     ]
   },
   {
-    id: 58,
+    id: 60,
     component: WU4Q8,
     audio: sound64,
     text: "Écoute et coche ce qu’il n’y a pas.",
@@ -2607,19 +2666,19 @@ export const Wunit1SecAQuestions = [
     ],
   },
   {
-    id: 59,
+    id: 61,
     component: WU4Q9,
     audio: null,
     text: "Complète.",
   },
   {
-    id: 60,
+    id: 62,
     component: WU4Q10,
     audio: null,
     text: "Colorie les lettres du mot.",
   },
   {
-    id: 61,
+    id: 63,
     component: WU4Q11,
     audio: sound65,
     text: "Écoute et dis « salut » quand tu entends les boissons.",
@@ -2642,7 +2701,7 @@ export const Wunit1SecAQuestions = [
     ],
   },
   {
-    id: 62,
+    id: 64,
     component: WU4Q12,
     audio: sound66,
     text: "Écoute et relie.",
@@ -2662,7 +2721,7 @@ export const Wunit1SecAQuestions = [
     ]
   },
   {
-    id: 63,
+    id: 65,
     component: WU4Q13,
     audio: sound67,
     text: "Écoute et écris le bon numéro.",
@@ -2680,7 +2739,7 @@ export const Wunit1SecAQuestions = [
     ]
   },
   {
-    id: 64,
+    id: 66,
     component: WU4Q14,
     audio: sound68,
     text: "Écoute et relie.",
@@ -2697,20 +2756,20 @@ export const Wunit1SecAQuestions = [
     ]
   },
   {
-    id: 65,
+    id: 67,
     component: WU4Q15,
     audio: null,
     text: "Devine et relie.",
   },
   {
-    id: 66,
+    id: 68,
     component: WU4Q16,
     audio: null,
     text: "Réponds aux questions.",
   },
   // revision
   {
-    id: 67,
+    id: 69,
     component: WRQ1,
     audio: null,
     text: "Met dans le bon ordre.",

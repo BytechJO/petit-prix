@@ -41,7 +41,7 @@ const Page7 = ({ bgImage, openPopup }) => {
       <button
         className='btnopenpopup'
         id="wu2page7q1"
-        onClick={() => handleOpenQuestion(28)}
+        onClick={() => handleOpenQuestion(30)}
       >
         <img
           src={arrow}
