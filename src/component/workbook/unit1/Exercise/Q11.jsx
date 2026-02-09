@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
+import SortingTutorial from '../../../SortingTutorial';
 
 import {
     DndContext,
@@ -66,6 +67,7 @@ function SortableItem({ id, text, isCorrected }) {
 }
 
 const Q11 = () => {
+    const [showTutorial, setShowTutorial] = useState(false);
     const [sentences, setSentences] = useState(() =>
         [...initialSentences].sort(() => Math.random() - 0.5)
     );
@@ -129,9 +131,28 @@ const Q11 = () => {
         }
     };
 
+    useEffect(() => {
+        const hasSeenTutorial = localStorage.getItem('dialogue_sorting_tutorial_completed');
+
+        if (!hasSeenTutorial) {
+            const timer = setTimeout(() => {
+                setShowTutorial(true);
+            }, 1000);
+            return () => clearTimeout(timer);
+        }
+    }, []);
+
+    const handleCloseTutorial = () => {
+        setShowTutorial(false);
+        localStorage.setItem('dialogue_sorting_tutorial_completed', 'true');
+    };
+
     return (
         <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg font-sans">
-
+            <SortingTutorial
+                isOpen={showTutorial}
+                onClose={handleCloseTutorial}
+            />
             <img
                 src={img}
                 alt=""

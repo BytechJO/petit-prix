@@ -84,13 +84,7 @@ const Q1 = () => {
 
     const total = correctAnswers.length;
     const color = score === total ? "#16a34a" : "#dc2626";
-    const scoreMessage = `
-      <div style="font-size:20px; text-align:center; margin-top:10px;">
-        <span style="color:${color}; font-weight:bold;">
-          Score : ${score} / ${total}
-        </span>
-      </div>
-    `;
+    const scoreMessage = `${score} / ${total}`;
 
     if (score === total) {
       ValidationAlert.success(scoreMessage);

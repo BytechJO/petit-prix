@@ -1,8 +1,12 @@
 // src/components/Footer.js
-
 import React from "react";
-const menu = "/assets/footer/menu.svg";
+import Darkmode from './shared/Darkmode';
+import { MdOutlineFileDownload } from "react-icons/md";
+import Offline from "./footer/BottomBar";
 
+const StPDF = "/assets/downloadPdf/STB.pdf";
+
+const menu = "/assets/footer/menu.svg";
 const home = "/assets/footer/home.svg";
 const zoomIn = "/assets/footer/zoom in.svg";
 const zoomOut = "/assets/footer/zoom out.svg";
@@ -73,7 +77,7 @@ const Footer = ({
     return (
         <>
             <footer
-                className="w-full bg-white border-t shadow 
+                className="footerrr w-full bg-white border-t shadow 
   flex items-center justify-center gap-2 
   py-1 fixed bottom-0 left-0 z-[9999] h-[40px]"
             >
@@ -84,6 +88,7 @@ const Footer = ({
                     onClick={() => setIsSidebarOpen(true)}
                     className="absolute left-3 text-white p-0.5 rounded-lg shadow hover:bg-[#bc90ff] transition cursor-pointer"
                 >
+                    <title>Units Menu</title>
                     <image href={menu} x="0" y="0" width="90" height="90" />
                 </svg>
 
@@ -95,6 +100,7 @@ const Footer = ({
                         onClick={goToIndex}
                         className="absolute left-12 text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition cursor-pointer"
                     >
+                        <title>Units</title>
                         <image href={home} x="0" y="0" width="90" height="90" />
                     </svg>
                 )}
@@ -106,6 +112,7 @@ const Footer = ({
                     onClick={() => setZoom((z) => z + 0.2)}
                     className="text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition cursor-pointer"
                 >
+                    <title>Zoom In</title>
                     <image href={zoomIn} x="0" y="0" width="90" height="90" />
                 </svg>
                 <svg
@@ -119,6 +126,7 @@ const Footer = ({
                     }}
                     className="text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition cursor-pointer"
                 >
+                    <title>Zoom Out</title>
                     <image href={zoomOut} x="0" y="0" width="90" height="90" />
                 </svg>
 
@@ -129,6 +137,7 @@ const Footer = ({
                     onClick={toggleFullScreen}
                     className="text-white rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition cursor-pointer"
                 >
+                    <title>Full screen</title>
                     <image href={fullScreen} x="0" y="0" width="90" height="90" />
                 </svg>
 
@@ -150,6 +159,7 @@ const Footer = ({
                         <>
                             <input
                                 type="text"
+                                title="go to page"
                                 onKeyDown={(e) =>
                                     e.key === "Enter" && goToPage(Number(e.target.value))
                                 }
@@ -162,7 +172,9 @@ const Footer = ({
                             />
                             <span className="text-[#430f68] text-sm">| {totalPages}</span>
                         </>
+
                     )}
+
                 </div>
 
                 {!isMobile && (
@@ -175,6 +187,7 @@ const Footer = ({
                             className={`rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition ${viewMode === "single" ? "text-white" : " text-gray-900 cursor-pointer"
                                 }`}
                         >
+                            <title>One Page</title>
                             <image href={onePage} x="0" y="0" width="90" height="90" />
                         </svg>
                         <svg
@@ -185,10 +198,23 @@ const Footer = ({
                             className={`cursor-pointer rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition ${viewMode === "spread" ? " text-white" : " text-gray-900 "
                                 }`}
                         >
+                            <title>Two Page</title>
                             <image href={openBook} x="0" y="0" width="90" height="90" />
                         </svg>
                     </>
                 )}
+
+                <a
+                    href={StPDF}
+                    download
+                    title='download as a PDF'
+                    className="hover:bg-[#bc90ff] transition rounded-lg"
+                >
+                    <MdOutlineFileDownload size={30} color="#584367ff" />
+                </a>
+
+                <Darkmode title="Dark mode" />
+                <Offline />
 
 
                 <div
@@ -197,6 +223,7 @@ const Footer = ({
                text-white px-2 py-1 rounded-lg shadow
                hover:bg-[#bc90ff] transition cursor-pointer"
                 >
+
                     <span className="text-[#430f68] text-sm font-medium">
                         Clé d'icône
                     </span>

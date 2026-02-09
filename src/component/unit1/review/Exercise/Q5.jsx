@@ -1,55 +1,110 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ValidationAlert from '../../../Popup/ValidationAlert';
+import { CheckCircle, XCircle } from 'lucide-react';
 
-// بيانات الكلمات: الكلمة، هل هي فرنسية، والخط المقترح
-// تم تصحيح "mercie" إلى "Merci"
-
-const img1 = '/assets/unit1/review/page14/ahlan.svg';
-const img2 = '/assets/unit1/review/page14/bonjour.svg';
-const img3 = '/assets/unit1/review/page14/hello.svg';
-const img4 = '/assets/unit1/review/page14/merci.svg';
-
+// بيانات الكلمات
 const wordsData = [
-    { image: img1, isFrench: false, font: "'Pacifico', cursive" },
-    { image: img2, isFrench: true, font: "'Roboto', sans-serif" },
-    { image: img3, isFrench: false, font: "'Caveat', cursive" },
-    { image: img4, isFrench: true, font: "'Noto Kufi Arabic', sans-serif" },
+    { image: '/assets/unit1/review/page14/ahlan.svg', isFrench: false, font: "'Pacifico', cursive" },
+    { image: '/assets/unit1/review/page14/bonjour.svg', isFrench: true, font: "'Roboto', sans-serif" },
+    { image: '/assets/unit1/review/page14/hello.svg', isFrench: false, font: "'Caveat', cursive" },
+    { image: '/assets/unit1/review/page14/merci.svg', isFrench: true, font: "'Noto Kufi Arabic', sans-serif" },
 ].sort(() => Math.random() - 0.5);
 
 // مكون الكلمة القابلة للنقر
-const Word = ({ image, isFrench, font, onSelect, isSelected, isCorrect }) => {
-    const getBorderColor = () => {
-        if (!isSelected) return 'border-transparent';
-        return isCorrect ? 'border-green-500' : 'border-red-500';
-    };
-
+const Word = ({ image, isFrench, font, label, onSelect, isSelected, isCorrect }) => {
     return (
-        <div
+        <motion.div
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ type: "spring", stiffness: 300 }}
             onClick={() => onSelect(image, isFrench)}
             className={`
-                p-4 m-3 rounded-full border-4 transition-all duration-300 cursor-pointer
-                hover:scale-110 transform hover:shadow-lg
-                ${getBorderColor()}
-                ${isSelected && !isCorrect ? 'animate-shake' : ''} // إضافة اهتزاز للإجابة الخاطئة
-            `}
-            style={{ fontFamily: font }}
+        relative p-6 m-2 rounded-2xl cursor-pointer
+        transition-all duration-300 ease-in-out
+        hover:shadow-xl
+        ${isSelected
+                    ? isCorrect
+                        ? 'border-emerald-500 bg-gradient-to-br from-emerald-50 to-white shadow-emerald-100/50'
+                        : 'border-rose-500 bg-gradient-to-br from-rose-50 to-white shadow-rose-100/50'
+                    : 'border-sky-200 bg-gradient-to-br from-white to-sky-50 hover:border-sky-300'
+                }
+      `}
         >
-            <img src={image} alt="word" className="max-w-28 max-h-27 object-contain" />
-        </div>
+            <div className="flex flex-col items-center gap-3">
+                {/* شارة الإجابة الصحيحة/الخاطئة */}
+                {isSelected && (
+                    <motion.div
+                        initial={{ scale: 0, rotate: -180 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        className={`absolute -top-2 -right-2 rounded-full p-1 shadow-lg ${isCorrect ? 'bg-emerald-500' : 'bg-rose-500'
+                            }`}
+                    >
+                        {isCorrect ? (
+                            <CheckCircle className="w-5 h-5 text-white" />
+                        ) : (
+                            <XCircle className="w-5 h-5 text-white" />
+                        )}
+                    </motion.div>
+                )}
+
+                {/* الصورة */}
+                <div className={`p-4 rounded-xl ${isSelected
+                        ? isCorrect ? 'bg-emerald-100' : 'bg-rose-100'
+                        : 'bg-gradient-to-br from-sky-100 to-white'
+                    }`}>
+                    <img
+                        src={image}
+                        alt={label}
+                        className="max-w-36 max-h-34 object-contain"
+                    />
+                </div>
+            </div>
+
+            {/* تأثير اهتزاز للإجابة الخاطئة */}
+            {isSelected && !isCorrect && (
+                <motion.div
+                    animate={{
+                        x: [0, -10, 10, -10, 10, 0],
+                    }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0 border-2 border-rose-400 rounded-2xl pointer-events-none"
+                />
+            )}
+        </motion.div>
     );
 };
 
 // المكون الرئيسي للتمرين
 const Q5 = () => {
-    const [selections, setSelections] = useState({}); // لتخزين اختيارات المستخدم
+    const [selections, setSelections] = useState({});
+    const [score, setScore] = useState(0);
+    const [totalFrenchWords, setTotalFrenchWords] = useState(0);
+    const [showFeedback, setShowFeedback] = useState(false);
+
+    useEffect(() => {
+        const frenchCount = wordsData.filter(w => w.isFrench).length;
+        setTotalFrenchWords(frenchCount);
+
+        // حساب النقاط الحالية
+        let currentScore = 0;
+        wordsData.forEach(word => {
+            const userChoice = selections[word.image];
+            if (userChoice?.isCorrect) currentScore++;
+        });
+        setScore(currentScore);
+    }, [selections]);
 
     const handleSelectWord = (image, isFrench) => {
+        if (selections[image]?.isSelected) return; // منع إعادة الاختيار
+
         setSelections(prev => ({
             ...prev,
             [image]: { isSelected: true, isCorrect: isFrench },
         }));
 
-        // إذا كانت الإجابة خاطئة، أزل الدائرة الحمراء بعد فترة قصيرة
         if (!isFrench) {
             setTimeout(() => {
                 setSelections(prev => {
@@ -57,13 +112,13 @@ const Q5 = () => {
                     delete newSelections[image];
                     return newSelections;
                 });
-            }, 500); // إزالة بعد ثانية واحدة
+            }, 1000);
         }
     };
 
     const handleTryAgain = () => {
-        setSelections({}); // مسح كل الاختيارات
-        setShowAnswer(false); // إخفاء الإجابات إذا كانت ظاهرة
+        setSelections({});
+        setShowFeedback(false);
     };
 
     const handleShowAnswer = () => {
@@ -71,54 +126,83 @@ const Q5 = () => {
         wordsData.forEach(word => {
             newSelections[word.image] = { isSelected: true, isCorrect: word.isFrench };
         });
-        setSelections(newSelections); // تعيين جميع الإجابات الصحيحة
-        setShowAnswer(true);
+        setSelections(newSelections);
     };
 
     const checkAnswers = () => {
-        let correctCount = 0;
-        wordsData.forEach(word => {
-            const userChoice = selections[word.image];
-            if (userChoice?.isCorrect) correctCount++;
-        });
+    const selectedCount = Object.keys(selections).length;
 
-        if (correctCount === wordsData.filter(w => w.isFrench).length) {
-            ValidationAlert.success( `${correctCount}/${wordsData.filter(w => w.isFrench).length}`);
-        } else if (correctCount === 0) {
-            ValidationAlert.error( `${correctCount}/${wordsData.filter(w => w.isFrench).length}`);
-        } else {
-            ValidationAlert.warning("Presque !", `Score: ${correctCount}/${wordsData.filter(w => w.isFrench).length}`);
-        }
-    };
+    if (selectedCount === 0) {
+        ValidationAlert.warning("Please select at least one word");
+        return;
+    }
+
+    const frenchCount = wordsData.filter(w => w.isFrench).length;
+
+    let correctCount = 0;
+
+    wordsData.forEach(word => {
+        const userChoice = selections[word.image];
+        if (userChoice?.isCorrect) correctCount++;
+    });
+
+    setShowFeedback(true);
+
+    const msg = `${correctCount}/${frenchCount}`;
+
+    if (correctCount === frenchCount) {
+        ValidationAlert.success(msg);
+    } else {
+        ValidationAlert.error(msg);
+    }
+};
+
 
     return (
-        <div className="w-full max-w-2xl mx-auto p-8 bg-sky-50 rounded-2xl shadow-lg mt-7">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="w-full max-w-6xl mx-auto md:p-8"
+        >
 
 
-            {/* حاوية الكلمات */}
-            <div className="flex flex-wrap justify-center items-center gap-5 p-8 min-h-[400px]">
-                {wordsData.map(word => (
-                    <Word
-                        key={word.image}
-                        {...word}
-                        onSelect={handleSelectWord}
-                        isSelected={selections[word.image]?.isSelected || false}
-                        isCorrect={selections[word.image]?.isCorrect || false}
-                    />
-                ))}
+            {/* حاوية التمرين */}
+            <div className="rounded-3xl md:p-8">
+                {/* شبكة الكلمات */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
+                    <AnimatePresence>
+                        {wordsData.map((word, index) => (
+                            <motion.div
+                                key={word.image}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                            >
+                                <Word
+                                    {...word}
+                                    onSelect={handleSelectWord}
+                                    isSelected={selections[word.image]?.isSelected || false}
+                                    isCorrect={selections[word.image]?.isCorrect || false}
+                                />
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </div>
+
+
+                <div className="popup-buttons shrink-0">
+                    <button className="try-again-button" onClick={handleTryAgain}>
+                        Recommencer
+                    </button>
+                    <button className="show-answer-btn" onClick={handleShowAnswer}>
+                        Afficher la réponse
+                    </button>
+                    <button className="check-button2" onClick={checkAnswers}>
+                        Vérifier la réponse
+                    </button>
+                </div>
             </div>
-            <div className="popup-buttons shrink-0">
-                <button className="try-again-button" onClick={handleTryAgain}>
-                    Recommencer
-                </button>
-                <button className="show-answer-btn" onClick={handleShowAnswer}>
-                    Afficher la réponse
-                </button>
-                <button className="check-button2" onClick={checkAnswers}>
-                    Vérifier la réponse
-                </button>
-            </div>
-        </div>
+        </motion.div>
     );
 };
 

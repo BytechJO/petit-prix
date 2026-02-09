@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import TutorialOverlay from '../../../TutorialOverlay';
 
 const bear = '/assets/unit1/review/page15/car.svg';
 const tower = '/assets/unit1/review/page15/ball.svg';
@@ -33,15 +34,15 @@ const Q8 = () => {
 
     const cardOptions = {
         1: { left: "Noir", right: "Rouge" },
-        2: { left: "Jaune", right: "Vert" },
-        3: { left: "Blanc", right: "Bleu" },
+        2: { left: "Blanc", right: "Bleu" },
+        3: { left: "Jaune", right: "Vert" },
     };
 
 
     const correctAnswers = {
         1: "Rouge",
-        2: "Vert",
-        3: "Bleu",
+        2: "Blanc",
+        3: "Jaune",
     };
 
 
@@ -73,7 +74,6 @@ const Q8 = () => {
         if (answeredCount === 0) {
             ValidationAlert.warning(
                 "Attention ⚠️",
-                "Termine toutes les cartes d'abord."
             );
             return;
         }
@@ -81,8 +81,7 @@ const Q8 = () => {
         // لم يُكمل جميع البطاقات
         if (answeredCount < totalQuestions) {
             ValidationAlert.warning(
-                "Attention ⚠️",
-                `Répondu : ${answeredCount} / ${totalQuestions}`
+                `${answeredCount} / ${totalQuestions}`
             );
             return;
         }
@@ -95,7 +94,7 @@ const Q8 = () => {
             }
         });
 
-        const scoreMessage = `Score : ${correct} / ${totalQuestions}`;
+        const scoreMessage = `${correct} / ${totalQuestions}`;
 
         // النتيجة النهائية
         if (correct === totalQuestions) {
@@ -119,18 +118,18 @@ const Q8 = () => {
 
     return (
         <div className="w-full flex flex-col justify-center items-center overflow-hidden p-4">
-
+            <TutorialOverlay />
             <div className="relative w-full h-135 flex items-center justify-center">
 
                 {activeCard && (
                     <>
                         <div className="absolute left-18 top-1/2 -translate-y-1/2 -translate-x-1/2 rotate-[-20deg]
-            text-red-400 border-4 border-red-400 rounded-2xl px-6 py-2 font-bold text-4xl opacity-50">
+             border-4 rounded-2xl px-6 py-2 font-bold text-4xl opacity-50">
                             {cardOptions[activeCard.id].left}
                         </div>
 
                         <div className="absolute right-18 top-1/2 -translate-y-1/2 translate-x-1/2 rotate-[20deg]
-            text-green-400 border-4 border-green-400 rounded-2xl px-6 py-2 font-bold text-4xl opacity-50">
+             border-4 rounded-2xl px-6 py-2 font-bold text-4xl opacity-50">
                             {cardOptions[activeCard.id].right}
                         </div>
                     </>
@@ -187,7 +186,7 @@ const Q8 = () => {
                         </div>
                     )}
                 </AnimatePresence>
-            </div>
+            </div> 
             <div className="popup-buttons">
                 <button className="try-again-button" onClick={handleTryAgain}>
                     Recommencer ↻
@@ -199,6 +198,7 @@ const Q8 = () => {
                     Vérifier la réponse ✓
                 </button>
             </div>
+            
         </div>
     );
 };

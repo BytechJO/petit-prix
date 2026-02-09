@@ -5,7 +5,7 @@ const Q11 = () => {
   return (
 
     <div
-      className="h-screen bg-center bg-no-repeat bg-contain"
+      className="h-92 bg-center bg-no-repeat bg-contain"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
     </div>

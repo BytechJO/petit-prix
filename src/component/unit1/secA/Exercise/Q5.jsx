@@ -1,148 +1,147 @@
+import React, { useState } from "react";
+import ValidationAlert from "../../../Popup/ValidationAlert";
 
-import React, { useState } from 'react';
-import './Q5.css';
-import ValidationAlert from '../../../Popup/ValidationAlert';
+const Q5 = () => {
+  const images = [
+    { id: 1, src: '/assets/unit1/secA/page7/Q11.webp', correctOrder: 1 },
+    { id: 2, src: '/assets/unit1/secA/page7/Q12.webp', correctOrder: 2 },
+  ];
 
+  const [selectedOrders, setSelectedOrders] = useState({});
+  const [isChecked, setIsChecked] = useState(false);
 
-const boyImage = "/assets/unit1/secA/page7/Q11.webp";
-const girlImage = "/assets/unit1/secA/page7/Q12.webp";
-
-const Q5 = ({ sound }) => {
-  const [boyName, setBoyName] = useState('');
-  const [girlName, setGirlName] = useState('');
-
-  const handleInputChange = (setter) => (e) => {
-    setter(e.target.value);
+  const handleOrderChange = (imageId, order) => {
+    setSelectedOrders({
+      ...selectedOrders,
+      [imageId]: parseInt(order)
+    });
   };
 
   const checkAnswers = () => {
-    const correctBoyName = 'Antoine';
-    const correctGirlName = 'aime';
-
-    if (!boyName.trim() || !girlName.trim()) {
-      ValidationAlert.warning(
-        "Attention!",
-        "Veuillez remplir les deux champs.",
-        "0/2"
-      );
+    // التحقق من اختيار ترتيب لكل الصور
+    const allSelected = images.every(img => selectedOrders[img.id]);
+    if (!allSelected) {
+      ValidationAlert.warning("Veuillez choisir un ordre pour toutes les images!");
       return;
     }
 
-    const isBoyCorrect =
-      boyName.trim().toLowerCase() === correctBoyName.toLowerCase();
-    const isGirlCorrect =
-      girlName.trim().toLowerCase() === correctGirlName.toLowerCase();
-
-    const score =
-      (isBoyCorrect ? 1 : 0) +
-      (isGirlCorrect ? 1 : 0);
-
-    const scoreText = `${score}/2`;
-
-    if (score === 2) {
-      ValidationAlert.success(
-        scoreText
-      );
-    } else {
-      ValidationAlert.error(
-        scoreText
-      );
+    // التحقق من عدم تكرار الأرقام
+    const orders = Object.values(selectedOrders);
+    const uniqueOrders = new Set(orders);
+    if (orders.length !== uniqueOrders.size) {
+      ValidationAlert.error("Chaque numéro ne peut être utilisé qu'une seule fois!");
+      return;
     }
-  };
 
+    // حساب النتيجة
+    let correctCount = 0;
+    images.forEach(img => {
+      if (selectedOrders[img.id] === img.correctOrder) {
+        correctCount++;
+      }
+    });
 
+    setIsChecked(true);
 
-  const handleTryAgain = () => {
-    setBoyName('');
-    setGirlName('');
-    if (ValidationAlert && typeof ValidationAlert.close === 'function') {
-      ValidationAlert.close();
+    const score = `${correctCount}/${images.length}`;
+
+    if (correctCount === images.length) {
+      ValidationAlert.success(score);
+    } else {
+      ValidationAlert.error(score);
     }
   };
 
   const handleShowAnswer = () => {
-    setBoyName('Antoine');
-    setGirlName('aime');
+    const correctAnswers = {};
+    images.forEach(img => {
+      correctAnswers[img.id] = img.correctOrder;
+    });
+    setSelectedOrders(correctAnswers);
+    setIsChecked(true);
   };
 
+  const handleTryAgain = () => {
+    setSelectedOrders({});
+    setIsChecked(false);
+  };
+
+  const getSelectStyle = (imageId) => {
+    if (!isChecked) {
+      return {
+        border: '3px solid #3b82f6',
+        backgroundColor: 'white',
+        color: '#1f2937'
+      };
+    }
+
+    const image = images.find(img => img.id === imageId);
+    const isCorrect = selectedOrders[imageId] === image.correctOrder;
+
+    if (isCorrect) {
+      return {
+        border: '3px solid #22c55e',
+        backgroundColor: '#22c55e',
+        color: 'white'
+      };
+    } else {
+      return {
+        border: '3px solid #ef4444',
+        backgroundColor: '#ef4444',
+        color: 'white'
+      };
+    }
+  };
 
   return (
-    <div className="q5-activity-container">
+    <div className="flex flex-col items-center p-8 gap-8">
 
+      {/* الصور */}
+      <div className="grid grid-cols-2 gap-6">
+        {images.map((image) => (
+          <div key={image.id} className="relative">
+            {/* الصورة */}
+            <div className="w-80 h-60 flex items-center justify-center rounded-lg overflow-hidden">
+              <img
+                src={image.src}
+                alt={`Image ${image.id}`}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
 
-      <div className="q5-body">
-        <div className="q5-character-group">
-          <img src={boyImage} alt="Garçon" className="q5-character-img" />
-          <div className="flex gap-3 mt-3">
-            <button
-              onClick={() => setBoyName('Antoine')}
-              className={`px-5 py-2 rounded-xl font-bold border transition cursor-pointer
-      ${boyName === 'Antoine'
-                  ? 'bg-[#430f68] text-white border-blue-600'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-100'
-                }
-    `}
+            {/* Select absolute في الزاوية */}
+            <select
+              value={selectedOrders[image.id] || ""}
+              onChange={(e) => handleOrderChange(image.id, e.target.value)}
+              disabled={isChecked}
+              className="absolute top-3 left-3 px-4 py-2 rounded-lg font-bold text-xl cursor-pointer"
+              style={{
+                ...getSelectStyle(image.id),
+                outline: 'none',
+                appearance: 'none',
+                textAlign: 'center',
+                width: '60px',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)'
+              }}
             >
-              A
-            </button>
-
-            <button
-              onClick={() => setBoyName('Paul')}
-              className={`px-5 py-2 rounded-xl font-bold border transition cursor-pointer
-      ${boyName === 'Paul'
-                  ? 'bg-[#430f68] text-white border-blue-600'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-100'
-                }
-    `}
-            >
-              B
-            </button>
+              <option value="" disabled>?</option>
+              <option value="1">A</option>
+              <option value="2">B</option>
+            </select>
           </div>
-
-
-        </div>
-
-        <div className="q5-character-group">
-          <img src={girlImage} alt="Fille" className="q5-character-img" />
-          <div className="flex gap-3 mt-3">
-            <button
-              onClick={() => setGirlName('deteste')}
-              className={`px-5 py-2 rounded-xl font-bold border transition cursor-pointer
-      ${girlName === 'deteste'
-                  ? 'bg-[#430f68] text-white border-blue-600'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-100'
-                }
-    `}
-            >
-              A
-            </button>
-
-            <button
-              onClick={() => setGirlName('aime')}
-              className={`px-5 py-2 rounded-xl font-bold border transition cursor-pointer
-      ${girlName === 'aime'
-                  ? 'bg-[#430f68] text-white border-blue-600'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-100'
-                }
-    `}
-            >
-              B
-            </button>
-          </div>
-
-
-        </div>
+        ))}
       </div>
 
-      <div className="popup-buttons">
+      {/* الأزرار */}
+      <div className="popup-buttons shrink-0">
         <button className="try-again-button" onClick={handleTryAgain}>
-          Recommencer ↻
+          Recommencer
         </button>
         <button className="show-answer-btn" onClick={handleShowAnswer}>
           Afficher la réponse
         </button>
         <button className="check-button2" onClick={checkAnswers}>
-          Vérifier la réponse ✓
+          Vérifier la réponse
         </button>
       </div>
     </div>

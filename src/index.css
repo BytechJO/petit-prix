@@ -5,11 +5,40 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: rgb(233, 233, 233);
+  --text: #111111;
+  --bgg: white;
+  --bggg: white;
+}
+
+.dark {
+  --bg: #2d2c2c;
+  --bgg: #6a6767;
+  --bggg: #6a6767;
+  --text: #ffffff;
+}
+
 body {
-  background: rgb(233, 233, 233);
+  background-color: var(--bg);
+  transition: background 0.3s, color 0.3s;
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
+.navvv{
+  background-color: var(--bgg);
+  transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.footerrr{
+  background-color: var(--bggg);
+  transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 
 .content-wrapper {
   overflow: auto;

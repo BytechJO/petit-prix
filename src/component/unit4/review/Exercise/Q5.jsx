@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ValidationAlert from "../../../Popup/ValidationAlert";
+import WordSearchTutorial from "../../../WordSearchTutorial";
 
 const Q5 = () => {
+
+  const [showTutorial, setShowTutorial] = useState(false);
+
   const images = [
     { id: 1, src: '/assets/unit4/review/page51/1.svg', word: 'banane' },
     { id: 2, src: '/assets/unit4/review/page51/2.svg', word: 'gâteau' },
@@ -34,13 +38,13 @@ const Q5 = () => {
     if (isChecked || activeImageIndex === null) return;
 
     const key = `${rowIndex}-${colIndex}`;
-    
+
     // إذا الحرف محدد، نشيله
     if (selectedLetters[key]?.imageIndex === activeImageIndex) {
       const newSelectedLetters = { ...selectedLetters };
       delete newSelectedLetters[key];
       setSelectedLetters(newSelectedLetters);
-      
+
       // تحديث الـ answer
       const newAnswers = [...answers];
       newAnswers[activeImageIndex] = newAnswers[activeImageIndex].slice(0, -1);
@@ -51,7 +55,7 @@ const Q5 = () => {
         ...selectedLetters,
         [key]: { imageIndex: activeImageIndex, letter }
       });
-      
+
       // إضافة الحرف للـ answer
       const newAnswers = [...answers];
       newAnswers[activeImageIndex] += letter;
@@ -74,7 +78,7 @@ const Q5 = () => {
 
   const checkAnswers = () => {
     const allFilled = answers.every(answer => answer.trim() !== "");
-    
+
     if (!allFilled) {
       ValidationAlert.warning("Veuillez trouver tous les mots!");
       return;
@@ -112,11 +116,11 @@ const Q5 = () => {
 
   const clearWord = (index) => {
     if (isChecked) return;
-    
+
     const newAnswers = [...answers];
     newAnswers[index] = "";
     setAnswers(newAnswers);
-    
+
     // إزالة كل الحروف المحددة لهذه الصورة
     const newSelectedLetters = { ...selectedLetters };
     Object.keys(newSelectedLetters).forEach(key => {
@@ -154,7 +158,7 @@ const Q5 = () => {
   const getLetterStyle = (rowIndex, colIndex) => {
     const key = `${rowIndex}-${colIndex}`;
     const isSelected = selectedLetters[key];
-    
+
     if (isSelected) {
       const colors = [
         '#fbbf24', // yellow
@@ -172,7 +176,7 @@ const Q5 = () => {
         border: '2px solid #1f2937'
       };
     }
-    
+
     return {
       backgroundColor: 'white',
       color: '#1f2937',
@@ -180,17 +184,39 @@ const Q5 = () => {
     };
   };
 
+  useEffect(() => {
+    const hasSeenTutorial = localStorage.getItem('wordsearch_tutorial_completed');
+    if (!hasSeenTutorial) {
+      const timer = setTimeout(() => {
+        setShowTutorial(true);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  // دالة للإغلاق
+  const handleCloseTutorial = () => {
+    setShowTutorial(false);
+  };
+
+  // زر مساعدة في واجهة Q5
+  const handleShowHelp = () => {
+    setShowTutorial(true);
+  };
+
   return (
     <div className="flex flex-col items-center p-8 gap-5 lg:ml-50">
-
+      <WordSearchTutorial
+        isOpen={showTutorial}
+        onClose={handleCloseTutorial}
+      />
       {/* الصور والإجابات */}
       <div className="grid grid-cols-6 gap-4 w-full max-w-4xl">
         {images.map((image, index) => (
           <div
             key={image.id}
-            className={`flex flex-col items-center gap-3 p-3 rounded-lg cursor-pointer transition-all ${
-              activeImageIndex === index ? 'bg-blue-100 shadow-lg' : 'bg-gray-50'
-            }`}
+            className={`flex flex-col items-center gap-3 p-3 rounded-lg cursor-pointer transition-all ${activeImageIndex === index ? 'bg-blue-100 shadow-lg' : 'bg-gray-50'
+              }`}
             onClick={() => !isChecked && setActiveImageIndex(index)}
           >
             {/* الصورة */}

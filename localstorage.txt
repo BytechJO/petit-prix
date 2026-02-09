@@ -1,0 +1,7 @@
+Drag and Drop: localStorage.removeItem('dialogue_sorting_tutorial_completed')
+
+Left & Right:
+localStorage.removeItem('swipe_tutorial_seen')
+
+WordSearch:
+localStorage.Item('wordsearch_tutorial_completed')

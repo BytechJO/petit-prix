@@ -131,7 +131,7 @@ const Q4 = () => {
         <div className="w-full max-w-3xl mx-auto p-4">
             <div
                 ref={svgContainerRef}
-                className="relative bg-white pl-6 pr-6 rounded-2xl shadow-lg"
+                className="relative bg-white pl-6 pr-6 rounded-2xl"
                 style={{
                     backgroundImage: `repeating-linear-gradient(to bottom, transparent, transparent 39px, #E0E7FF 40px, #E0E7FF 41px)`,
                     backgroundSize: '100% 42px',

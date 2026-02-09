@@ -86,13 +86,7 @@ const Q1 = () => {
     : undefined;
 
 
-    const scoreMessage = `
-      <div style="font-size: 20px; margin-top: 10px; text-align:center;">
-        <span style="color:${color}; font-weight:bold;">
-          Score: ${correctCount} / ${totalCount}
-        </span>
-      </div>
-    `;
+    const scoreMessage = `${correctCount} / ${totalCount}`;
 
     if (correctCount === totalCount) {
       setCheckResult("success");

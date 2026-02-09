@@ -61,28 +61,11 @@ const Q1 = () => {
   };
 
   const handleCheck = () => {
-    if (showAnswer) return;
 
     const correctCount = foundItems.filter(Boolean).length;
     const totalCount = Items.length;
 
-    const color =
-  correctCount === totalCount
-    ? "green"
-    : correctCount === 0
-    ? "orange"
-    : correctCount >= 1 && correctCount < 4
-    ? "red"
-    : undefined;
-
-
-    const scoreMessage = `
-      <div style="font-size: 20px; margin-top: 10px; text-align:center;">
-        <span style="color:${color}; font-weight:bold;">
-          Score: ${correctCount} / ${totalCount}
-        </span>
-      </div>
-    `;
+    const scoreMessage = ` ${correctCount} / ${totalCount}`;
 
     if (correctCount === totalCount) {
       setCheckResult("success");
@@ -91,7 +74,7 @@ const Q1 = () => {
       setCheckResult("fail");
       ValidationAlert.warning("Oups !", "Trouvez tous les objets");
     } else {
-      ValidationAlert.error( scoreMessage);
+      ValidationAlert.error(scoreMessage);
     }
   };
 

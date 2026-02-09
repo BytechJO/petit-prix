@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
-import './Q3.css';
 
-const characterImage  = "/assets/unit3/secA/page32/1.svg";
+const characterImage = "/assets/unit3/secA/page32/1.svg";
 const characterImage1 = "/assets/unit3/secA/page32/2.svg";
 
 const ANSWER_OPTIONS = ["B", "A"].sort(() => Math.random() - 0.5);
@@ -10,7 +9,7 @@ const CORRECT_ANSWERS = ["A", "B"];
 
 const Q6 = () => {
   const [answers, setAnswers] = useState(["", ""]);
-  const [showAnswer, setShowAnswer] = useState(false);
+  const [ setShowAnswer] = useState(false);
 
   const handleAnswerChange = (index, value) => {
     const updated = [...answers];
@@ -64,70 +63,82 @@ const Q6 = () => {
   };
 
   return (
-    <div className="l2q1-page-container">
-      <div className="content-container">
-        <div className="images-flex-container">
+    <div className="min-h-screen flex flex-col items-center justify-between">
+
+      {/* Content */}
+      <div className="w-full max-w-4xl">
+
+        {/* Images container */}
+        <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
 
           {/* Character 1 */}
-          <div className="image-box">
-            <img src={characterImage} alt="Character 1" className="character-img" />
-            <div className="flex gap-3">
-            {ANSWER_OPTIONS.map(option => (
-              <button
-                key={option}
-                onClick={() => handleAnswerChange(0, option)}
-                className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
-                  ${
-                    answers[0] === option
+          <div className="flex flex-col items-center">
+            <img
+              src={characterImage}
+              alt="Character 1"
+              className="w-40 md:w-52"
+            />
+
+            <div className="flex gap-8">
+              {ANSWER_OPTIONS.map(option => (
+                <button
+                  key={option}
+                  onClick={() => handleAnswerChange(0, option)}
+                  className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
+                ${answers[0] === option
                       ? "bg-blue-600 text-white border-blue-600"
                       : "bg-white text-gray-700 border-gray-300 hover:bg-blue-100"
-                  }
-                `}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
+                    }`}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Character 2 */}
-          <div className="image-box">
-            <img src={characterImage1} alt="Character 2" className="character-img" />
-             <div className="flex gap-3">
-            {ANSWER_OPTIONS.map(option => (
-              <button
-                key={option}
-                onClick={() => handleAnswerChange(1, option)}
-                className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
-                  ${
-                    answers[1] === option
+          <div className="flex flex-col items-center gap-4">
+            <img
+              src={characterImage1}
+              alt="Character 2"
+              className="w-40 md:w-52"
+            />
+
+            <div className="flex gap-3">
+              {ANSWER_OPTIONS.map(option => (
+                <button
+                  key={option}
+                  onClick={() => handleAnswerChange(1, option)}
+                  className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
+                ${answers[1] === option
                       ? "bg-blue-600 text-white border-blue-600"
                       : "bg-white text-gray-700 border-gray-300 hover:bg-blue-100"
-                  }
-                `}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
+                    }`}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
           </div>
 
         </div>
       </div>
 
-      <div className="popup-buttons">
+      {/* Buttons */}
+      <div className="popup-buttons shrink-0">
         <button className="try-again-button" onClick={handleStartAgain}>
-          Recommencer ↻
+          Recommencer
         </button>
         <button className="show-answer-btn" onClick={handleShowAnswer}>
           Afficher la réponse
         </button>
         <button className="check-button2" onClick={handleCheck}>
-          Vérifier la réponse ✓
+          Vérifier la réponse
         </button>
       </div>
     </div>
   );
+
 };
 
 export default Q6;

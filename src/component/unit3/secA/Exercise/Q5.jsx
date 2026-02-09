@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ValidationAlert from '../../../Popup/ValidationAlert';
+import SortingTutorial from '../../../SortingTutorial';
 
 import {
   DndContext,
@@ -65,6 +66,7 @@ function SortableItem({ id, text, isCorrected }) {
 }
 
 const Q5 = () => {
+  const [showTutorial, setShowTutorial] = useState(false);
   const [sentences, setSentences] = useState(() =>
     [...initialSentences].sort(() => Math.random() - 0.5)
   );
@@ -92,28 +94,42 @@ const Q5 = () => {
 
   const checkAnswers = () => {
     const userOrder = sentences.map(s => s.id);
-    const isCorrect = JSON.stringify(userOrder) === JSON.stringify(correctOrder);
-    console.log(JSON.stringify(userOrder))
+
+    const total = correctOrder.length;
+
+    // احسب كم عنصر في مكانه الصحيح
+    let score = 0;
+    for (let i = 0; i < total; i++) {
+      if (userOrder[i] === correctOrder[i]) {
+        score++;
+      }
+    }
+
+    const scoreMessage = `${score} / ${total}`;
+
+    const isCorrect = score === total;
 
     if (isCorrect) {
-      // استخدام تنبيه النجاح
-      ValidationAlert.success("Félicitations !", "Le texte est dans le bon ordre et la phrase a été corrigée.");
-      
-      // تحديث الجملة "c"
+      ValidationAlert.success(
+        scoreMessage
+      );
+
       const updatedSentences = sentences.map(s =>
         s.id === 'c' ? { ...s, text: correctedSentenceC } : s
       );
-      setSentences(updatedSentences);
-      setIsAnswerCorrect(true); // تفعيل حالة النجاح لتلوين الحقل
 
-    } else if(!isCorrect) {
-      // استخدام تنبيه الخطأ
-      ValidationAlert.error("Incorrect !", "Ce n’est pas le bon ordre. Essayez encore !");
-      setIsAnswerCorrect(false);
-    } else{
-      ValidationAlert.warning();
+      setSentences(updatedSentences);
+    } else if (score === 0) {
+      ValidationAlert.warning(
+        scoreMessage
+      );
+    } else {
+      ValidationAlert.error(
+        scoreMessage
+      );
     }
   };
+
 
 
 
@@ -138,9 +154,33 @@ const Q5 = () => {
   };
 
 
+  useEffect(() => {
+    const hasSeenTutorial = localStorage.getItem('dialogue_sorting_tutorial_completed');
+
+    if (!hasSeenTutorial) {
+      const timer = setTimeout(() => {
+        setShowTutorial(true);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleCloseTutorial = () => {
+    setShowTutorial(false);
+    localStorage.setItem('dialogue_sorting_tutorial_completed', 'true');
+  };
+
+  // زر مساعدة صغير يمكن إضافته في Q11
+  const handleShowHelp = () => {
+    setShowTutorial(true);
+  };
+
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg font-sans">
-
+      <SortingTutorial
+        isOpen={showTutorial}
+        onClose={handleCloseTutorial}
+      />
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}

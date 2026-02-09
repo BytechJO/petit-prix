@@ -1,8 +1,13 @@
 import React, { useState, useRef } from "react";
 import html2canvas from "html2canvas";
+// --- إضافة جديدة: استيراد مكونات الحركة ---
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import ValidationAlert from "../../../Popup/ValidationAlert";
 import { validate } from "uuid";
+
+// --- إضافة جديدة: ملف CSS للحركات ---
+import './Q3.css'; // سنقوم بإنشاء هذا الملف في الخطوة التالية
 
 const Q3 = () => {
     const treeRef = useRef(null);
@@ -42,7 +47,8 @@ const Q3 = () => {
     };
 
     const addSibling = () => {
-        const newId = Math.max(...members.siblings.map((s) => s.id), 7) + 1;
+        // --- تعديل بسيط: استخدام Date.now() لضمان معرف فريد ---
+        const newId = Date.now();
         setMembers((prev) => ({
             ...prev,
             siblings: [
@@ -120,7 +126,6 @@ const Q3 = () => {
             link.href = canvas.toDataURL('image/png');
             link.click();
 
-            // ValidationAlert.success("Arbre téléchargé avec succès!");
         } catch (error) {
             console.error('Erreur détaillée:', error);
             ValidationAlert.error(`Erreur: ${error.message || 'Problème lors du téléchargement'}`);
@@ -165,6 +170,7 @@ const Q3 = () => {
     return (
         <div style={{ minHeight: '100vh', padding: '32px' }}>
             <div style={{ maxWidth: '1280px', margin: '0 auto' }} ref={treeRef}>
+                {/* ... قسم الأجداد والآباء (بدون تغيير) ... */}
                 <h1 style={{ fontSize: '36px', fontWeight: 'bold', textAlign: 'center', marginBottom: '32px', color: '#15803d' }}>
                     🌳 Mon Arbre Généalogique 🌳
                 </h1>
@@ -280,6 +286,7 @@ const Q3 = () => {
                     <h2 style={{ fontSize: '24px', fontWeight: 'bold', textAlign: 'center', marginBottom: '24px', color: '#ea580c' }}>
                         Moi et Mes Frères/Sœurs
                     </h2>
+                    {/* --- تعديل: استخدام TransitionGroup لتغليف العناصر المتحركة --- */}
                     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px' }}>
                         {/* أنا */}
                         <div style={{ position: 'relative' }}>
@@ -313,79 +320,87 @@ const Q3 = () => {
                             }}></div>
                         </div>
 
-                        {/* الإخوة */}
-                        {members.siblings.map((sibling) => (
-                            <div key={sibling.id} style={{ position: 'relative' }}>
-                                <div style={{
-                                    padding: '24px',
-                                    borderRadius: '8px',
-                                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-                                    backgroundColor: sibling.gender === "male" ? "#dbeafe" : "#fce7f3"
-                                }}>
-                                    <button
-                                        onClick={() => removeSibling(sibling.id)}
-                                        className="download-hide"
-                                        style={{
+                        {/* --- تعديل: استخدام TransitionGroup و CSSTransition --- */}
+                        <TransitionGroup component={null}>
+                            {members.siblings.map((sibling) => (
+                                <CSSTransition
+                                    key={sibling.id}
+                                    timeout={300}
+                                    classNames="sibling" // اسم الكلاس للحركة
+                                >
+                                    <div style={{ position: 'relative' }}>
+                                        <div style={{
+                                            padding: '24px',
+                                            borderRadius: '8px',
+                                            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                                            backgroundColor: sibling.gender === "male" ? "#dbeafe" : "#fce7f3"
+                                        }}>
+                                            <button
+                                                onClick={() => removeSibling(sibling.id)}
+                                                className="download-hide"
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: '4px',
+                                                    right: '4px',
+                                                    width: '24px',
+                                                    height: '24px',
+                                                    backgroundColor: '#ef4444',
+                                                    color: 'white',
+                                                    borderRadius: '50%',
+                                                    fontSize: '12px',
+                                                    border: 'none',
+                                                    cursor: 'pointer'
+                                                }}
+                                            >
+                                                ✕
+                                            </button>
+                                            <button
+                                                onClick={() => changeSiblingGender(sibling.id)}
+                                                className="download-hide"
+                                                title="Changer le genre"
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: '4px',
+                                                    left: '4px',
+                                                    width: '24px',
+                                                    height: '24px',
+                                                    backgroundColor: '#6b7280',
+                                                    color: 'white',
+                                                    borderRadius: '50%',
+                                                    fontSize: '12px',
+                                                    border: 'none',
+                                                    cursor: 'pointer'
+                                                }}
+                                            >
+                                                ⚧
+                                            </button>
+                                            <div style={{ fontSize: '48px', textAlign: 'center', marginBottom: '12px' }}>
+                                                {sibling.gender === "male" ? "👦" : "👧"}
+                                            </div>
+                                            <p style={{ fontSize: '14px', textAlign: 'center', fontWeight: 'bold', marginBottom: '12px' }}>
+                                                {sibling.relation}
+                                            </p>
+                                            <input
+                                                type="text"
+                                                value={sibling.name}
+                                                onChange={(e) => handleNameChange("siblings", sibling.id, e.target.value)}
+                                                placeholder="Nom"
+                                                style={inputStyle}
+                                            />
+                                        </div>
+                                        <div style={{
                                             position: 'absolute',
-                                            top: '4px',
-                                            right: '4px',
-                                            width: '24px',
-                                            height: '24px',
-                                            backgroundColor: '#ef4444',
-                                            color: 'white',
-                                            borderRadius: '50%',
-                                            fontSize: '12px',
-                                            border: 'none',
-                                            cursor: 'pointer'
-                                        }}
-                                    >
-                                        ✕
-                                    </button>
-                                    <button
-                                        onClick={() => changeSiblingGender(sibling.id)}
-                                        className="download-hide"
-                                        title="Changer le genre"
-                                        style={{
-                                            position: 'absolute',
-                                            top: '4px',
-                                            left: '4px',
-                                            width: '24px',
-                                            height: '24px',
-                                            backgroundColor: '#6b7280',
-                                            color: 'white',
-                                            borderRadius: '50%',
-                                            fontSize: '12px',
-                                            border: 'none',
-                                            cursor: 'pointer'
-                                        }}
-                                    >
-                                        ⚧
-                                    </button>
-                                    <div style={{ fontSize: '48px', textAlign: 'center', marginBottom: '12px' }}>
-                                        {sibling.gender === "male" ? "👦" : "👧"}
+                                            top: '0',
+                                            left: '50%',
+                                            width: '2px',
+                                            height: '32px',
+                                            backgroundColor: '#16a34a',
+                                            transform: 'translateY(-100%)'
+                                        }}></div>
                                     </div>
-                                    <p style={{ fontSize: '14px', textAlign: 'center', fontWeight: 'bold', marginBottom: '12px' }}>
-                                        {sibling.relation}
-                                    </p>
-                                    <input
-                                        type="text"
-                                        value={sibling.name}
-                                        onChange={(e) => handleNameChange("siblings", sibling.id, e.target.value)}
-                                        placeholder="Nom"
-                                        style={inputStyle}
-                                    />
-                                </div>
-                                <div style={{
-                                    position: 'absolute',
-                                    top: '0',
-                                    left: '50%',
-                                    width: '2px',
-                                    height: '32px',
-                                    backgroundColor: '#16a34a',
-                                    transform: 'translateY(-100%)'
-                                }}></div>
-                            </div>
-                        ))}
+                                </CSSTransition>
+                            ))}
+                        </TransitionGroup>
 
                         {/* زر إضافة أخ/أخت */}
                         <button
@@ -436,7 +451,7 @@ const Q3 = () => {
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                                 <path d="m7 10 5 5 5-5" />
                             </svg>
-                        )}
+                         )}
                     </button>
 
                 </div>

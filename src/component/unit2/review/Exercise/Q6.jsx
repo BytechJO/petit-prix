@@ -33,14 +33,18 @@ export default function Q6() {
     const [answers, setAnswers] = useState({});
     const [checked, setChecked] = useState(false);
 
-    const handleSelect = (qId, index) => {
-        if (checked) return;
-        setAnswers({ ...answers, [qId]: index });
-    };
+
 
     const handleCheck = () => {
+        const correctAnswers = {};
+        questions.forEach(q => {
+            correctAnswers[q.id] = q.correct;
+        });
+
+        setAnswers(correctAnswers);
         setChecked(true);
     };
+
 
     const handleReset = () => {
         setAnswers({});
@@ -70,15 +74,7 @@ export default function Q6() {
             }
         });
 
-        const color = score === totalCount ? "#16a34a" : "#dc2626"; // أخضر / أحمر
-
-        const scoreMessage = `
-    <div style="font-size: 20px; margin-top: 10px; text-align:center;">
-      <span style="color:${color}; font-weight:bold;">
-        Score: ${score} / ${totalCount}
-      </span>
-    </div>
-  `;
+        const scoreMessage = `${score} / ${totalCount}`;
 
         if (score === totalCount) {
             ValidationAlert.success(
@@ -91,6 +87,10 @@ export default function Q6() {
         }
     };
 
+    const handleSelect = (qId, index) => {
+        if (checked) return;
+        setAnswers({ ...answers, [qId]: index });
+    };
 
 
     return (
@@ -99,7 +99,7 @@ export default function Q6() {
             {questions.map((q) => (
                 <div
                     key={q.id}
-                    className="bg-white rounded-2xl shadow-md p-5 space-y-4"
+                    className="bg-white rounded-2xl p-5 space-y-4"
                 >
                     <p className="text-lg font-semibold text-gray-700">
                         {q.id}) {q.title}
@@ -118,7 +118,7 @@ export default function Q6() {
                                     onClick={() => handleSelect(q.id, index)}
                                     className={`
                     flex items-center gap-3 px-4 py-2 rounded-full border-2
-                    transition-all duration-200
+                    transition-all duration-200 cursor-pointer
                     ${isCorrect
                                             ? "border-green-500 bg-green-100 text-green-700"
                                             : isWrong

@@ -31,7 +31,7 @@ const Q7 = () => {
     const orders = Object.values(selectedOrders);
     const uniqueOrders = new Set(orders);
     if (orders.length !== uniqueOrders.size) {
-      ValidationAlert.warning("Chaque numéro ne peut être utilisé qu'une seule fois!");
+      ValidationAlert.error("Chaque numéro ne peut être utilisé qu'une seule fois!");
       return;
     }
 

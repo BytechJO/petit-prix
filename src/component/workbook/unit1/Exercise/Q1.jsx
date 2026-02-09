@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import TutorialOverlay from '../../../TutorialOverlay';
 
 const bear = "/assets/workbook/unit1/Lesson1/L1Q1-1.svg";
 const tower = "/assets/workbook/unit1/Lesson1/L1Q1-2.svg";
@@ -117,8 +117,8 @@ const Q1 = () => {
 
 
     return (
-        <div className="w-full flex flex-col justify-center items-center overflow-hidden p-4">
-
+        <div className="w-full flex flex-col justify-center items-center overflow-hidden">
+            <TutorialOverlay />
             <div className="relative w-full h-135 flex items-center justify-center">
 
                 <div className="absolute left-18 top-1/2 -translate-y-1/2 -translate-x-1/2 rotate-[-20deg] text-red-400 border-4 border-red-400 rounded-2xl px-6 py-2 font-bold text-4xl opacity-50">NON</div>

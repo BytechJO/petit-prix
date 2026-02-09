@@ -1,129 +1,147 @@
-import React, { useState } from 'react';
-import ValidationAlert from '../../../Popup/ValidationAlert';
-import './Q3.css';
-
-const characterImage  = "/assets/unit1/secA/page6/characters1.webp";
-const characterImage1 = "/assets/unit1/secA/page6/character2.webp";
-
-const ANSWER_OPTIONS = ["B", "A"].sort(() => Math.random() - 0.5);
-const CORRECT_ANSWERS = ["A", "B"];
+import React, { useState } from "react";
+import ValidationAlert from "../../../Popup/ValidationAlert";
 
 const Q3 = () => {
-  const [answers, setAnswers] = useState(["", ""]);
-  const [showAnswer, setShowAnswer] = useState(false);
+  const images = [
+    { id: 1, src: '/assets/unit1/secA/page6/characters1.webp', correctOrder: 1 },
+    { id: 2, src: '/assets/unit1/secA/page6/character2.webp', correctOrder: 2 },
+  ];
 
-  const handleAnswerChange = (index, value) => {
-    const updated = [...answers];
-    updated[index] = value;
-    setAnswers(updated);
+  const [selectedOrders, setSelectedOrders] = useState({});
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleOrderChange = (imageId, order) => {
+    setSelectedOrders({
+      ...selectedOrders,
+      [imageId]: parseInt(order)
+    });
   };
 
-  const handleCheck = () => {
-
-    if (answers.some(answer => answer === "")) {
-      ValidationAlert.warning(
-        "Attention!",
-        "Veuillez répondre à toutes les questions avant de vérifier."
-      );
+  const checkAnswers = () => {
+    // التحقق من اختيار ترتيب لكل الصور
+    const allSelected = images.every(img => selectedOrders[img.id]);
+    if (!allSelected) {
+      ValidationAlert.warning("Veuillez choisir un ordre pour toutes les images!");
       return;
     }
 
-    let correctCount = 0;
+    // التحقق من عدم تكرار الأرقام
+    const orders = Object.values(selectedOrders);
+    const uniqueOrders = new Set(orders);
+    if (orders.length !== uniqueOrders.size) {
+      ValidationAlert.error("Chaque numéro ne peut être utilisé qu'une seule fois!");
+      return;
+    }
 
-    answers.forEach((answer, index) => {
-      if (
-        answer &&
-        answer.toLowerCase() === CORRECT_ANSWERS[index].toLowerCase()
-      ) {
+    // حساب النتيجة
+    let correctCount = 0;
+    images.forEach(img => {
+      if (selectedOrders[img.id] === img.correctOrder) {
         correctCount++;
       }
     });
 
-    const scoreText = `${correctCount}/2`;
+    setIsChecked(true);
 
-    if (correctCount === 2) {
-      ValidationAlert.success(
-        scoreText
-      );
+    const score = `${correctCount}/${images.length}`;
+
+    if (correctCount === images.length) {
+      ValidationAlert.success(score);
     } else {
-      ValidationAlert.error(
-        scoreText
-      );
+      ValidationAlert.error(score);
     }
   };
 
-  const handleStartAgain = () => {
-    setAnswers(["", ""]);
-    setShowAnswer(false);
-    ValidationAlert?.close?.();
+  const handleShowAnswer = () => {
+    const correctAnswers = {};
+    images.forEach(img => {
+      correctAnswers[img.id] = img.correctOrder;
+    });
+    setSelectedOrders(correctAnswers);
+    setIsChecked(true);
   };
 
-  const handleShowAnswer = () => {
-    setAnswers([...CORRECT_ANSWERS]);
-    setShowAnswer(true);
+  const handleTryAgain = () => {
+    setSelectedOrders({});
+    setIsChecked(false);
+  };
+
+  const getSelectStyle = (imageId) => {
+    if (!isChecked) {
+      return {
+        border: '3px solid #3b82f6',
+        backgroundColor: 'white',
+        color: '#1f2937'
+      };
+    }
+
+    const image = images.find(img => img.id === imageId);
+    const isCorrect = selectedOrders[imageId] === image.correctOrder;
+
+    if (isCorrect) {
+      return {
+        border: '3px solid #22c55e',
+        backgroundColor: '#22c55e',
+        color: 'white'
+      };
+    } else {
+      return {
+        border: '3px solid #ef4444',
+        backgroundColor: '#ef4444',
+        color: 'white'
+      };
+    }
   };
 
   return (
-    <div className="l2q1-page-container">
-      <div className="content-container">
-        <div className="images-flex-container">
+    <div className="flex flex-col items-center p-8 gap-8">
 
-          {/* Character 1 */}
-          <div className="image-box">
-            <img src={characterImage} alt="Character 1" className="character-img" />
-            <div className="flex gap-3">
-            {ANSWER_OPTIONS.map(option => (
-              <button
-                key={option}
-                onClick={() => handleAnswerChange(0, option)}
-                className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
-                  ${
-                    answers[0] === option
-                      ? "bg-blue-600 text-white border-blue-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-blue-100"
-                  }
-                `}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-          </div>
+      {/* الصور */}
+      <div className="grid grid-cols-2 gap-6">
+        {images.map((image) => (
+          <div key={image.id} className="relative">
+            {/* الصورة */}
+            <div className="w-80 h-60 flex items-center justify-center rounded-lg overflow-hidden">
+              <img
+                src={image.src}
+                alt={`Image ${image.id}`}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
 
-          {/* Character 2 */}
-          <div className="image-box">
-            <img src={characterImage1} alt="Character 2" className="character-img" />
-             <div className="flex gap-3">
-            {ANSWER_OPTIONS.map(option => (
-              <button
-                key={option}
-                onClick={() => handleAnswerChange(1, option)}
-                className={`px-6 py-2 rounded-xl border text-lg font-bold transition cursor-pointer
-                  ${
-                    answers[1] === option
-                      ? "bg-blue-600 text-white border-blue-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-blue-100"
-                  }
-                `}
-              >
-                {option}
-              </button>
-            ))}
+            {/* Select absolute في الزاوية */}
+            <select
+              value={selectedOrders[image.id] || ""}
+              onChange={(e) => handleOrderChange(image.id, e.target.value)}
+              disabled={isChecked}
+              className="absolute top-3 left-3 px-4 py-2 rounded-lg font-bold text-xl cursor-pointer"
+              style={{
+                ...getSelectStyle(image.id),
+                outline: 'none',
+                appearance: 'none',
+                textAlign: 'center',
+                width: '60px',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)'
+              }}
+            >
+              <option value="" disabled>?</option>
+              <option value="1">A</option>
+              <option value="2">B</option>
+            </select>
           </div>
-          </div>
-
-        </div>
+        ))}
       </div>
 
-      <div className="popup-buttons">
-        <button className="try-again-button" onClick={handleStartAgain}>
-          Recommencer ↻
+      {/* الأزرار */}
+      <div className="popup-buttons shrink-0">
+        <button className="try-again-button" onClick={handleTryAgain}>
+          Recommencer
         </button>
         <button className="show-answer-btn" onClick={handleShowAnswer}>
           Afficher la réponse
         </button>
-        <button className="check-button2" onClick={handleCheck}>
-          Vérifier la réponse ✓
+        <button className="check-button2" onClick={checkAnswers}>
+          Vérifier la réponse
         </button>
       </div>
     </div>

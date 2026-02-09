@@ -72,13 +72,7 @@ const Q7 = () => {
 
         const total = correctAnswers.length;
         const color = score === total ? "#16a34a" : "#dc2626";
-        const scoreMessage = `
-            <div style="font-size:20px; text-align:center; margin-top:10px;">
-                <span style="color:${color}; font-weight:bold;">
-                    Score : ${score} / ${total}
-                </span>
-            </div>
-        `;
+        const scoreMessage = `${score} / ${total}`;
 
         if (score === total) {
             ValidationAlert.success(scoreMessage);
@@ -111,7 +105,7 @@ const Q7 = () => {
                         key={index}
                         value={userSelections[index]}
                         onChange={(e) => handleSelectChange(index, e.target.value)}
-                        className="shiny-bg absolute text-center border-2 border-gray-400 rounded-md p-1 text-lg font-semibold focus:border-blue-500 focus:ring-blue-500 bg-gradient-to-r from-blue-400 via-white/50 to-blue-400 bg-200% animate-shine"
+                        className="shiny-bg absolute text-center border-2 border-gray-400 rounded-md p-1 text-lg font-semibold focus:border-blue-500 focus:ring-blue-500 bg-gradient-to-r from-blue-400 via-white/50 to-blue-400 bg-200% animate-shine cursor-pointer"
                         style={{
                             top: item.top,
                             left: item.left,
@@ -120,7 +114,7 @@ const Q7 = () => {
                             cursor: "pointer",
                         }}
                     >
-                        <option value="none" disabled>Select</option>
+                        <option value="none"  disabled>Select</option>
                         {options.map(opt => (
                             <option key={opt} value={opt}>{opt.toUpperCase()}</option>
                         ))}

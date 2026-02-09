@@ -135,7 +135,7 @@ const Q7 = () => {
         <div className="w-full max-w-3xl mx-auto p-4">
             <div
                 ref={svgContainerRef}
-                className="relative bg-white rounded-2xl shadow-lg p-6"
+                className="relative bg-white rounded-2xl p-6"
                 style={{
                     minHeight: '300px',
                 }}

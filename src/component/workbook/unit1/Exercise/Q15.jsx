@@ -21,14 +21,24 @@ const colors = [
   '#808080', // رمادي
 ];
 
+const svg2CorrectAnswers = {};
+for (let i = 0; i < 84; i++) {
+  if (i === 83) continue;
+  svg2CorrectAnswers[`svg2-path${i}`] = '#000000';
+}
+
 const correctAnswers = {
   'svg1-path0': '#FFD700', 
   'svg1-path1': '#FFD700',
-  'svg2-path0': '#000000', 
-  'svg2-path1': '#000000',
-  'svg2-path2': '#000000',
-  'svg2-path3': '#000000',
-  'svg2-path4': '#000000',
+  'svg1-path2': '#FFD700',
+  'svg1-path3': '#FFD700',
+  'svg1-path4': '#FFD700',
+  'svg1-path5': '#FFD700',
+  'svg1-path6': '#FFD700',
+  'svg1-path7': '#FFD700',
+
+  ...svg2CorrectAnswers,
+
   'svg3-path0': '#228B22', 
   'svg3-path1': '#228B22',
   'svg3-path2': '#228B22',
@@ -61,7 +71,7 @@ const Q15 = () => {
       
       const paths = svgElement.querySelectorAll('path, circle, rect, polygon, polyline, ellipse');
       
-      console.log(`${id} has ${paths.length} paths`); // للتشخيص
+      console.log(`${id} has ${paths.length} paths`); 
       
       paths.forEach((path, index) => {
         const uniqueId = `${id}-path${index}`;
@@ -162,7 +172,7 @@ const Q15 = () => {
           <button
             key={color}
             onClick={() => setSelectedColor(color)}
-            className={`w-12 h-12 rounded-full border-4 transition-transform duration-200 ${selectedColor === color ? 'border-blue-500 scale-110' : 'border-transparent'}`}
+            className={`w-12 h-12 rounded-full border-4 transition-transform duration-200 cursor-pointer ${selectedColor === color ? 'border-blue-500 scale-110' : 'border-transparent'}`}
             style={{ backgroundColor: color }}
             aria-label={`Select color ${color}`}
           />
