@@ -20,6 +20,10 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
+  if (url.pathname.endsWith('.pdf') || url.pathname.includes('/videos/')) {
+  return; // لا نحاول cache
+}
+
 
   // 🟢 React SPA navigation + Refresh
   if (request.mode === "navigate") {

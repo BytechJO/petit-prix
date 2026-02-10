@@ -1,8 +1,10 @@
 // src/components/Footer.js
 import React from "react";
 import Darkmode from './shared/Darkmode';
-import { MdOutlineFileDownload } from "react-icons/md";
+import { GrDocumentPdf } from "react-icons/gr";
 import Offline from "./footer/BottomBar";
+
+
 
 const StPDF = "/assets/downloadPdf/STB.pdf";
 
@@ -29,7 +31,10 @@ const twopage = "/assets/footer/icons/9.svg";
 const logo = "/assets/footer/icons/10.svg";
 const zoomin = "/assets/footer/icons/11.svg";
 const zoomout = "/assets/footer/icons/12.svg";
-
+const lightmode = '☀️';
+const darkmode = '🌙';
+import { MdOutlineWifiOff } from "react-icons/md";
+import { MdOutlineWifi } from "react-icons/md";
 
 const rightItems = [
     { id: 1, label: "logo", icon: logo },
@@ -44,6 +49,11 @@ const rightItems = [
     { id: 10, label: "questions ouvertes", icon: quiz },
     { id: 11, label: "zoomer", icon: zoomin },
     { id: 12, label: "dézoomer", icon: zoomout },
+    { id: 13, label: "Hors ligne Désactivé", icon: MdOutlineWifiOff },
+    { id: 14, label: "Hors ligne activé", icon: MdOutlineWifi },
+    { id: 15, label: "mode lumière", icon: lightmode },
+    { id: 16, label: "mode sombre", icon: darkmode },
+    { id: 17, label: "télécharger en pdf", icon: GrDocumentPdf },
 ];
 
 import RightSidebar from "./footer/rightsidebar";
@@ -205,17 +215,17 @@ const Footer = ({
                 )}
 
                 <a
-                    href={StPDF}
-                    download
+                    href="https://bytechjo-my.sharepoint.com/:b:/p/developer1/IQCzAIxqMvSaT62SJAGvCcCZAWwsDKeU0EY1BUN0Bi1J_wY?e=aHbX7f"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     title='download as a PDF'
-                    className="hover:bg-[#bc90ff] transition rounded-lg"
+                    className="hover:bg-[#bc90ff] transition rounded-lg p-0.5 pr-1.5"
                 >
-                    <MdOutlineFileDownload size={30} color="#584367ff" />
+                    <GrDocumentPdf size={30} color="#584367ff" />
                 </a>
 
                 <Darkmode title="Dark mode" />
                 <Offline />
-
 
                 <div
                     onClick={() => setIsrightSidebarOpen(true)}
@@ -243,6 +253,7 @@ const Footer = ({
             />
 
             <RightSidebar
+                title="icons"
                 isOpen={isrightSidebarOpen}
                 close={() => setIsrightSidebarOpen(false)}
                 items={rightItems}

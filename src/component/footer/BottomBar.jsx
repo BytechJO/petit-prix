@@ -58,9 +58,9 @@ export default function BottomBar({
         <button
           onClick={startOfflineDownload}
           className="flex items-center justify-center px-2 py-1
-               text-[#430f68] hover:bg-[#f6f0ff]
+               text-[#430f68] hover:bg-[#bc90ff] cursor-pointer
                rounded-lg transition"
-          title="تحميل الكتاب للاستخدام بدون إنترنت"
+          title="start with offline mode"
         >
           <MdOutlineWifiOff size={22} />
         </button>
@@ -70,7 +70,7 @@ export default function BottomBar({
         <div
           className="flex items-center gap-1 px-2 py-1
                text-[#430f68] text-xs"
-          title="جاري تحميل الكتاب"
+          title="downloading..."
         >
           <MdOutlineWifiOff size={22} className="animate-pulse" />
           <span>{progress}%</span>
@@ -81,7 +81,7 @@ export default function BottomBar({
         <div
           className="flex items-center justify-center px-2 py-1 rounded-lg
                bg-green-100 text-green-700"
-          title="الكتاب جاهز بدون إنترنت"
+          title="offline mode ready"
         >
           <MdOutlineWifi size={22} />
         </div>

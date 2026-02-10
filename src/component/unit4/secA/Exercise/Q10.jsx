@@ -4,7 +4,7 @@ const backgroundImage = "/assets/unit4/secA/page41/cover.png";
 
 import ValidationAlert from "../../../Popup/ValidationAlert";
 import InteractivePage from "../../../unit1/interactive";
-
+import SimpleTutorial from "../../../shared/SimpleTutorial";
 const img1 = "/assets/unit4/secA/page41/01.svg";
 const img2 = "/assets/unit4/secA/page41/02.svg";
 const img3 = "/assets/unit4/secA/page41/03.svg";
@@ -17,7 +17,7 @@ const Q10 = () => {
   const [recentlyFound, setRecentlyFound] = useState(null);
   const [checkResult, setCheckResult] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
-
+const [showTutorial, setShowTutorial] = useState(true);
   const Items = [
     {
       index: 0,
@@ -144,6 +144,9 @@ const Q10 = () => {
 
   return (
     <div>
+      {showTutorial && (
+        <SimpleTutorial onClose={() => setShowTutorial(false)} />
+      )}
       <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <div style={{ position: "relative" }}>
           <img

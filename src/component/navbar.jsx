@@ -51,11 +51,11 @@ const Navbar = ({ activeTab, setActiveTab }) => {
             </div>
 
             {/* RIGHT SECTION */}
-            <div className="flex items-center gap-4">
+            {/* <div className="flex items-center gap-4">
                 <span className="cursor-pointer text-[#430f68] hover:opacity-75">
                     Édition Élève
                 </span>
-            </div>
+            </div> */}
         </nav>
     );
 };

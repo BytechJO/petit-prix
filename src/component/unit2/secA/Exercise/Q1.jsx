@@ -4,6 +4,7 @@ const backgroundImage = "/assets/unit2/secA/page16/cover.png";
 
 import ValidationAlert from "../../../Popup/ValidationAlert";
 import InteractivePage from "../../../unit1/interactive";
+import SimpleTutorial from "../../../shared/SimpleTutorial";
 
 const bear = "/assets/unit2/secA/page16/bear.svg";
 const clock = "/assets/unit2/secA/page16/clock.svg";
@@ -15,7 +16,7 @@ const Q1 = () => {
   const [recentlyFound, setRecentlyFound] = useState(null);
   const [checkResult, setCheckResult] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
-
+  const [showTutorial, setShowTutorial] = useState(true);
   const Items = [
     {
       index: 0,
@@ -77,13 +78,13 @@ const Q1 = () => {
     const totalCount = Items.length;
 
     const color =
-  correctCount === totalCount
-    ? "green"
-    : correctCount === 0
-    ? "orange"
-    : correctCount >= 1 && correctCount < 4
-    ? "red"
-    : undefined;
+      correctCount === totalCount
+        ? "green"
+        : correctCount === 0
+          ? "orange"
+          : correctCount >= 1 && correctCount < 4
+            ? "red"
+            : undefined;
 
 
     const scoreMessage = `${correctCount} / ${totalCount}`;
@@ -95,7 +96,7 @@ const Q1 = () => {
       setCheckResult("fail");
       ValidationAlert.warning("Oups !", "Trouvez tous les objets");
     } else {
-      ValidationAlert.error( scoreMessage);
+      ValidationAlert.error(scoreMessage);
     }
   };
 
@@ -114,6 +115,9 @@ const Q1 = () => {
 
   return (
     <div>
+      {showTutorial && (
+        <SimpleTutorial onClose={() => setShowTutorial(false)} />
+      )}
       <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <div style={{ position: "relative" }}>
           <img

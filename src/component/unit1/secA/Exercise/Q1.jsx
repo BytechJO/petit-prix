@@ -4,6 +4,7 @@ const backgroundImage = "/assets/unit1/secA/popup/page41.png";
 
 import ValidationAlert from "../../../Popup/ValidationAlert";
 import InteractivePage from "../../interactive";
+import SimpleTutorial from "../../../shared/SimpleTutorial";
 
 const fence = "/assets/unit1/secA/page45/1.svg";
 const rose = "/assets/unit1/secA/page45/2.svg";
@@ -54,6 +55,8 @@ const Q1 = () => {
       "aria-label": "Restaurant area 4",
     }
   ];
+
+  const [showTutorial, setShowTutorial] = useState(true);
 
   const iconCustomStyles = [
     { top: '85%', left: '28.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
@@ -114,6 +117,11 @@ const Q1 = () => {
 
   return (
     <div>
+
+      {showTutorial && (
+        <SimpleTutorial onClose={() => setShowTutorial(false)} />
+      )}
+
       <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <div style={{ position: "relative" }}>
           <img

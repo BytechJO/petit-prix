@@ -15,7 +15,7 @@ const RightSidebar = ({
       >
         {/* HEADER */}
         <div className="p-4 border-b flex justify-between items-center">
-          <h2 className="text-xl text-[#2c5287] font-semibold">Clé d'icône</h2>
+          <h2 className="text-xl text-[#2c5287] font-semibold" title="icons">Clé d'icône</h2>
           <button
             onClick={close}
             className="text-xl cursor-pointer"
@@ -27,18 +27,28 @@ const RightSidebar = ({
         {/* ITEMS */}
         <ul className="p-3 space-y-3 overflow-y-auto h-[calc(100vh-70px)]">
           {items.map((item) => (
-            <li
-              key={item.id}
-              className="flex items-center gap-3 p-3 bg-purple-100 rounded-lg hover:bg-purple-300"
-            >
-              <img
-                src={item.icon}
-                alt={item.label}
-                style={{ height: "35px", width: "35px" }}
-              />
-              <span>{item.label}</span>
-            </li>
-          ))}
+  <li
+    key={item.id}
+    className="flex items-center gap-3 p-3 bg-purple-100 rounded-lg hover:bg-purple-300"
+  >
+    {typeof item.icon === "string" ? (
+      item.icon.startsWith("/") ? (
+        <img
+          src={item.icon}
+          alt={item.label}
+          style={{ height: "35px", width: "35px" }}
+        />
+      ) : (
+        <span className="text-2xl">{item.icon}</span>
+      )
+    ) : (
+      <item.icon size={35} />
+    )}
+
+    <span>{item.label}</span>
+  </li>
+))}
+
         </ul>
       </div>
 
