@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ALL_ASSETS } from "/src/ALL_ASSETS.js";
+import { ALL_ASSETS } from "../../ALL_ASSETS";
 
 import { MdOutlineWifiOff } from "react-icons/md";
 import { MdOutlineWifi } from "react-icons/md";
