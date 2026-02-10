@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300">
+  <defs>
+    <clipPath id="clippath">
+      <rect x="120.12" y="117.37" width="63.91" height="65.46" style="fill: none;"/>
+    </clipPath>
+    <filter id="luminosity-noclip" x="117.81" y="168.12" width="15.11" height="15.29" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <clipPath id="clippath-1">
+      <rect x="120.85" y="170.36" width="8.86" height="10.1" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <path d="M120.94,178.4c.83,1.26,3-.74,3-.74,0,0,.02,2.1,1.11,2.46,1.09.36,1.89-1.81,1.89-1.81,0,0,1.15,2.85,2.41,1.99,1.26-.86-1.24-9.23-1.24-9.23l-3.14-.71s-4.85,6.78-4.03,8.04" style="fill: none;"/>
+    </clipPath>
+    <filter id="luminosity-noclip-2" x="117.81" y="-8342" width="15.11" height="32766" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-1" x="117.81" y="-8342" width="15.11" height="32766" maskUnits="userSpaceOnUse"/>
+    <linearGradient id="linear-gradient" x1="-144.31" y1="589.94" x2="-143.31" y2="589.94" gradientTransform="translate(-1241.94 -5434.94) rotate(-180) scale(9.51 -9.51)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1d1d1b"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <mask id="mask" x="117.81" y="168.12" width="15.11" height="15.29" maskUnits="userSpaceOnUse">
+      <g style="filter: url(#luminosity-noclip);">
+        <g style="clip-path: url(#clippath-1);">
+          <g style="isolation: isolate;">
+            <g style="clip-path: url(#clippath-2);">
+              <g style="mask: url(#mask-1);">
+                <rect x="118.95" y="169.46" width="12.83" height="12.6" transform="translate(-73.62 259.51) rotate(-77.33)" style="fill: url(#linear-gradient); mix-blend-mode: multiply;"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clippath-3">
+      <rect x="120.85" y="170.36" width="8.86" height="10.1" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-4">
+      <path d="M120.85,178v.03c0,.15.03.28.1.38.83,1.26,3-.74,3-.74,0,0,.02,2.1,1.11,2.46,1.09.36,1.89-1.81,1.89-1.81,0,0,.87,2.14,1.92,2.15h.01c.16,0,.32-.05.48-.16,1.26-.86-1.24-9.23-1.24-9.23l-3.14-.71s-4.1,5.72-4.12,7.63" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-2" x1="-144.31" y1="589.97" x2="-143.31" y2="589.97" gradientTransform="translate(-1241.99 -5435.56) rotate(-180) scale(9.51 -9.51)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <filter id="luminosity-noclip-3" x="127.8" y="130.1" width="14.79" height="14.52" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <clipPath id="clippath-5">
+      <rect x="130.85" y="132.35" width="8.86" height="10.03" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-6">
+      <path d="M131.21,132.51c-1.26.86,1.25,9.16,1.25,9.16l3.14.71s4.84-6.71,4.01-7.98c-.83-1.26-3.02.81-3.02.81,0,0-.02-2.11-1.11-2.47-1.09-.36-1.88,1.8-1.88,1.8,0,0-.86-2.18-1.92-2.18-.16,0-.32.05-.48.16" style="fill: none;"/>
+    </clipPath>
+    <filter id="luminosity-noclip-4" x="127.8" y="-8342" width="14.79" height="32766" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-3" x="127.8" y="-8342" width="14.79" height="32766" maskUnits="userSpaceOnUse"/>
+    <linearGradient id="linear-gradient-3" x1="-144.29" y1="590.32" x2="-143.29" y2="590.32" gradientTransform="translate(-1214.37 -5402.78) rotate(-180) scale(9.38 -9.38)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#1d1d1b"/>
+    </linearGradient>
+    <mask id="mask-2" x="127.8" y="130.1" width="14.79" height="14.52" maskUnits="userSpaceOnUse">
+      <g style="filter: url(#luminosity-noclip-3);">
+        <g style="clip-path: url(#clippath-5);">
+          <g style="isolation: isolate;">
+            <g style="clip-path: url(#clippath-6);">
+              <g style="mask: url(#mask-3);">
+                <rect x="129.15" y="131.14" width="12.09" height="12.44" transform="translate(-28.48 239.13) rotate(-77.33)" style="fill: url(#linear-gradient-3); mix-blend-mode: multiply;"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clippath-7">
+      <rect x="130.85" y="132.35" width="8.86" height="10.03" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-8">
+      <path d="M131.21,132.51c-1.26.86,1.25,9.16,1.25,9.16l3.14.71s4.06-5.64,4.11-7.55v-.06c0-.15-.03-.27-.09-.36-.83-1.26-3.02.81-3.02.81,0,0-.02-2.11-1.11-2.47-1.09-.36-1.88,1.8-1.88,1.8,0,0-.86-2.18-1.92-2.18-.16,0-.32.05-.48.16" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-4" x1="-144.29" y1="590.28" x2="-143.29" y2="590.28" gradientTransform="translate(-1214.65 -5402.42) rotate(-180) scale(9.38 -9.38)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <filter id="luminosity-noclip-5" x="114.26" y="135.66" width="31.89" height="41.49" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <clipPath id="clippath-9">
+      <rect x="121.76" y="139.37" width="16.89" height="34.05" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-10">
+      <path d="M128.03,141.35l-6.21,27.62c-.26,1.16.46,2.51,1.55,2.99l1.16.5c1.09.48,2.97.89,4.16.92l1.09.03c1.19.03,2.34-.9,2.61-2.07l6.21-27.62c.26-1.16-.39-2.48-1.5-2.93l-.97-.4c-1.1-.45-2.99-.88-4.18-.95l-1.25-.08s-.09,0-.13,0c-1.15,0-2.29.86-2.54,1.98" style="fill: none;"/>
+    </clipPath>
+    <filter id="luminosity-noclip-6" x="114.26" y="-8342" width="31.89" height="32766" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-5" x="114.26" y="-8342" width="31.89" height="32766" maskUnits="userSpaceOnUse"/>
+    <linearGradient id="linear-gradient-5" x1="-129.32" y1="569.52" x2="-128.32" y2="569.52" gradientTransform="translate(-6039.44 1551.91) rotate(90) scale(10.83 -10.83)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1d1d1b"/>
+      <stop offset=".5" stop-color="#fff"/>
+      <stop offset="1" stop-color="#1d1d1b"/>
+    </linearGradient>
+    <mask id="mask-4" x="114.26" y="135.66" width="31.89" height="41.49" maskUnits="userSpaceOnUse">
+      <g style="filter: url(#luminosity-noclip-5);">
+        <g style="clip-path: url(#clippath-9);">
+          <g style="isolation: isolate;">
+            <g style="clip-path: url(#clippath-10);">
+              <g style="mask: url(#mask-5);">
+                <rect x="111.68" y="144.23" width="37.05" height="24.36" transform="translate(-50.96 249.12) rotate(-77.33)" style="fill: url(#linear-gradient-5); mix-blend-mode: multiply;"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clippath-11">
+      <rect x="121.76" y="139.37" width="16.89" height="34.05" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-12">
+      <path d="M130.54,139.37c-1.14.01-2.26.87-2.51,1.98l-6.21,27.62c-.26,1.16.46,2.51,1.55,2.99l1.16.5c1.09.48,2.97.89,4.16.92l1.09.03c1.19.03,2.34-.9,2.61-2.07l6.21-27.62c.26-1.16-.39-2.48-1.5-2.93l-.97-.4c-1.1-.45-2.99-.88-4.18-.95l-1.25-.08s-.07,0-.1,0h-.06Z" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-6" x1="-129.32" y1="569.52" x2="-128.32" y2="569.52" gradientTransform="translate(-6039.44 1551.91) rotate(90) scale(10.83 -10.83)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#231f20"/>
+      <stop offset=".5" stop-color="#fff"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <filter id="luminosity-noclip-7" x="136.41" y="114.77" width="21.36" height="20.92" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <clipPath id="clippath-13">
+      <rect x="140.62" y="118.19" width="12.87" height="14.06" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-14">
+      <path d="M149.32,121.3s-1.36-2.68-2.99-2.45c-1.62.23-1.27,3.5-1.27,3.5,0,0-3.29-2.95-4.35-1.05-1.06,1.9,7.43,10.95,7.43,10.95l4.47-1.09s1.93-11.69.07-12.78c-.22-.13-.44-.19-.65-.19-1.55,0-2.71,3.11-2.71,3.11" style="fill: none;"/>
+    </clipPath>
+    <filter id="luminosity-noclip-8" x="136.41" y="-8342" width="21.36" height="32766" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-7" x="136.41" y="-8342" width="21.36" height="32766" maskUnits="userSpaceOnUse"/>
+    <linearGradient id="linear-gradient-7" x1="-153.04" y1="559.57" x2="-152.04" y2="559.57" gradientTransform="translate(7676.03 -1926.81) rotate(-90) scale(13.45 -13.45)" xlink:href="#linear-gradient"/>
+    <mask id="mask-6" x="136.41" y="114.77" width="21.36" height="20.92" maskUnits="userSpaceOnUse">
+      <g style="filter: url(#luminosity-noclip-7);">
+        <g style="clip-path: url(#clippath-13);">
+          <g style="isolation: isolate;">
+            <g style="clip-path: url(#clippath-14);">
+              <g style="mask: url(#mask-7);">
+                <rect x="138.19" y="116.63" width="17.79" height="17.19" transform="translate(-25.5 38.45) rotate(-13.72)" style="fill: url(#linear-gradient-7); mix-blend-mode: multiply;"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clippath-15">
+      <rect x="140.62" y="118.19" width="12.87" height="14.06" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-16">
+      <path d="M152.01,118.19c-1.54.02-2.69,3.11-2.69,3.11,0,0-1.36-2.68-2.99-2.45-1.62.23-1.27,3.5-1.27,3.5,0,0-3.29-2.95-4.35-1.05-1.06,1.9,7.43,10.95,7.43,10.95l4.47-1.09s1.93-11.69.07-12.78c-.22-.13-.43-.19-.64-.19h-.03Z" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-8" x1="-153.04" y1="559.57" x2="-152.04" y2="559.57" gradientTransform="translate(7676.03 -1926.81) rotate(-90) scale(13.45 -13.45)" xlink:href="#linear-gradient-2"/>
+    <filter id="luminosity-noclip-9" x="145.92" y="143.1" width="21.76" height="21.77" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <clipPath id="clippath-17">
+      <rect x="150.41" y="146.53" width="12.86" height="14.01" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-18">
+      <path d="M151.29,147.62s-1.94,11.64-.08,12.73c1.86,1.09,3.35-2.97,3.35-2.97,0,0,1.36,2.69,2.99,2.46,1.62-.23,1.27-3.49,1.27-3.49,0,0,3.29,2.97,4.35,1.08,1.06-1.9-7.42-10.9-7.42-10.9l-4.47,1.09Z" style="fill: none;"/>
+    </clipPath>
+    <filter id="luminosity-noclip-10" x="145.92" y="-8342" width="21.76" height="32766" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-9" x="145.92" y="-8342" width="21.76" height="32766" maskUnits="userSpaceOnUse"/>
+    <linearGradient id="linear-gradient-9" x1="-153.08" y1="559.36" x2="-152.08" y2="559.36" gradientTransform="translate(7633.59 -1886.37) rotate(-90) scale(13.37 -13.37)" xlink:href="#linear-gradient-3"/>
+    <mask id="mask-8" x="145.92" y="143.1" width="21.76" height="21.77" maskUnits="userSpaceOnUse">
+      <g style="filter: url(#luminosity-noclip-9);">
+        <g style="clip-path: url(#clippath-17);">
+          <g style="isolation: isolate;">
+            <g style="clip-path: url(#clippath-18);">
+              <g style="mask: url(#mask-9);">
+                <rect x="147.8" y="144.97" width="18" height="18.02" transform="translate(-32.04 41.57) rotate(-13.72)" style="fill: url(#linear-gradient-9); mix-blend-mode: multiply;"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clippath-19">
+      <rect x="150.41" y="146.53" width="12.86" height="14.01" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-20">
+      <path d="M151.29,147.62s-1.94,11.64-.08,12.73c1.86,1.09,3.35-2.97,3.35-2.97,0,0,1.36,2.69,2.99,2.46,1.62-.23,1.27-3.49,1.27-3.49,0,0,3.29,2.97,4.35,1.08.06-.1.09-.23.09-.37v-.07c-.07-2.56-7.51-10.46-7.51-10.46l-4.47,1.09Z" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-10" x1="-153.08" y1="559.4" x2="-152.08" y2="559.4" gradientTransform="translate(7633.57 -1886.25) rotate(-90) scale(13.37 -13.37)" xlink:href="#linear-gradient-4"/>
+    <clipPath id="clippath-21">
+      <rect width="48" height="48" style="fill: none;"/>
+    </clipPath>
+    <pattern id="Unnamed_Pattern_3" data-name="Unnamed Pattern 3" x="0" y="0" width="48" height="48" patternTransform="translate(-348.04 -7.24) scale(.22 -.22)" patternUnits="userSpaceOnUse" viewBox="0 0 48 48">
+      <g>
+        <rect width="48" height="48" style="fill: none;"/>
+        <g style="clip-path: url(#clippath-21);">
+          <path d="M0-4.8C2.65-4.8,4.8-2.65,4.8,0S2.65,4.8,0,4.8-4.8,2.65-4.8,0-2.65-4.8,0-4.8" style="fill: #e480b4;"/>
+          <path d="M24-4.8C26.65-4.8,28.8-2.65,28.8,0s-2.15,4.8-4.8,4.8S19.2,2.65,19.2,0s2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+          <path d="M48-4.8C50.65-4.8,52.8-2.65,52.8,0s-2.15,4.8-4.8,4.8S43.2,2.65,43.2,0s2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+          <path d="M0,19.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+          <path d="M24,19.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+          <path d="M48,19.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+          <path d="M0,43.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+          <path d="M24,43.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+          <path d="M48,43.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+          <path d="M36,7.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+          <path d="M12,7.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+          <path d="M36,31.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+          <path d="M12,31.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #e480b4;"/>
+        </g>
+      </g>
+    </pattern>
+    <filter id="luminosity-noclip-11" x="136.64" y="123.61" width="30.03" height="32.72" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <clipPath id="clippath-22">
+      <rect x="143.22" y="127.98" width="16.86" height="23.07" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-23">
+      <path d="M148.87,128.15c-4.39,1.07-6.71,7.03-5.18,13.31,1.53,6.28,6.34,10.5,10.73,9.43,4.39-1.07,6.72-7.03,5.18-13.31-1.37-5.62-5.37-9.59-9.34-9.59-.46,0-.93.06-1.39.17" style="fill: none;"/>
+    </clipPath>
+    <filter id="luminosity-noclip-12" x="136.64" y="-8342" width="30.03" height="32766" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-11" x="136.64" y="-8342" width="30.03" height="32766" maskUnits="userSpaceOnUse"/>
+    <radialGradient id="radial-gradient" cx="-155.38" cy="555.68" fx="-155.38" fy="555.68" r="1" gradientTransform="translate(5764.59 -1429.89) rotate(-90) scale(10.1 -10.1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".24" stop-color="#fcfcfc"/>
+      <stop offset=".39" stop-color="#f4f4f4"/>
+      <stop offset=".5" stop-color="#e6e6e6"/>
+      <stop offset=".6" stop-color="#d2d2d2"/>
+      <stop offset=".69" stop-color="#b9b9b8"/>
+      <stop offset=".78" stop-color="#999998"/>
+      <stop offset=".86" stop-color="#737372"/>
+      <stop offset=".93" stop-color="#494948"/>
+      <stop offset="1" stop-color="#1d1d1b"/>
+    </radialGradient>
+    <mask id="mask-10" x="136.64" y="123.61" width="30.03" height="32.72" maskUnits="userSpaceOnUse">
+      <g style="filter: url(#luminosity-noclip-11);">
+        <g style="clip-path: url(#clippath-22);">
+          <g style="isolation: isolate;">
+            <g style="clip-path: url(#clippath-23);">
+              <g style="mask: url(#mask-11);">
+                <rect x="139.59" y="126.07" width="24.12" height="27.79" transform="translate(-28.86 39.95) rotate(-13.72)" style="fill: url(#radial-gradient); mix-blend-mode: multiply;"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clippath-24">
+      <rect x="143.22" y="127.98" width="16.86" height="23.07" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-25">
+      <path d="M150.24,127.98c-.46,0-.92.06-1.37.17-3.45.84-5.63,4.71-5.65,9.37v.18c0,1.21.16,2.48.47,3.76,1.37,5.61,5.35,9.57,9.31,9.59h.06c.45,0,.91-.06,1.36-.17,3.45-.84,5.63-4.71,5.65-9.37v-.17c0-1.22-.16-2.48-.47-3.76-1.37-5.61-5.35-9.58-9.32-9.59h-.04Z" style="fill: none;"/>
+    </clipPath>
+    <radialGradient id="radial-gradient-2" cx="-155.38" cy="555.68" fx="-155.38" fy="555.68" r="1" gradientTransform="translate(5764.48 -1429.9) rotate(-90) scale(10.1 -10.1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".25" stop-color="#fcfcfc"/>
+      <stop offset=".39" stop-color="#f4f4f4"/>
+      <stop offset=".5" stop-color="#e6e6e6"/>
+      <stop offset=".61" stop-color="#d3d2d2"/>
+      <stop offset=".7" stop-color="#b9b8b8"/>
+      <stop offset=".78" stop-color="#9a9899"/>
+      <stop offset=".86" stop-color="#757273"/>
+      <stop offset=".94" stop-color="#4b4848"/>
+      <stop offset="1" stop-color="#231f20"/>
+    </radialGradient>
+    <filter id="luminosity-noclip-13" x="162.37" y="127.7" width="21.66" height="21.66" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <clipPath id="clippath-26">
+      <path d="M162.37,138.53c0,5.98,4.85,10.83,10.83,10.83s10.83-4.85,10.83-10.83-4.85-10.83-10.83-10.83-10.83,4.85-10.83,10.83" style="fill: none;"/>
+    </clipPath>
+    <filter id="luminosity-noclip-14" x="162.37" y="-8342" width="21.66" height="32766" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-13" x="162.37" y="-8342" width="21.66" height="32766" maskUnits="userSpaceOnUse"/>
+    <radialGradient id="radial-gradient-3" cx="-130.05" cy="565.89" fx="-130.05" fy="565.89" r="1" gradientTransform="translate(1581.9 6268.31) scale(10.83 -10.83)" xlink:href="#radial-gradient"/>
+    <mask id="mask-12" x="162.37" y="127.7" width="21.66" height="21.66" maskUnits="userSpaceOnUse">
+      <g style="filter: url(#luminosity-noclip-13);">
+        <g style="isolation: isolate;">
+          <g style="clip-path: url(#clippath-26);">
+            <g style="mask: url(#mask-13);">
+              <rect x="162.37" y="127.7" width="21.66" height="21.66" style="fill: url(#radial-gradient-3); mix-blend-mode: multiply;"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clippath-27">
+      <rect x="162.37" y="127.7" width="21.66" height="21.66" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-28">
+      <path d="M162.37,138.53c0,5.98,4.85,10.83,10.83,10.83s10.83-4.85,10.83-10.83-4.85-10.83-10.83-10.83-10.83,4.85-10.83,10.83" style="fill: none;"/>
+    </clipPath>
+    <radialGradient id="radial-gradient-4" cx="-130.05" cy="565.89" fx="-130.05" fy="565.89" r="1" gradientTransform="translate(1581.9 6268.31) scale(10.83 -10.83)" xlink:href="#radial-gradient-2"/>
+    <clipPath id="clippath-29">
+      <rect width="48" height="48" style="fill: none;"/>
+    </clipPath>
+    <pattern id="Unnamed_Pattern_4" data-name="Unnamed Pattern 4" x="0" y="0" width="48" height="48" patternTransform="translate(-351.03 -8.24) scale(.22 -.22)" patternUnits="userSpaceOnUse" viewBox="0 0 48 48">
+      <g>
+        <rect width="48" height="48" style="fill: none;"/>
+        <g style="clip-path: url(#clippath-29);">
+          <path d="M0-4.8C2.65-4.8,4.8-2.65,4.8,0S2.65,4.8,0,4.8-4.8,2.65-4.8,0-2.65-4.8,0-4.8" style="fill: #f78d1e;"/>
+          <path d="M24-4.8C26.65-4.8,28.8-2.65,28.8,0s-2.15,4.8-4.8,4.8S19.2,2.65,19.2,0s2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+          <path d="M48-4.8C50.65-4.8,52.8-2.65,52.8,0s-2.15,4.8-4.8,4.8S43.2,2.65,43.2,0s2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+          <path d="M0,19.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+          <path d="M24,19.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+          <path d="M48,19.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+          <path d="M0,43.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+          <path d="M24,43.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+          <path d="M48,43.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+          <path d="M36,7.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+          <path d="M12,7.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+          <path d="M36,31.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+          <path d="M12,31.2c2.65,0,4.8,2.15,4.8,4.8s-2.15,4.8-4.8,4.8-4.8-2.15-4.8-4.8,2.15-4.8,4.8-4.8" style="fill: #f78d1e;"/>
+        </g>
+      </g>
+    </pattern>
+    <filter id="luminosity-noclip-15" x="165.39" y="165.64" width="21.73" height="20.73" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <clipPath id="clippath-30">
+      <rect x="168.51" y="169.17" width="14.51" height="12.63" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-31">
+      <path d="M169.59,171.27l-1.08,4.47s9.57,7.09,11.39,5.94c1.82-1.15-.99-4.31-.99-4.31,0,0,3,.02,3.54-1.53.54-1.55-2.55-2.74-2.55-2.74,0,0,4.09-1.58,2.89-3.39-.25-.39-.99-.54-2-.54-3.75,0-11.21,2.1-11.21,2.1" style="fill: none;"/>
+    </clipPath>
+    <filter id="luminosity-noclip-16" x="165.39" y="-8342" width="21.73" height="32766" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-15" x="165.39" y="-8342" width="21.73" height="32766" maskUnits="userSpaceOnUse"/>
+    <linearGradient id="linear-gradient-11" x1="-132.68" y1="569.92" x2="-131.68" y2="569.92" gradientTransform="translate(-7565.89 1970.82) rotate(90) scale(13.58 -13.58)" xlink:href="#linear-gradient"/>
+    <mask id="mask-14" x="165.39" y="165.64" width="21.73" height="20.73" maskUnits="userSpaceOnUse">
+      <g style="filter: url(#luminosity-noclip-15);">
+        <g style="clip-path: url(#clippath-30);">
+          <g style="isolation: isolate;">
+            <g style="clip-path: url(#clippath-31);">
+              <g style="mask: url(#mask-15);">
+                <rect x="167.8" y="166.87" width="16.91" height="18.27" transform="translate(-36.24 305.96) rotate(-76.41)" style="fill: url(#linear-gradient-11); mix-blend-mode: multiply;"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clippath-32">
+      <rect x="168.51" y="169.17" width="14.51" height="12.63" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-33">
+      <path d="M180.71,169.17c-3.78.03-11.12,2.1-11.12,2.1l-1.08,4.47s8.11,6.01,10.82,6.07h.07c.2,0,.37-.04.5-.13,1.82-1.15-.99-4.31-.99-4.31,0,0,3,.02,3.54-1.53.54-1.55-2.55-2.74-2.55-2.74,0,0,3.09-1.19,3.11-2.7v-.03c0-.22-.07-.44-.22-.67-.25-.38-.95-.53-1.92-.54h-.17Z" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-12" x1="-132.68" y1="569.95" x2="-131.68" y2="569.95" gradientTransform="translate(-7566.76 1970.9) rotate(90) scale(13.58 -13.58)" xlink:href="#linear-gradient-2"/>
+    <filter id="luminosity-noclip-17" x="136.02" y="157.5" width="21.65" height="20.9" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <clipPath id="clippath-34">
+      <rect x="140.18" y="161" width="14.32" height="12.63" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-35">
+      <path d="M143.28,161.13c-1.82,1.15,1.17,4.35,1.17,4.35,0,0-3.03-.02-3.57,1.53-.54,1.55,2.5,2.73,2.5,2.73,0,0-4.19,1.55-2.99,3.37,1.2,1.81,13.02-1.61,13.02-1.61l1.08-4.47s-8.02-6.02-10.68-6.02c-.22,0-.4.04-.54.13" style="fill: none;"/>
+    </clipPath>
+    <filter id="luminosity-noclip-18" x="136.02" y="-8342" width="21.65" height="32766" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-17" x="136.02" y="-8342" width="21.65" height="32766" maskUnits="userSpaceOnUse"/>
+    <linearGradient id="linear-gradient-13" x1="-132.33" y1="570.03" x2="-131.33" y2="570.03" gradientTransform="translate(-7398.56 1913.57) rotate(90) scale(13.24 -13.24)" xlink:href="#linear-gradient-3"/>
+    <mask id="mask-16" x="136.02" y="157.5" width="21.65" height="20.9" maskUnits="userSpaceOnUse">
+      <g style="filter: url(#luminosity-noclip-17);">
+        <g style="clip-path: url(#clippath-34);">
+          <g style="isolation: isolate;">
+            <g style="clip-path: url(#clippath-35);">
+              <g style="mask: url(#mask-17);">
+                <rect x="138.29" y="158.89" width="17.12" height="18.14" transform="translate(-50.91 271.22) rotate(-76.41)" style="fill: url(#linear-gradient-13); mix-blend-mode: multiply;"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clippath-36">
+      <rect x="140.18" y="161" width="14.32" height="12.63" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-37">
+      <path d="M143.78,161c-.2,0-.37.05-.5.13-1.82,1.15,1.17,4.35,1.17,4.35,0,0-3.03-.02-3.57,1.53-.54,1.55,2.5,2.73,2.5,2.73,0,0-3.17,1.17-3.21,2.67v.05c0,.21.07.42.22.64.25.38.95.53,1.92.53h.06c3.7-.01,11.04-2.14,11.04-2.14l1.08-4.47s-7.95-5.97-10.64-6.02h-.07Z" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-14" x1="-132.33" y1="570.09" x2="-131.33" y2="570.09" gradientTransform="translate(-7398.81 1912.61) rotate(90) scale(13.24 -13.24)" xlink:href="#linear-gradient-4"/>
+    <filter id="luminosity-noclip-19" x="145.14" y="156.98" width="33.06" height="29.27" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <clipPath id="clippath-38">
+      <rect x="150.13" y="162.66" width="23.08" height="16.85" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-39">
+      <path d="M150.3,168.34c-1.06,4.4,3.17,9.19,9.45,10.71,6.28,1.52,12.24-.82,13.3-5.21,1.06-4.4-3.17-9.19-9.45-10.71-1.3-.31-2.59-.46-3.82-.46-4.72,0-8.64,2.19-9.48,5.68" style="fill: none;"/>
+    </clipPath>
+    <filter id="luminosity-noclip-20" x="145.14" y="-8342" width="33.06" height="32766" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-19" x="145.14" y="-8342" width="33.06" height="32766" maskUnits="userSpaceOnUse"/>
+    <radialGradient id="radial-gradient-5" cx="-128.09" cy="569.7" fx="-128.09" fy="569.7" r="1" gradientTransform="translate(-5592.2 1465.27) rotate(90) scale(10.1 -10.1)" xlink:href="#radial-gradient"/>
+    <mask id="mask-18" x="145.14" y="156.98" width="33.06" height="29.27" maskUnits="userSpaceOnUse">
+      <g style="filter: url(#luminosity-noclip-19);">
+        <g style="clip-path: url(#clippath-38);">
+          <g style="isolation: isolate;">
+            <g style="clip-path: url(#clippath-39);">
+              <g style="mask: url(#mask-19);">
+                <rect x="150.04" y="157.42" width="23.25" height="28.39" transform="translate(-43.13 288.43) rotate(-76.41)" style="fill: url(#radial-gradient-5); mix-blend-mode: multiply;"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clippath-40">
+      <rect x="150.13" y="162.66" width="23.08" height="16.85" style="fill: none;"/>
+    </clipPath>
+    <clipPath id="clippath-41">
+      <path d="M150.3,168.34c-.1.43-.16.86-.16,1.29v.17c.06,3.95,4.02,7.9,9.61,9.25,1.26.3,2.51.45,3.71.46h.23c4.67-.04,8.53-2.22,9.37-5.68,1.06-4.4-3.17-9.19-9.45-10.71-1.3-.32-2.59-.46-3.82-.46-4.72,0-8.64,2.19-9.48,5.68" style="fill: none;"/>
+    </clipPath>
+    <radialGradient id="radial-gradient-6" cx="-128.09" cy="569.7" fx="-128.09" fy="569.7" r="1" gradientTransform="translate(-5592.37 1464.43) rotate(90) scale(10.1 -10.1)" xlink:href="#radial-gradient-2"/>
+  </defs>
+  <g style="clip-path: url(#clippath);">
+    <path d="M128.11,171.07s2.5,8.37,1.24,9.23c-1.26.86-2.4-1.99-2.4-1.99,0,0-.8,2.17-1.89,1.81-1.09-.36-1.11-2.46-1.11-2.46,0,0-2.18,2-3,.74-.83-1.26,4.03-8.04,4.03-8.04l3.14.71Z" style="fill: #bc2025;"/>
+    <path d="M123.02,176.11c.66-1.35,1.79-3.16,2.72-4.49l1.27.29c.4,1.48.77,3.01,1.01,4.32l-1.04-2.57-1.36,3.7s-.03.07-.04.11c-.01-.09-.02-.18-.02-.25l-.03-3.41s-2.51,2.31-2.51,2.31" style="fill: #a21d21;"/>
+    <path d="M132.46,141.67s-2.51-8.3-1.26-9.16c1.26-.86,2.4,2.02,2.4,2.02,0,0,.79-2.16,1.88-1.8,1.09.36,1.11,2.47,1.11,2.47,0,0,2.19-2.07,3.02-.81.83,1.26-4.01,7.98-4.01,7.98l-3.14-.71Z" style="fill: #bc2025;"/>
+    <path d="M133.59,139.07l1.37-3.73s.02-.06.04-.09c.01.09.02.18.02.26l.06,3.43,2.44-2.29c-.67,1.32-1.74,2.98-2.64,4.32l-1.28-.29c-.39-1.32-.73-2.8-.97-4.05l.97,2.43Z" style="fill: #a21d21;"/>
+    <g style="mask: url(#mask);">
+      <g style="opacity: .3;">
+        <g style="clip-path: url(#clippath-3);">
+          <g style="clip-path: url(#clippath-4);">
+            <rect x="119.72" y="169.55" width="12.02" height="11.74" transform="translate(-73.01 259.6) rotate(-77.33)" style="fill: url(#linear-gradient-2);"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g style="mask: url(#mask-2);">
+      <g style="opacity: .3;">
+        <g style="clip-path: url(#clippath-7);">
+          <g style="clip-path: url(#clippath-8);">
+            <rect x="128.87" y="131.5" width="11.92" height="11.72" transform="translate(-28.77 238.77) rotate(-77.33)" style="fill: url(#linear-gradient-4);"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <path d="M123.36,171.96c-1.09-.48-1.81-1.82-1.55-2.99l6.21-27.62c.26-1.16,1.49-2.05,2.68-1.98l1.25.08c1.19.07,3.07.5,4.18.95l.97.4c1.1.45,1.76,1.76,1.5,2.93l-6.21,27.62c-.26,1.16-1.41,2.1-2.61,2.06l-1.09-.02c-1.19-.03-3.07-.45-4.16-.92l-1.16-.5Z" style="fill: #bc2025;"/>
+    <path d="M137.14,150.2l1.3-5.78c-4.21-.51-7.38-2.61-9.45-4.5-.47.36-.84.86-.97,1.43l-.94,4.2c2.07,1.89,5.48,4.2,10.06,4.65" style="fill: #e27bb1;"/>
+    <path d="M134.56,161.66l1.3-5.78c-4.61-.6-7.96-3.11-9.95-5.11l-1.38,6.14c2.04,1.89,5.44,4.25,10.03,4.75" style="fill: #e27bb1;"/>
+    <path d="M131.79,172.49c.29-.33.5-.71.59-1.13l1.04-4.61c-4.61-.6-7.96-3.11-9.95-5.11l-1.38,6.14c1.99,1.84,5.28,4.14,9.71,4.71" style="fill: #e27bb1;"/>
+    <g style="mask: url(#mask-4);">
+      <g style="opacity: .2;">
+        <g style="clip-path: url(#clippath-11);">
+          <g style="clip-path: url(#clippath-12);">
+            <rect x="111.68" y="144.23" width="37.05" height="24.36" transform="translate(-50.96 249.12) rotate(-77.33)" style="fill: url(#linear-gradient-6);"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <path d="M148.18,132.4s-8.51-9.13-7.45-11.02c1.06-1.9,4.34,1.02,4.34,1.02,0,0-.36-3.29,1.26-3.52,1.62-.23,2.99,2.45,2.99,2.45,0,0,1.51-3.95,3.37-2.85,1.86,1.09-.05,12.85-.05,12.85l-4.47,1.09Z" style="fill: #bc2025;"/>
+    <path d="M151.5,122.72c0,2.14-.29,5.18-.62,7.47l-1.81.44c-1.45-1.64-2.9-3.36-4.04-4.89l2.96,2.63-.61-5.59c0-.05-.01-.11-.01-.17.07.11.13.21.18.31l2.21,4.34s1.75-4.55,1.75-4.55" style="fill: #a21d21;"/>
+    <g style="mask: url(#mask-6);">
+      <g style="opacity: .3;">
+        <g style="clip-path: url(#clippath-15);">
+          <g style="clip-path: url(#clippath-16);">
+            <rect x="138.19" y="116.63" width="17.79" height="17.19" transform="translate(-25.5 38.45) rotate(-13.72)" style="fill: url(#linear-gradient-8);"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <path d="M155.75,146.48s8.49,9.03,7.42,10.93c-1.06,1.9-4.35-1.06-4.35-1.06,0,0,.35,3.26-1.27,3.49-1.62.23-2.99-2.46-2.99-2.46,0,0-1.49,4.04-3.35,2.95-1.86-1.09.07-12.76.07-12.76l4.47-1.09Z" style="fill: #bc2025;"/>
+    <path d="M155.95,150.52l.61,5.64s0,.1.01.14c-.07-.11-.13-.22-.19-.33l-2.26-4.35-1.67,4.48c.02-2.11.33-4.92.64-7.21l1.82-.44c1.34,1.44,2.72,3.12,3.82,4.57l-2.78-2.5Z" style="fill: #a21d21;"/>
+    <g style="mask: url(#mask-8);">
+      <g style="opacity: .3;">
+        <g style="clip-path: url(#clippath-19);">
+          <g style="clip-path: url(#clippath-20);">
+            <rect x="147.78" y="145.09" width="17.06" height="17.79" transform="translate(-32.05 41.45) rotate(-13.72)" style="fill: url(#linear-gradient-10);"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <path d="M148.87,128.15c4.39-1.07,9.2,3.15,10.73,9.43,1.53,6.28-.79,12.24-5.18,13.31-4.39,1.07-9.2-3.15-10.73-9.43-1.53-6.28.79-12.24,5.18-13.31" style="fill: #bc2025;"/>
+    <path d="M148.87,128.15c4.39-1.07,9.2,3.15,10.73,9.43,1.53,6.28-.79,12.24-5.18,13.31-4.39,1.07-9.2-3.15-10.73-9.43-1.53-6.28.79-12.24,5.18-13.31" style="fill: url(#Unnamed_Pattern_3);"/>
+    <g style="mask: url(#mask-10);">
+      <g style="opacity: .25;">
+        <g style="clip-path: url(#clippath-24);">
+          <g style="clip-path: url(#clippath-25);">
+            <rect x="140.72" y="126.31" width="21.85" height="26.41" transform="translate(-28.75 39.93) rotate(-13.72)" style="fill: url(#radial-gradient-2);"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <path d="M184.03,138.53c0,5.98-4.85,10.83-10.83,10.83s-10.83-4.85-10.83-10.83,4.85-10.83,10.83-10.83,10.83,4.85,10.83,10.83" style="fill: #e480b4;"/>
+    <path d="M169.44,135.97c.75,1.5,2.26,2.41,3.91,2.41-1.81-.6-2.71-2.56-2.71-4.21,0-2.41,1.5-4.51,3.58-5.78.36-.24.64-.41.82-.53-.6-.1-1.22-.16-1.85-.16-.78,0-1.55.08-2.28.24-.13.18-.32.45-.57.81-1.36,2.11-2.11,4.82-.91,7.22" style="fill: #bc2025;"/>
+    <path d="M176.81,140.64c-.75-1.2-2.11-2.11-3.46-2.26,1.35.75,2.11,1.96,2.41,3.46.45,2.86-1.5,5.42-3.87,6.8-.35.23-.55.41-.66.54.64.12,1.3.18,1.97.18.74,0,1.46-.08,2.16-.22.06-.16.17-.41.42-.75,1.64-2.2,2.54-5.21,1.03-7.76" style="fill: #bc2025;"/>
+    <path d="M168.69,140.49c1.8.3,3.61-.6,4.66-2.11-1.81,1.35-4.36,1.05-6.02-.45-1.5-1.5-2.26-3.46-2.37-5.39-.03-.43-.05-.76-.07-.96-.88,1.05-1.56,2.26-2,3.59.1.17.25.45.43.84.99,2.22,2.79,4.02,5.35,4.47" style="fill: #bc2025;"/>
+    <path d="M179.07,136.87c-1.96-.75-4.51-.3-5.72,1.5,1.05-.6,2.26-.75,3.46-.45,3.01.75,4.51,3.91,4.52,6.77.01.42.07.69.11.86.9-1.05,1.6-2.28,2.04-3.62-.1-.15-.25-.39-.42-.78-.99-1.72-2.04-3.53-3.99-4.28" style="fill: #bc2025;"/>
+    <path d="M165.97,145.71c2.26.19,4.52-.26,6.17-1.76,1.5-1.35,2.11-3.61,1.2-5.57.15,1.8-.9,3.76-2.56,4.51-2.26,1.05-4.81.75-6.96-.37-.38-.2-.66-.3-.83-.35.47,1.32,1.19,2.51,2.1,3.54.17-.03.45-.05.88,0" style="fill: #bc2025;"/>
+    <path d="M174.7,132.66c-1.81,1.35-2.41,3.76-1.35,5.72-.15-1.65.6-3.16,1.96-4.06,2.26-1.51,4.96-1.05,7.24.11.38.2.66.33.84.4-.22-.6-.49-1.18-.81-1.73,0,0,0-.01-.01-.02-.04-.06-.07-.13-.11-.19-.35-.58-.76-1.12-1.21-1.62-.21-.01-.52-.04-.95-.08-1.98-.19-3.93.12-5.59,1.47" style="fill: #bc2025;"/>
+    <g style="mask: url(#mask-12);">
+      <g style="opacity: .25;">
+        <g style="clip-path: url(#clippath-27);">
+          <g style="clip-path: url(#clippath-28);">
+            <rect x="162.37" y="127.7" width="21.66" height="21.66" style="fill: url(#radial-gradient-4);"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <path d="M169.59,171.27s12.01-3.37,13.21-1.56c1.2,1.82-2.89,3.39-2.89,3.39,0,0,3.09,1.19,2.55,2.74-.54,1.55-3.54,1.53-3.54,1.53,0,0,2.81,3.16.99,4.31-1.82,1.15-11.39-5.94-11.39-5.94l1.08-4.47Z" style="fill: #93288d;"/>
+    <path d="M176.66,178.66c-1.91-.98-4.47-2.63-6.35-3.98l.44-1.81c2.12-.53,4.32-1.03,6.19-1.35l-3.69,1.43,5.25,2.02s.1.04.16.07c-.13.01-.25.02-.36.02l-4.87-.03s3.24,3.64,3.24,3.64" style="fill: #821b57;"/>
+    <path d="M153.6,171.54s-11.92,3.4-13.11,1.58c-1.2-1.82,2.94-3.38,2.94-3.38,0,0-3.06-1.18-2.52-2.73.54-1.55,3.56-1.53,3.56-1.53,0,0-2.91-3.18-1.08-4.33,1.82-1.15,11.3,5.92,11.3,5.92l-1.08,4.47Z" style="fill: #93288d;"/>
+    <path d="M149.92,169.86l-5.29-2.04s-.09-.04-.13-.06c.13-.01.26-.02.38-.02h4.9s-3.22-3.55-3.22-3.55c1.86.98,4.22,2.55,6.11,3.87l-.44,1.82c-1.9.52-4.02.98-5.81,1.3l3.5-1.33Z" style="fill: #821b57;"/>
+    <path d="M173.04,173.84c-1.06,4.4-7.02,6.73-13.3,5.21-6.28-1.52-10.51-6.32-9.45-10.71,1.06-4.4,7.02-6.73,13.3-5.21,6.28,1.52,10.51,6.32,9.45,10.71" style="fill: #93288d;"/>
+    <path d="M173.04,173.84c-1.06,4.4-7.02,6.73-13.3,5.21-6.28-1.52-10.51-6.32-9.45-10.71,1.06-4.4,7.02-6.73,13.3-5.21,6.28,1.52,10.51,6.32,9.45,10.71" style="fill: url(#Unnamed_Pattern_4);"/>
+    <g style="mask: url(#mask-14);">
+      <g style="opacity: .3;">
+        <g style="clip-path: url(#clippath-32);">
+          <g style="clip-path: url(#clippath-33);">
+            <rect x="167.92" y="166.95" width="15.69" height="17.07" transform="translate(-36.12 305.09) rotate(-76.41)" style="fill: url(#linear-gradient-12);"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g style="mask: url(#mask-16);">
+      <g style="opacity: .3;">
+        <g style="clip-path: url(#clippath-36);">
+          <g style="clip-path: url(#clippath-37);">
+            <rect x="139.52" y="158.87" width="15.64" height="16.88" transform="translate(-49.92 271.2) rotate(-76.41)" style="fill: url(#linear-gradient-14);"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g style="mask: url(#mask-18);">
+      <g style="opacity: .25;">
+        <g style="clip-path: url(#clippath-40);">
+          <g style="clip-path: url(#clippath-41);">
+            <rect x="151.11" y="157.46" width="22.01" height="27.26" transform="translate(-42.28 288.46) rotate(-76.41)" style="fill: url(#radial-gradient-6);"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
