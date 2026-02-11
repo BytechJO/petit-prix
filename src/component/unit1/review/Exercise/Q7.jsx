@@ -169,7 +169,7 @@ const Q7 = () => {
                                     <div
                                         data-pointid={image.id}
                                         onClick={() => handlePointClick(image.id, 'image')}
-                                        className="bg-white p-2 rounded-xl shadow-md">
+                                        className="p-2 rounded-xl ">
                                         <img
                                             src={image.src}
                                             alt={image.alt}

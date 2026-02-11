@@ -1,84 +1,78 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const backgroundImage = "/assets/workbook/unit4/page29/1.svg";
 const backgroundImage2 = "/assets/workbook/unit4/page29/2.svg";
 
 import ValidationAlert from "../../../Popup/ValidationAlert";
-import InteractivePage from "../../../unit1/interactive";
+import Q5Guide from "../../../shared/Q5Guide";
 
-const circle = '/assets/workbook/unit4/page29/a-1.svg';
-const banana = '/assets/workbook/unit4/page29/a-2.svg';
-const pcase = '/assets/workbook/unit4/page29/a-3.svg';
-const books = '/assets/workbook/unit4/page29/a-4.svg';
-
-const cat = '/assets/workbook/unit4/page29/b-1.svg';
-const table = '/assets/workbook/unit4/page29/b-2.svg';
-const ruler = '/assets/workbook/unit4/page29/b-3.svg';
+// يمكنك إضافة أو تعديل إحداثيات المربعات هنا
+const Items = [
+    {
+        index: 0,
+        top: "65%",
+        left: "4.5%",
+        width: "9%",
+        height: "14%",
+        "aria-label": "Area 1",
+    },
+    {
+        index: 1,
+        top: "30%",
+        left: "6.5%",
+        width: "15%",
+        height: "18%",
+        "aria-label": "Area 2",
+    },
+    {
+        index: 2,
+        top: "32.5%",
+        left: "30.3%",
+        width: "10%",
+        height: "17%",
+        "aria-label": "Area 3",
+    },
+    {
+        index: 3,
+        top: "61%",
+        left: "-3%",
+        width: "8%",
+        height: "26%",
+        "aria-label": "Area 4",
+    },
+    {
+        index: 4,
+        top: "52%",
+        left: "20%",
+        width: "25%",
+        height: "30%",
+        "aria-label": "Area 5",
+    },
+    {
+        index: 5,
+        top: "31%",
+        left: "58%",
+        width: "45%",
+        height: "20%",
+        "aria-label": "Area 6",
+    },
+    {
+        index: 5,
+        top: "64%",
+        left: "60%",
+        width: "4%",
+        height: "15%",
+        "aria-label": "Area 6",
+    },
+];
 
 const Q5 = () => {
-    const [foundItems, setFoundItems] = useState([false, false, false, false]);
+    // مصفوفة الحالة لتتبع أي المربعات تم الضغط عليها
+    const [foundItems, setFoundItems] = useState(new Array(Items.length).fill(false));
     const [recentlyFound, setRecentlyFound] = useState(null);
     const [checkResult, setCheckResult] = useState(null);
     const [showAnswer, setShowAnswer] = useState(false);
-
-    const Items = [
-        {
-            index: 0,
-            top: "65%",
-            left: "4.5%",
-            width: "9%",
-            height: "14%",
-            image: circle,
-            "aria-label": "Restaurant area 1",
-        },
-        {
-            index: 1,
-            top: "30%",
-            left: "6.5%",
-            width: "15%",
-            height: "18%",
-            image: banana,
-            "aria-label": "Restaurant area 2",
-        },
-        {
-            index: 2,
-            top: "32.5%",
-            left: "30.3%",
-            width: "10%",
-            height: "17%",
-            image: pcase,
-            "aria-label": "Restaurant area 3",
-        },
-        {
-            index: 3,
-            top: "61%",
-            left: "-3%",
-            width: "8%",
-            height: "26%",
-            image: books,
-            "aria-label": "Restaurant area 4",
-        },
-        {
-            index: 4,
-            top: "52%",
-            left: "20%",
-            width: "25%",
-            height: "30%",
-            image: cat,
-            "aria-label": "Restaurant area 1",
-        },
-
-        {
-            index: 5,
-            top: "16%",
-            left: "59%",
-            width: "50%",
-            height: "80%",
-            image: table,
-            "aria-label": "Restaurant area 2",
-        },
-    ];
-
+    const [showGuide, setShowGuide] = useState(true);
 
     const handleItemClick = (index) => {
         if (foundItems[index]) return;
@@ -99,10 +93,7 @@ const Q5 = () => {
                 ? "green"
                 : correctCount === 0
                     ? "orange"
-                    : correctCount >= 1 && correctCount < 4
-                        ? "red"
-                        : undefined;
-
+                    : "red";
 
         const scoreMessage = `
       <div style="font-size: 20px; margin-top: 10px; text-align:center;">
@@ -124,7 +115,7 @@ const Q5 = () => {
     };
 
     const handleStartAgain = () => {
-        setFoundItems([false, false, false, false]);
+        setFoundItems(new Array(Items.length).fill(false));
         setRecentlyFound(null);
         setCheckResult(null);
         setShowAnswer(false);
@@ -132,21 +123,34 @@ const Q5 = () => {
 
     const handleShowAnswer = () => {
         setShowAnswer(true);
-        setFoundItems([true, true, true, true]);
+        setFoundItems(new Array(Items.length).fill(true));
         setCheckResult("success");
+    };
+
+    useEffect(() => {
+        const hasSeenGuide = localStorage.getItem('q5-guide-seen');
+        if (!hasSeenGuide) {
+            setShowGuide(true);
+        }
+    }, []);
+
+    const handleCloseGuide = () => {
+        setShowGuide(false);
+        localStorage.setItem('q5-guide-seen', 'true');
     };
 
     return (
         <div>
+            {showGuide && <Q5Guide onClose={handleCloseGuide} />}
             <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div style={{
                     position: "relative",
                     display: "flex",
                     gap: "10%",
-                    marginTop : "5%",
-                    marginLeft : "15%",
+                    marginTop: "5%",
+                    marginLeft: "15%",
                     justifyContent: "center",
-                    alignItems: "center"
+                    alignItems: "center",
                 }}>
                     <img
                         src={backgroundImage}
@@ -159,12 +163,37 @@ const Q5 = () => {
                         style={{ width: "auto", height: "50vh", display: "block" }}
                     />
 
-                    <InteractivePage
-                        items={Items}
-                        foundItems={foundItems}
-                        recentlyFound={recentlyFound}
-                        onItemClick={handleItemClick}
-                    />
+                    {/* عرض المربعات الشفافة */}
+                    {Items.map((item, idx) => (
+                        <div
+                            key={idx}
+                            onClick={() => handleItemClick(idx)}
+                            style={{
+                                position: "absolute",
+                                top: item.top,
+                                left: item.left,
+                                width: item.width,
+                                height: item.height,
+                                cursor: "pointer",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                zIndex: 10
+                            }}
+                        >
+                            {/* إظهار علامة الصح إذا تم الضغط على المربع */}
+                            {foundItems[idx] && (
+                                <span style={{
+                                    fontSize: "2rem",
+                                    color: "green",
+                                    fontWeight: "bold",
+                                    textShadow: "1px 1px 2px white"
+                                }}>
+                                    ✓
+                                </span>
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
             <div className="popup-buttons">

@@ -9,15 +9,15 @@ const img5 = '/assets/unit3/review/page36/5.svg';
 const img6 = '/assets/unit3/review/page36/6.svg';
 const img7 = '/assets/unit3/review/page36/7.svg';
 
-const treeBgImage = '/assets/unit3/review/page36/tree.avif';
+const treeBgImage = '/assets/unit3/review/page36/tree.svg';
 
 const familyMembers = [
-    { id: 'theo', img: img1, correctName: 'Théo', style: { top: '2%', left: '25%' } },
+    { id: 'theo', img: img1, correctName: 'Théo', style: { top: '2%', left: '18%' } },
     { id: 'roger', img: img2, correctName: 'Roger', style: { top: '38%', left: '-20%' } },
-    { id: 'marie', img: img3, correctName: 'Marie', style: { top: '65%', left: '15%' } },
-    { id: 'anna', img: img4, correctName: 'Louis', style: { top: '2%', left: '60%' } }, // تم تصحيح الاسم من Louis إلى Anna
+    { id: 'marie', img: img3, correctName: 'Marie', style: { top: '67%', left: '18%' } },
+    { id: 'anna', img: img4, correctName: 'Louis', style: { top: '2%', left: '70%' } }, // تم تصحيح الاسم من Louis إلى Anna
     { id: 'louis', img: img5, correctName: 'Anna', style: { top: '38%', left: '100%' } }, // تم تصحيح الاسم من Anna إلى Louis
-    { id: 'lili', img: img6, correctName: 'Lili', style: { top: '65%', left: '70%' } },
+    { id: 'lili', img: img6, correctName: 'Lili', style: { top: '67%', left: '70%' } },
     { id: 'leo', img: img7, correctName: 'Léo', style: { top: '85%', left: '43%' } },
 ];
 
@@ -90,7 +90,7 @@ const Q2 = () => {
         // استخدمنا flex فقط لتوسيط الحاوية الرئيسية في الصفحة
         <div className="flex justify-center">
             <div
-                className="relative w-[700px] h-[900px] bg-contain bg-no-repeat bg-center"
+                className="relative w-[650px] h-[900px] bg-contain bg-no-repeat bg-center mb-10"
                 style={{ backgroundImage: `url(${treeBgImage})` }}
             >
 

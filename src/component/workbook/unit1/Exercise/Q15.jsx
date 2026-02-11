@@ -74,33 +74,32 @@ const Q15 = () => {
       console.log(`${id} has ${paths.length} paths`); 
       
       paths.forEach((path, index) => {
-        const uniqueId = `${id}-path${index}`;
-        
-        // إضافة data attribute للتتبع
-        path.setAttribute('data-color-id', uniqueId);
-        
-        // تطبيق اللون إذا موجود
-        if (pathColors[uniqueId]) {
-          path.setAttribute('fill', pathColors[uniqueId]);
-          path.style.fill = pathColors[uniqueId]; // للتأكيد
-        }
-        
-        // تطبيق الـ cursor
-        path.style.cursor = isLocked ? 'default' : 'pointer';
-        
-        // إزالة event listeners القديمة
-        const newPath = path.cloneNode(true);
-        path.parentNode.replaceChild(newPath, path);
-        
-        // إضافة event listener جديد
-        if (!isLocked) {
-          newPath.addEventListener('click', (e) => {
-            e.stopPropagation();
-            console.log('Clicked:', uniqueId, 'Color:', selectedColor); // للتشخيص
-            setPathColors(prev => ({ ...prev, [uniqueId]: selectedColor }));
-          });
-        }
-      });
+  const uniqueId = `${id}-path${index}`;
+
+  // ✅ احفظ اللون الأصلي مرة واحدة فقط
+  if (!path.dataset.originalFill) {
+    const original = window.getComputedStyle(path).fill;
+    path.dataset.originalFill = original;
+  }
+
+  path.setAttribute('data-color-id', uniqueId);
+
+  if (pathColors[uniqueId]) {
+    path.style.fill = pathColors[uniqueId];
+  }
+
+  path.style.cursor = isLocked ? 'default' : 'pointer';
+
+  path.onclick = null;
+
+  if (!isLocked) {
+    path.onclick = (e) => {
+      e.stopPropagation();
+      setPathColors(prev => ({ ...prev, [uniqueId]: selectedColor }));
+    };
+  }
+});
+
     });
   }, [pathColors, isLocked, selectedColor]);
 

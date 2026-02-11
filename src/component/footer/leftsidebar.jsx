@@ -74,38 +74,35 @@ export default function LeftSidebar({ isOpen, close, units, goToPage, book }) {
                                 </div>
 
                                 <div
-                                    className={`
-        overflow-hidden
-        transition-all duration-1200 ease-out
-        ${openUnit === u.id ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}
-    `}
-                                >
-                                    <ul className="ml-4 mb-2 space-y-1 pt-2">
-                                        {Array.from({ length: u.pages }).map((_, i) => {
-                                            const pageNumber = u.start + i;
+  className={`
+    overflow-hidden
+    transition-[max-height,opacity] duration-2000 ease-out
+    ${openUnit === u.id ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+  `}
+>
+  <ul className="ml-4 mb-2 space-y-1 pt-2">
+    {Array.from({ length: u.pages }).map((_, i) => {
+      const pageNumber = u.start + i;
 
-                                            // الدالة لتعديل الرقم حسب زوجي/فردي
-                                            const handleGoToPage = () => {
-                                                const finalPage = pageNumber % 2 === 0 ? pageNumber - 1 : pageNumber;
-                                                goToPage(finalPage);
-                                                close();
-                                            };
+      const handleGoToPage = () => {
+        const finalPage = pageNumber % 2 === 0 ? pageNumber - 1 : pageNumber;
+        goToPage(finalPage);
+        close();
+      };
 
-                                            return (
-                                                <li
-                                                    key={pageNumber}
-                                                    className="py-1 px-2 text-gray-600 cursor-pointer
-                 transition-all duration-300
-                 hover:text-blue-600"
-                                                    onClick={handleGoToPage}
-                                                >
-                                                    Page {pageNumber}
-                                                </li>
-                                            );
-                                        })}
+      return (
+        <li
+          key={pageNumber}
+          className="py-1 px-2 text-gray-600 cursor-pointer transition-colors duration-300 hover:text-blue-600"
+          onClick={handleGoToPage}
+        >
+          Page {pageNumber}
+        </li>
+      );
+    })}
+  </ul>
+</div>
 
-                                    </ul>
-                                </div>
 
                             </li>
                         ))}

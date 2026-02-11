@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import Img1 from './assets/1.svg?react';
 import Img2 from './assets/2.svg?react';
@@ -37,20 +37,36 @@ const Q2 = () => {
                     link.click();
                 })
                 .catch((error) => {
-                    console.error('حدث خطأ أثناء تنزيل الصورة:', error);
+                    console.error('error:', error);
                 });
         }
     };
+    useEffect(() => {
+  if (!pageRef.current) return;
+
+  const elements = pageRef.current.querySelectorAll(
+    'path, circle, rect, polygon, polyline, ellipse'
+  );
+
+  elements.forEach(el => {
+    // خزن اللون الحالي عند أول تحميل
+    el.dataset.originalFill = window.getComputedStyle(el).fill;
+  });
+}, []);
+
     const handleTryAgain = () => {
-        if (!pageRef.current) return;
+  if (!pageRef.current) return;
 
-        // الحصول على جميع عناصر SVG داخل الصفحة
-        const paths = pageRef.current.querySelectorAll('path, circle, rect, polygon, ellipse');
+  const elements = pageRef.current.querySelectorAll(
+    'path, circle, rect, polygon, polyline, ellipse'
+  );
 
-        paths.forEach((el) => {
-            el.style.fill = ''; // إعادة اللون الافتراضي
-        });
-    };
+  elements.forEach(el => {
+    el.style.fill = el.dataset.originalFill; // يرجع للون الأصلي
+  });
+};
+
+
 
 
 

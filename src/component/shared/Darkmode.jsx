@@ -27,7 +27,7 @@ export default function DarkModeToggle({ title }) {
       title={title}
       style={{
         ...container,
-        justifyContent: isDark ? "flex-end" : "flex-start",
+        justifyContent: isDark ? "flex-start" : "flex-end",
         background: isDark ? "#333" : "#ddd",
       }}
     >
@@ -39,7 +39,7 @@ export default function DarkModeToggle({ title }) {
           background: isDark ? "#111" : "#fff",
         }}
       >
-        {isDark ? "🌙" : "☀️"}
+        {isDark ? "☀️" : "🌙"}
       </motion.div>
     </button>
   )

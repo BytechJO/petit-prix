@@ -6,8 +6,7 @@ import ValidationAlert from "../../../Popup/ValidationAlert";
 import InteractivePage from "../../../unit1/interactive";
 import SimpleTutorial from "../../../shared/SimpleTutorial";
 const bear = "/assets/unit3/secA/page29/1.svg";
-const clock = "/assets/unit3/secA/page29/2.svg";
-const comb = "/assets/unit3/secA/page29/3.svg";
+const clock = "/assets/unit3/secA/page29/3.svg";
 const pen = "/assets/unit3/secA/page29/4.svg";
 
 const Q2 = () => {
@@ -19,26 +18,26 @@ const [showTutorial, setShowTutorial] = useState(true);
   const Items = [
     {
       index: 0,
-      top: "28%",
-      left: "70%",
-      width: "20%",
-      height: "37%",
+      top: "25%",
+      left: "34%",
+      width: "60%",
+      height: "40%",
       image: bear,
       "aria-label": "Restaurant area 1",
     },
     {
       index: 1,
-      top: "25%",
-      left: "38%",
-      width: "20%",
-      height: "38.5%",
+      top: "50%",
+      left: "22%",
+      width: "40%",
+      height: "45%",
       image: clock,
       "aria-label": "Restaurant area 2",
     },
     {
       index: 3,
-      top: "51%",
-      left: "55.5%",
+      top: "52%",
+      left: "56%",
       width: "30%",
       height: "45%",
       image: pen,

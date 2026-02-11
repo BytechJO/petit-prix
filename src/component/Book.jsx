@@ -11,6 +11,7 @@ const back = "/assets/back btn.svg";
 
 
 export default function Book() {
+  const [showSnow, setShowSnow] = useState(false);
   const [pageIndex, setPageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1100);
   const [activeTab, setActiveTab] = useState("studentbook");
@@ -49,6 +50,28 @@ export default function Book() {
     }
   };
 
+  // const handleGoToPage = (userInput) => {
+  //   const pageNum = parseInt(userInput);
+  //   if (isNaN(pageNum) || pageNum < 1 || pageNum > pages.length) return;
+  //   const newIndex = pageNum - 1;
+  //   setPageIndex(newIndex);
+  // };
+
+  const handleGoToPage = (userInput) => {
+    const pageNum = parseInt(userInput);
+
+    // تحقق من صحة الرقم
+    if (isNaN(pageNum) || pageNum < 1 || pageNum > pages.length) return;
+
+    let newIndex = pageNum - 1;
+
+    // إذا الرقم فردي، ارجع للصفحة السابقة
+    if (pageNum % 2 !== 0 && newIndex > 0) {
+      newIndex = newIndex - 1;
+    }
+
+    setPageIndex(newIndex);
+  };
 
   useEffect(() => {
     if (activeTab === "studentbook") {
@@ -92,7 +115,7 @@ export default function Book() {
 
   const openPopup = (data) => {
     // اطبع أي بيانات إضافية تحب
-    console.log("DATA ID = "+ (data.startIndex + 1) +"\nComponent number = "+data.questions[data.startIndex].component.name);
+    console.log("DATA ID = " + (data.startIndex + 1) + "\nComponent number = " + data.questions[data.startIndex].component.name);
 
     setPopupData({ ...data, isOpen: true });
   };
@@ -196,7 +219,7 @@ export default function Book() {
 
   return (
     <>
-
+      {showSnow && <Snowfall />}
       <div
         className="w-full flex flex-col pb-20"
         style={{ overflowX: "hidden", overflowY: "auto" }}
@@ -365,7 +388,7 @@ export default function Book() {
             pages={pages}
             totalPages={pages.length}
             activeTab={activeTab}
-            goToPage={setPageIndex}
+            goToPage={handleGoToPage}
             isMobile={isMobile}
             viewMode={viewMode}
             isSidebarOpen={isSidebarOpen}
@@ -385,6 +408,8 @@ export default function Book() {
               pages: pages.length,
               cover: coverImage,
             }}
+            showSnow={showSnow}
+            setShowSnow={setShowSnow}
           />
         )}
       </div>

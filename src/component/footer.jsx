@@ -33,6 +33,8 @@ const zoomin = "/assets/footer/icons/11.svg";
 const zoomout = "/assets/footer/icons/12.svg";
 const lightmode = '☀️';
 const darkmode = '🌙';
+const snowmode = '❄️';
+const stop = '🛑'; 
 import { MdOutlineWifiOff } from "react-icons/md";
 import { MdOutlineWifi } from "react-icons/md";
 
@@ -54,8 +56,9 @@ const rightItems = [
     { id: 15, label: "mode lumière", icon: lightmode },
     { id: 16, label: "mode sombre", icon: darkmode },
     { id: 17, label: "télécharger en pdf", icon: GrDocumentPdf },
+    { id: 18, label: "mode neige", icon: snowmode },
+    { id: 19, label: "arrêter le mode neige", icon: stop },
 ];
-
 import RightSidebar from "./footer/rightsidebar";
 import LeftSidebar from "./footer/leftsidebar";
 
@@ -79,6 +82,8 @@ const Footer = ({
     handleMenuClick,
     units,
     book,
+    showSnow,          // ← أضفنا
+    setShowSnow
 }) => {
 
 
@@ -151,7 +156,35 @@ const Footer = ({
                     <image href={fullScreen} x="0" y="0" width="90" height="90" />
                 </svg>
 
-                <div className="flex items-center gap-1 px-2 py-0.5 border-2 border-[#430f68] rounded text-sm ">
+                
+
+                {!isMobile && (
+                    <>
+                        <svg
+                            width="30"
+                            height="30"
+                            viewBox="0 0 90 90"
+                            onClick={() => setViewMode("single")}
+                            className={`rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition ${viewMode === "single" ? "text-white" : " text-gray-900 cursor-pointer"
+                                }`}
+                        >
+                            <title>One Page</title>
+                            <image href={onePage} x="0" y="0" width="90" height="90" />
+                        </svg>
+                        <svg
+                            width="30"
+                            height="30"
+                            viewBox="0 0 90 90"
+                            onClick={() => setViewMode("spread")}
+                            className={`cursor-pointer rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition ${viewMode === "spread" ? " text-white" : " text-gray-900 "
+                                }`}
+                        >
+                            <title>Two Page</title>
+                            <image href={openBook} x="0" y="0" width="90" height="90" />
+                        </svg>
+                    </>
+                )}
+<div className="flex items-center gap-1 px-2 py-0.5 border-2 border-[#430f68] rounded text-sm ">
                     {activeTab === "work" ? (
                         <>
                             {" "}
@@ -186,34 +219,6 @@ const Footer = ({
                     )}
 
                 </div>
-
-                {!isMobile && (
-                    <>
-                        <svg
-                            width="30"
-                            height="30"
-                            viewBox="0 0 90 90"
-                            onClick={() => setViewMode("single")}
-                            className={`rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition ${viewMode === "single" ? "text-white" : " text-gray-900 cursor-pointer"
-                                }`}
-                        >
-                            <title>One Page</title>
-                            <image href={onePage} x="0" y="0" width="90" height="90" />
-                        </svg>
-                        <svg
-                            width="30"
-                            height="30"
-                            viewBox="0 0 90 90"
-                            onClick={() => setViewMode("spread")}
-                            className={`cursor-pointer rounded-lg p-0.5 shadow hover:bg-[#bc90ff] transition ${viewMode === "spread" ? " text-white" : " text-gray-900 "
-                                }`}
-                        >
-                            <title>Two Page</title>
-                            <image href={openBook} x="0" y="0" width="90" height="90" />
-                        </svg>
-                    </>
-                )}
-
                 <a
                     href="https://bytechjo-my.sharepoint.com/:b:/p/developer1/IQCzAIxqMvSaT62SJAGvCcCZAWwsDKeU0EY1BUN0Bi1J_wY?e=aHbX7f"
                     target="_blank"
@@ -224,9 +229,17 @@ const Footer = ({
                     <GrDocumentPdf size={30} color="#584367ff" />
                 </a>
 
-                <Darkmode title="Dark mode" />
+                
                 <Offline />
 
+                <button
+                    onClick={() => setShowSnow(prev => !prev)}
+                    className="snow-btn hover:bg-[#bc90ff] transition rounded-lg cursor-pointer"
+                    title={showSnow ? "stop mode" : "snow mode"}
+                >
+                    {showSnow ? '🛑' : '❄️'}
+                </button>
+                <Darkmode title="Dark mode" />
                 <div
                     onClick={() => setIsrightSidebarOpen(true)}
                     className="absolute right-0 flex items-center gap-2

@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { toPng } from 'html-to-image';
 import ValidationAlert from "../../../Popup/ValidationAlert";
 
-import Img1 from './assets/1.svg?react';
-import Img2 from './assets/2.svg?react';
-import Img3 from './assets/3.svg?react';
-import Img4 from './assets/4.svg?react';
+import Img1 from './assets/001.svg?react';
+import Img2 from './assets/002.svg?react';
+import Img3 from './assets/003.svg?react';
+import Img4 from './assets/004.svg?react';
 
 import './Q4.css';
 
@@ -76,25 +76,25 @@ const Q4 = () => {
     gomme: 'jaune'
   };
 
-  // الإجابات الصحيحة للألوان (حسب كل صورة)
-  // عدّل هذي حسب عدد الـ paths في كل SVG
-  const correctColorAnswers = {
-    // الصورة 1 - الحقيبة المدرسية (trousse bleue)
-    'svg1-path0': '#0000FF',
-    'svg1-path1': '#0000FF',
-    
-    // الصورة 2 - الأقلام (crayons)
-    'svg2-path0': '#FF0000', // أحمر
-    'svg2-path1': '#000000', // أسود
-    'svg2-path2': '#008000', // أخضر
-    
-    // الصورة 3 - الكتاب (livre bleu)
-    'svg3-path0': '#0000FF',
-    'svg3-path1': '#0000FF',
-    
-    // الصورة 4 - الممحاة (gomme jaune)
-    'svg4-path0': '#FFD700',
-  };
+const correctColorAnswers = {};
+
+function addPaths(svgName, from, to, color, exclude = []) {
+  for (let i = from; i <= to; i++) {
+    if (exclude.includes(i)) continue; // ← تجاهل الرقم
+    correctColorAnswers[`${svgName}-path${i}`] = color;
+  }
+}
+
+// أمثلة
+addPaths('svg1', 0, 15, '#0000FF', [14]);   // استثناء 3 و 7
+addPaths('svg2', 0, 6,  '#0000FF', [0,3,4,5,6]);
+addPaths('svg3', 0, 31, '#FFD700',[30]);
+addPaths('svg4', 0, 22, '#008000');
+addPaths('svg4', 23, 47, '#000000');
+addPaths('svg4', 48, 70, '#FF0000');
+
+console.log(correctColorAnswers);
+
 
   // تطبيق الألوان على الـ SVG elements
   useEffect(() => {
@@ -120,7 +120,7 @@ const Q4 = () => {
         
         // حفظ اللون الأصلي
         if (!path.getAttribute('data-original-fill')) {
-          path.setAttribute('data-original-fill', path.getAttribute('fill') || '');
+          path.setAttribute('data-original-fill', window.getComputedStyle(path).fill || '');
         }
         
         path.setAttribute('data-color-id', uniqueId);
