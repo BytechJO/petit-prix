@@ -34,18 +34,13 @@ const rightParts = [
 ];
 
 const correctMatches = [
-  { leftId: 1, right: "ride a bike.", image: "img3" },
-  { leftId: 2, right: "sail a boat.", image: "img4" },
-  { leftId: 3, right: "climb a tree.", image: "img2" },
-  { leftId: 4, right: "swim.", image: "img1" },
+  { leftId: 1, centerId: "img4", rightId: "r1" },
+  { leftId: 2, centerId: "img2", rightId: "r3" },
+  { leftId: 3, centerId: "img1", rightId: "r2" },
+  { leftId: 4, centerId: "img3", rightId: "r4" },
 ];
 
-const correctSentences = {
-  1: "He can’t ride a bike.",
-  2: "It can’t climb a tree.",
-  3: "He can’t sail a boat.",
-  4: "I can swim.",
-};
+
 
 const Q8 = () => {
   const containerRef = useRef(null);
@@ -141,30 +136,101 @@ const Q8 = () => {
   };
 
   const handleShowAnswer = () => {
-    const finalLines = [];
+  const finalLines = [];
 
-    correctMatches.forEach((c) => {
-      const leftEl = document.querySelector(`[data-left-id="${c.leftId}"]`);
-      const imgEl = document.querySelector(`[data-image="${c.image}"]`);
-      const rightEl = document.querySelector(`[data-image="${c.right}"]`);
-      if (!leftEl || !imgEl || !rightEl) return;
+  correctMatches.forEach((c) => {
+    const leftEl = document.querySelector(
+      `[data-left-id="${c.leftId}"]`
+    );
 
-      const leftDot = getDotCenter(leftEl, ".dot");
-      const imgDotStart = getDotCenter(imgEl, ".dot");
-      const rightDot = getDotCenter(rightEl, ".dot");
+    const centerEl = document.querySelector(
+      `[data-image="${c.centerId}"]`
+    );
 
-      if (leftDot && imgDotStart) {
-        finalLines.push({ x1: leftDot.x, y1: leftDot.y, x2: imgDotStart.x, y2: imgDotStart.y });
-      }
-      if (imgDotStart && rightDot) {
-        finalLines.push({ x1: imgDotStart.x, y1: imgDotStart.y, x2: rightDot.x, y2: rightDot.y });
-      }
-    });
+    const rightEl = document.querySelector(
+      `[data-image="${c.rightId}"]`
+    );
 
-    setLines(finalLines);
-    setLocked(true);
-    setChecked(true);
-  };
+    if (!leftEl || !centerEl || !rightEl) return;
+
+    const leftDot = getDotCenter(leftEl, ".dot");
+    const centerDot = getDotCenter(centerEl, ".dot");
+    const rightDot = getDotCenter(rightEl, ".dot");
+
+    if (leftDot && centerDot) {
+      finalLines.push({
+        x1: leftDot.x,
+        y1: leftDot.y,
+        x2: centerDot.x,
+        y2: centerDot.y,
+        leftId: c.leftId,
+        image: c.centerId,
+      });
+    }
+
+    if (centerDot && rightDot) {
+      finalLines.push({
+        x1: centerDot.x,
+        y1: centerDot.y,
+        x2: rightDot.x,
+        y2: rightDot.y,
+        leftId: c.leftId,
+        image: c.rightId,
+      });
+    }
+  });
+
+  setLines(finalLines);
+  setLocked(true);
+  setChecked(true);
+};
+
+
+  const checkAnswers = () => {
+  if (lines.length === 0) {
+    // لو ما جاوب المستخدم شيء
+    ValidationAlert.warning("");
+    return;
+  }
+
+  const wrong = [];
+  let correctCount = 0;
+
+  // تجميع التوصيلات حسب leftId
+  const grouped = {};
+
+  lines.forEach((line) => {
+    if (!grouped[line.leftId]) {
+      grouped[line.leftId] = [];
+    }
+    grouped[line.leftId].push(line.image);
+  });
+
+  correctMatches.forEach((match) => {
+    const userImages = grouped[match.leftId];
+
+    if (
+      userImages &&
+      userImages.includes(match.centerId) &&
+      userImages.includes(match.rightId)
+    ) {
+      correctCount++;
+    } else {
+      wrong.push(match.leftId);
+    }
+  });
+
+  setWrongLeft(wrong);
+  setChecked(true);
+  setLocked(true);
+
+  if (wrong.length === 0) {
+    ValidationAlert.success(`${correctCount} / ${correctMatches.length}`);
+  } else {
+    ValidationAlert.error(`${correctCount} / ${correctMatches.length}`);
+  }
+};
+
 
   return (
     <div className="flex flex-col items-center p-8">
@@ -232,9 +298,9 @@ const Q8 = () => {
         <button className="show-answer-btn" onClick={handleShowAnswer}>
           Afficher la réponse
         </button>
-        {/* <button className="check-button2" onClick={checkAnswers}>
+        <button className="check-button2" onClick={checkAnswers}>
           Vérifier la réponse
-        </button> */}
+        </button>
       </div>
     </div>
   );
