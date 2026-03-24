@@ -40,23 +40,6 @@ export default function Book() {
 
   const goToIndex = () => setPageIndex(1);
 
-  const goToUnit = (unitStartIndex) => {
-    if (!isMobile) {
-      const leftPage =
-        unitStartIndex % 2 === 1 ? unitStartIndex : unitStartIndex - 1;
-      setPageIndex(leftPage);
-    } else {
-      setPageIndex(unitStartIndex);
-    }
-  };
-
-  // const handleGoToPage = (userInput) => {
-  //   const pageNum = parseInt(userInput);
-  //   if (isNaN(pageNum) || pageNum < 1 || pageNum > pages.length) return;
-  //   const newIndex = pageNum - 1;
-  //   setPageIndex(newIndex);
-  // };
-
   const handleGoToPage = (userInput) => {
     const pageNum = parseInt(userInput);
 
@@ -111,7 +94,6 @@ export default function Book() {
     content: null,
   });
 
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const openPopup = (data) => {
     // اطبع أي بيانات إضافية تحب
@@ -124,31 +106,7 @@ export default function Book() {
     setPopupData(prevData => ({ ...prevData, isOpen: false }));
   };
 
-  // Fixed getPages function
-  const getPages = (bookId, unitId, sectionId) => {
-    const book = pageData.find(b => b.id === bookId);
-    if (!book) return [];
 
-    const unit = book.units.find(u => u.id === unitId);
-    if (!unit) return [];
-
-    const section = unit.sections.find(s => s.id === sectionId);
-    if (!section) return [];
-
-    return section.pages.map(p => {
-      const Component = p.component;
-      return (
-        <Component
-          key={p.id}
-          bgImage={p.image}
-          openPopup={openPopup}
-        />
-      );
-    });
-  };
-
-
-  // Flatten all pages from all units and sections into a single array
   const allPages = currentBook ? currentBook.units.flatMap(unit =>
     unit.sections.flatMap(section =>
       section.pages.map(page => {
@@ -229,8 +187,7 @@ export default function Book() {
         {!popupData.isOpen && <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />}
         {activeTab === "student" && <StudentBook />}
         {activeTab === "work" && <WorkBook />}
-
-
+        
         <div className="content-wrapper overflow-auto lg:overflow-hidden">
           <div
             className="w-full h-[88vh] flex items-center justify-center relative"
@@ -328,7 +285,6 @@ export default function Book() {
                     )}
                   </>
                 ) : (
-                  // SPREAD 2 PAGES
                   <>
                     {!hideArrows && (
                       <>

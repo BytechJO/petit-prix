@@ -46,7 +46,7 @@ const SimpleTutorial = ({ localStorageKey = 'tutorialCompleted' }) => {
 
   const closeTutorial = () => {
     setShowTutorial(false);
-    localStorage.setItem(localStorageKey, 'true'); // تخزين حالة اكتمال التوتوريال
+    localStorage.setItem(localStorageKey, 'true'); 
   };
 
   if (!showTutorial) return null;
@@ -55,16 +55,14 @@ const SimpleTutorial = ({ localStorageKey = 'tutorialCompleted' }) => {
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 font-sans">
-      {/* Overlay */}
+      
       <div 
         className="absolute inset-0 bg-black/90 backdrop-blur-[1px]"
         onClick={closeTutorial}
       />
 
-      {/* البطاقة */}
       <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
         
-        {/* الهيدر */}
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 border-b border-gray-200">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -95,7 +93,6 @@ const SimpleTutorial = ({ localStorageKey = 'tutorialCompleted' }) => {
           </div>
         </div>
 
-        {/* المحتوى */}
         <div className="p-6">
           <div className="mb-4">
             <h3 className="text-xl font-bold text-gray-800 mb-2">{currentStep.title}</h3>
@@ -138,7 +135,6 @@ const SimpleTutorial = ({ localStorageKey = 'tutorialCompleted' }) => {
             </div>
           )}
 
-          {/* شريط التقدم */}
           <div className="mb-6">
             <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
               <div 

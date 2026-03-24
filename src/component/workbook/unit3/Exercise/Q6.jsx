@@ -21,9 +21,7 @@ const IMAGES = [
     { id: 'img-3', src: img3, alt: 'Bien' },
 ]
 
-// --- المكون الرئيسي ---
 const Q6 = () => {
-    // اللوجيك يبقى كما هو
     const [connections, setConnections] = useState([]);
     const [activeLine, setActiveLine] = useState(null);
     const [feedback, setFeedback] = useState({});
@@ -138,7 +136,7 @@ const Q6 = () => {
         <div className="w-full max-w-3xl mx-auto p-4">
             <div
                 ref={svgContainerRef}
-                className="relative bg-white rounded-2xl shadow-lg p-6"
+                className="relative p-6"
                 style={{
                     minHeight: '300px',
                 }}

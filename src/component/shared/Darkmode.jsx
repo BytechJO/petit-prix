@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 export default function DarkModeToggle({ title }) {
   const [isDark, setIsDark] = useState(false)
 
-  // تحميل الحالة من المتصفح
   useEffect(() => {
     const saved = localStorage.getItem("theme")
     const dark = saved === "dark"

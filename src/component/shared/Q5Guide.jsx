@@ -65,17 +65,15 @@ const Q5Guide = ({ localStorageKey = 'q5_tutorial_completed' }) => {
 
   return (
     <div className={`fixed inset-0 z-[9999] flex items-center justify-center p-4 font-sans transition-all duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-      {/* Overlay */}
+      
       <div 
         className={`absolute inset-0 bg-black/90 backdrop-blur-[1px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         onClick={closeTutorial}
       />
 
-      {/* البطاقة الرئيسية */}
       <div className={`relative w-full max-w-md transition-all duration-500 ${isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-4 opacity-0 scale-95'}`}>
         <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
           
-          {/* الهيدر */}
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-5 border-b border-gray-200">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -108,14 +106,12 @@ const Q5Guide = ({ localStorageKey = 'q5_tutorial_completed' }) => {
             </div>
           </div>
 
-          {/* محتوى الخطوة */}
           <div className="p-6">
             <div className="mb-6">
               <h3 className="text-xl font-bold text-gray-800 mb-3">{currentStep.title}</h3>
               <p className="text-gray-600 leading-relaxed">{currentStep.content}</p>
             </div>
 
-            {/* منطقة العرض التوضيحي */}
             {currentStep.demo === 'icons' && currentStep.icons && (
               <div className="bg-gradient-to-b from-blue-50 to-white rounded-xl p-5 mb-6 border border-blue-100">
                 <p className="text-sm text-gray-600 mb-4 text-center">Exemple d'éléments à trouver :</p>
@@ -160,7 +156,6 @@ const Q5Guide = ({ localStorageKey = 'q5_tutorial_completed' }) => {
               </div>
             )}
 
-            {/* شريط التقدم مع النسبة */}
             <div className="mb-6">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-sm text-gray-600">Progression</span>
@@ -178,7 +173,6 @@ const Q5Guide = ({ localStorageKey = 'q5_tutorial_completed' }) => {
               </div>
             </div>
 
-            {/* الأزرار */}
             <div className="flex justify-between items-center">
               <div>
                 {step > 0 && (
@@ -217,7 +211,6 @@ const Q5Guide = ({ localStorageKey = 'q5_tutorial_completed' }) => {
           </div>
         </div>
 
-        {/* تأثيرات زخرفية */}
         <div className="absolute -top-3 -left-3 w-6 h-6 border-2 border-blue-400 rounded-full opacity-20" />
         <div className="absolute -bottom-3 -right-3 w-6 h-6 border-2 border-indigo-400 rounded-full opacity-20" />
       </div>

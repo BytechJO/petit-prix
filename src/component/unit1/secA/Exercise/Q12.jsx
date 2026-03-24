@@ -170,11 +170,10 @@ const Q12 = () => {
                                 </div>
 
                                 <div className="flex items-center gap-4">
-                                    {/* --- التغيير الوحيد هنا: إعادة الكلاسات الأصلية لحجم الصورة --- */}
                                     <div
                                         data-pointid={image.id}
                                         onClick={() => handlePointClick(image.id, 'image')}
-                                        className="bg-white p-2 rounded-xl shadow-md">
+                                        className=" p-2 rounded-xl">
                                         <img
                                             src={image.src}
                                             alt={image.alt}

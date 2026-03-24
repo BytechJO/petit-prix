@@ -284,8 +284,6 @@ import vocabulairePage3 from "../component/vocabulaire/secA/Page3";
 import vocabulairePage4 from "../component/vocabulaire/secA/Page4";
 import vocabulairePage5 from "../component/vocabulaire/secA/Page5";
 
-// workbook
-// Array لكل الصور
 const workbookImages = [
   "/assets/workbook/unit1/cover.png",
   "/assets/workbook/unit1/1.png",

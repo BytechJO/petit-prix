@@ -57,10 +57,10 @@ const [showTutorial, setShowTutorial] = useState(true);
   ];
 
   const iconCustomStyles = [
-    { top: '85%', left: '28.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
-    { top: '85%', left: '12.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
     { top: '85%', left: '4.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
-    { top: '85%', left: '20.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' }
+    { top: '85%', left: '12.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '85%', left: '20.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '85%', left: '28.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' }
   ];
 
   const handleItemClick = (index) => {

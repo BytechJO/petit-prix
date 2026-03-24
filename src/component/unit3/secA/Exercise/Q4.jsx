@@ -22,9 +22,7 @@ const IMAGES = [
   { id: 'img-3', src: img3, alt: 'Daniel' },
 ]
 
-// --- المكون الرئيسي ---
 const Q4 = () => {
-  // اللوجيك يبقى كما هو
   const [connections, setConnections] = useState([]);
   const [activeLine, setActiveLine] = useState(null);
   const [feedback, setFeedback] = useState({});
@@ -37,15 +35,14 @@ const Q4 = () => {
       const rect = el.getBoundingClientRect();
       const containerRect = svgContainerRef.current.getBoundingClientRect();
 
-      // نحدد اتجاه البداية والنهاية حسب نوع العنصر
       const isWord = el.dataset.pointid.startsWith('word');
       const isImage = el.dataset.pointid.startsWith('img');
 
       newPoints[el.dataset.pointid] = {
         x: isWord
-          ? rect.right - containerRect.left  // نهاية الجملة (يمين الـ div)
-          : rect.left - containerRect.left,  // بداية الصورة (يسار الـ div)
-        y: rect.top + rect.height / 2 - containerRect.top, // منتصف العنصر عمودياً
+          ? rect.right - containerRect.left  
+          : rect.left - containerRect.left,  
+        y: rect.top + rect.height / 2 - containerRect.top,
       };
     });
     return newPoints;
@@ -115,7 +112,6 @@ const Q4 = () => {
 
     setConnections(correctConnections);
 
-    // ضع الـ feedback لجميع الإجابات على أنها صحيحة
     const newFeedback = {};
     correctConnections.forEach((conn, index) => {
       newFeedback[index] = 'correct';
@@ -132,7 +128,7 @@ const Q4 = () => {
     <div className="w-full max-w-3xl mx-auto p-4">
       <div
         ref={svgContainerRef}
-        className="relative bg-white pl-6 pr-6 rounded-2xl shadow-lg"
+        className="relative pl-6 pr-6"
         style={{
           backgroundImage: `repeating-linear-gradient(to bottom, transparent, transparent 39px, #E0E7FF 40px, #E0E7FF 41px)`,
           backgroundSize: '100% 42px',

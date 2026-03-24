@@ -46,9 +46,9 @@ const [showTutorial, setShowTutorial] = useState(true);
   ];
 
   const iconCustomStyles = [
-    { top: '84%', left: '16.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
-    { top: '84%', left: '9.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
     { top: '84%', left: '2.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '84%', left: '9.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
+    { top: '84%', left: '16.5%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' },
     { top: '84%', left: '19%', fontSize: 'clamp(1.8rem, 3vw, 3rem)' }
   ];
 
